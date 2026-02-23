@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImmoLotse Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2240; --navy-mid: #1A3A6B; --blue: #1E5CB3;
+    --gold: #C9A84C; --gold-light: #E8C97A; --white: #FFFFFF;
+    --off-white: #F7F8FC; --gray-light: #EEF1F8; --gray: #8A94A8;
+    --text: #1A2338; --text-mid: #3D4F6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 16px 5%; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(15,34,64,0.08); box-shadow: 0 2px 20px rgba(15,34,64,0.06); }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .logo span { color: var(--blue); }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--blue); }
+  .btn-nav { background: var(--navy) !important; color: var(--white) !important; padding: 9px 18px; border-radius: 8px; font-weight: 700 !important; }
+  .btn-nav:hover { background: var(--blue) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* HERO */
+  .post-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 140px 6% 80px; text-align: center; position: relative; overflow: hidden; }
+  .post-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .post-category-badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); padding: 7px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 20px; position: relative; z-index: 2; }
+  .post-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); line-height: 1.2; margin-bottom: 20px; position: relative; z-index: 2; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-hero-meta { display: flex; justify-content: center; align-items: center; gap: 20px; position: relative; z-index: 2; flex-wrap: wrap; }
+  .hero-meta-item { color: rgba(255,255,255,0.65); font-size: 0.88rem; display: flex; align-items: center; gap: 6px; }
+  .hero-meta-sep { color: rgba(255,255,255,0.25); }
+
+  /* HERO IMAGE */
+  .post-hero-image { max-height: 480px; overflow: hidden; }
+  .post-hero-image img { width: 100%; height: 480px; object-fit: cover; display: block; }
+  .post-hero-image.no-image { display: none; }
+
+  /* LAYOUT */
+  .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 60px; padding: 60px 6%; max-width: 1100px; margin: 0 auto; }
+
+  /* ARTICLE CONTENT */
+  .post-body { max-width: 720px; }
+  .post-body h2 { font-size: 1.5rem; color: var(--navy); margin: 36px 0 16px; }
+  .post-body h3 { font-size: 1.2rem; color: var(--navy); margin: 28px 0 12px; }
+  .post-body p { color: var(--text-mid); line-height: 1.8; font-size: 1rem; font-weight: 300; margin-bottom: 20px; }
+  .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 20px; }
+  .post-body li { color: var(--text-mid); line-height: 1.8; font-size: 1rem; font-weight: 300; margin-bottom: 8px; }
+  .post-body strong { font-weight: 600; color: var(--text); }
+  .post-body em { font-style: italic; }
+  .post-body a { color: var(--blue); text-decoration: underline; }
+  .post-body blockquote { border-left: 4px solid var(--gold); padding: 16px 24px; background: var(--off-white); border-radius: 0 12px 12px 0; margin: 28px 0; }
+  .post-body blockquote p { margin: 0; color: var(--navy); font-style: italic; }
+  .post-body img { width: 100%; border-radius: 12px; margin: 28px 0; }
+  .post-body hr { border: none; border-top: 1px solid var(--gray-light); margin: 36px 0; }
+  .post-body pre { background: var(--off-white); border-radius: 10px; padding: 20px; overflow-x: auto; margin-bottom: 20px; }
+  .post-body code { font-family: monospace; font-size: 0.9em; background: var(--gray-light); padding: 2px 6px; border-radius: 4px; }
+  .post-body pre code { background: none; padding: 0; }
+
+  /* BACK LINK */
+  .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: 0.88rem; font-weight: 600; text-decoration: none; margin-bottom: 36px; }
+  .back-link:hover { opacity: 0.75; }
+
+  /* SHARE */
+  .share-bar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--gray-light); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .share-label { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+  .share-btn { padding: 8px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 2px solid var(--gray-light); background: var(--white); color: var(--text-mid); font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none; }
+  .share-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 100px; height: fit-content; }
+  .sidebar-widget { background: var(--off-white); border-radius: 16px; padding: 28px 24px; margin-bottom: 24px; border: 1px solid var(--gray-light); }
+  .widget-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 20px; }
+  .popular-post { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-light); text-decoration: none; color: inherit; transition: opacity 0.2s; }
+  .popular-post:hover { opacity: 0.75; }
+  .popular-post:last-child { border-bottom: none; }
+  .popular-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gray-light); font-weight: 700; min-width: 28px; }
+  .popular-title { font-size: 0.85rem; color: var(--navy); line-height: 1.4; font-weight: 600; }
+  .popular-date { font-size: 0.75rem; color: var(--gray); margin-top: 4px; }
+  .cta-widget { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 28px 24px; text-align: center; }
+  .cta-widget h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
+  .cta-widget p { color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+  .btn-cta-widget { display: block; background: var(--gold); color: var(--navy); padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+  .btn-cta-widget:hover { background: var(--gold-light); }
+
+  /* LOADING */
+  .loading-state { text-align: center; padding: 120px 20px; color: var(--gray); }
+  .loading-spinner { width: 40px; height: 40px; border: 3px solid var(--gray-light); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 48px 6% 28px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-logo-sm { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+  .footer-logo-sm span { color: var(--gold-light); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.85rem; text-decoration: none; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+  @media (max-width: 768px) { .hamburger { display: flex; } .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; } .nav-links.open { display: flex; } .post-hero { padding: 110px 5% 60px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Immo<span>Lotse</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#pakete">Pakete</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero filled dynamically -->
+<div id="postHero">
+  <div class="loading-state"><div class="loading-spinner"></div><p>Artikel wird geladen...</p></div>
+</div>
+
+<div id="heroImage" class="post-hero-image no-image"></div>
+
+<div class="post-layout">
+  <main>
+    <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+    <div class="post-body" id="postBody"></div>
+    <div class="share-bar" id="shareBar" style="display:none">
+      <span class="share-label">Artikel teilen:</span>
+      <a id="shareWhatsapp" class="share-btn" target="_blank">WhatsApp</a>
+      <a id="shareLinkedin" class="share-btn" target="_blank">LinkedIn</a>
+      <button class="share-btn" onclick="copyLink()">Link kopieren</button>
+    </div>
+  </main>
+  <aside class="sidebar">
+    <div class="sidebar-widget">
+      <h3 class="widget-title">Weitere Artikel</h3>
+      <div id="popularPosts"><p style="color:var(--gray);font-size:0.85rem;">Laden...</p></div>
+    </div>
+    <div class="cta-widget">
+      <h3>Kostenlose Inserat-Analyse</h3>
+      <p>Wir schauen uns dein aktuelles Inserat an und sagen dir was verbessert werden kann.</p>
+      <a href="index.html#kontakt" class="btn-cta-widget">Jetzt anfragen</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-logo-sm">Immo<span>Lotse</span></div>
+    <div class="footer-links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const GITHUB_USER = 'aidevvz';
+const GITHUB_REPO = 'Immolotse-webseite';
+const API_BASE = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/_posts`;
+const catLabels = { verkauf:'Verkauf', expose:'Exposé', fotografie:'Fotografie', rechtliches:'Rechtliches', preisfindung:'Preisfindung', willhaben:'Willhaben', steuer:'Steuer' };
+
+function parseFrontmatter(text) {
+  const m = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!m) return { data: {}, content: text };
+  const data = {};
+  m[1].split('\n').forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx > 0) {
+      const key = line.slice(0,idx).trim();
+      const val = line.slice(idx+1).trim().replace(/^["']|["']$/g,'');
+      data[key] = val;
+    }
+  });
+  return { data, content: m[2] };
+}
+
+// Simple Markdown to HTML converter
+function markdownToHtml(md) {
+  return md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^\> (.+)$/gm, '<blockquote><p>$1</p></blockquote>')
+    .replace(/^---$/gm, '<hr>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+    .replace(/^[\*\-] (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, s => `<ul>${s}</ul>`)
+    .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/^(?!<[a-z])/gm, '')
+    .split('\n')
+    .map(line => line.match(/^<(h[123]|ul|ol|li|blockquote|hr|img)/) ? line : (line.trim() ? `<p>${line}</p>` : ''))
+    .join('');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  alert('Link kopiert!');
+}
+
+async function loadPost() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  if (!slug) { window.location.href = 'blog.html'; return; }
+
+  try {
+    // Load the specific post
+    const res = await fetch(`${API_BASE}/${slug}.md`);
+    if (!res.ok) throw new Error('Post not found');
+    const file = await res.json();
+    const text = atob(file.content.replace(/\n/g,''));
+    const { data, content } = parseFrontmatter(text);
+
+    // Update page title
+    document.title = `${data.title || 'Artikel'} – ImmoLotse Blog`;
+
+    // Render hero
+    document.getElementById('postHero').innerHTML = `
+      <div class="post-hero">
+        <span class="post-category-badge">${catLabels[data.category] || data.category || 'Blog'}</span>
+        <h1>${data.title || 'Ohne Titel'}</h1>
+        <div class="post-hero-meta">
+          <span class="hero-meta-item">${data.date || ''}</span>
+          <span class="hero-meta-sep">·</span>
+          <span class="hero-meta-item">${data.readtime || 5} Min. Lesezeit</span>
+        </div>
+      </div>`;
+
+    // Render hero image if exists
+    if (data.image) {
+      const heroImg = document.getElementById('heroImage');
+      heroImg.classList.remove('no-image');
+      heroImg.innerHTML = `<img src="${data.image}" alt="${data.title}">`;
+    }
+
+    // Render content
+    document.getElementById('postBody').innerHTML = markdownToHtml(content);
+
+    // Share buttons
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(data.title || '');
+    document.getElementById('shareWhatsapp').href = `https://wa.me/?text=${title}%20${url}`;
+    document.getElementById('shareLinkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    document.getElementById('shareBar').style.display = 'flex';
+
+    // Load other posts for sidebar
+    loadRelatedPosts(slug);
+
+  } catch(e) {
+    document.getElementById('postHero').innerHTML = `<div class="post-hero"><h1>Artikel nicht gefunden</h1></div>`;
+    document.getElementById('postBody').innerHTML = `<p><a href="blog.html" style="color:var(--blue)">Zurück zum Blog</a></p>`;
+  }
+}
+
+async function loadRelatedPosts(currentSlug) {
+  try {
+    const res = await fetch(API_BASE);
+    if (!res.ok) return;
+    const files = await res.json();
+    const others = files.filter(f => f.name.endsWith('.md') && f.name.replace('.md','') !== currentSlug).slice(0,4);
+    const posts = await Promise.all(others.map(async f => {
+      const r = await fetch(f.download_url);
+      const text = await r.text();
+      const { data } = parseFrontmatter(text);
+      return { slug: f.name.replace('.md',''), title: data.title||'Ohne Titel', date: data.date||'' };
+    }));
+    document.getElementById('popularPosts').innerHTML = posts.map((p,i) => `
+      <a href="post.html?slug=${p.slug}" class="popular-post">
+        <span class="popular-num">0${i+1}</span>
+        <div><div class="popular-title">${p.title}</div><div class="popular-date">${p.date}</div></div>
+      </a>`).join('') || '<p style="color:var(--gray);font-size:0.85rem;">Keine weiteren Artikel.</p>';
+  } catch(e) {}
+}
+
+loadPost();
+</script>
+</body>
+</html>

@@ -7,209 +7,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0F2240;
-    --navy-mid: #1A3A6B;
-    --blue: #1E5CB3;
-    --blue-light: #3B82F6;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --white: #FFFFFF;
-    --off-white: #F7F8FC;
-    --gray-light: #EEF1F8;
-    --gray: #8A94A8;
-    --text: #1A2338;
-    --text-mid: #3D4F6B;
+    --navy: #0F2240; --navy-mid: #1A3A6B; --blue: #1E5CB3;
+    --gold: #C9A84C; --gold-light: #E8C97A; --white: #FFFFFF;
+    --off-white: #F7F8FC; --gray-light: #EEF1F8; --gray: #8A94A8;
+    --text: #1A2338; --text-mid: #3D4F6B;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
   h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 5%;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(15,34,64,0.08);
-    box-shadow: 0 2px 20px rgba(15,34,64,0.06);
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 16px 5%; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(15,34,64,0.08); box-shadow: 0 2px 20px rgba(15,34,64,0.06); }
   .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; }
   .logo span { color: var(--blue); }
   .nav-links { display: flex; gap: 22px; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
   .nav-links a:hover { color: var(--blue); }
   .nav-links a.active { color: var(--blue); font-weight: 600; }
-  .btn-nav { background: var(--navy) !important; color: var(--white) !important; padding: 9px 18px; border-radius: 8px; font-weight: 700 !important; transition: background 0.2s !important; }
+  .btn-nav { background: var(--navy) !important; color: var(--white) !important; padding: 9px 18px; border-radius: 8px; font-weight: 700 !important; }
   .btn-nav:hover { background: var(--blue) !important; }
   .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
   .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  /* HERO */
-  .blog-hero {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-    padding: 140px 6% 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .blog-hero::before {
-    content: '';
-    position: absolute; top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
-    border-radius: 50%;
-  }
+  .blog-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 140px 6% 80px; text-align: center; position: relative; overflow: hidden; }
+  .blog-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%); border-radius: 50%; }
   .blog-hero-label { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); padding: 7px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 20px; }
   .blog-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); line-height: 1.2; margin-bottom: 16px; position: relative; z-index: 2; }
   .blog-hero p { color: rgba(255,255,255,0.68); font-size: 1.05rem; font-weight: 300; max-width: 560px; margin: 0 auto 32px; position: relative; z-index: 2; }
-
-  .search-bar {
-    display: flex;
-    max-width: 480px;
-    margin: 0 auto;
-    position: relative; z-index: 2;
-  }
-  .search-input {
-    flex: 1;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 10px 0 0 10px;
-    font-size: 0.93rem;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    color: var(--text);
-  }
-  .search-btn {
-    background: var(--gold);
-    color: var(--navy);
-    border: none;
-    padding: 14px 24px;
-    border-radius: 0 10px 10px 0;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: background 0.2s;
-  }
-  .search-btn:hover { background: var(--gold-light); }
-
-  /* CATEGORIES */
-  .categories {
-    background: var(--off-white);
-    padding: 24px 6%;
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    border-bottom: 1px solid var(--gray-light);
-  }
-  .cat-btn {
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 2px solid transparent;
-    white-space: nowrap;
-    transition: all 0.2s;
-    background: var(--white);
-    color: var(--text-mid);
-    border-color: var(--gray-light);
-  }
+  .search-bar { display: flex; max-width: 480px; margin: 0 auto; position: relative; z-index: 2; }
+  .search-input { flex: 1; padding: 14px 20px; border: none; border-radius: 10px 0 0 10px; font-size: 0.93rem; font-family: 'DM Sans', sans-serif; outline: none; color: var(--text); }
+  .search-btn { background: var(--gold); color: var(--navy); border: none; padding: 14px 24px; border-radius: 0 10px 10px 0; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  .categories { background: var(--off-white); padding: 24px 6%; display: flex; gap: 12px; overflow-x: auto; border-bottom: 1px solid var(--gray-light); }
+  .cat-btn { padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 2px solid var(--gray-light); white-space: nowrap; transition: all 0.2s; background: var(--white); color: var(--text-mid); font-family: 'DM Sans', sans-serif; }
   .cat-btn.active, .cat-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
-
-  /* MAIN LAYOUT */
-  .blog-layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 60px;
-    padding: 60px 6%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* FEATURED POST */
-  .featured-post {
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--gray-light);
-    margin-bottom: 48px;
-    transition: box-shadow 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    display: block;
-    color: inherit;
-  }
+  .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 60px; padding: 60px 6%; max-width: 1200px; margin: 0 auto; }
+  .loading-state { text-align: center; padding: 60px 20px; color: var(--gray); }
+  .loading-spinner { width: 40px; height: 40px; border: 3px solid var(--gray-light); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .empty-state { text-align: center; padding: 60px 20px; }
+  .empty-state h3 { color: var(--navy); font-size: 1.4rem; margin-bottom: 10px; }
+  .empty-state p { color: var(--text-mid); font-size: 0.92rem; }
+  .featured-post { border-radius: 20px; overflow: hidden; border: 1px solid var(--gray-light); margin-bottom: 48px; transition: box-shadow 0.3s; cursor: pointer; text-decoration: none; display: block; color: inherit; }
   .featured-post:hover { box-shadow: 0 20px 48px rgba(15,34,64,0.10); }
-
-  .featured-image {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1E4A8A 100%);
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .post-hero-icon { width: 72px; height: 72px; color: rgba(255,255,255,0.15); stroke-width: 1; position: relative; z-index: 1; }
-  .featured-image::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(15,34,64,0.4) 0%, transparent 60%);
-  }
-  .featured-tag {
-    position: absolute;
-    top: 20px; left: 20px;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 5px 14px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    z-index: 2;
-  }
+  .featured-image { height: 280px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1E4A8A 100%); }
+  .featured-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .featured-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,34,64,0.4) 0%, transparent 60%); }
+  .featured-tag { position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--navy); padding: 5px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; }
   .featured-content { padding: 32px; }
   .featured-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
   .meta-date { color: var(--gray); font-size: 0.82rem; }
   .meta-read { color: var(--blue); font-size: 0.82rem; font-weight: 600; background: #E8F0FE; padding: 3px 10px; border-radius: 50px; }
   .featured-title { font-size: 1.6rem; color: var(--navy); line-height: 1.25; margin-bottom: 14px; }
   .featured-excerpt { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
-  .read-more { color: var(--blue); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
-
-  /* POST GRID */
+  .read-more { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
   .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-  .post-card {
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--gray-light);
-    transition: all 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    background: var(--white);
-  }
+  .post-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-light); transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; background: var(--white); }
   .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(15,34,64,0.09); }
-
-  .post-image {
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .post-image i { width: 44px; height: 44px; color: rgba(255,255,255,0.7); stroke-width: 1.5; }
-  .post-image.bg1 { background: linear-gradient(135deg, #1E5CB3, #0F2240); }
-  .post-image.bg2 { background: linear-gradient(135deg, #2E7D32, #1B5E20); }
-  .post-image.bg3 { background: linear-gradient(135deg, #7B1FA2, #4A148C); }
-  .post-image.bg4 { background: linear-gradient(135deg, #E65100, #BF360C); }
-  .post-image.bg5 { background: linear-gradient(135deg, #00695C, #004D40); }
-  .post-image.bg6 { background: linear-gradient(135deg, #AD1457, #880E4F); }
-
+  .post-image { height: 160px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .post-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .post-image.bg0 { background: linear-gradient(135deg, #1E5CB3, #0F2240); }
+  .post-image.bg1 { background: linear-gradient(135deg, #2E7D32, #1B5E20); }
+  .post-image.bg2 { background: linear-gradient(135deg, #7B1FA2, #4A148C); }
+  .post-image.bg3 { background: linear-gradient(135deg, #E65100, #BF360C); }
+  .post-image.bg4 { background: linear-gradient(135deg, #00695C, #004D40); }
+  .post-image.bg5 { background: linear-gradient(135deg, #AD1457, #880E4F); }
   .post-content { padding: 22px 20px; }
   .post-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); background: #E8F0FE; padding: 3px 10px; border-radius: 50px; margin-bottom: 10px; }
   .post-title { font-size: 1.05rem; color: var(--navy); line-height: 1.3; margin-bottom: 10px; }
@@ -217,128 +79,43 @@
   .post-meta { display: flex; justify-content: space-between; align-items: center; }
   .post-date { color: var(--gray); font-size: 0.78rem; }
   .post-read { color: var(--blue); font-size: 0.78rem; font-weight: 600; }
-
-  /* SIDEBAR */
   .sidebar { position: sticky; top: 100px; height: fit-content; }
-
-  .sidebar-widget {
-    background: var(--off-white);
-    border-radius: 16px;
-    padding: 28px 24px;
-    margin-bottom: 24px;
-    border: 1px solid var(--gray-light);
-  }
+  .sidebar-widget { background: var(--off-white); border-radius: 16px; padding: 28px 24px; margin-bottom: 24px; border: 1px solid var(--gray-light); }
   .widget-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 20px; }
-
-  .popular-post {
-    display: flex;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--gray-light);
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
+  .popular-post { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-light); text-decoration: none; color: inherit; transition: opacity 0.2s; }
   .popular-post:hover { opacity: 0.75; }
   .popular-post:last-child { border-bottom: none; }
   .popular-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gray-light); font-weight: 700; min-width: 28px; }
   .popular-title { font-size: 0.85rem; color: var(--navy); line-height: 1.4; font-weight: 600; }
   .popular-date { font-size: 0.75rem; color: var(--gray); margin-top: 4px; }
-
   .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag {
-    padding: 6px 14px;
-    background: var(--white);
-    border: 1px solid var(--gray-light);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: var(--text-mid);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .tag { padding: 6px 14px; background: var(--white); border: 1px solid var(--gray-light); border-radius: 50px; font-size: 0.8rem; color: var(--text-mid); cursor: pointer; transition: all 0.2s; }
   .tag:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
-
-  .cta-widget {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-    border-radius: 16px;
-    padding: 28px 24px;
-    text-align: center;
-  }
+  .cta-widget { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 28px 24px; text-align: center; }
   .cta-widget h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
   .cta-widget p { color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
-  .btn-cta-widget {
-    display: block;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
+  .btn-cta-widget { display: block; background: var(--gold); color: var(--navy); padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
   .btn-cta-widget:hover { background: var(--gold-light); }
-
-  /* NEWSLETTER */
-  .newsletter-section {
-    background: var(--off-white);
-    padding: 72px 6%;
-    text-align: center;
-    border-top: 1px solid var(--gray-light);
-  }
+  .newsletter-section { background: var(--off-white); padding: 72px 6%; text-align: center; border-top: 1px solid var(--gray-light); }
   .newsletter-section h2 { font-size: 1.8rem; color: var(--navy); margin-bottom: 12px; }
   .newsletter-section p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 28px; font-weight: 300; }
   .newsletter-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-  .newsletter-input {
-    flex: 1; min-width: 220px;
-    padding: 13px 18px;
-    border: 2px solid var(--gray-light);
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-    color: var(--text);
-  }
+  .newsletter-input { flex: 1; min-width: 220px; padding: 13px 18px; border: 2px solid var(--gray-light); border-radius: 10px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; }
   .newsletter-input:focus { border-color: var(--blue); }
-  .btn-newsletter { background: var(--navy); color: var(--white); padding: 13px 24px; border-radius: 10px; font-weight: 700; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+  .btn-newsletter { background: var(--navy); color: var(--white); padding: 13px 24px; border-radius: 10px; font-weight: 700; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
   .btn-newsletter:hover { background: var(--blue); }
-
-  /* FOOTER */
   footer { background: var(--navy); padding: 48px 6% 28px; }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .footer-logo-sm { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
   .footer-logo-sm span { color: var(--gold-light); }
   .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.85rem; text-decoration: none; }
   .footer-links a:hover { color: var(--gold-light); }
-
-  @media (max-width: 900px) {
-    .blog-layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; }
-    .posts-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 768px) {
-    .hamburger { display: flex; }
-    .nav-links {
-      display: none;
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--white);
-      flex-direction: column; align-items: center; justify-content: center;
-      gap: 28px; z-index: 199;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 1.1rem; }
-    .btn-nav { padding: 12px 36px !important; font-size: 1rem !important; border-radius: 10px; }
-    .blog-hero { padding: 110px 5% 60px; }
-    .newsletter-form { flex-direction: column; align-items: stretch; }
-  }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-  .fade-up { animation: fadeUp 0.6s ease both; }
+  @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .posts-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .hamburger { display: flex; } .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; } .nav-links.open { display: flex; } .blog-hero { padding: 110px 5% 60px; } }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="logo">Immo<span>Lotse</span></a>
   <div class="nav-links" id="navLinks">
@@ -349,222 +126,180 @@
     <a href="index.html#kontakt">Kontakt</a>
     <a href="shop.html" class="btn-nav">Jetzt buchen</a>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
 <div class="blog-hero">
   <div class="blog-hero-label">Wissenswertes für Privatverkäufer</div>
-  <h1 class="fade-up">Der ImmoLotse Blog</h1>
-  <p class="fade-up">Alles was du über den privaten Immobilienverkauf in Österreich wissen musst – von Profis erklärt, einfach verständlich.</p>
-  <div class="search-bar fade-up">
-    <input type="text" class="search-input" placeholder="Artikel suchen...">
-    <button class="search-btn">Suchen</button>
+  <h1>Der ImmoLotse Blog</h1>
+  <p>Alles was du über den privaten Immobilienverkauf in Österreich wissen musst – von Profis erklärt, einfach verständlich.</p>
+  <div class="search-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="Artikel suchen...">
+    <button class="search-btn" onclick="filterPosts()">Suchen</button>
   </div>
 </div>
 
-<!-- CATEGORIES -->
 <div class="categories">
-  <button class="cat-btn active">Alle</button>
-  <button class="cat-btn">Verkauf & Strategie</button>
-  <button class="cat-btn">Exposé & Präsentation</button>
-  <button class="cat-btn">Rechtliches</button>
-  <button class="cat-btn">Preisfindung</button>
-  <button class="cat-btn">Fotografie</button>
-  <button class="cat-btn">Willhaben Tipps</button>
-  <button class="cat-btn">Steuer</button>
+  <button class="cat-btn active" onclick="filterByCategory('alle',this)">Alle</button>
+  <button class="cat-btn" onclick="filterByCategory('verkauf',this)">Verkauf & Strategie</button>
+  <button class="cat-btn" onclick="filterByCategory('expose',this)">Exposé</button>
+  <button class="cat-btn" onclick="filterByCategory('fotografie',this)">Fotografie</button>
+  <button class="cat-btn" onclick="filterByCategory('rechtliches',this)">Rechtliches</button>
+  <button class="cat-btn" onclick="filterByCategory('preisfindung',this)">Preisfindung</button>
+  <button class="cat-btn" onclick="filterByCategory('willhaben',this)">Willhaben</button>
+  <button class="cat-btn" onclick="filterByCategory('steuer',this)">Steuer</button>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="blog-layout">
   <main>
-    <!-- FEATURED -->
-    <a href="#" class="featured-post">
-      <div class="featured-image">
-        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span class="featured-tag">Featured</span>
+    <div id="blogContent">
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Artikel werden geladen...</p>
       </div>
-      <div class="featured-content">
-        <div class="featured-meta">
-          <span class="meta-date">15. Jänner 2025</span>
-          <span class="meta-read">8 Min. Lesen</span>
-          <span style="color:var(--blue); font-size:0.82rem; font-weight:600;">Verkauf & Strategie</span>
-        </div>
-        <h2 class="featured-title">5 Gründe warum deine Wohnung auf Willhaben nicht verkauft wird – und wie du es fixst</h2>
-        <p class="featured-excerpt">Du hast deine Wohnung seit Wochen inseriert, bekommst kaum ernsthafte Anfragen und weißt nicht warum? Die häufigsten Fehler beim Privatverkauf sind überraschend einfach zu beheben – wenn man weiß wo man suchen muss.</p>
-        <span class="read-more">Vollständigen Artikel lesen →</span>
-      </div>
-    </a>
-
-    <!-- POSTS GRID -->
-    <div class="posts-grid">
-      <a href="#" class="post-card">
-        <div class="post-image bg1"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Fotografie</span>
-          <h3 class="post-title">Immobilienfotos mit dem Handy: So gelingen dir professionelle Ergebnisse</h3>
-          <p class="post-excerpt">Mit dem richtigen Winkel, Licht und ein paar einfachen Tricks erzielst du Ergebnisse die sich mit Profifotos messen können.</p>
-          <div class="post-meta"><span class="post-date">8. Jänner 2025</span><span class="post-read">5 Min.</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="post-image bg2"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Preisfindung</span>
-          <h3 class="post-title">Wie viel ist meine Wohnung in Wien wirklich wert? Der vollständige Guide</h3>
-          <p class="post-excerpt">Richtige Preisfindung ist der wichtigste Faktor beim Privatverkauf. Zu hoch – keine Anfragen. Zu niedrig – verschenktes Geld.</p>
-          <div class="post-meta"><span class="post-date">2. Jänner 2025</span><span class="post-read">7 Min.</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="post-image bg3"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Rechtliches</span>
-          <h3 class="post-title">Welche Unterlagen brauchst du beim Wohnungsverkauf in Österreich?</h3>
-          <p class="post-excerpt">Grundbuchauszug, Energieausweis, Betriebskostenabrechnung – eine vollständige Checkliste damit du nichts vergisst.</p>
-          <div class="post-meta"><span class="post-date">28. Dez. 2024</span><span class="post-read">6 Min.</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="post-image bg4"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8M16 13H8M16 17H8"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Exposé & Präsentation</span>
-          <h3 class="post-title">Das perfekte Immobilien-Exposé: Was wirklich drin sein muss</h3>
-          <p class="post-excerpt">Ein gutes Exposé verkauft deine Wohnung bevor der Interessent die Tür aufmacht. Wir zeigen dir was professionelle Exposés ausmacht.</p>
-          <div class="post-meta"><span class="post-date">20. Dez. 2024</span><span class="post-read">9 Min.</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="post-image bg5"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M14 8H8M16 12H8M14 16H8"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Steuer</span>
-          <h3 class="post-title">Immobilienertragsteuer beim Privatverkauf: Was du wissen musst</h3>
-          <p class="post-excerpt">Wann fällt die 30% Steuer an, wann bist du befreit? Die Hauptwohnsitzbefreiung und andere wichtige Ausnahmen erklärt.</p>
-          <div class="post-meta"><span class="post-date">12. Dez. 2024</span><span class="post-read">10 Min.</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card">
-        <div class="post-image bg6"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
-        <div class="post-content">
-          <span class="post-tag">Willhaben Tipps</span>
-          <h3 class="post-title">Willhaben Algorithmus 2025: So bekommst du mehr Sichtbarkeit</h3>
-          <p class="post-excerpt">Wie funktioniert das Ranking auf Willhaben wirklich? Diese Tricks erhöhen deine Sichtbarkeit ohne extra Kosten.</p>
-          <div class="post-meta"><span class="post-date">5. Dez. 2024</span><span class="post-read">4 Min.</span></div>
-        </div>
-      </a>
-    </div>
-
-    <!-- LOAD MORE -->
-    <div style="text-align:center; margin-top:40px;">
-      <button style="background:var(--off-white); color:var(--navy); border:2px solid var(--gray-light); padding:14px 36px; border-radius:10px; font-weight:600; font-size:0.95rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--gray-light)';this.style.color='var(--navy)'">
-        Mehr Artikel laden
-      </button>
     </div>
   </main>
-
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-widget">
       <h3 class="widget-title">Beliebteste Artikel</h3>
-      <div class="popular-post">
-        <span class="popular-num">01</span>
-        <div>
-          <div class="popular-title">5 Gründe warum deine Wohnung nicht verkauft wird</div>
-          <div class="popular-date">15. Jänner 2025</div>
-        </div>
-      </div>
-      <div class="popular-post">
-        <span class="popular-num">02</span>
-        <div>
-          <div class="popular-title">Wie viel ist meine Wohnung wirklich wert?</div>
-          <div class="popular-date">2. Jänner 2025</div>
-        </div>
-      </div>
-      <div class="popular-post">
-        <span class="popular-num">03</span>
-        <div>
-          <div class="popular-title">Welche Unterlagen beim Wohnungsverkauf?</div>
-          <div class="popular-date">28. Dez. 2024</div>
-        </div>
-      </div>
-      <div class="popular-post">
-        <span class="popular-num">04</span>
-        <div>
-          <div class="popular-title">Immobilienertragsteuer: Was du wissen musst</div>
-          <div class="popular-date">12. Dez. 2024</div>
-        </div>
-      </div>
+      <div id="popularPosts"><p style="color:var(--gray);font-size:0.85rem;">Noch keine Artikel vorhanden.</p></div>
     </div>
-
     <div class="sidebar-widget">
       <h3 class="widget-title">Themen</h3>
       <div class="tag-cloud">
-        <span class="tag">Verkauf</span>
-        <span class="tag">Exposé</span>
-        <span class="tag">Fotos</span>
-        <span class="tag">Willhaben</span>
-        <span class="tag">Preisfindung</span>
-        <span class="tag">Steuer</span>
-        <span class="tag">Rechtliches</span>
-        <span class="tag">Wien</span>
-        <span class="tag">Österreich</span>
-        <span class="tag">KI</span>
-        <span class="tag">Besichtigung</span>
-        <span class="tag">Unterlagen</span>
+        <span class="tag" onclick="filterByCategory('verkauf')">Verkauf</span>
+        <span class="tag" onclick="filterByCategory('expose')">Exposé</span>
+        <span class="tag" onclick="filterByCategory('fotografie')">Fotografie</span>
+        <span class="tag" onclick="filterByCategory('rechtliches')">Rechtliches</span>
+        <span class="tag" onclick="filterByCategory('preisfindung')">Preisfindung</span>
+        <span class="tag" onclick="filterByCategory('willhaben')">Willhaben</span>
+        <span class="tag" onclick="filterByCategory('steuer')">Steuer</span>
       </div>
     </div>
-
     <div class="cta-widget">
-      <h3>Gratis Inserat-Analyse</h3>
-      <p>Schick uns deinen Willhaben-Link – wir sagen dir kostenlos was du verbessern kannst.</p>
+      <h3>Kostenlose Inserat-Analyse</h3>
+      <p>Wir schauen uns dein aktuelles Inserat an und sagen dir was verbessert werden kann.</p>
       <a href="index.html#kontakt" class="btn-cta-widget">Jetzt anfragen</a>
     </div>
   </aside>
 </div>
 
-<!-- NEWSLETTER -->
-<div class="newsletter-section">
-  <h2>Bleib am Laufenden</h2>
-  <p>Neue Artikel, Markt-Updates und exklusive Tipps – direkt in dein Postfach. Kein Spam.</p>
+<section class="newsletter-section">
+  <h2>Immer informiert bleiben</h2>
+  <p>Neue Artikel direkt in dein Postfach – kein Spam, nur echte Tipps.</p>
   <div class="newsletter-form">
     <input type="email" class="newsletter-input" placeholder="deine@email.at">
     <button class="btn-newsletter">Anmelden</button>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-bottom">
     <div class="footer-logo-sm">Immo<span>Lotse</span></div>
     <div class="footer-links">
-      <a href="index.html">Start</a>
-      <a href="shop.html">Buchen</a>
       <a href="#">Impressum</a>
       <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
     </div>
-    <span style="color:rgba(255,255,255,0.4); font-size:0.82rem;">© 2025 ImmoLotse</span>
   </div>
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-    document.getElementById('hamburger').classList.toggle('open');
-  }
+const GITHUB_USER = 'aidevvz';
+const GITHUB_REPO = 'Immolotse-webseite';
+const API_BASE = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/_posts`;
+const catLabels = { verkauf:'Verkauf', expose:'Exposé', fotografie:'Fotografie', rechtliches:'Rechtliches', preisfindung:'Preisfindung', willhaben:'Willhaben', steuer:'Steuer' };
+const bgs = ['bg0','bg1','bg2','bg3','bg4','bg5'];
+let allPosts = [];
 
-  document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-    });
+function parseFrontmatter(text) {
+  const m = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!m) return {};
+  const data = {};
+  m[1].split('\n').forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx > 0) {
+      const key = line.slice(0,idx).trim();
+      const val = line.slice(idx+1).trim().replace(/^["']|["']$/g,'');
+      data[key] = val;
+    }
   });
+  return data;
+}
+
+function renderPosts(posts) {
+  const c = document.getElementById('blogContent');
+  if (!posts.length) {
+    c.innerHTML = `<div class="empty-state"><h3>Keine Artikel gefunden</h3><p>Schreibe deinen ersten Artikel im <a href="/admin/" style="color:var(--blue)">Admin-Bereich</a>.</p></div>`;
+    return;
+  }
+  const [first, ...rest] = posts;
+  const fImg = first.image ? `<img src="${first.image}" alt="${first.title}">` : '';
+  let html = `<a href="post.html?slug=${first.slug}" class="featured-post">
+    <div class="featured-image">${fImg}<span class="featured-tag">Featured</span></div>
+    <div class="featured-content">
+      <div class="featured-meta"><span class="meta-date">${first.date}</span><span class="meta-read">${first.readtime} Min. Lesezeit</span></div>
+      <h2 class="featured-title">${first.title}</h2>
+      <p class="featured-excerpt">${first.excerpt}</p>
+      <span class="read-more">Weiterlesen →</span>
+    </div></a>`;
+  if (rest.length) {
+    html += '<div class="posts-grid">' + rest.map((p,i) => `
+      <a href="post.html?slug=${p.slug}" class="post-card">
+        <div class="post-image ${bgs[i%6]}">${p.image ? `<img src="${p.image}" alt="${p.title}">` : ''}</div>
+        <div class="post-content">
+          <span class="post-tag">${catLabels[p.category]||p.category||'Allgemein'}</span>
+          <h3 class="post-title">${p.title}</h3>
+          <p class="post-excerpt">${p.excerpt}</p>
+          <div class="post-meta"><span class="post-date">${p.date}</span><span class="post-read">${p.readtime} Min.</span></div>
+        </div></a>`).join('') + '</div>';
+  }
+  c.innerHTML = html;
+}
+
+function renderPopular(posts) {
+  document.getElementById('popularPosts').innerHTML = posts.slice(0,4).map((p,i) => `
+    <a href="post.html?slug=${p.slug}" class="popular-post">
+      <span class="popular-num">0${i+1}</span>
+      <div><div class="popular-title">${p.title}</div><div class="popular-date">${p.date}</div></div>
+    </a>`).join('');
+}
+
+function filterByCategory(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderPosts(cat === 'alle' ? allPosts : allPosts.filter(p => p.category === cat));
+}
+
+function filterPosts() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  renderPosts(allPosts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q)));
+}
+document.getElementById('searchInput').addEventListener('keyup', e => { if(e.key==='Enter') filterPosts(); });
+
+async function loadPosts() {
+  try {
+    const res = await fetch(API_BASE);
+    if (!res.ok) throw new Error();
+    const files = await res.json();
+    const mds = files.filter(f => f.name.endsWith('.md'));
+    if (!mds.length) throw new Error('empty');
+    const posts = await Promise.all(mds.map(async f => {
+      const r = await fetch(f.download_url);
+      const text = await r.text();
+      const d = parseFrontmatter(text);
+      return { slug: f.name.replace('.md',''), title: d.title||'Ohne Titel', date: d.date||'', category: d.category||'', excerpt: d.excerpt||'', readtime: d.readtime||'5', image: d.image||'', published: d.published !== 'false' };
+    }));
+    allPosts = posts.filter(p => p.published).sort((a,b) => new Date(b.date)-new Date(a.date));
+    renderPosts(allPosts);
+    renderPopular(allPosts);
+  } catch(e) {
+    document.getElementById('blogContent').innerHTML = `<div class="empty-state"><h3>Noch keine Artikel vorhanden</h3><p>Schreibe deinen ersten Artikel im <a href="/admin/" style="color:var(--blue)">Admin-Bereich</a>.</p></div>`;
+  }
+}
+loadPosts();
 </script>
 </body>
 </html>
