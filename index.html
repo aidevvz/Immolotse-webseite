@@ -336,6 +336,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 1.4rem;
     margin-bottom: 20px;
+    color: #FFFFFF;
   }
 
   .step-title {
@@ -542,6 +543,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem;
     flex-shrink: 0;
+    color: #FFFFFF;
   }
   .ki-feature-text h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
   .ki-feature-text p { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.5; font-weight: 300; }
@@ -622,7 +624,7 @@
   .funnel-card:nth-child(1) .funnel-icon { background: #E8F0FE; }
   .funnel-card:nth-child(2) .funnel-icon { background: #E6F4EA; }
   .funnel-card:nth-child(3) .funnel-icon { background: #FFF3E0; }
-  .funnel-card:nth-child(4) .funnel-icon { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+  .funnel-card:nth-child(4) .funnel-icon { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #FFFFFF; }
 
   .funnel-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: 8px; }
   .funnel-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
@@ -850,6 +852,19 @@
     .packages-grid { grid-template-columns: 1fr !important; }
     .savings-display { flex-direction: column; gap: 16px; }
   }
+
+  /* ── ICONS ON DARK BACKGROUNDS → WHITE ── */
+  .hero svg,
+  .trust-bar svg,
+  .ki-section svg,
+  .calc-section svg,
+  footer svg,
+  .page-header svg,
+  .funnel-card:nth-child(4) .funnel-icon svg,
+  .blog-hero svg,
+  .cta-widget svg { color: #FFFFFF; }
+
+  /* Post/featured images already use rgba stroke, keep as-is */
 </style>
 </head>
 <body>
@@ -1337,5 +1352,17 @@
     if (!isOpen) item.classList.add('open');
   }
 </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
