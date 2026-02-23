@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImmoLotse – Immobilie verkaufen ohne Makler</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2240;
+    --navy-mid: #1A3A6B;
+    --blue: #1E5CB3;
+    --blue-light: #3B82F6;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --white: #FFFFFF;
+    --off-white: #F7F8FC;
+    --gray-light: #EEF1F8;
+    --gray: #8A94A8;
+    --text: #1A2338;
+    --text-mid: #3D4F6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 6%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15,34,64,0.08);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(15,34,64,0.10); }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--blue); }
+
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  .btn-nav {
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .btn-nav:hover { background: var(--blue) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 55%, #1E4A8A 100%);
+    display: flex;
+    align-items: center;
+    padding: 120px 6% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -150px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(30,92,179,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold-light);
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.97rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.97rem;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
+
+  /* Hero card */
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 36px;
+    backdrop-filter: blur(16px);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-card-title {
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .price-row:last-of-type { border-bottom: none; }
+
+  .price-label { color: rgba(255,255,255,0.82); font-size: 0.93rem; }
+  .price-value {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .hero-saving {
+    margin-top: 24px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-saving-icon { font-size: 1.4rem; }
+  .hero-saving-text { color: var(--gold-light); font-size: 0.87rem; line-height: 1.5; }
+  .hero-saving-text strong { display: block; font-size: 1rem; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--navy);
+    padding: 22px 6%;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.87rem;
+    font-weight: 500;
+  }
+  .trust-icon {
+    width: 32px; height: 32px;
+    background: rgba(201,168,76,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 6%; }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .centered { text-align: center; }
+  .centered .section-sub { margin: 0 auto; }
+
+  /* ── HOW IT WORKS ── */
+  .how-bg { background: var(--off-white); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    margin-top: 64px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .step-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 36px 28px;
+    position: relative;
+    border: 1px solid rgba(15,34,64,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .step-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(15,34,64,0.10); }
+
+  .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gray-light);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--blue), var(--navy-mid));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .step-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.65; font-weight: 300; }
+
+  .connector {
+    position: absolute;
+    right: -22px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue-light);
+    font-size: 1.2rem;
+    z-index: 2;
+  }
+
+  /* ── SERVICES ── */
+  .services-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 64px;
+  }
+
+  .service-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: var(--off-white);
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .service-item:hover {
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(30,92,179,0.08);
+  }
+  .service-item-left { display: flex; align-items: center; gap: 14px; }
+  .service-emoji { font-size: 1.2rem; }
+  .service-name { font-weight: 600; color: var(--navy); font-size: 0.95rem; }
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1rem;
+  }
+
+  /* Packages */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .package-card {
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .package-card:hover { transform: translateY(-6px); }
+
+  .package-card.starter {
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+  }
+  .package-card.professional {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border: 2px solid var(--navy);
+    transform: scale(1.03);
+  }
+  .package-card.professional:hover { transform: scale(1.03) translateY(-6px); }
+  .package-card.fullservice {
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+  }
+
+  .package-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .package-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .starter .package-name, .fullservice .package-name { color: var(--navy); }
+  .professional .package-name { color: var(--white); }
+
+  .package-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .starter .package-price, .fullservice .package-price { color: var(--navy); }
+  .professional .package-price { color: var(--gold-light); }
+
+  .package-desc {
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .starter .package-desc, .fullservice .package-desc { color: var(--text-mid); }
+  .professional .package-desc { color: rgba(255,255,255,0.65); }
+
+  .package-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .starter .package-features li, .fullservice .package-features li { color: var(--text-mid); }
+  .professional .package-features li { color: rgba(255,255,255,0.82); }
+
+  .check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .starter .check, .fullservice .check { background: #E8F0FE; color: var(--blue); }
+  .professional .check { background: rgba(201,168,76,0.25); color: var(--gold-light); }
+
+  .btn-package {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+  }
+  .starter .btn-package, .fullservice .btn-package {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .starter .btn-package:hover, .fullservice .btn-package:hover { background: var(--blue); }
+  .professional .btn-package {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .professional .btn-package:hover { background: var(--gold-light); }
+
+  /* ── KI SECTION ── */
+  .ki-section { background: var(--navy); padding: 96px 6%; }
+
+  .ki-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ki-section .section-label { color: var(--gold-light); }
+  .ki-section .section-title { color: var(--white); }
+  .ki-section .section-sub { color: rgba(255,255,255,0.65); }
+
+  .ki-features { margin-top: 36px; display: flex; flex-direction: column; gap: 18px; }
+  .ki-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .ki-feature-icon {
+    width: 40px; height: 40px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .ki-feature-text h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+  .ki-feature-text p { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.5; font-weight: 300; }
+
+  .before-after {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .ba-labels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .ba-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .ba-emoji { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+  .ba-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .before .ba-label { color: var(--gray); }
+  .after .ba-label { color: var(--gold-light); }
+  .ba-desc { font-size: 0.85rem; font-weight: 300; }
+  .before .ba-desc { color: rgba(255,255,255,0.45); }
+  .after .ba-desc { color: rgba(255,255,255,0.75); }
+
+  .ba-arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.6rem;
+    padding: 16px 0;
+  }
+
+  /* ── FUNNEL ── */
+  .funnel-section { background: var(--off-white); }
+  .funnel-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    margin-top: 64px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .funnel-card {
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .funnel-card:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue-light);
+    font-size: 1.4rem;
+    z-index: 2;
+  }
+
+  .funnel-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 18px;
+  }
+  .funnel-card:nth-child(1) .funnel-icon { background: #E8F0FE; }
+  .funnel-card:nth-child(2) .funnel-icon { background: #E6F4EA; }
+  .funnel-card:nth-child(3) .funnel-icon { background: #FFF3E0; }
+  .funnel-card:nth-child(4) .funnel-icon { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+
+  .funnel-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: 8px; }
+  .funnel-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    background: var(--off-white);
+    border-radius: 18px;
+    padding: 32px 28px;
+    border: 1px solid rgba(15,34,64,0.06);
+    transition: box-shadow 0.3s;
+  }
+  .testimonial-card:hover { box-shadow: 0 12px 36px rgba(15,34,64,0.08); }
+
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+  .testimonial-text {
+    color: var(--text-mid);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+  }
+  .t1 .author-avatar { background: linear-gradient(135deg, #1E5CB3, #0F2240); }
+  .t2 .author-avatar { background: linear-gradient(135deg, #2E7D32, #1B5E20); }
+  .t3 .author-avatar { background: linear-gradient(135deg, #7B1FA2, #4A148C); }
+  .author-name { font-weight: 600; color: var(--navy); font-size: 0.92rem; }
+  .author-location { color: var(--gray); font-size: 0.8rem; }
+
+  /* ── SAVINGS CALC ── */
+  .calc-section { background: var(--navy); padding: 80px 6%; text-align: center; }
+  .calc-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--white); margin-bottom: 16px; }
+  .calc-sub { color: rgba(255,255,255,0.65); font-size: 1rem; margin-bottom: 48px; font-weight: 300; }
+
+  .savings-boxes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .savings-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 28px 36px;
+    min-width: 200px;
+  }
+  .savings-box.highlight {
+    background: rgba(201,168,76,0.12);
+    border-color: rgba(201,168,76,0.35);
+  }
+  .savings-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; }
+  .savings-amount { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+  .savings-box:not(.highlight) .savings-amount { color: rgba(255,255,255,0.85); }
+  .savings-box.highlight .savings-amount { color: var(--gold-light); }
+
+  /* ── CTA SECTION ── */
+  .cta-section { padding: 96px 6%; text-align: center; }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); margin-bottom: 20px; }
+  .cta-sub { color: var(--text-mid); font-size: 1.05rem; margin-bottom: 40px; font-weight: 300; }
+
+  .cta-form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    max-width: 540px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .cta-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 15px 20px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .cta-input:focus { border-color: var(--blue); }
+  .cta-input::placeholder { color: var(--gray); }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--off-white); }
+  .faq-list {
+    max-width: 720px;
+    margin: 60px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid rgba(15,34,64,0.07);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: 22px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: var(--off-white); }
+  .faq-toggle { color: var(--blue); font-size: 1.2rem; transition: transform 0.3s; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding: 0 26px 22px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 60px 6% 36px;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .footer-logo span { color: var(--gold-light); }
+  .footer-desc { font-size: 0.87rem; line-height: 1.65; font-weight: 300; }
+  .footer-heading { color: var(--white); font-weight: 600; font-size: 0.9rem; margin-bottom: 18px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.87rem; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--gold-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid, .services-layout, .ki-grid { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .package-card.professional { transform: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .funnel-card:not(:last-child)::after { display: none; }
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; z-index: 199;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.1rem; }
+    .btn-nav { padding: 12px 36px !important; font-size: 1rem !important; border-radius: 10px; }
+    .hero { padding: 100px 5% 60px; min-height: auto; }
+    .hero h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+    .packages-grid { grid-template-columns: 1fr !important; }
+    .savings-display { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo" style="text-decoration:none;">Immo<span>Lotse</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#pakete">Pakete</a>
+    <a href="blog.html">Blog</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">Für Österreich entwickelt</div>
+      <h1>Verkauf deine Immobilie.<br><em>Ohne Makler.</em><br>Ohne Kompromisse.</h1>
+      <p class="hero-sub">Professionelles Marketing für Privatverkäufer – transparente Fixpreise, keine versteckten Kosten, kein Provisionspoker. Du behältst die Kontrolle.</p>
+      <div class="hero-ctas">
+        <a href="shop.html" class="btn-primary">Leistungen buchen</a>
+        <a href="#kontakt" class="btn-secondary">Gratis Inserat-Analyse</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">À la carte – nur was du brauchst</div>
+      <div class="price-row">
+        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg> Professionelle Fotos</span>
+        <span class="price-value">ab € 249</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> Exposé erstellen</span>
+        <span class="price-value">€ 149</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg> KI-Bildoptimierung</span>
+        <span class="price-value">€ 99</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg> Unterlagen einholen</span>
+        <span class="price-value">€ 149</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Besichtigung durchführen</span>
+        <span class="price-value">€ 79</span>
+      </div>
+      <div class="hero-saving">
+        <div class="hero-saving-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></div>
+        <div class="hero-saving-text">
+          <strong>Bis zu € 15.000 sparen</strong>
+          Im Vergleich zur klassischen Maklerprovision
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div> Fixpreise – keine Überraschungen</div>
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div> Keine Provision bei Verkauf</div>
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div> Innerhalb 48h einsatzbereit</div>
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div> Österreichweit tätig</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-bg" id="so-funktionierts">
+  <div class="centered">
+    <div class="section-label reveal">So funktioniert's</div>
+    <h2 class="section-title reveal">In 4 einfachen Schritten<br>zum Verkaufserfolg</h2>
+    <p class="section-sub reveal">Kein Maklervertrag, kein Stress. Du entscheidest was du brauchst – wir liefern.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-number">01</div>
+      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
+      <div class="step-title">Leistung wählen</div>
+      <p class="step-desc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete – ganz nach deinem Bedarf.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.1s">
+      <div class="step-number">02</div>
+      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+      <div class="step-title">Unterlagen & Fotos</div>
+      <p class="step-desc">Du schickst uns deine Fotos und Unterlagen – oder wir organisieren alles für dich. Schnell und unkompliziert.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.2s">
+      <div class="step-number">03</div>
+      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+      <div class="step-title">Wir erledigen alles</div>
+      <p class="step-desc">Exposé, KI-optimierte Bilder, Inserat auf Willhaben – professionell aufbereitet, innerhalb von 48 Stunden.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.3s">
+      <div class="step-number">04</div>
+      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+      <div class="step-title">Du verkaufst</div>
+      <p class="step-desc">Du führst Besichtigungen selbst durch oder buchst unseren Besichtigungsservice. Der Abschluss bleibt bei dir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="leistungen">
+  <div class="services-layout">
+    <div>
+      <div class="section-label reveal">Einzelleistungen</div>
+      <h2 class="section-title reveal">Nur bezahlen,<br>was du wirklich brauchst</h2>
+      <p class="section-sub reveal">Kombiniere Leistungen frei nach deinem Bedarf. Keine Paketzwang, keine versteckten Kosten.</p>
+      <div style="margin-top:32px" class="reveal">
+        <a href="#kontakt" class="btn-primary">Jetzt anfragen</a>
+      </div>
+    </div>
+    <div class="service-list">
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="service-name">Fotoshooting – Basis (10 Bilder)</span></div>
+        <span class="service-price">€ 249</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/></svg></span><span class="service-name">Fotoshooting Premium + KI-Bearbeitung</span></div>
+        <span class="service-price">€ 399</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></span><span class="service-name">KI-Bildoptimierung (eigene Fotos)</span></div>
+        <span class="service-price">€ 99</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></span><span class="service-name">Professionelles Exposé erstellen</span></div>
+        <span class="service-price">€ 149</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span><span class="service-name">Unterlagen einholen</span></div>
+        <span class="service-price">€ 149</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/></svg></span><span class="service-name">Inserat schalten & optimieren</span></div>
+        <span class="service-price">€ 79</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="service-name">Besichtigung durchführen (pro Termin)</span></div>
+        <span class="service-price">€ 79</span>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="service-name">Werteinschätzung</span></div>
+        <span class="service-price">€ 99</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="how-bg" id="pakete">
+  <div class="centered">
+    <div class="section-label reveal">Komplettpakete</div>
+    <h2 class="section-title reveal">Alles aus einer Hand –<br>zum fairen Fixpreis</h2>
+    <p class="section-sub reveal">Für alle die es einfach haben wollen: ein Paket, ein Preis, keine Überraschungen.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="package-card starter reveal">
+      <div class="package-name">Starter</div>
+      <div class="package-price">€ 449</div>
+      <p class="package-desc">Perfekt für den Einstieg</p>
+      <ul class="package-features">
+        <li><div class="check">✓</div> Basis-Fotoshooting (10 Bilder)</li>
+        <li><div class="check">✓</div> Professionelles Exposé</li>
+        <li><div class="check">✓</div> Inserat auf Willhaben</li>
+        <li><div class="check">✓</div> Lieferung in 48 Stunden</li>
+      </ul>
+      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+    </div>
+    <div class="package-card professional reveal">
+      <div class="package-badge">Beliebteste Wahl</div>
+      <div class="package-name">Professional</div>
+      <div class="package-price">€ 1.190</div>
+      <p class="package-desc">Für maximalen Verkaufserfolg</p>
+      <ul class="package-features">
+        <li><div class="check">✓</div> Premium Fotoshooting + KI-Bearbeitung</li>
+        <li><div class="check">✓</div> Hochwertiges Exposé</li>
+        <li><div class="check">✓</div> Alle Unterlagen eingeholt</li>
+        <li><div class="check">✓</div> Werteinschätzung inklusive</li>
+        <li><div class="check">✓</div> Inserat optimiert & geschaltet</li>
+        <li><div class="check">✓</div> Priorität-Support</li>
+      </ul>
+      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+    </div>
+    <div class="package-card fullservice reveal">
+      <div class="package-name">Full-Service</div>
+      <div class="package-price">€ 2.590</div>
+      <p class="package-desc">Komplett stressfrei verkaufen</p>
+      <ul class="package-features">
+        <li><div class="check">✓</div> Alles aus Professional</li>
+        <li><div class="check">✓</div> 3 Besichtigungstermine inklusive</li>
+        <li><div class="check">✓</div> Interessentenfilterung</li>
+        <li><div class="check">✓</div> Persönliche Betreuung</li>
+        <li><div class="check">✓</div> Keine Provision bei Verkauf</li>
+      </ul>
+      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+    </div>
+  </div>
+</section>
+
+<!-- KI SECTION -->
+<section class="ki-section">
+  <div class="ki-grid">
+    <div>
+      <div class="section-label">KI-Bildoptimierung</div>
+      <h2 class="section-title">Deine Fotos.<br>Professionell optimiert.</h2>
+      <p class="section-sub">Schick uns deine Handyfotos – wir liefern Bilder die so gut aussehen wie vom Profi. Kein neues Fotoshooting nötig.</p>
+      <div class="ki-features">
+        <div class="ki-feature reveal">
+          <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+          <div class="ki-feature-text">
+            <h4>Helligkeit & Farben optimieren</h4>
+            <p>Dunkle Räume werden hell und einladend – realistisch und natürlich.</p>
+          </div>
+        </div>
+        <div class="ki-feature reveal">
+          <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+          <div class="ki-feature-text">
+            <h4>Himmel austauschen</h4>
+            <p>Grauer Himmel bei Außenfotos? Wir tauschen ihn gegen strahlend blauen Himmel.</p>
+          </div>
+        </div>
+        <div class="ki-feature reveal">
+          <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg></div>
+          <div class="ki-feature-text">
+            <h4>Störendes entfernen</h4>
+            <p>Kabel, Mülleimer, Autos – verschwinden lautlos aus dem Bild.</p>
+          </div>
+        </div>
+        <div class="ki-feature reveal">
+          <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="ki-feature-text">
+            <h4>Perspektive korrigieren</h4>
+            <p>Schiefe Wände und verzerrte Räume werden professionell gerade gestellt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="ba-labels">
+        <div class="ba-box before">
+          <span class="ba-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>
+          <div class="ba-label">Vorher</div>
+          <div class="ba-desc">Handyfoto, dunkle Beleuchtung, grauer Himmel, unordentlich</div>
+        </div>
+        <div class="ba-box after">
+          <span class="ba-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <div class="ba-label">Nachher</div>
+          <div class="ba-desc">Hell, klar, professionell – bereit für Willhaben & ImmoScout</div>
+        </div>
+      </div>
+      <div class="ba-arrow">⬇ KI-Optimierung in 30 Minuten</div>
+      <div class="ba-box" style="text-align:center; padding:28px;">
+        <div style="font-size:2rem; margin-bottom:12px;">🤖✨</div>
+        <div style="color:var(--gold-light); font-weight:600; margin-bottom:8px;">Bis 15 Bilder optimiert</div>
+        <div style="color:rgba(255,255,255,0.55); font-size:0.88rem; font-weight:300;">Lieferung innerhalb 24 Stunden · € 99 Fixpreis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL / STRATEGY -->
+<section class="funnel-section">
+  <div class="centered">
+    <div class="section-label reveal">Unsere Philosophie</div>
+    <h2 class="section-title reveal">Wir denken langfristig.<br>Du profitierst sofort.</h2>
+    <p class="section-sub reveal">Starte klein, vertrau uns schrittweise – und hol dir im Erfolgsfall den vollen Service.</p>
+  </div>
+  <div class="funnel-cards">
+    <div class="funnel-card reveal">
+      <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+      <div class="funnel-title">Einzelleistung</div>
+      <p class="funnel-desc">Starte mit einer Leistung und teste unsere Qualität risikolos.</p>
+    </div>
+    <div class="funnel-card reveal">
+      <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="funnel-title">Vertrauen aufbauen</div>
+      <p class="funnel-desc">Du siehst wie wir arbeiten – professionell, schnell, transparent.</p>
+    </div>
+    <div class="funnel-card reveal">
+      <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div class="funnel-title">Follow-up</div>
+      <p class="funnel-desc">Wir melden uns nach 4 Wochen – wie läuft der Verkauf?</p>
+    </div>
+    <div class="funnel-card reveal">
+      <div class="funnel-icon" style="font-size:1.6rem; color:white;">🏆</div>
+      <div class="funnel-title">Verkaufserfolg</div>
+      <p class="funnel-desc">Ob allein oder mit unserem Full-Service – du verkaufst ohne Provision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS CALCULATOR -->
+<section class="calc-section">
+  <h2 class="calc-title reveal">Wie viel sparst du?</h2>
+  <p class="calc-sub reveal">Bei einem Verkaufspreis von € 350.000 – typische Wohnung in Wien</p>
+  <div class="savings-boxes">
+    <div class="savings-box reveal">
+      <div class="savings-label">Klassische Maklerprovision</div>
+      <div class="savings-amount" style="color:#EF5350;">€ 12.600</div>
+    </div>
+    <div class="savings-box reveal">
+      <div class="savings-label">ImmoLotse Full-Service</div>
+      <div class="savings-amount">€ 2.590</div>
+    </div>
+    <div class="savings-box highlight reveal">
+      <div class="savings-label">Deine Ersparnis</div>
+      <div class="savings-amount">€ 10.010</div>
+    </div>
+  </div>
+  <a href="#kontakt" class="btn-primary reveal">Jetzt sparen – kostenlos beraten lassen</a>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="centered">
+    <div class="section-label reveal">Kundenstimmen</div>
+    <h2 class="section-title reveal">Was unsere Kunden sagen</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card t1 reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Ich war skeptisch ob ich meine Wohnung ohne Makler verkaufen kann. Das Exposé von ImmoLotse war so professionell, dass ich nach 3 Wochen auf Willhaben bereits den Käufer gefunden hatte."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MH</div>
+        <div>
+          <div class="author-name">Markus H.</div>
+          <div class="author-location">Wien, 3-Zimmer-Wohnung verkauft</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card t2 reveal" style="transition-delay:0.1s">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Die KI-Bildoptimierung hat meine Handyfotos komplett transformiert. Niemand hätte gedacht dass das Originalfotos vom Handy waren. Absolut beeindruckend."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SK</div>
+        <div>
+          <div class="author-name">Sandra K.</div>
+          <div class="author-location">Graz, Einfamilienhaus</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card t3 reveal" style="transition-delay:0.2s">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Ich habe 3 Monate alleine versucht zu verkaufen. Nach dem Professional-Paket von ImmoLotse hatte ich innerhalb von 2 Wochen 8 ernsthafte Anfragen. Der Unterschied war enorm."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">TP</div>
+        <div>
+          <div class="author-name">Thomas P.</div>
+          <div class="author-location">Linz, Eigentumswohnung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="centered">
+    <div class="section-label reveal">Häufige Fragen</div>
+    <h2 class="section-title reveal">Alles was du wissen möchtest</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Brauche ich einen Maklergewerbeschein um mit euch zu arbeiten?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Nein. ImmoLotse ist eine Marketingfirma – wir übernehmen die Vermarktung deiner Immobilie zu Fixpreisen. Du bleibst rechtlich der Verkäufer. Wir verlangen keine Provision und agieren nicht als Makler.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Wie lange dauert es bis mein Inserat online ist?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Nach Eingang aller Unterlagen und Fotos liefern wir innerhalb von 48 Stunden. Das fertige Exposé, die optimierten Bilder und das Willhaben-Inserat – alles in zwei Werktagen.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Was wenn meine Wohnung sich nicht verkauft?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Dann analysieren wir kostenlos warum – und empfehlen gezielte Anpassungen. Im Gegensatz zum Makler verlieren wir kein Geld wenn du nicht verkaufst, also geben wir dir ehrliches Feedback statt falsche Hoffnungen.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        Kann ich Leistungen nachbuchen?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Selbstverständlich. Starte mit dem Starter-Paket und buche später einzelne Leistungen dazu – zum Beispiel den Besichtigungsservice wenn du merkst dass die Anfragen zu viel werden.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        In welchen Regionen seid ihr tätig?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Österreichweit. Exposé, KI-Bildoptimierung und Inserat können wir für ganz Österreich anbieten. Für Fotoshootings und Besichtigungen kontaktiere uns für deine Region – wir finden eine Lösung.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+  <div class="section-label reveal">Kostenlos starten</div>
+  <h2 class="cta-title reveal">Bereit deine Immobilie<br>professionell zu vermarkten?</h2>
+  <p class="cta-sub reveal">Schick uns deinen Willhaben-Link oder eine kurze Beschreibung – wir analysieren kostenlos und unverbindlich.</p>
+  <div class="cta-form reveal">
+    <input type="email" class="cta-input" placeholder="Deine E-Mail Adresse">
+    <a href="#" class="btn-primary">Jetzt anfragen →</a>
+  </div>
+  <p style="margin-top:16px; color:var(--gray); font-size:0.82rem;" class="reveal">Keine Provision. Kein Maklervertrag. Einfach nur ehrliche Hilfe.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Immo<span>Lotse</span></div>
+      <p class="footer-desc">Professionelles Immobilien-Marketing für Privatverkäufer in Österreich. Faire Fixpreise, transparente Leistungen, kein Provisionspoker.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Leistungen</div>
+      <ul class="footer-links">
+        <li><a href="#">Exposé erstellen</a></li>
+        <li><a href="#">Fotoshooting</a></li>
+        <li><a href="#">KI-Bildoptimierung</a></li>
+        <li><a href="#">Unterlagen einholen</a></li>
+        <li><a href="#">Besichtigungsservice</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Unternehmen</div>
+      <ul class="footer-links">
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">AGB</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ImmoLotse. Alle Rechte vorbehalten.</span>
+    <span>Kein Makler. Keine Provision. <span style="color:var(--gold-light)">Einfach verkaufen.</span></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  // Close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

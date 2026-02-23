@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: de
+
+collections:
+  - name: "blog"
+    label: "Blog Artikel"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime", format: "DD. MMMM YYYY" }
+      - label: "Kategorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Verkauf & Strategie", value: "verkauf" }
+          - { label: "Exposé & Präsentation", value: "expose" }
+          - { label: "Fotografie", value: "fotografie" }
+          - { label: "Rechtliches", value: "rechtliches" }
+          - { label: "Preisfindung", value: "preisfindung" }
+          - { label: "Willhaben Tipps", value: "willhaben" }
+          - { label: "Steuer", value: "steuer" }
+      - { label: "Kurzbeschreibung", name: "excerpt", widget: "text", hint: "Kurze Zusammenfassung für die Blog-Übersicht (1-2 Sätze)" }
+      - { label: "Lesedauer (Minuten)", name: "readtime", widget: "number", default: 5 }
+      - { label: "Titelbild", name: "image", widget: "image", required: false }
+      - { label: "Inhalt", name: "body", widget: "markdown" }
+      - { label: "Veröffentlicht", name: "published", widget: "boolean", default: true }
