@@ -1354,6 +1354,14 @@
 </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
+    // Leite Netlify Einladungslinks zum Admin weiter
+    if (window.location.hash && (
+      window.location.hash.includes('invite_token') ||
+      window.location.hash.includes('recovery_token') ||
+      window.location.hash.includes('confirmation_token')
+    )) {
+      window.location.href = '/admin/' + window.location.hash;
+    }
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
