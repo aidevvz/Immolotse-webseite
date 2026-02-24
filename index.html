@@ -195,55 +195,176 @@
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
 
-  /* Hero card */
-  .hero-card {
+  /* ── SAVINGS CALCULATOR CARD ── */
+  .hero-calc {
     background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.13);
     border-radius: 20px;
-    padding: 36px;
+    padding: 32px 30px 28px;
     backdrop-filter: blur(16px);
     animation: fadeUp 0.8s 0.4s ease both;
   }
 
-  .hero-card-title {
+  .calc-card-title {
     color: var(--gold-light);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
+  }
+  .calc-card-sub {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: 24px;
   }
 
-  .price-row {
+  /* Price display */
+  .calc-price-display {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .calc-price-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+  .calc-price-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  /* Slider */
+  .calc-slider-wrap {
+    position: relative;
+    margin-bottom: 26px;
+    padding: 6px 0;
+  }
+  .calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.15);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(201,168,76,0.5);
+    border: 2px solid rgba(255,255,255,0.9);
+    transition: transform 0.15s;
+  }
+  .calc-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+  .calc-slider::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(201,168,76,0.5);
+    border: 2px solid rgba(255,255,255,0.9);
+  }
+  .calc-slider-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 6px;
+    font-weight: 300;
+  }
+
+  /* Savings rows */
+  .calc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .calc-row {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .price-row:last-of-type { border-bottom: none; }
-
-  .price-label { color: rgba(255,255,255,0.82); font-size: 0.93rem; }
-  .price-value {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--white);
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
-
-  .hero-saving {
-    margin-top: 24px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: 12px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
     gap: 12px;
   }
-  .hero-saving-icon { font-size: 1.4rem; }
-  .hero-saving-text { color: var(--gold-light); font-size: 0.87rem; line-height: 1.5; }
-  .hero-saving-text strong { display: block; font-size: 1rem; }
+  .calc-row-left { display: flex; align-items: center; gap: 10px; }
+  .calc-row-icon {
+    width: 34px; height: 34px; flex-shrink: 0;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+  }
+  .calc-row.buyer  .calc-row-icon { background: rgba(59,130,246,0.15); }
+  .calc-row.seller .calc-row-icon { background: rgba(201,168,76,0.15); }
+  .calc-row-meta {}
+  .calc-row-who {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 1px;
+  }
+  .calc-row-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+  }
+  .calc-row-amount {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .calc-row.buyer  .calc-row-amount { color: #7eb8ff; }
+  .calc-row.seller .calc-row-amount { color: var(--gold-light); }
+
+  /* Total saving */
+  .calc-total {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .calc-total-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+  }
+  .calc-total-label span {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.35);
+    margin-top: 2px;
+  }
+  .calc-total-amount {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    white-space: nowrap;
+  }
 
   /* ── TRUST BAR ── */
   .trust-bar {
@@ -860,6 +981,7 @@
   .trust-bar svg,
   .ki-section svg,
   .calc-section svg,
+  .hero-calc svg,
   footer svg,
   .page-header svg,
   .funnel-card:nth-child(4) .funnel-icon svg,
@@ -899,34 +1021,61 @@
         <a href="#kontakt" class="btn-secondary">Gratis Inserat-Analyse</a>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-title">À la carte – nur was du brauchst</div>
-      <div class="price-row">
-        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg> Professionelle Fotos</span>
-        <span class="price-value">ab € 249</span>
+    <div class="hero-calc">
+      <div class="calc-card-title">Deine Ersparnis berechnen</div>
+      <div class="calc-card-sub">Ohne Makler – so viel bleibt in deiner Tasche</div>
+
+      <div class="calc-price-display">
+        <div class="calc-price-num" id="calcPriceNum">€ 350.000</div>
+        <div class="calc-price-label">Verkaufspreis deiner Immobilie</div>
       </div>
-      <div class="price-row">
-        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg> Exposé erstellen</span>
-        <span class="price-value">€ 149</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg> KI-Bildoptimierung</span>
-        <span class="price-value">€ 99</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg> Unterlagen einholen</span>
-        <span class="price-value">€ 149</span>
-      </div>
-      <div class="price-row">
-        <span class="price-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Besichtigung durchführen</span>
-        <span class="price-value">€ 79</span>
-      </div>
-      <div class="hero-saving">
-        <div class="hero-saving-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></div>
-        <div class="hero-saving-text">
-          <strong>Bis zu € 15.000 sparen</strong>
-          Im Vergleich zur klassischen Maklerprovision
+
+      <div class="calc-slider-wrap">
+        <input
+          type="range"
+          class="calc-slider"
+          id="calcSlider"
+          min="50000"
+          max="2000000"
+          step="10000"
+          value="350000"
+          oninput="updateCalc(this.value)"
+        >
+        <div class="calc-slider-range">
+          <span>€ 50.000</span>
+          <span>€ 2.000.000</span>
         </div>
+      </div>
+
+      <div class="calc-rows">
+        <div class="calc-row buyer">
+          <div class="calc-row-left">
+            <div class="calc-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="calc-row-meta">
+              <div class="calc-row-who">Käufer spart</div>
+              <div class="calc-row-desc">3,6% Käuferprovision entfällt</div>
+            </div>
+          </div>
+          <div class="calc-row-amount" id="buyerSaving">€ 12.600</div>
+        </div>
+        <div class="calc-row seller">
+          <div class="calc-row-left">
+            <div class="calc-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></div>
+            <div class="calc-row-meta">
+              <div class="calc-row-who">Verkäufer spart</div>
+              <div class="calc-row-desc">Bis zu 3,6% Maklerprovision</div>
+            </div>
+          </div>
+          <div class="calc-row-amount" id="sellerSaving">€ 12.600</div>
+        </div>
+      </div>
+
+      <div class="calc-total">
+        <div class="calc-total-label">
+          Gesamtersparnis
+          <span>Käufer + Verkäufer zusammen</span>
+        </div>
+        <div class="calc-total-amount" id="totalSaving">€ 25.200</div>
       </div>
     </div>
   </div>
@@ -1127,7 +1276,10 @@
       </div>
       <div class="ba-arrow">⬇ KI-Optimierung in 30 Minuten</div>
       <div class="ba-box" style="text-align:center; padding:28px;">
-        <div style="font-size:2rem; margin-bottom:12px;">🤖✨</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        </div>
         <div style="color:var(--gold-light); font-weight:600; margin-bottom:8px;">Bis 15 Bilder optimiert</div>
         <div style="color:rgba(255,255,255,0.55); font-size:0.88rem; font-weight:300;">Lieferung innerhalb 24 Stunden · € 99 Fixpreis</div>
       </div>
@@ -1164,27 +1316,6 @@
       <p class="funnel-desc">Ob allein oder mit unserem Full-Service – du verkaufst ohne Provision.</p>
     </div>
   </div>
-</section>
-
-<!-- SAVINGS CALCULATOR -->
-<section class="calc-section">
-  <h2 class="calc-title reveal">Wie viel sparst du?</h2>
-  <p class="calc-sub reveal">Bei einem Verkaufspreis von € 350.000 – typische Wohnung in Wien</p>
-  <div class="savings-boxes">
-    <div class="savings-box reveal">
-      <div class="savings-label">Klassische Maklerprovision</div>
-      <div class="savings-amount" style="color:#EF5350;">€ 12.600</div>
-    </div>
-    <div class="savings-box reveal">
-      <div class="savings-label">ImmoLotse Full-Service</div>
-      <div class="savings-amount">€ 2.590</div>
-    </div>
-    <div class="savings-box highlight reveal">
-      <div class="savings-label">Deine Ersparnis</div>
-      <div class="savings-amount">€ 10.010</div>
-    </div>
-  </div>
-  <a href="#kontakt" class="btn-primary reveal">Jetzt sparen – kostenlos beraten lassen</a>
 </section>
 
 <!-- TESTIMONIALS -->
@@ -1291,7 +1422,19 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">Immo<span>Lotse</span></div>
+      <div class="footer-logo">
+        <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M18 8L6 18V30H13V22H23V30H30V18L18 8Z" fill="rgba(255,255,255,0.15)" stroke="none"/>
+            <path d="M18 8L6 18H30L18 8Z" fill="rgba(255,255,255,0.3)"/>
+            <polygon points="18,4 20.2,14 18,12.5 15.8,14" fill="#E8C97A"/>
+            <polygon points="18,30 15.8,20 18,21.5 20.2,20" fill="rgba(232,201,122,0.3)"/>
+            <circle cx="18" cy="17" r="1.8" fill="#E8C97A"/>
+          </g>
+          <text x="38" y="23" font-family="Playfair Display, Georgia, serif" font-size="17" font-weight="700" fill="#FFFFFF" letter-spacing="-0.3">Immo</text>
+          <text x="83" y="23" font-family="Playfair Display, Georgia, serif" font-size="17" font-weight="700" fill="#E8C97A" letter-spacing="-0.3">Lotse</text>
+        </svg>
+      </div>
       <p class="footer-desc">Professionelles Immobilien-Marketing für Privatverkäufer in Österreich. Faire Fixpreise, transparente Leistungen, kein Provisionspoker.</p>
     </div>
     <div>
@@ -1327,7 +1470,6 @@
     document.getElementById('navLinks').classList.toggle('open');
     document.getElementById('hamburger').classList.toggle('open');
   }
-  // Close menu on link click
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => {
       document.getElementById('navLinks').classList.remove('open');
@@ -1353,6 +1495,48 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // ── SAVINGS CALCULATOR ──
+  function fmt(n) {
+    return '€ ' + Math.round(n).toLocaleString('de-AT');
+  }
+
+  // Update slider track fill
+  function updateTrack(slider) {
+    const min = +slider.min, max = +slider.max, val = +slider.value;
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.background = `linear-gradient(to right, var(--gold) ${pct}%, rgba(255,255,255,0.15) ${pct}%)`;
+  }
+
+  function updateCalc(val) {
+    const price   = +val;
+    const buyer   = price * 0.036;
+    const seller  = price * 0.036;
+    const total   = buyer + seller;
+
+    document.getElementById('calcPriceNum').textContent  = fmt(price);
+    document.getElementById('buyerSaving').textContent   = fmt(buyer);
+    document.getElementById('sellerSaving').textContent  = fmt(seller);
+    document.getElementById('totalSaving').textContent   = fmt(total);
+
+    updateTrack(document.getElementById('calcSlider'));
+
+    // Animate amounts on change
+    ['buyerSaving','sellerSaving','totalSaving'].forEach(id => {
+      const el = document.getElementById(id);
+      el.style.transform = 'scale(1.08)';
+      setTimeout(() => el.style.transform = 'scale(1)', 150);
+    });
+  }
+
+  // Add transition to amount elements
+  document.addEventListener('DOMContentLoaded', () => {
+    ['buyerSaving','sellerSaving','totalSaving'].forEach(id => {
+      document.getElementById(id).style.transition = 'transform 0.15s ease';
+    });
+    // Init track fill
+    updateTrack(document.getElementById('calcSlider'));
+  });
 </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
