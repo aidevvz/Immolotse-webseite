@@ -85,14 +85,32 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    background:
-      linear-gradient(160deg, rgba(10,25,55,0.88) 0%, rgba(15,34,80,0.82) 50%, rgba(10,30,70,0.90) 100%),
-      url('img-after.png') center center / cover no-repeat;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 55%, #1E4A8A 100%);
     display: flex;
     align-items: center;
     padding: 120px 6% 80px;
     position: relative;
     overflow: hidden;
+  }
+
+  /* Video background */
+  .hero-video-wrap {
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden;
+  }
+  .hero-video-wrap video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-video-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(10,25,55,0.82) 0%,
+      rgba(12,30,70,0.75) 50%,
+      rgba(8,24,60,0.85) 100%
+    );
   }
 
   .hero::before {
@@ -1116,6 +1134,15 @@
 
 <!-- HERO -->
 <section class="hero">
+
+  <!-- Background video -->
+  <div class="hero-video-wrap">
+    <video autoplay loop muted playsinline poster="img-after.png">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
   <div class="hero-grid">
 
     <!-- BOX 1: Text + CTA (full width) -->
