@@ -523,20 +523,15 @@
     overflow: hidden;
   }
 
-  .ba-before-clip .ba-img-before {
-    width: auto;
-    min-width: 100%;
-    max-width: none;
-  }
-
-  /* Force before image to always show full width inside clip */
+  /* Before image must match the full container size exactly */
   .ba-before-clip img {
     position: absolute;
     top: 0; left: 0;
-    width: 100%;
+    width: var(--ba-container-width, 100%);
+    max-width: none;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
+    object-position: center center;
   }
 
   .ba-divider {
@@ -1765,6 +1760,14 @@
     const clip = document.getElementById('baBeforeClip');
     const divider = document.getElementById('baDivider');
     let dragging = false;
+
+    // Set container width as CSS var so before image matches full width
+    function init() {
+      const w = container.offsetWidth + 'px';
+      container.style.setProperty('--ba-container-width', w);
+    }
+    init();
+    window.addEventListener('resize', init);
 
     function setPosition(x) {
       const rect = container.getBoundingClientRect();
