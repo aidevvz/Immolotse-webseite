@@ -104,6 +104,120 @@
   .section-header h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--navy); margin-bottom: 5px; }
   .section-header p { color: var(--text-mid); font-size: 0.87rem; font-weight: 300; }
 
+
+  /* ── REINIGUNG CALC ── */
+  .reinigung-calc {
+    margin-top: 10px;
+    background: var(--off-white);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .reinigung-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    flex-wrap: wrap;
+  }
+  .reinigung-counter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .reinigung-counter button {
+    width: 26px; height: 26px;
+    border: 1px solid var(--gray-light);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--navy);
+    transition: all 0.15s;
+  }
+  .reinigung-counter button:hover { background: var(--navy); color: white; border-color: var(--navy); }
+  .reinigung-price-row {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+  .reinigung-price-row strong {
+    color: var(--navy);
+    font-size: 1rem;
+  }
+
+  /* Umzug Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .modal-box h3 { font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 6px; }
+  .modal-box p { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 20px; line-height: 1.5; }
+  .modal-form { display: flex; flex-direction: column; gap: 12px; }
+  .modal-form input, .modal-form textarea {
+    width: 100%; padding: 10px 14px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--navy);
+    box-sizing: border-box;
+  }
+  .modal-form input:focus, .modal-form textarea:focus {
+    outline: none; border-color: var(--blue);
+  }
+  .modal-form textarea { height: 80px; resize: vertical; }
+  .modal-upload-label {
+    display: flex; align-items: center; gap: 8px;
+    border: 2px dashed var(--gray-light);
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    font-size: 0.83rem;
+    color: var(--text-mid);
+    transition: border-color 0.2s;
+  }
+  .modal-upload-label:hover { border-color: var(--blue); color: var(--blue); }
+  .modal-footer { display: flex; gap: 10px; margin-top: 8px; }
+  .btn-modal-submit {
+    flex: 1; padding: 11px;
+    background: var(--navy); color: white;
+    border: none; border-radius: 8px;
+    font-weight: 700; font-size: 0.9rem;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-modal-submit:hover { background: var(--blue); }
+  .btn-modal-cancel {
+    padding: 11px 18px;
+    background: none; color: var(--text-mid);
+    border: 1.5px solid var(--gray-light);
+    border-radius: 8px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn-modal-cancel:hover { border-color: var(--navy); color: var(--navy); }
+
   /* ── PACKAGES ── */
   .packages-row {
     display: grid;
@@ -415,15 +529,14 @@
       <p>Alles inklusive – wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 449)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 649)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 449</div>
-        <div class="pkg-save">Spare €47 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 649</div>
+        <div class="pkg-save">Fotoshooting + Exposé zum Vorteilspreis</div>
         <ul class="pkg-features">
-          <li>Basis-Fotoshooting (10 Bilder)</li>
-          <li>Professionelles Exposé</li>
-          <li>Inserat auf Willhaben</li>
+          <li>Fotoshooting inkl. KI-Bearbeitung (15 Bilder)</li>
+          <li>Professionelles Exposé (PDF)</li>
           <li>Lieferung in 48 Stunden</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
@@ -436,7 +549,7 @@
         <div class="pkg-save">Spare €334 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Premium Fotos + KI-Bearbeitung</li>
-          <li>Hochwertiges Exposé</li>
+          <li>Hochwertiges Exposé (PDF)</li>
           <li>Alle Unterlagen eingeholt</li>
           <li>Werteinschätzung inklusive</li>
           <li>Inserat optimiert & geschaltet</li>
@@ -450,7 +563,8 @@
         <div class="pkg-save">Spare bis zu €12.000 Provision</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
-          <li>3 Besichtigungstermine</li>
+          <li>Reinigungsservice inklusive</li>
+          <li>Umzugsservice inklusive</li>
           <li>Interessentenfilterung</li>
           <li>Persönliche Betreuung</li>
           <li>Keine Provision bei Verkauf</li>
@@ -468,30 +582,16 @@
     </div>
     <div class="services-grid">
 
-      <div class="service-card" id="svc-foto-basis" onclick="toggleService('foto-basis','CAM','Fotoshooting – Basis (10 Bilder)',249)">
+      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','CAM','Fotoshooting inkl. KI-Bearbeitung (15 Bilder)',500)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
           <div class="service-text">
-            <h4>Fotoshooting – Basis</h4>
-            <p>10 professionelle Bilder deiner Immobilie, aufgenommen vor Ort</p>
+            <h4>Fotoshooting inkl. KI-Bearbeitung</h4>
+            <p>15 professionelle Bilder vor Ort + KI-Bearbeitung, optimiert für Portale</p>
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 249</span>
-          <button class="btn-add-service">+ Hinzufügen</button>
-        </div>
-      </div>
-
-      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','PRE','Fotoshooting Premium + KI-Bearbeitung',399)">
-        <div class="service-top">
-          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg></div>
-          <div class="service-text">
-            <h4>Fotoshooting Premium + KI</h4>
-            <p>10 Bilder + professionelle KI-Bearbeitung, optimiert für Portale</p>
-          </div>
-        </div>
-        <div class="service-bottom">
-          <span class="service-price-tag">€ 399</span>
+          <span class="service-price-tag">€ 500</span>
           <button class="btn-add-service">+ Hinzufügen</button>
         </div>
       </div>
@@ -510,12 +610,12 @@
         </div>
       </div>
 
-      <div class="service-card" id="svc-expose" onclick="toggleService('expose','EXP','Professionelles Exposé erstellen',149)">
+      <div class="service-card" id="svc-expose" onclick="toggleService('expose','EXP','Professionelles Exposé erstellen (PDF)',149)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div>
           <div class="service-text">
-            <h4>Exposé erstellen</h4>
-            <p>Professionelles Exposé mit Texten, Grundriss und Layout</p>
+            <h4>Exposé erstellen (PDF)</h4>
+            <p>Professionelles PDF-Exposé mit Texten, Grundriss und Layout</p>
           </div>
         </div>
         <div class="service-bottom">
@@ -538,31 +638,48 @@
         </div>
       </div>
 
-      <div class="service-card" id="svc-inserat" onclick="toggleService('inserat','INS','Inserat schalten & optimieren',79)">
+      <!-- UMZUGSSERVICE -->
+      <div class="service-card" id="svc-umzug" onclick="openUmzugModal()">
         <div class="service-top">
-          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg></div>
           <div class="service-text">
-            <h4>Inserat schalten</h4>
-            <p>SEO-optimiertes Inserat auf Willhaben inkl. Texte und Keywords</p>
+            <h4>Umzugsservice <span style="font-size:0.7rem;background:#EBF1FF;color:var(--blue);padding:2px 7px;border-radius:50px;font-weight:700;margin-left:4px;">Nur Wien</span></h4>
+            <p>Professioneller Umzug & Räumung – Kostenvoranschlag nach Bildübermittlung</p>
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 79</span>
-          <button class="btn-add-service">+ Hinzufügen</button>
+          <span class="service-price-tag" style="font-size:0.9rem;color:var(--text-mid)">Auf Anfrage</span>
+          <button class="btn-add-service">Anfragen</button>
         </div>
       </div>
 
-      <div class="service-card" id="svc-besichtigung" onclick="toggleService('besichtigung','BES','Besichtigung durchführen (pro Termin)',79)">
+      <!-- REINIGUNGSSERVICE -->
+      <div class="service-card" id="svc-reinigung">
         <div class="service-top">
-          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22l4-4"/><path d="M7 18c0-2 1-3 3-3s3 1 3 3v1H7z"/><path d="M20.5 3.5a2.12 2.12 0 0 0-3 0L13 8l3 3 4.5-4.5a2.12 2.12 0 0 0 0-3Z"/></svg></div>
           <div class="service-text">
-            <h4>Besichtigung durchführen</h4>
-            <p>Wir führen den Besichtigungstermin professionell für dich durch</p>
+            <h4>Reinigungsservice <span style="font-size:0.7rem;background:#EBF1FF;color:var(--blue);padding:2px 7px;border-radius:50px;font-weight:700;margin-left:4px;">Nur Wien</span></h4>
+            <p>Professionelle Endreinigung – € 3,– pro m². Preis automatisch berechnet.</p>
+            <div class="reinigung-calc" onclick="event.stopPropagation()">
+              <div class="reinigung-input-row">
+                <label>Fläche in m²:</label>
+                <div class="reinigung-counter">
+                  <button type="button" onclick="changeQm(-10)">−</button>
+                  <span id="qmDisplay">80</span> m²
+                  <button type="button" onclick="changeQm(10)">+</button>
+                  <input type="number" id="qmInput" value="80" min="10" max="1000" oninput="syncQm(this.value)" style="width:60px;border:1px solid var(--gray-light);border-radius:6px;padding:4px 8px;font-size:0.85rem;text-align:center;">
+                </div>
+              </div>
+              <div class="reinigung-price-row">
+                <span>Preis: </span>
+                <strong id="reinigungPreis">€ 240</strong>
+              </div>
+            </div>
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 79</span>
-          <button class="btn-add-service">+ Hinzufügen</button>
+          <span class="service-price-tag"><span id="reinigungPreisTag">€ 240</span></span>
+          <button class="btn-add-service" onclick="addReinigung()">+ Hinzufügen</button>
         </div>
       </div>
 
@@ -837,6 +954,80 @@
   }
 
   updateCart();
+
+  // ── Reinigungsservice Calculator ──
+  let qm = 80;
+  function updateReinigung() {
+    const preis = qm * 3;
+    document.getElementById('qmDisplay').textContent = qm;
+    document.getElementById('qmInput').value = qm;
+    document.getElementById('reinigungPreis').textContent = '€ ' + preis.toLocaleString('de-AT');
+    document.getElementById('reinigungPreisTag').textContent = '€ ' + preis.toLocaleString('de-AT');
+  }
+  function changeQm(delta) {
+    qm = Math.max(10, Math.min(1000, qm + delta));
+    updateReinigung();
+  }
+  function syncQm(val) {
+    qm = Math.max(10, Math.min(1000, parseInt(val) || 10));
+    updateReinigung();
+  }
+  function addReinigung() {
+    const preis = qm * 3;
+    const name = `Reinigungsservice Wien (${qm} m²)`;
+    toggleService('reinigung', 'CLN', name, preis);
+  }
+
+  // ── Umzugsservice Modal ──
+  function openUmzugModal() {
+    document.getElementById('umzugModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUmzugModal(e) {
+    if (!e || e.target === document.getElementById('umzugModal')) {
+      document.getElementById('umzugModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.getElementById('umzugFiles')?.addEventListener('change', function() {
+    const names = Array.from(this.files).map(f => f.name).join(', ');
+    document.getElementById('umzugFileNames').textContent = names || '';
+  });
+  function submitUmzugAnfrage() {
+    const email = document.getElementById('umzugEmail').value.trim();
+    const adresse = document.getElementById('umzugAdresse').value.trim();
+    if (!email || !adresse) {
+      alert('Bitte E-Mail und Adresse ausfüllen.');
+      return;
+    }
+    // In production: send to backend/Netlify form
+    alert('Danke! Wir melden uns innerhalb von 24 Stunden mit deinem Kostenvoranschlag.');
+    closeUmzugModal();
+  }
+
 </script>
+
+<!-- UMZUG MODAL -->
+<div class="modal-overlay" id="umzugModal" onclick="closeUmzugModal(event)">
+  <div class="modal-box">
+    <h3>Umzugsservice anfragen</h3>
+    <p>Nur in Wien verfügbar. Schicke uns deine Kontaktdaten und Bilder – wir erstellen dir innerhalb von 24 Stunden einen kostenlosen Kostenvoranschlag.</p>
+    <div class="modal-form">
+      <input type="email" placeholder="Deine E-Mail-Adresse *" id="umzugEmail">
+      <input type="text" placeholder="Adresse der Immobilie in Wien *" id="umzugAdresse">
+      <textarea placeholder="Kurze Beschreibung (Zimmeranzahl, Stockwerk, besondere Möbel...)" id="umzugBeschreibung"></textarea>
+      <label class="modal-upload-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Bilder hochladen (JPG, PNG – mehrere möglich)
+        <input type="file" accept="image/*" multiple style="display:none" id="umzugFiles">
+      </label>
+      <div id="umzugFileNames" style="font-size:0.78rem;color:var(--blue);"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeUmzugModal()">Abbrechen</button>
+      <button class="btn-modal-submit" onclick="submitUmzugAnfrage()">Kostenvoranschlag anfragen →</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
