@@ -55,8 +55,9 @@
   }
   .logo span { color: var(--blue); }
 
-  .nav-links { display: flex; gap: 22px; align-items: center; }
-  .nav-links a {
+  .nav-links-desktop { display: flex; gap: 22px; align-items: center; }
+  .nav-links { display: flex; }
+  .nav-links-desktop a {
     text-decoration: none;
     color: var(--text-mid);
     font-size: 0.88rem;
@@ -64,7 +65,10 @@
     transition: color 0.2s;
     white-space: nowrap;
   }
-  .nav-links a:hover { color: var(--blue); }
+  .nav-links-desktop a:hover { color: var(--blue); }
+  .nav-links a {
+    text-decoration: none;
+  }
 
   .btn-nav {
     background: var(--navy);
@@ -76,6 +80,7 @@
   }
   .btn-nav:hover { background: var(--blue) !important; }
 
+  .nav-links { display: none; }
   .nav-close {
     display: none;
     position: absolute;
@@ -1618,6 +1623,7 @@
   @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav-close { display: block; }
+    .nav-links-desktop { display: none !important; }
     .nav-links {
       position: fixed; top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(8,20,48,0.98);
@@ -1717,10 +1723,21 @@
 <body>
 
 <!-- NAV -->
+<!-- Mobile nav overlay (outside nav to avoid stacking context issues) -->
+<div class="nav-links" id="navLinks">
+  <button class="nav-close" onclick="toggleMenu()">✕</button>
+  <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
+  <a href="#pakete" onclick="toggleMenu()">Pakete</a>
+  <a href="blog.html">Blog</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+</div>
+
 <nav id="navbar">
   <a href="index.html" class="logo" style="text-decoration:none;">Immo<span>Lotse</span></a>
-  <div class="nav-links" id="navLinks">
-    <button class="nav-close" onclick="toggleMenu()">✕</button>
+  <!-- Desktop links -->
+  <div class="nav-links-desktop">
     <a href="#leistungen">Leistungen</a>
     <a href="#pakete">Pakete</a>
     <a href="blog.html">Blog</a>
