@@ -755,6 +755,101 @@
     background: white;
   }
 
+
+  /* ── CONTACT FORM ── */
+  .contact-form {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-field label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+  }
+  .contact-field input,
+  .contact-field textarea {
+    padding: 12px 16px;
+    border: 1.5px solid #dde1e8;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: 'Jost', sans-serif;
+    color: var(--navy);
+    background: white;
+    transition: border-color 0.2s;
+    outline: none;
+    resize: none;
+  }
+  .contact-field input:focus,
+  .contact-field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(30,92,179,0.08);
+  }
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder {
+    color: #aab0bc;
+    font-weight: 300;
+  }
+  .contact-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .contact-fine {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin: 0;
+  }
+  .contact-success {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 48px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(15,34,64,0.08);
+  }
+  .contact-success-icon {
+    width: 56px;
+    height: 56px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 16px;
+  }
+  .contact-success h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .contact-success p {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    .contact-row { grid-template-columns: 1fr; }
+  }
+
   /* ── TRUST BAR ── */
   .trust-bar {
     background: var(--navy);
@@ -1901,12 +1996,39 @@
 <section class="cta-section" id="kontakt">
   <div class="section-label reveal">Kostenlos starten</div>
   <h2 class="cta-title reveal">Bereit deine Immobilie<br>professionell zu vermarkten?</h2>
-  <p class="cta-sub reveal">Schick uns deinen Willhaben-Link oder eine kurze Beschreibung, wir analysieren kostenlos und unverbindlich.</p>
-  <div class="cta-form reveal">
-    <input type="email" class="cta-input" placeholder="Deine E-Mail Adresse">
-    <a href="#" class="btn-primary">Jetzt anfragen →</a>
+  <p class="cta-sub reveal">Schick uns eine kurze Nachricht, wir analysieren kostenlos und unverbindlich.</p>
+
+  <form class="contact-form reveal" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="kontakt">
+    <p style="display:none"><input name="bot-field"></p>
+
+    <div class="contact-row">
+      <div class="contact-field">
+        <label for="cf-name">Dein Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Max Mustermann" required>
+      </div>
+      <div class="contact-field">
+        <label for="cf-email">E-Mail Adresse</label>
+        <input type="email" id="cf-email" name="email" placeholder="max@beispiel.at" required>
+      </div>
+    </div>
+
+    <div class="contact-field">
+      <label for="cf-msg">Deine Immobilie & Fragen</label>
+      <textarea id="cf-msg" name="nachricht" rows="4" placeholder="Kurze Beschreibung deiner Immobilie, z.B. Wohnung in Wien, 80 m², möchte im Frühjahr verkaufen..." required></textarea>
+    </div>
+
+    <div class="contact-submit">
+      <button type="submit" class="btn-primary">Kostenlos anfragen →</button>
+      <p class="contact-fine">Keine Provision. Kein Maklervertrag. Einfach nur ehrliche Hilfe.</p>
+    </div>
+  </form>
+
+  <div class="contact-success" id="contactSuccess" style="display:none">
+    <div class="contact-success-icon">✓</div>
+    <h3>Nachricht erhalten!</h3>
+    <p>Wir melden uns innerhalb von 24 Stunden bei dir.</p>
   </div>
-  <p style="margin-top:16px; color:var(--gray); font-size:0.82rem;" class="reveal">Keine Provision. Kein Maklervertrag. Einfach nur ehrliche Hilfe.</p>
 </section>
 
 <!-- FOOTER -->
@@ -2029,6 +2151,18 @@
         if (el.classList.contains('open')) detail.style.height = 'auto';
       }, { once: true });
     }
+  }
+
+  // ── Contact Form ──
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      await fetch('/', { method: 'POST', body: data });
+      contactForm.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    });
   }
 
   // Reveal on scroll
