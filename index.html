@@ -2611,16 +2611,35 @@
     slider.style.background = `linear-gradient(to right, var(--gold) ${pct}%, rgba(255,255,255,0.15) ${pct}%)`;
   }
 
+  var selectedPackagePrice = 0;
+
+  function selectPackage(btn) {
+    const price = parseInt(btn.getAttribute('data-price'));
+    if (btn.classList.contains('active')) {
+      btn.classList.remove('active');
+      selectedPackagePrice = 0;
+      document.getElementById('calcTotalSub').textContent = 'Käufer + Verkäufer zusammen';
+    } else {
+      document.querySelectorAll('.calc-pkg-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedPackagePrice = price;
+      const name = btn.querySelector('.calc-pkg-name').textContent;
+      document.getElementById('calcTotalSub').textContent = 'Nach Abzug ' + name + '-Paket';
+    }
+    updateCalc(document.getElementById('calcSlider').value);
+  }
+
   function updateCalc(val) {
     const price   = +val;
     const buyer   = price * 0.036;
     const seller  = price * 0.036;
-    const total   = buyer + seller;
+    const gross   = buyer + seller;
+    const net     = Math.max(0, gross - selectedPackagePrice);
 
     document.getElementById('calcPriceNum').textContent  = fmt(price);
     document.getElementById('buyerSaving').textContent   = fmt(buyer);
     document.getElementById('sellerSaving').textContent  = fmt(seller);
-    document.getElementById('totalSaving').textContent   = fmt(total);
+    document.getElementById('totalSaving').textContent   = fmt(net);
 
     updateTrack(document.getElementById('calcSlider'));
 
