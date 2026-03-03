@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ImmoLotse – Immobilie verkaufen ohne Makler</title>
+<title>ImmoLotse: Immobilie verkaufen ohne Makler</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -619,6 +619,141 @@
     color: white;
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+
+  /* ── SCROLL-PINNED HOW IT WORKS ── */
+
+
+
+
+
+
+
+
+
+
+
+  /* Steps start hidden (except first) */
+
+
+
+
+  /* Progress dots */
+
+
+
+
+  .step-dot.active {
+    background: var(--navy);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+  
+  
+  }
+
+  /* ── SCROLL-PINNED STEPS ── */
+  .how-scroll-outer {
+    height: 350vh;
+    position: relative;
+  }
+  .how-scroll-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .how-scroll-inner {
+    width: 100%;
+    padding: 60px 6%;
+  }
+  .how-scroll-inner .section-label { color: var(--blue); }
+  .how-scroll-inner .section-title { color: var(--navy); }
+  .how-scroll-inner .section-sub   { color: var(--text-mid); }
+  .how-scroll-inner .centered { margin-bottom: 40px; }
+
+  .step-pin {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .step-pin.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .step-dot {
+    width: 28px; height: 6px;
+    border-radius: 3px;
+    background: var(--gray-light);
+    transition: background 0.3s;
+  }
+  .step-dot.active {
+    background: var(--navy);
+  }
+
+
+
+
+
+  /* ── EXPANDABLE SERVICE ITEMS ── */
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .service-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .service-item-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .service-chevron {
+    color: var(--text-mid);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  .service-item.open .service-chevron {
+    transform: rotate(180deg);
+  }
+  .service-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+    padding-left: 30px;
+  }
+  .service-item.open .service-detail {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 10px;
+  }
+  .service-item.open {
+    border-color: var(--blue);
+    background: white;
   }
 
   /* ── TRUST BAR ── */
@@ -1245,6 +1380,46 @@
 
   /* Post/featured images already use rgba stroke, keep as-is */
 </style>
+  <!-- Schema.org JSON-LD – structured data for Google, ChatGPT, Perplexity -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ImmoLotse",
+    "description": "Österreichisches Immobilien-Marketingunternehmen für private Immobilienverkäufer. Professionelle Vermarktung von Wohnungen und Häusern in Wien und ganz Österreich – ohne Makler, ohne Provision, zu transparenten Fixpreisen.",
+    "url": "https://incredible-croissant-8758a4.netlify.app",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wien",
+      "addressCountry": "AT"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Österreich"
+    },
+    "priceRange": "Ab € 99 Fixpreis",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "ImmoLotse Leistungen",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "KI-Bildoptimierung", "description": "Professionelle Bildoptimierung mit KI – eigene Fotos einsenden, optimierte Bilder zurückbekommen. Ab € 99." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotoshooting inkl. KI-Bearbeitung", "description": "15 professionelle Fotos vor Ort inkl. KI-Nachbearbeitung. € 500." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Professionelles Exposé (PDF)", "description": "Hochwertiges PDF-Exposé mit Texten, Grundriss und Layout. € 149." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unterlagen einholen", "description": "Grundbuchauszug, Energieausweis, Betriebskosten – wir holen alles. € 149." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Umzugsservice Wien", "description": "Professioneller Umzug und Räumung in Wien. Kostenvoranschlag nach Bildübermittlung." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reinigungsservice Wien", "description": "Professionelle Endreinigung in Wien. € 3 pro m²." } }
+      ]
+    },
+    "knowsAbout": [
+      "Wohnung verkaufen ohne Makler Wien",
+      "Immobilie verkaufen privat Österreich",
+      "Maklerprovision sparen",
+      "Privatverkauf Immobilie",
+      "Immobilienmarketing Fixpreis",
+      "Haus verkaufen ohne Makler"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1281,7 +1456,7 @@
     <div class="hero-content">
       <div class="hero-badge">Für Österreich entwickelt</div>
       <h1>Verkauf deine Immobilie.<br><em>Ohne Makler.</em><br>Ohne Kompromisse.</h1>
-      <p class="hero-sub">Professionelles Marketing für Privatverkäufer – transparente Fixpreise, keine versteckten Kosten, kein Provisionspoker. Du behältst die Kontrolle.</p>
+      <p class="hero-sub">Professionelles Marketing für Privatverkäufer. Transparente Fixpreise, keine versteckten Kosten, kein Provisionspoker. Du behältst die Kontrolle.</p>
       <div class="hero-ctas">
         <a href="shop.html" class="btn-primary">Leistungen buchen</a>
       </div>
@@ -1290,7 +1465,7 @@
     <!-- BOX 2: Savings calculator -->
     <div class="hero-calc">
       <div class="calc-card-title">Deine Ersparnis berechnen</div>
-      <div class="calc-card-sub">Ohne Makler – so viel bleibt in deiner Tasche</div>
+      <div class="calc-card-sub">Ohne Makler: so viel bleibt in deiner Tasche</div>
 
       <div class="calc-price-display">
         <div class="calc-price-num" id="calcPriceNum">€ 350.000</div>
@@ -1350,40 +1525,51 @@
   <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div> Österreichweit tätig</div>
 </div>
 
+<!-- HOW IT WORKS – SCROLL PINNED -->
 <!-- HOW IT WORKS -->
-<section class="how-bg" id="so-funktionierts">
-  <div class="centered">
-    <div class="section-label reveal">So funktioniert's</div>
-    <h2 class="section-title reveal">In 4 einfachen Schritten<br>zum Verkaufserfolg</h2>
-    <p class="section-sub reveal">Kein Maklervertrag, kein Stress. Du entscheidest was du brauchst – wir liefern.</p>
+<div class="how-scroll-outer" id="so-funktionierts">
+  <div class="how-scroll-sticky">
+    <div class="how-scroll-inner">
+      <div class="centered">
+        <div class="section-label">So funktioniert's</div>
+        <h2 class="section-title">In 4 einfachen Schritten<br>zum Verkaufserfolg</h2>
+        <p class="section-sub">Kein Maklervertrag, kein Stress. Du entscheidest was du brauchst, wir liefern.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card step-pin" data-step="0">
+          <div class="step-number">01</div>
+          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
+          <div class="step-title">Leistung wählen</div>
+          <p class="step-desc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete, ganz nach deinem Bedarf.</p>
+        </div>
+        <div class="step-card step-pin" data-step="1">
+          <div class="step-number">02</div>
+          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          <div class="step-title">Unterlagen &amp; Fotos</div>
+          <p class="step-desc">Du schickst uns deine Fotos und Unterlagen, oder wir organisieren alles für dich. Schnell und unkompliziert.</p>
+        </div>
+        <div class="step-card step-pin" data-step="2">
+          <div class="step-number">03</div>
+          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+          <div class="step-title">Wir erledigen alles</div>
+          <p class="step-desc">Exposé (PDF), KI-optimierte Bilder, professionell aufbereitet. Fertig in 48 Stunden.</p>
+        </div>
+        <div class="step-card step-pin" data-step="3">
+          <div class="step-number">04</div>
+          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <div class="step-title">Du verkaufst</div>
+          <p class="step-desc">Du führst Besichtigungen selbst durch. Der Abschluss bleibt bei dir.</p>
+        </div>
+      </div>
+      <div class="step-dots">
+        <div class="step-dot" data-dot="0"></div>
+        <div class="step-dot" data-dot="1"></div>
+        <div class="step-dot" data-dot="2"></div>
+        <div class="step-dot" data-dot="3"></div>
+      </div>
+    </div>
   </div>
-  <div class="steps-grid">
-    <div class="step-card reveal">
-      <div class="step-number">01</div>
-      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
-      <div class="step-title">Leistung wählen</div>
-      <p class="step-desc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete – ganz nach deinem Bedarf.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.1s">
-      <div class="step-number">02</div>
-      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-      <div class="step-title">Unterlagen & Fotos</div>
-      <p class="step-desc">Du schickst uns deine Fotos und Unterlagen – oder wir organisieren alles für dich. Schnell und unkompliziert.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.2s">
-      <div class="step-number">03</div>
-      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-      <div class="step-title">Wir erledigen alles</div>
-      <p class="step-desc">Exposé (PDF), KI-optimierte Bilder – professionell aufbereitet, innerhalb von 48 Stunden.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.3s">
-      <div class="step-number">04</div>
-      <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-      <div class="step-title">Du verkaufst</div>
-      <p class="step-desc">Du führst Besichtigungen selbst durch. Der Abschluss bleibt bei dir.</p>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- SERVICES -->
 <section id="leistungen">
@@ -1397,34 +1583,75 @@
       </div>
     </div>
     <div class="service-list">
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="service-name">Fotoshooting inkl. KI-Bearbeitung (15 Bilder)</span></div>
-        <span class="service-price">€ 500</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="service-name">Fotoshooting inkl. KI-Bearbeitung (15 Bilder)</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 499</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Unser Fotograf kommt zu dir: 15 professionelle Aufnahmen deiner Immobilie, danach KI-optimiert für maximale Wirkung auf Willhaben & ImmoScout. Lieferung innerhalb 48 Stunden.</div>
       </div>
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></span><span class="service-name">KI-Bildoptimierung (eigene Fotos)</span></div>
-        <span class="service-price">€ 99</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></span><span class="service-name">KI-Bildoptimierung (eigene Fotos)</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 99</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Du schickst uns deine Handyfotos, wir liefern professionell optimierte Bilder zurück. Bis zu 15 Bilder: Helligkeit, Farben, Himmel, störende Objekte entfernen. Lieferung in 24 Stunden.</div>
       </div>
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></span><span class="service-name">Professionelles Exposé erstellen (PDF)</span></div>
-        <span class="service-price">€ 149</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></span><span class="service-name">Professionelles Exposé erstellen (PDF)</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 149</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Wir erstellen ein hochwertiges PDF-Exposé mit professionellen Texten, Grundriss-Layout und deinen Fotos, fertig zum Versenden an Interessenten oder zum Ausdrucken.</div>
       </div>
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span><span class="service-name">Unterlagen einholen</span></div>
-        <span class="service-price">€ 149</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span><span class="service-name">Unterlagen einholen</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 149</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Wir kümmern uns um alle notwendigen Dokumente: Grundbuchauszug, Energieausweis, Betriebskostenabrechnung und weitere Unterlagen die Käufer benötigen.</div>
       </div>
-
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12H19M12 5l7 7-7 7"/></svg></span><span class="service-name">Umzugsservice Wien <small style="font-weight:400;color:var(--text-mid)">(Kostenvoranschlag)</small></span></div>
-        <span class="service-price">Auf Anfrage</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12H19M12 5l7 7-7 7"/></svg></span><span class="service-name">Umzugsservice Wien <small style="font-weight:400;color:var(--text-mid)">(Kostenvoranschlag)</small></span></div>
+          <div class="service-item-right">
+            <span class="service-price">Auf Anfrage</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Professioneller Umzug und Räumung, nur in Wien verfügbar. Schick uns Bilder deiner Immobilie und wir erstellen dir innerhalb von 24 Stunden einen kostenlosen Kostenvoranschlag.</div>
       </div>
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="service-name">Reinigungsservice Wien <small style="font-weight:400;color:var(--text-mid)">(€ 3,– / m²)</small></span></div>
-        <span class="service-price">Ab € 3/m²</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="service-name">Reinigungsservice Wien <small style="font-weight:400;color:var(--text-mid)">(€ 3,– / m²)</small></span></div>
+          <div class="service-item-right">
+            <span class="service-price">Ab € 3/m²</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Professionelle Endreinigung deiner Immobilie in Wien, ideal nach einem Auszug oder vor dem Verkauf. Preis: € 3,– pro m². Für 80 m² z.B. € 240,–. Buchung direkt im Shop.</div>
       </div>
-      <div class="service-item reveal">
-        <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="service-name">Werteinschätzung</span></div>
-        <span class="service-price">€ 99</span>
+      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="service-name">Werteinschätzung</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 99</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">Unsere Marktpreisanalyse basiert auf aktuellen Vergleichswerten in deiner Region. Du erhältst eine realistische Einschätzung des Verkaufspreises, damit du weder zu viel noch zu wenig verlangst.</div>
       </div>
     </div>
   </div>
@@ -1434,7 +1661,7 @@
 <section class="how-bg" id="pakete">
   <div class="centered">
     <div class="section-label reveal">Komplettpakete</div>
-    <h2 class="section-title reveal">Alles aus einer Hand –<br>zum fairen Fixpreis</h2>
+    <h2 class="section-title reveal">Alles aus einer Hand,<br>zum fairen Fixpreis</h2>
     <p class="section-sub reveal">Für alle die es einfach haben wollen: ein Paket, ein Preis, keine Überraschungen.</p>
   </div>
   <div class="packages-grid">
@@ -1485,13 +1712,13 @@
     <div>
       <div class="section-label">KI-Bildoptimierung</div>
       <h2 class="section-title">Deine Fotos.<br>Professionell optimiert.</h2>
-      <p class="section-sub">Schick uns deine Handyfotos – wir liefern Bilder die so gut aussehen wie vom Profi. Kein neues Fotoshooting nötig.</p>
+      <p class="section-sub">Schick uns deine Handyfotos, wir liefern Bilder die so gut aussehen wie vom Profi. Kein neues Fotoshooting nötig.</p>
       <div class="ki-features">
         <div class="ki-feature reveal">
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
           <div class="ki-feature-text">
             <h4>Helligkeit & Farben optimieren</h4>
-            <p>Dunkle Räume werden hell und einladend – realistisch und natürlich.</p>
+            <p>Dunkle Räume werden hell und einladend, realistisch und natürlich.</p>
           </div>
         </div>
         <div class="ki-feature reveal">
@@ -1505,7 +1732,7 @@
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg></div>
           <div class="ki-feature-text">
             <h4>Störendes entfernen</h4>
-            <p>Kabel, Mülleimer, Autos – verschwinden lautlos aus dem Bild.</p>
+            <p>Kabel, Mülleimer, Autos: verschwinden lautlos aus dem Bild.</p>
           </div>
         </div>
         <div class="ki-feature reveal">
@@ -1523,10 +1750,10 @@
       <div class="ba-slider-wrap">
         <div class="ba-slider-container" id="baContainer">
           <!-- AFTER image (bottom layer, full width) -->
-          <img id="baImgAfter" src="nachher.jpg" alt="Nachher – professionell optimiert" class="ba-img ba-img-after" onerror="this.src='nachher.png'">
+          <img id="baImgAfter" src="nachher.jpg" alt="Nachher: professionell optimiert" class="ba-img ba-img-after" onerror="this.src='nachher.png'">
           <!-- BEFORE image (top layer, clipped) -->
           <div class="ba-before-clip" id="baBeforeClip">
-            <img id="baImgBefore" src="vorher.jpg" alt="Vorher – Originalfoto" class="ba-img ba-img-before" onerror="this.src='vorher.png'">
+            <img id="baImgBefore" src="vorher.jpg" alt="Vorher: Originalfoto" class="ba-img ba-img-before" onerror="this.src='vorher.png'">
           </div>
           <!-- Divider line -->
           <div class="ba-divider" id="baDivider">
@@ -1557,7 +1784,7 @@
   <div class="centered">
     <div class="section-label reveal">Unsere Philosophie</div>
     <h2 class="section-title reveal">Wir denken langfristig.<br>Du profitierst sofort.</h2>
-    <p class="section-sub reveal">Starte klein, vertrau uns schrittweise – und hol dir im Erfolgsfall den vollen Service.</p>
+    <p class="section-sub reveal">Starte klein, vertrau uns schrittweise. Im Erfolgsfall holst du dir den vollen Service.</p>
   </div>
   <div class="funnel-cards">
     <div class="funnel-card reveal">
@@ -1568,17 +1795,17 @@
     <div class="funnel-card reveal">
       <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       <div class="funnel-title">Vertrauen aufbauen</div>
-      <p class="funnel-desc">Du siehst wie wir arbeiten – professionell, schnell, transparent.</p>
+      <p class="funnel-desc">Du siehst wie wir arbeiten: professionell, schnell, transparent.</p>
     </div>
     <div class="funnel-card reveal">
       <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
       <div class="funnel-title">Follow-up</div>
-      <p class="funnel-desc">Wir melden uns nach 4 Wochen – wie läuft der Verkauf?</p>
+      <p class="funnel-desc">Wir melden uns nach 4 Wochen und fragen nach: Wie läuft der Verkauf?</p>
     </div>
     <div class="funnel-card reveal">
       <div class="funnel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
       <div class="funnel-title">Verkaufserfolg</div>
-      <p class="funnel-desc">Ob allein oder mit unserem Full-Service – du verkaufst ohne Provision.</p>
+      <p class="funnel-desc">Ob allein oder mit unserem Full-Service: du verkaufst ohne Provision.</p>
     </div>
   </div>
 </section>
@@ -1638,35 +1865,35 @@
         Brauche ich einen Maklergewerbeschein um mit euch zu arbeiten?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Nein. ImmoLotse ist eine Marketingfirma – wir übernehmen die Vermarktung deiner Immobilie zu Fixpreisen. Du bleibst rechtlich der Verkäufer. Wir verlangen keine Provision und agieren nicht als Makler.</div>
+      <div class="faq-answer">Nein. ImmoLotse ist eine Marketingfirma, wir übernehmen die Vermarktung deiner Immobilie zu Fixpreisen. Du bleibst rechtlich der Verkäufer. Wir verlangen keine Provision und agieren nicht als Makler.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-question" onclick="toggleFaq(this)">
         Wie lange dauert es bis mein Inserat online ist?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Nach Eingang aller Unterlagen und Fotos liefern wir innerhalb von 48 Stunden. Das fertige Exposé, die optimierten Bilder und das Willhaben-Inserat – alles in zwei Werktagen.</div>
+      <div class="faq-answer">Nach Eingang aller Unterlagen und Fotos liefern wir innerhalb von 48 Stunden. Das fertige Exposé, die optimierten Bilder und das Willhaben-Inserat, alles in zwei Werktagen.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-question" onclick="toggleFaq(this)">
         Was wenn meine Wohnung sich nicht verkauft?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Dann analysieren wir kostenlos warum – und empfehlen gezielte Anpassungen. Im Gegensatz zum Makler verlieren wir kein Geld wenn du nicht verkaufst, also geben wir dir ehrliches Feedback statt falsche Hoffnungen.</div>
+      <div class="faq-answer">Dann analysieren wir kostenlos warum und empfehlen gezielte Anpassungen. Im Gegensatz zum Makler verlieren wir kein Geld wenn du nicht verkaufst, also geben wir dir ehrliches Feedback statt falsche Hoffnungen.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-question" onclick="toggleFaq(this)">
         Kann ich Leistungen nachbuchen?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Selbstverständlich. Starte mit dem Starter-Paket und buche später einzelne Leistungen dazu – zum Beispiel den Besichtigungsservice wenn du merkst dass die Anfragen zu viel werden.</div>
+      <div class="faq-answer">Selbstverständlich. Starte mit dem Starter-Paket und buche später einzelne Leistungen dazu, zum Beispiel den Besichtigungsservice wenn du merkst dass die Anfragen zu viel werden.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-question" onclick="toggleFaq(this)">
         In welchen Regionen seid ihr tätig?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Österreichweit. Exposé, KI-Bildoptimierung und Inserat können wir für ganz Österreich anbieten. Für Fotoshootings und Besichtigungen kontaktiere uns für deine Region – wir finden eine Lösung.</div>
+      <div class="faq-answer">Österreichweit. Exposé, KI-Bildoptimierung und Inserat können wir für ganz Österreich anbieten. Für Fotoshootings und Besichtigungen kontaktiere uns für deine Region, wir finden eine Lösung.</div>
     </div>
   </div>
 </section>
@@ -1675,7 +1902,7 @@
 <section class="cta-section" id="kontakt">
   <div class="section-label reveal">Kostenlos starten</div>
   <h2 class="cta-title reveal">Bereit deine Immobilie<br>professionell zu vermarkten?</h2>
-  <p class="cta-sub reveal">Schick uns deinen Willhaben-Link oder eine kurze Beschreibung – wir analysieren kostenlos und unverbindlich.</p>
+  <p class="cta-sub reveal">Schick uns deinen Willhaben-Link oder eine kurze Beschreibung, wir analysieren kostenlos und unverbindlich.</p>
   <div class="cta-form reveal">
     <input type="email" class="cta-input" placeholder="Deine E-Mail Adresse">
     <a href="#" class="btn-primary">Jetzt anfragen →</a>
@@ -1747,7 +1974,48 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
+  // ── Scroll-Pinned Steps ──
+  (function() {
+    const outer = document.getElementById('so-funktionierts');
+    if (!outer) return;
+    const steps = Array.from(document.querySelectorAll('.step-pin'));
+    const dots  = Array.from(document.querySelectorAll('.step-dot'));
+    const TOTAL = steps.length; // 4
+
+    function update() {
+      const rect     = outer.getBoundingClientRect();
+      const outerH   = outer.offsetHeight;
+      const vh       = window.innerHeight;
+      const scrolled = -rect.top; // px scrolled into the outer div
+      const scrollable = outerH - vh; // total scrollable px (250vh - 100vh = 150vh)
+      // Divide scrollable range equally: each step gets 1/4
+      const slice = scrollable / TOTAL;
+
+      steps.forEach((step, i) => {
+        const threshold = slice * i;
+        step.classList.toggle('visible', scrolled >= threshold);
+      });
+
+      dots.forEach((dot, i) => {
+        const threshold = slice * i;
+        dot.classList.toggle('active', scrolled >= threshold);
+      });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
+  // ── Expandable Service Items ──
+  function toggleServiceDetail(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.service-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
   // Reveal on scroll
+
+
   // ── Before/After Slider ──
   (function() {
     const container = document.getElementById('baContainer');
@@ -1784,7 +2052,7 @@
 
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // FAQ toggle
