@@ -740,10 +740,10 @@
     position: absolute;
     inset: -15% 0;
     background: url('how-bg.png') center center / cover no-repeat;
-    opacity: 0.13;
+    opacity: 0.18;
     will-change: transform;
     pointer-events: none;
-    filter: saturate(0.5);
+    filter: saturate(0.4) brightness(0.7);
   }
 
   /* ── HOW IT WORKS – SCROLL PINNED ── */
@@ -776,7 +776,7 @@
     color: var(--white);
   }
   .how-left .section-label {
-    color: var(--gold-light);
+    color: #f0d878;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -797,17 +797,19 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 700;
-    color: var(--white);
+    color: #ffffff;
     line-height: 1.2;
     margin-bottom: 20px;
     transition: all 0.4s ease;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
   }
   .how-active-desc {
     font-size: 1rem;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.88);
     line-height: 1.7;
     font-weight: 300;
     max-width: 420px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.5);
     transition: all 0.4s ease;
   }
   .how-active-icon {
@@ -833,7 +835,8 @@
     padding: 20px 24px;
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.04);
+    background: rgba(8,20,48,0.55);
+    backdrop-filter: blur(8px);
     opacity: 0;
     transform: translateX(30px);
     transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease, border-color 0.3s ease;
@@ -844,14 +847,14 @@
     transform: translateX(0);
   }
   .how-step-row.active-row {
-    background: rgba(201,168,76,0.12);
-    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.18);
+    border-color: rgba(201,168,76,0.5);
   }
   .how-step-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
     min-width: 36px;
     transition: color 0.3s;
   }
@@ -874,11 +877,12 @@
   .how-step-label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.75);
     transition: color 0.3s;
   }
   .how-step-row.active-row .how-step-label {
-    color: var(--white);
+    color: #ffffff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
   }
   .how-step-check {
     margin-left: auto;
