@@ -38,7 +38,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 6%;
+    padding: 12px 6%;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(15,34,64,0.08);
@@ -87,8 +87,8 @@
     min-height: 100vh;
     background: var(--navy);
     display: flex;
-    align-items: flex-end;
-    padding: 0 0 80px;
+    align-items: center;
+    padding: 80px 0 0;
     position: relative;
     overflow: hidden;
   }
@@ -182,7 +182,7 @@
     display: grid;
     grid-template-columns: 1fr 420px;
     gap: 60px;
-    align-items: flex-end;
+    align-items: center;
     max-width: 1300px;
     margin: 0 auto;
     width: 100%;
@@ -249,10 +249,11 @@
   /* Large decorative word behind headline */
   .hero-bg-word {
     position: absolute;
-    bottom: 60px;
-    left: -2%;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Playfair Display', serif;
-    font-size: clamp(10rem, 22vw, 20rem);
+    font-size: clamp(5rem, 12vw, 11rem);
     font-weight: 700;
     color: rgba(255,255,255,0.025);
     line-height: 1;
@@ -1034,7 +1035,7 @@
   /* ── TRUST BAR ── */
   .trust-bar {
     background: var(--gold);
-    padding: 20px 6%;
+    padding: 9px 6%;
     display: flex;
     justify-content: center;
     gap: 48px;
@@ -1045,7 +1046,7 @@
     align-items: center;
     gap: 10px;
     color: var(--navy);
-    font-size: 0.87rem;
+    font-size: 0.8rem;
     font-weight: 600;
   }
   .trust-icon {
@@ -1730,7 +1731,7 @@
   <div class="hero-dots"></div>
 
   <!-- Large decorative background word -->
-  <div class="hero-bg-word" id="heroBgWord">Verkauf</div>
+  <div class="hero-bg-word" id="heroBgWord">ImmoLotse</div>
 
   <div class="hero-grid">
 
