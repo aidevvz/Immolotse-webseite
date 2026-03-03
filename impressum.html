@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum & Datenschutz – ImmoLotse</title>
+  <meta name="description" content="Impressum und Datenschutzerklärung von ImmoLotse, Giori Gorgodze Einzelunternehmen, Wien.">
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0F2240;
+      --navy-mid: #1A3A6B;
+      --blue: #1E5CB3;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --white: #FFFFFF;
+      --off-white: #F7F8FC;
+      --gray: #8A95A3;
+      --text-mid: #3D4F6B;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15,34,64,0.08);
+      box-shadow: 0 4px 24px rgba(15,34,64,0.07);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .btn-nav {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .btn-nav:hover { background: var(--blue) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 140px 6% 72px;
+      text-align: center;
+    }
+    .page-header .label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .page-header p {
+      color: rgba(255,255,255,0.6);
+      margin-top: 14px;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* ── TAB NAV ── */
+    .tab-bar {
+      background: var(--white);
+      border-bottom: 2px solid var(--off-white);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: sticky;
+      top: 65px;
+      z-index: 50;
+    }
+    .tab-btn {
+      padding: 18px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+    .tab-btn:hover { color: var(--navy); }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 6% 100px;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .legal-section {
+      margin-bottom: 48px;
+    }
+    .legal-section h2 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--off-white);
+    }
+    .legal-section h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 20px 0 8px;
+    }
+    .legal-section p {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .legal-section a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .legal-section a:hover { text-decoration: underline; }
+    .legal-section ul {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+    .legal-section ul li { margin-bottom: 6px; }
+
+    .info-box {
+      background: var(--off-white);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .info-box p { margin: 0; font-size: 0.88rem; }
+    .info-box strong { color: var(--navy); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 6% 28px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .tab-btn { padding: 16px 20px; font-size: 0.82rem; }
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo" style="text-decoration:none;">Immo<span>Lotse</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#pakete">Pakete</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="this.classList.toggle('open'); document.getElementById('navLinks').style.display = document.getElementById('navLinks').style.display === 'flex' ? 'none' : 'flex'">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <span class="label">Rechtliches</span>
+  <h1>Impressum &amp; Datenschutz</h1>
+  <p>Letzte Aktualisierung: März 2026</p>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('impressum', this)">Impressum</button>
+  <button class="tab-btn" onclick="switchTab('datenschutz', this)">Datenschutzerklärung</button>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- ── IMPRESSUM ── -->
+  <div class="tab-panel active" id="tab-impressum">
+
+    <div class="info-box">
+      <p>Angaben gemäß <strong>§ 5 ECG (E-Commerce-Gesetz)</strong> und <strong>§ 63 GewO</strong></p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Unternehmensangaben</h2>
+      <h3>Unternehmensinhaber</h3>
+      <p>Giori Gorgodze<br>
+      ImmoLotse – Einzelunternehmen<br>
+      Wien, Österreich</p>
+
+      <h3>Kontakt</h3>
+      <p>E-Mail: <a href="mailto:info@immolotse.at">info@immolotse.at</a><br>
+      Website: <a href="https://www.immolotse.at">www.immolotse.at</a></p>
+
+      <h3>Unternehmensgegenstand</h3>
+      <p>Immobilien-Marketingdienstleistungen für Privatverkäufer. ImmoLotse ist kein Makler und vermittelt keine Immobilien. Es werden ausschließlich Marketingleistungen (Exposé-Erstellung, Bildoptimierung, Dokumentenbeschaffung) zu Fixpreisen angeboten.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Behörden &amp; Kammerzugehörigkeit</h2>
+      <h3>Zuständige Behörde</h3>
+      <p>Magistrat der Stadt Wien, Magistratisches Bezirksamt</p>
+
+      <h3>Berufsrechtliche Vorschriften</h3>
+      <p>Gewerbeordnung 1994 (GewO) – abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Haftungsausschluss</h2>
+      <h3>Haftung für Inhalte</h3>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 ECG für eigene Inhalte verantwortlich.</p>
+
+      <h3>Haftung für Links</h3>
+      <p>Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich. Eine permanente Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Die durch uns erstellten Inhalte und Werke auf dieser Website unterliegen dem österreichischen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung bedarf der schriftlichen Zustimmung des jeweiligen Autors.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Online-Streitbeilegung</h2>
+      <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+  </div>
+
+  <!-- ── DATENSCHUTZ ── -->
+  <div class="tab-panel" id="tab-datenschutz">
+
+    <div class="info-box">
+      <p>Gemäß <strong>DSGVO (EU) 2016/679</strong> und dem österreichischen <strong>Datenschutzgesetz (DSG)</strong></p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Verantwortlicher</h2>
+      <p>Giori Gorgodze, ImmoLotse Einzelunternehmen<br>
+      E-Mail: <a href="mailto:info@immolotse.at">info@immolotse.at</a></p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Welche Daten wir erheben</h2>
+      <h3>Kontaktformular</h3>
+      <p>Wenn du unser Kontaktformular ausfüllst, erheben wir:</p>
+      <ul>
+        <li>Name</li>
+        <li>E-Mail-Adresse</li>
+        <li>Nachrichteninhalt (Beschreibung deiner Immobilie)</li>
+      </ul>
+      <p>Diese Daten werden ausschließlich zur Bearbeitung deiner Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+
+      <h3>Server-Logfiles</h3>
+      <p>Beim Besuch unserer Website werden automatisch Informationen in Server-Logfiles gespeichert (IP-Adresse, Browsertyp, Uhrzeit des Zugriffs). Diese Daten sind nicht bestimmten Personen zuordenbar und werden nach 7 Tagen gelöscht.</p>
+
+      <h3>Netlify (Hosting & Formular)</h3>
+      <p>Unsere Website wird über Netlify Inc. (USA) gehostet. Netlify verarbeitet technische Daten (IP-Adresse, Zugriffszeiten) gemäß ihrer <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Datenschutzerklärung</a>. Formulardaten werden über Netlify Forms übermittelt und verschlüsselt gespeichert.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Rechtsgrundlage</h2>
+      <p>Die Verarbeitung deiner Daten erfolgt auf Basis von:</p>
+      <ul>
+        <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – Vertragsanbahnung (bei Anfragen zu unseren Leistungen)</li>
+        <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> – Berechtigtes Interesse (Server-Logfiles zur Sicherheit)</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>Speicherdauer</h2>
+      <p>Kontaktanfragen werden für maximal 12 Monate gespeichert, sofern kein Geschäftsverhältnis entsteht. Bei Zustandekommen eines Vertrages gelten die gesetzlichen Aufbewahrungsfristen (7 Jahre gemäß UGB).</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Deine Rechte</h2>
+      <p>Du hast jederzeit das Recht auf:</p>
+      <ul>
+        <li><strong>Auskunft</strong> über deine gespeicherten Daten (Art. 15 DSGVO)</li>
+        <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+        <li><strong>Löschung</strong> deiner Daten (Art. 17 DSGVO)</li>
+        <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+        <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+        <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+      </ul>
+      <p>Für Anfragen wende dich an: <a href="mailto:info@immolotse.at">info@immolotse.at</a></p>
+
+      <h3>Beschwerderecht</h3>
+      <p>Du hast das Recht, Beschwerde bei der österreichischen Datenschutzbehörde einzulegen:<br>
+      <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">Datenschutzbehörde Österreich</a> – dsb.gv.at</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Cookies</h2>
+      <p>Unsere Website verwendet derzeit keine Tracking-Cookies. Es werden ausschließlich technisch notwendige Cookies verwendet, für die keine Einwilligung erforderlich ist.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 ImmoLotse. Alle Rechte vorbehalten.</span>
+    <span>Kein Makler. Keine Provision. <span style="color:var(--gold-light)">Einfach verkaufen.</span></span>
+  </div>
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
