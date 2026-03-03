@@ -395,6 +395,66 @@
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.07); }
 
+
+  /* ── CALC PACKAGES ── */
+  .calc-packages {
+    margin: 16px 0 8px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+  }
+  .calc-packages-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+  .calc-packages-label span {
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .calc-pkg-row {
+    display: flex;
+    gap: 8px;
+  }
+  .calc-pkg-btn {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 10px 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+    color: white;
+  }
+  .calc-pkg-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .calc-pkg-btn.active {
+    background: rgba(201,168,76,0.2);
+    border-color: rgba(201,168,76,0.6);
+  }
+  .calc-pkg-name {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+  .calc-pkg-btn.active .calc-pkg-name { color: var(--gold-light); }
+  .calc-pkg-price {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+  }
+  .calc-pkg-btn.active .calc-pkg-price { color: var(--gold-light); }
+
   /* ── SAVINGS CALCULATOR CARD ── */
   .hero-calc {
     background: rgba(255,255,255,0.06);
@@ -740,8 +800,40 @@
   }
 
   @media (max-width: 768px) {
-  
-  
+    .how-scroll-outer { height: auto !important; }
+    .how-scroll-sticky {
+      position: relative !important;
+      top: auto !important;
+      height: auto !important;
+      min-height: unset !important;
+      padding: 48px 0 !important;
+    }
+    .how-scroll-inner {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+      padding: 0 5% !important;
+    }
+    .how-left { display: none !important; }
+    .how-right {
+      display: flex !important;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+    .how-step-row {
+      opacity: 1 !important;
+      transform: none !important;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    .how-step-label {
+      color: rgba(255,255,255,0.9) !important;
+      font-size: 1rem !important;
+      white-space: normal !important;
+    }
+    .how-step-num { color: var(--gold-light) !important; }
+    .how-step-check { display: none !important; }
+    .how-bg-number, .how-bg-img { display: none !important; }
   }
 
   /* ── SCROLL-PINNED STEPS ── */
@@ -1662,6 +1754,24 @@
     .hero-grid { grid-template-columns: 1fr !important; gap: 32px; }
     .hero-bg-word { font-size: clamp(6rem, 28vw, 12rem); }
     .hero-scroll-hint { display: none; }
+    .trust-bar {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 8px;
+      padding: 14px 5% !important;
+    }
+    .trust-item {
+      font-size: 0.72rem !important;
+      gap: 6px !important;
+    }
+    .trust-icon {
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 6px !important;
+      font-size: 0.75rem !important;
+      flex-shrink: 0;
+    }
+    .trust-icon svg { width: 13px; height: 13px; }
     .packages-grid { grid-template-columns: 1fr !important; }
     .savings-display { flex-direction: column; gap: 16px; }
   }
@@ -1826,10 +1936,29 @@
         </div>
       </div>
 
+      <!-- Package selector -->
+      <div class="calc-packages">
+        <div class="calc-packages-label">Paket abziehen <span>(optional)</span></div>
+        <div class="calc-pkg-row">
+          <button class="calc-pkg-btn" data-price="449" onclick="selectPackage(this)">
+            <span class="calc-pkg-name">Starter</span>
+            <span class="calc-pkg-price">− € 449</span>
+          </button>
+          <button class="calc-pkg-btn" data-price="1190" onclick="selectPackage(this)">
+            <span class="calc-pkg-name">Professional</span>
+            <span class="calc-pkg-price">− € 1.190</span>
+          </button>
+          <button class="calc-pkg-btn" data-price="2590" onclick="selectPackage(this)">
+            <span class="calc-pkg-name">Full-Service</span>
+            <span class="calc-pkg-price">− € 2.590</span>
+          </button>
+        </div>
+      </div>
+
       <div class="calc-total">
         <div class="calc-total-label">
-          Gesamtersparnis
-          <span>Käufer + Verkäufer zusammen</span>
+          Nettoersparnis
+          <span id="calcTotalSub">Käufer + Verkäufer zusammen</span>
         </div>
         <div class="calc-total-amount" id="totalSaving">€ 25.200</div>
       </div>
@@ -1850,8 +1979,8 @@
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div> Fixpreise – keine Überraschungen</div>
-  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div> Keine Provision bei Verkauf</div>
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div> Fixpreise</div>
+  <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div> Privatverkauf ohne Makler</div>
   <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div> Innerhalb 48h einsatzbereit</div>
   <div class="trust-item"><div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div> Österreichweit tätig</div>
 </div>
@@ -1905,7 +2034,7 @@
 </div>
 
 <!-- SERVICES -->
-<section id="leistungen">
+<section id="leistungen" style="background: var(--off-white); position: relative; z-index: 10;">
   <div class="services-layout">
     <div>
       <div class="section-label reveal">Einzelleistungen</div>
@@ -2032,7 +2161,7 @@
         <li><div class="check">✓</div> Reinigungsservice inklusive</li>
         <li><div class="check">✓</div> Umzugsservice inklusive</li>
         <li><div class="check">✓</div> Persönliche Betreuung</li>
-        <li><div class="check">✓</div> Keine Provision bei Verkauf</li>
+        <li><div class="check">✓</div> Privatverkauf ohne Makler</li>
       </ul>
       <a href="shop.html" class="btn-package">Jetzt buchen</a>
     </div>
