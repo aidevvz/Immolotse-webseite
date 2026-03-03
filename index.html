@@ -656,6 +656,7 @@
   }
 
   /* ── SCROLL-PINNED STEPS ── */
+  /* ── HOW IT WORKS – SCROLL PINNED ── */
   .how-scroll-outer {
     height: 350vh;
     position: relative;
@@ -664,45 +665,146 @@
     position: sticky;
     top: 0;
     height: 100vh;
-    background: var(--off-white);
+    background: var(--navy);
     display: flex;
     align-items: center;
     overflow: hidden;
   }
   .how-scroll-inner {
     width: 100%;
-    padding: 60px 6%;
-  }
-  .how-scroll-inner .section-label { color: var(--blue); }
-  .how-scroll-inner .section-title { color: var(--navy); }
-  .how-scroll-inner .section-sub   { color: var(--text-mid); }
-  .how-scroll-inner .centered { margin-bottom: 40px; }
-
-  .step-pin {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .step-pin.visible {
-    opacity: 1;
-    transform: translateY(0);
+    padding: 0 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .step-dots {
+  /* LEFT: active step detail */
+  .how-left {
+    color: var(--white);
+  }
+  .how-left .section-label {
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .how-active-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 10vw, 8rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.07);
+    line-height: 1;
+    margin-bottom: -20px;
+    transition: all 0.5s ease;
+  }
+  .how-active-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+  }
+  .how-active-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 420px;
+    transition: all 0.4s ease;
+  }
+  .how-active-icon {
+    width: 64px; height: 64px;
+    background: var(--gold);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    transition: all 0.4s ease;
+  }
+  .how-active-icon svg { color: white; }
+
+  /* RIGHT: step list */
+  .how-right {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 32px;
+    flex-direction: column;
+    gap: 12px;
   }
-  .step-dot {
-    width: 28px; height: 6px;
-    border-radius: 3px;
-    background: var(--gray-light);
+  .how-step-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+  }
+  .how-step-row.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .how-step-row.active-row {
+    background: rgba(201,168,76,0.12);
+    border-color: rgba(201,168,76,0.4);
+  }
+  .how-step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    min-width: 36px;
+    transition: color 0.3s;
+  }
+  .how-step-row.active-row .how-step-num {
+    color: var(--gold-light);
+  }
+  .how-step-icon-sm {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
     transition: background 0.3s;
   }
-  .step-dot.active {
-    background: var(--navy);
+  .how-step-row.active-row .how-step-icon-sm {
+    background: var(--gold);
   }
+  .how-step-icon-sm svg { color: rgba(255,255,255,0.6); }
+  .how-step-row.active-row .how-step-icon-sm svg { color: white; }
+  .how-step-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.3s;
+  }
+  .how-step-row.active-row .how-step-label {
+    color: var(--white);
+  }
+  .how-step-check {
+    margin-left: auto;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  .how-step-row.done .how-step-check {
+    opacity: 1;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .how-step-check svg { color: rgba(255,255,255,0.6); }
 
 
 
@@ -1620,47 +1722,46 @@
 </div>
 
 <!-- HOW IT WORKS – SCROLL PINNED -->
-<!-- HOW IT WORKS -->
 <div class="how-scroll-outer" id="so-funktionierts">
   <div class="how-scroll-sticky">
     <div class="how-scroll-inner">
-      <div class="centered">
-        <div class="section-label">So funktioniert's</div>
-        <h2 class="section-title">In 4 einfachen Schritten<br>zum Verkaufserfolg</h2>
-        <p class="section-sub">Kein Maklervertrag, kein Stress. Du entscheidest was du brauchst, wir liefern.</p>
+
+      <!-- LEFT: active step detail -->
+      <div class="how-left">
+        <span class="section-label">So funktioniert's</span>
+        <div class="how-active-number" id="howActiveNum">01</div>
+        <h2 class="how-active-title" id="howActiveTitle">Leistung wählen</h2>
+        <p class="how-active-desc" id="howActiveDesc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete, ganz nach deinem Bedarf.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-card step-pin" data-step="0">
-          <div class="step-number">01</div>
-          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
-          <div class="step-title">Leistung wählen</div>
-          <p class="step-desc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete, ganz nach deinem Bedarf.</p>
+
+      <!-- RIGHT: step list -->
+      <div class="how-right">
+        <div class="how-step-row step-pin active-row" data-step="0">
+          <span class="how-step-num">01</span>
+          <div class="how-step-icon-sm"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
+          <span class="how-step-label">Leistung wählen</span>
+          <div class="how-step-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="step-card step-pin" data-step="1">
-          <div class="step-number">02</div>
-          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-          <div class="step-title">Unterlagen &amp; Fotos</div>
-          <p class="step-desc">Du schickst uns deine Fotos und Unterlagen, oder wir organisieren alles für dich. Schnell und unkompliziert.</p>
+        <div class="how-step-row step-pin" data-step="1">
+          <span class="how-step-num">02</span>
+          <div class="how-step-icon-sm"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          <span class="how-step-label">Unterlagen &amp; Fotos</span>
+          <div class="how-step-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="step-card step-pin" data-step="2">
-          <div class="step-number">03</div>
-          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-          <div class="step-title">Wir erledigen alles</div>
-          <p class="step-desc">Exposé (PDF), KI-optimierte Bilder, professionell aufbereitet. Fertig in 48 Stunden.</p>
+        <div class="how-step-row step-pin" data-step="2">
+          <span class="how-step-num">03</span>
+          <div class="how-step-icon-sm"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+          <span class="how-step-label">Wir erledigen alles</span>
+          <div class="how-step-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="step-card step-pin" data-step="3">
-          <div class="step-number">04</div>
-          <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-          <div class="step-title">Du verkaufst</div>
-          <p class="step-desc">Du führst Besichtigungen selbst durch. Der Abschluss bleibt bei dir.</p>
+        <div class="how-step-row step-pin" data-step="3">
+          <span class="how-step-num">04</span>
+          <div class="how-step-icon-sm"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <span class="how-step-label">Du verkaufst</span>
+          <div class="how-step-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
       </div>
-      <div class="step-dots">
-        <div class="step-dot" data-dot="0"></div>
-        <div class="step-dot" data-dot="1"></div>
-        <div class="step-dot" data-dot="2"></div>
-        <div class="step-dot" data-dot="3"></div>
-      </div>
+
     </div>
   </div>
 </div>
@@ -2098,28 +2199,47 @@
   (function() {
     const outer = document.getElementById('so-funktionierts');
     if (!outer) return;
-    const steps = Array.from(document.querySelectorAll('.step-pin'));
-    const dots  = Array.from(document.querySelectorAll('.step-dot'));
-    const TOTAL = steps.length; // 4
+    const rows = Array.from(document.querySelectorAll('.how-step-row'));
+    const TOTAL = rows.length;
+
+    const steps = [
+      { num: '01', title: 'Leistung wählen',      desc: 'Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete, ganz nach deinem Bedarf.' },
+      { num: '02', title: 'Unterlagen & Fotos',    desc: 'Du schickst uns deine Fotos und Unterlagen, oder wir organisieren alles für dich. Schnell und unkompliziert.' },
+      { num: '03', title: 'Wir erledigen alles',   desc: 'Exposé (PDF), KI-optimierte Bilder, professionell aufbereitet. Fertig in 48 Stunden.' },
+      { num: '04', title: 'Du verkaufst',          desc: 'Du führst Besichtigungen selbst durch. Der Abschluss bleibt bei dir.' },
+    ];
+
+    const elNum   = document.getElementById('howActiveNum');
+    const elTitle = document.getElementById('howActiveTitle');
+    const elDesc  = document.getElementById('howActiveDesc');
+    let lastActive = -1;
 
     function update() {
       const rect     = outer.getBoundingClientRect();
       const outerH   = outer.offsetHeight;
       const vh       = window.innerHeight;
-      const scrolled = -rect.top; // px scrolled into the outer div
-      const scrollable = outerH - vh; // total scrollable px (250vh - 100vh = 150vh)
-      // Divide scrollable range equally: each step gets 1/4
-      const slice = scrollable / TOTAL;
+      const scrolled = -rect.top;
+      const scrollable = outerH - vh;
+      const slice    = scrollable / TOTAL;
 
-      steps.forEach((step, i) => {
-        const threshold = slice * i;
-        step.classList.toggle('visible', scrolled >= threshold);
+      let activeIdx = 0;
+      rows.forEach((row, i) => {
+        const visible = scrolled >= slice * i;
+        row.classList.toggle('visible', visible);
+        row.classList.toggle('done', scrolled >= slice * (i + 1));
+        if (visible) activeIdx = i;
       });
 
-      dots.forEach((dot, i) => {
-        const threshold = slice * i;
-        dot.classList.toggle('active', scrolled >= threshold);
-      });
+      // Update active row highlight
+      rows.forEach((row, i) => row.classList.toggle('active-row', i === activeIdx));
+
+      // Update left panel text only when step changes
+      if (activeIdx !== lastActive) {
+        lastActive = activeIdx;
+        elNum.textContent   = steps[activeIdx].num;
+        elTitle.textContent = steps[activeIdx].title;
+        elDesc.textContent  = steps[activeIdx].desc;
+      }
     }
 
     window.addEventListener('scroll', update, { passive: true });
