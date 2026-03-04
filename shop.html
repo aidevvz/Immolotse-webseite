@@ -533,44 +533,40 @@
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 649)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 496)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 649</div>
-        <div class="pkg-save">Fotoshooting + Exposé zum Vorteilspreis</div>
+        <div class="pkg-price">€ 496</div>
+        <div class="pkg-save">Spare € 4 vs. Einzelbuchung</div>
         <ul class="pkg-features">
-          <li>Fotoshooting inkl. KI-Bearbeitung (15 Bilder)</li>
+          <li>KI-Bildoptimierung (bis 15 Bilder)</li>
           <li>Professionelles Exposé (PDF)</li>
-          <li>Lieferung in 48 Stunden</li>
+          <li>Werteinschätzung inklusive</li>
+          <li>Alle Unterlagen eingeholt</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1190)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 945)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 1.190</div>
-        <div class="pkg-save">Spare €334 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 945</div>
+        <div class="pkg-save">Spare € 50 vs. Einzelbuchung</div>
         <ul class="pkg-features">
-          <li>Premium Fotos + KI-Bearbeitung</li>
-          <li>Hochwertiges Exposé (PDF)</li>
-          <li>Alle Unterlagen eingeholt</li>
-          <li>Werteinschätzung inklusive</li>
+          <li>Alles aus Starter</li>
+          <li>Premium Fotoshooting inkl. KI-Bearbeitung (15 Bilder)</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 2590)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1796)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 2.590</div>
-        <div class="pkg-save">Spare bis zu €12.000 Provision</div>
+        <div class="pkg-price">€ 1.796</div>
+        <div class="pkg-save">Spare € 199 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
+          <li>Räumungsservice inklusive</li>
           <li>Reinigungsservice inklusive</li>
-          <li>Umzugsservice inklusive</li>
-          <li>Interessentenfilterung</li>
-          <li>Persönliche Betreuung</li>
-          <li>Keine Provision bei Verkauf</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
@@ -854,9 +850,9 @@
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 449 },
-    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 1190 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 2590 }
+    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 496 },
+    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 945 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1796 }
   };
 
   function togglePackage(key, price) {
