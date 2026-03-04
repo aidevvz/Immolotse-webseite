@@ -560,14 +560,14 @@
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1789)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1429)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.789 <span class="pkg-discount">−10 %</span></div>
-        <div class="pkg-save">Spare € 206 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 1.429 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-save">Spare € 166 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
-          <li>Räumungsservice inklusive</li>
+          <li>Räumungsgutschein (€ 200) inklusive</li>
           <li>Reinigungsservice inklusive</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
@@ -854,7 +854,7 @@
   const packageData = {
     starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 489 },
     professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 939 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1789 }
+    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1429 }
   };
 
   function togglePackage(key, price) {
