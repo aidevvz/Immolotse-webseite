@@ -1447,6 +1447,25 @@
     margin-bottom: 20px;
   }
 
+  .discount-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: 1px solid var(--gold);
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .professional .discount-badge {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+  }
+
   .package-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -2035,17 +2054,17 @@
       <div class="calc-packages">
         <div class="calc-packages-label">Paket abziehen <span>(optional)</span></div>
         <div class="calc-pkg-row">
-          <button class="calc-pkg-btn" data-price="496" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="489" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Starter</span>
-            <span class="calc-pkg-price">− € 496</span>
+            <span class="calc-pkg-price">− € 489</span>
           </button>
-          <button class="calc-pkg-btn" data-price="945" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="939" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Professional</span>
-            <span class="calc-pkg-price">− € 945</span>
+            <span class="calc-pkg-price">− € 939</span>
           </button>
-          <button class="calc-pkg-btn" data-price="1796" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="1789" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Full-Service</span>
-            <span class="calc-pkg-price">− € 1.796</span>
+            <span class="calc-pkg-price">− € 1.789</span>
           </button>
         </div>
       </div>
@@ -2224,7 +2243,7 @@
   <div class="packages-grid">
     <div class="package-card starter reveal">
       <div class="package-name">Starter</div>
-      <div class="package-price">€ 496</div>
+      <div class="package-price">€ 489</div>
       <p class="package-desc">Perfekt für den Einstieg</p>
       <ul class="package-features">
         <li><div class="check">✓</div> KI-Bildoptimierung (bis 15 Bilder)</li>
@@ -2237,7 +2256,7 @@
     <div class="package-card professional reveal">
       <div class="package-badge">Beliebteste Wahl</div>
       <div class="package-name">Professional</div>
-      <div class="package-price">€ 945</div>
+      <div class="package-price">€ 939 <span class="discount-badge">−5 %</span></div>
       <p class="package-desc">Für maximalen Verkaufserfolg</p>
       <ul class="package-features">
         <li><div class="check">✓</div> Alles aus Starter</li>
@@ -2247,7 +2266,7 @@
     </div>
     <div class="package-card fullservice reveal">
       <div class="package-name">Full-Service</div>
-      <div class="package-price">€ 1.796</div>
+      <div class="package-price">€ 1.789 <span class="discount-badge">−10 %</span></div>
       <p class="package-desc">Komplett stressfrei verkaufen</p>
       <ul class="package-features">
         <li><div class="check">✓</div> Alles aus Professional</li>

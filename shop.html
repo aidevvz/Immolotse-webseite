@@ -238,6 +238,7 @@
   .pkg-name { font-size: 1.15rem; color: var(--navy); margin-bottom: 4px; }
   .pkg-price { font-family: 'DM Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1; }
   .pkg-save { font-size: 0.75rem; color: var(--green); font-weight: 600; margin-bottom: 14px; }
+  .pkg-discount { display: inline-block; background: rgba(201,168,76,0.12); color: var(--gold); font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 50px; border: 1px solid var(--gold); margin-left: 6px; vertical-align: middle; }
   .pkg-features { list-style: none; margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px; }
   .pkg-features li { font-size: 0.82rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: 7px; line-height: 1.4; }
   .pkg-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
@@ -533,10 +534,10 @@
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 496)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 489)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 496</div>
+        <div class="pkg-price">€ 489</div>
         <div class="pkg-save">Spare € 4 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 15 Bilder)</li>
@@ -546,11 +547,11 @@
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 945)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 939)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 945</div>
+        <div class="pkg-price">€ 939 <span class="pkg-discount">−5 %</span></div>
         <div class="pkg-save">Spare € 50 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Starter</li>
@@ -558,10 +559,10 @@
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1796)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1789)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.796</div>
+        <div class="pkg-price">€ 1.789 <span class="pkg-discount">−10 %</span></div>
         <div class="pkg-save">Spare € 199 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
@@ -850,9 +851,9 @@
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 496 },
-    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 945 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1796 }
+    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 489 },
+    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 939 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1789 }
   };
 
   function togglePackage(key, price) {
