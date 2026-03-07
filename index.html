@@ -891,32 +891,69 @@
       top: auto !important;
       height: auto !important;
       min-height: unset !important;
-      padding: 48px 0 !important;
+      padding: 36px 0 !important;
     }
     .how-scroll-inner {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
-      padding: 0 5% !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 16px !important;
+      padding: 0 4% !important;
+      align-items: center !important;
     }
-    .how-left { display: none !important; }
-    .how-right {
-      display: flex !important;
-      flex-direction: column;
-      gap: 14px;
-      width: 100%;
+    .how-left { display: block !important; }
+    .how-active-number {
+      font-size: clamp(2.5rem, 10vw, 4rem) !important;
+      margin-bottom: -8px !important;
     }
+    .how-active-title {
+      font-size: clamp(1rem, 4vw, 1.4rem) !important;
+      margin-bottom: 8px !important;
+    }
+    .how-active-desc {
+      font-size: 0.72rem !important;
+      line-height: 1.5 !important;
+      max-width: 100% !important;
+    }
+    .how-active-icon {
+      width: 36px !important;
+      height: 36px !important;
+      margin-bottom: 10px !important;
+      border-radius: 9px !important;
+    }
+    .how-active-icon svg { width: 16px !important; height: 16px !important; }
+    .how-left .section-label { font-size: 0.6rem !important; margin-bottom: 8px !important; }
+    .how-right { gap: 6px !important; }
     .how-step-row {
       opacity: 1 !important;
       transform: none !important;
-      width: 100% !important;
-      box-sizing: border-box;
+      padding: 9px 10px !important;
+      border-radius: 10px !important;
+      gap: 8px !important;
     }
+    .how-step-num {
+      font-size: 0.9rem !important;
+      min-width: 20px !important;
+      color: var(--gold-light) !important;
+    }
+    .how-step-icon-sm {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 7px !important;
+      flex-shrink: 0 !important;
+    }
+    .how-step-icon-sm svg { width: 12px !important; height: 12px !important; }
     .how-step-label {
+      font-size: 0.72rem !important;
       color: rgba(255,255,255,0.9) !important;
-      font-size: 1rem !important;
       white-space: normal !important;
     }
-    .how-step-num { color: var(--gold-light) !important; }
+    .how-step-row.active-row {
+      background: rgba(8,20,48,0.55) !important;
+      border-color: rgba(255,255,255,0.08) !important;
+    }
+    .how-step-row.active-row .how-step-num { color: rgba(255,255,255,0.5) !important; }
+    .how-step-row.active-row .how-step-icon-sm { background: rgba(255,255,255,0.08) !important; }
+    .how-step-row.active-row .how-step-icon-sm svg { color: rgba(255,255,255,0.6) !important; }
+    .how-step-row.active-row .how-step-label { color: rgba(255,255,255,0.9) !important; text-shadow: none !important; }
     .how-step-check { display: none !important; }
     .how-bg-number, .how-bg-img { display: none !important; }
   }
@@ -1684,7 +1721,7 @@
   .savings-box.highlight .savings-amount { color: var(--gold-light); }
 
   /* ── CTA SECTION ── */
-  .cta-section { padding: 96px 6%; text-align: center; }
+  .cta-section { padding: 96px 6%; text-align: center; background: var(--white); }
   .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); margin-bottom: 20px; }
   .cta-sub { color: var(--text-mid); font-size: 1.05rem; margin-bottom: 40px; font-weight: 300; }
 
@@ -1853,7 +1890,7 @@
     }
     .hamburger span { background: var(--navy); }
     .hamburger.open span { background: white; }
-    .hero { padding: 0 0 60px; min-height: auto; }
+    .hero { padding: 80px 0 60px; min-height: auto; }
     .hero h1 { font-size: clamp(2rem, 7vw, 3rem); letter-spacing: -0.01em; }
     .hero-grid { grid-template-columns: 1fr !important; gap: 32px; }
     .hero-bg-word { font-size: clamp(6rem, 28vw, 12rem); }
@@ -2020,7 +2057,8 @@
       <div class="calc-slider-wrap">
         <input type="range" class="calc-slider" id="calcSlider"
           min="50000" max="2000000" step="10000" value="350000"
-          oninput="updateCalc(this.value)">
+          oninput="updateCalc(this.value)"
+          style="touch-action: pan-x;">
         <div class="calc-slider-range">
           <span>€ 50.000</span>
           <span>€ 2.000.000</span>
@@ -2352,9 +2390,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section>
-  <div class="centered">
-    <div class="section-label reveal">Kundenstimmen</div>
+<section style="background: var(--white)">
     <h2 class="section-title reveal">Was unsere Kunden sagen</h2>
   </div>
   <div class="testimonials-grid">
@@ -2531,6 +2567,7 @@
 
   // ── Scroll-Pinned Steps ──
   (function() {
+    if (window.innerWidth <= 768) return; // disabled on mobile
     const outer = document.getElementById('so-funktionierts');
     if (!outer) return;
     const rows = Array.from(document.querySelectorAll('.how-step-row'));
@@ -2698,6 +2735,20 @@
     const min = +slider.min, max = +slider.max, val = +slider.value;
     const pct = ((val - min) / (max - min)) * 100;
     slider.style.background = `linear-gradient(to right, var(--gold) ${pct}%, rgba(255,255,255,0.15) ${pct}%)`;
+  }
+
+  // Prevent iOS Safari viewport jump when dragging slider
+  const calcSlider = document.getElementById('calcSlider');
+  if (calcSlider) {
+    calcSlider.addEventListener('touchstart', () => {
+      document.body.style.overflow = 'hidden';
+    }, { passive: true });
+    calcSlider.addEventListener('touchend', () => {
+      document.body.style.overflow = '';
+    }, { passive: true });
+    calcSlider.addEventListener('touchcancel', () => {
+      document.body.style.overflow = '';
+    }, { passive: true });
   }
 
   var selectedPackagePrice = 0;
