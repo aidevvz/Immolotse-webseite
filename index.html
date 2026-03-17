@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Immobilie verkaufen ohne Makler – mit ImmoLotse. Professionelles Marketing für Privatverkäufer in Österreich. KI-Bildoptimierung, Exposé, Unterlagen – ab € 99 Fixpreis, keine Provision.">
+<meta name="description" content="Immobilie verkaufen ohne Makler – mit ImmoLotse. Professionelles Marketing für Privatverkäufer in Österreich. KI-Bildoptimierung, Exposé, Verkaufs-Handbuch – ab € 19 Fixpreis, keine Provision.">
 <meta name="keywords" content="Immobilie verkaufen ohne Makler, Privatverkauf Österreich, Maklerprovision sparen, Wohnung verkaufen Wien, Immobilienmarketing Fixpreis">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ImmoLotse – Immobilie verkaufen ohne Makler">
@@ -1981,7 +1981,6 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "KI-Bildoptimierung", "description": "Professionelle Bildoptimierung mit KI – eigene Fotos einsenden, optimierte Bilder zurückbekommen. Ab € 99." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotoshooting inkl. Nachbearbeitung", "description": "15 professionelle Fotos vor Ort inkl. KI-Nachbearbeitung. € 500." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Professionelles Exposé (PDF)", "description": "Hochwertiges PDF-Exposé mit Texten, Grundriss und Layout. € 149." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unterlagen einholen", "description": "Grundbuchauszug, Energieausweis, Betriebskosten – wir holen alles. € 149." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Umzugsservice Wien", "description": "Professioneller Umzug und Räumung in Wien. Kostenvoranschlag nach Bildübermittlung." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reinigungsservice Wien", "description": "Professionelle Endreinigung in Wien. € 3 pro m²." } }
       ]
@@ -2016,24 +2015,24 @@
   <button class="nav-close" onclick="toggleMenu()">✕</button>
   <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
   <a href="#pakete" onclick="toggleMenu()">Pakete</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="blog.html">Blog</a>
+  <a href='/ueber-uns'>Über uns</a>
+  <a href='/blog'>Blog</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
-  <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+  <a class='btn-nav' href='/shop'>Jetzt buchen</a>
 </div>
 
 <nav id="navbar">
-  <a href="index.html" class="logo" style="text-decoration:none;display:flex;align-items:center;gap:0;"><img src="logo-nav.png" alt="ImmoLotse Logo" style="height:36px;width:auto;margin-right:10px;">Immo<span>Lotse</span></a>
+  <a class='logo' href='/' style='text-decoration:none;display:flex;align-items:center;gap:0;'><img src="logo-nav.png" alt="ImmoLotse Logo" style="height:36px;width:auto;margin-right:10px;">Immo<span>Lotse</span></a>
   <!-- Desktop links -->
   <div class="nav-links-desktop">
     <a href="#leistungen">Leistungen</a>
     <a href="#pakete">Pakete</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="blog.html">Blog</a>
+    <a href='/ueber-uns'>Über uns</a>
+    <a href='/blog'>Blog</a>
     <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="shop.html" class="btn-nav">Jetzt buchen</a>
+    <a class='btn-nav' href='/shop'>Jetzt buchen</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -2068,7 +2067,7 @@
       </h1>
       <p class="hero-sub">Professionelles Marketing für Privatverkäufer. Transparente Fixpreise, keine versteckten Kosten, kein Provisionspoker. Du behältst die Kontrolle.</p>
       <div class="hero-ctas">
-        <a href="shop.html" class="btn-primary">Leistungen buchen</a>
+        <a class='btn-primary' href='/shop'>Leistungen buchen</a>
         <a href="#kontakt" class="btn-secondary">Kostenlos anfragen</a>
       </div>
     </div>
@@ -2121,17 +2120,17 @@
       <div class="calc-packages">
         <div class="calc-packages-label">Paket abziehen <span>(optional)</span></div>
         <div class="calc-pkg-row">
-          <button class="calc-pkg-btn" data-price="489" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="289" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Starter</span>
-            <span class="calc-pkg-price">− € 489</span>
+            <span class="calc-pkg-price">− € 289</span>
           </button>
-          <button class="calc-pkg-btn" data-price="939" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="749" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Professional</span>
-            <span class="calc-pkg-price">− € 939</span>
+            <span class="calc-pkg-price">− € 749</span>
           </button>
-          <button class="calc-pkg-btn" data-price="1429" onclick="selectPackage(this)">
+          <button class="calc-pkg-btn" data-price="1109" onclick="selectPackage(this)">
             <span class="calc-pkg-name">Full-Service</span>
-            <span class="calc-pkg-price">− € 1.429</span>
+            <span class="calc-pkg-price">− € 1.109</span>
           </button>
         </div>
       </div>
@@ -2256,16 +2255,7 @@
         </div>
         <div class="service-detail">Wir erstellen ein hochwertiges PDF-Exposé mit professionellen Texten, Grundriss-Layout und deinen Fotos, fertig zum Versenden an Interessenten oder zum Ausdrucken.</div>
       </div>
-      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
-        <div class="service-item-top">
-          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span><span class="service-name">Unterlagen einholen</span></div>
-          <div class="service-item-right">
-            <span class="service-price">€ 199</span>
-            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-          </div>
-        </div>
-        <div class="service-detail">Wir kümmern uns um alle notwendigen Dokumente: Grundbuchauszug, Energieausweis, Betriebskostenabrechnung und weitere Unterlagen die Käufer benötigen.</div>
-      </div>
+
       <div class="service-item reveal" onclick="toggleServiceDetail(this)">
         <div class="service-item-top">
           <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12H19M12 5l7 7-7 7"/></svg></span><span class="service-name">Umzugsservice Wien <small style="font-weight:400;color:var(--text-mid)">(Kostenvoranschlag)</small></span></div>
@@ -2295,6 +2285,15 @@
           </div>
         </div>
         <div class="service-detail">Unsere Marktpreisanalyse basiert auf aktuellen Vergleichswerten in deiner Region. Du erhältst eine realistische Einschätzung des Verkaufspreises, damit du weder zu viel noch zu wenig verlangst.</div>
+      </div>      <div class="service-item reveal" onclick="toggleServiceDetail(this)">
+        <div class="service-item-top">
+          <div class="service-item-left"><span class="service-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="service-name">Verkaufs-Handbuch (PDF)</span></div>
+          <div class="service-item-right">
+            <span class="service-price">€ 19</span>
+            <span class="service-chevron"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="service-detail">35-seitiger Leitfaden: Von der richtigen Bewertung über professionelle Fotos bis zum Kaufvertrag. Alles was Privatverkäufer wissen müssen, kompakt und verständlich erklärt. Bei allen Paketen gratis dabei.</div>
       </div>
     </div>
   </div>
@@ -2310,37 +2309,39 @@
   <div class="packages-grid">
     <div class="package-card starter reveal">
       <div class="package-name">Starter</div>
-      <div class="package-price">€ 489</div>
+      <div class="package-price">€ 289</div>
       <p class="package-desc">Perfekt für den Einstieg</p>
       <ul class="package-features">
         <li><div class="check">✓</div> KI-Bildoptimierung (bis 10 Bilder)</li>
         <li><div class="check">✓</div> Professionelles Exposé (PDF)</li>
         <li><div class="check">✓</div> Werteinschätzung inklusive</li>
-        <li><div class="check">✓</div> Alle Unterlagen eingeholt</li>
+        <li><div class="check">✓</div> Verkaufs-Handbuch (PDF) gratis</li>
       </ul>
-      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+      <a class='btn-package' href='/shop'>Jetzt buchen</a>
     </div>
     <div class="package-card professional reveal">
       <div class="package-badge">Beliebteste Wahl</div>
       <div class="package-name">Professional</div>
-      <div class="package-price">€ 939 <span class="discount-badge">−5 %</span></div>
+      <div class="package-price">€ 749 <span class="discount-badge">−5 %</span></div>
       <p class="package-desc">Für maximalen Verkaufserfolg</p>
       <ul class="package-features">
         <li><div class="check">✓</div> Alles aus Starter</li>
         <li><div class="check">✓</div> Premium Fotoshooting inkl. Nachbearbeitung (15 Bilder)</li>
+        <li><div class="check">✓</div> Verkaufs-Handbuch (PDF) gratis</li>
       </ul>
-      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+      <a class='btn-package' href='/shop'>Jetzt buchen</a>
     </div>
     <div class="package-card fullservice reveal">
       <div class="package-name">Full-Service</div>
-      <div class="package-price">€ 1.429 <span class="discount-badge">−10 %</span></div>
+      <div class="package-price">€ 1.109 <span class="discount-badge">−10 %</span></div>
       <p class="package-desc">Komplett stressfrei verkaufen</p>
       <ul class="package-features">
         <li><div class="check">✓</div> Alles aus Professional</li>
         <li><div class="check">✓</div> Räumungsgutschein (€ 200) inklusive</li>
         <li><div class="check">✓</div> Reinigungsservice inklusive</li>
+        <li><div class="check">✓</div> Verkaufs-Handbuch (PDF) gratis</li>
       </ul>
-      <a href="shop.html" class="btn-package">Jetzt buchen</a>
+      <a class='btn-package' href='/shop'>Jetzt buchen</a>
     </div>
   </div>
 </section>
@@ -2499,7 +2500,7 @@
         In welchen Regionen seid ihr tätig?
         <span class="faq-toggle">+</span>
       </div>
-      <div class="faq-answer">Österreichweit. Exposé, KI-Bildoptimierung, Unterlagen und Werteinschätzung bieten wir für ganz Österreich an. Fotoshootings sowie Räumungs- und Reinigungsservice sind aktuell auf Wien beschränkt.</div>
+      <div class="faq-answer">Österreichweit. Exposé, KI-Bildoptimierung, Werteinschätzung und das Verkaufs-Handbuch bieten wir für ganz Österreich an. Fotoshootings sowie Räumungs- und Reinigungsservice sind aktuell auf Wien beschränkt.</div>
     </div>
   </div>
 </section>
@@ -2510,7 +2511,7 @@
   <h2 class="cta-title reveal">Bereit deine Immobilie<br>professionell zu vermarkten?</h2>
   <p class="cta-sub reveal">Schick uns eine kurze Nachricht, wir analysieren kostenlos und unverbindlich.</p>
 
-  <form class="contact-form reveal" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <form class='contact-form reveal' method='POST' name='kontakt'>
     <input type="hidden" name="form-name" value="kontakt">
     <p style="display:none"><input name="bot-field"></p>
 
@@ -2556,17 +2557,16 @@
         <li><a href="#">Exposé erstellen</a></li>
         <li><a href="#">Fotoshooting</a></li>
         <li><a href="#">KI-Bildoptimierung</a></li>
-        <li><a href="#">Unterlagen einholen</a></li>
-      </ul>
+              </ul>
     </div>
     <div>
       <div class="footer-heading">Unternehmen</div>
       <ul class="footer-links">
         <li><a href="#">Über uns</a></li>
         <li><a href="#">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="impressum.html#datenschutz">Datenschutz</a></li>
-        <li><a href="impressum.html#agb">AGB</a></li>
+        <li><a href='/impressum'>Impressum</a></li>
+        <li><a href='/impressum#datenschutz'>Datenschutz</a></li>
+        <li><a href='/impressum#agb'>AGB</a></li>
       </ul>
     </div>
   </div>
@@ -2614,7 +2614,7 @@
 
     const steps = [
       { num: '01', title: 'Leistung wählen',      desc: 'Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete, ganz nach deinem Bedarf.' },
-      { num: '02', title: 'Unterlagen & Fotos',    desc: 'Du schickst uns deine Fotos und Unterlagen, oder wir organisieren alles für dich. Schnell und unkompliziert.' },
+      { num: '02', title: 'Fotos & Details',        desc: 'Du schickst uns deine Fotos und Infos zur Immobilie. Schnell und unkompliziert.' },
       { num: '03', title: 'Wir erledigen alles',   desc: 'Exposé (PDF), KI-optimierte Bilder, professionell aufbereitet. Fertig in 48 Stunden.' },
       { num: '04', title: 'Du verkaufst',          desc: 'Du führst Besichtigungen selbst durch. Der Abschluss bleibt bei dir.' },
     ];
@@ -2871,7 +2871,7 @@
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    Wir verwenden Cookies um die Nutzererfahrung zu verbessern. Mehr dazu in unserer <a href="impressum.html">Datenschutzerklärung</a>.
+    Wir verwenden Cookies um die Nutzererfahrung zu verbessern. Mehr dazu in unserer <a href='/impressum'>Datenschutzerklärung</a>.
   </p>
   <div class="cookie-btns">
     <button class="cookie-decline" onclick="dismissCookie()">Ablehnen</button>
