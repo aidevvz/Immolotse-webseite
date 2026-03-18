@@ -19,7 +19,8 @@
 <title>ImmoLotse: Immobilie verkaufen ohne Makler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="img-after.webp" as="image" type="image/webp">
+  <link rel="preload" href="img-after-sm.webp" as="image" type="image/webp" media="(max-width: 800px)">
+  <link rel="preload" href="img-after.webp" as="image" type="image/webp" media="(min-width: 801px)">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
@@ -114,7 +115,7 @@
 
   <!-- Background image with parallax -->
   <div class="hero-video-wrap" id="heroVideoWrap">
-    <img src="img-after.webp" srcset="img-after-sm.webp 800w, img-after.webp 1920w" sizes="100vw" alt="Wiener Gründerzeit-Wohnung – Beispiel einer professionell vermarkteten Immobilie" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <img src="img-after.webp" srcset="img-after-sm.webp 800w, img-after.webp 1920w" sizes="100vw" fetchpriority="high" alt="Wiener Gründerzeit-Wohnung – Beispiel einer professionell vermarkteten Immobilie" style="width:100%;height:100%;object-fit:cover;display:block;">
     <div class="hero-video-overlay"></div>
   </div>
 
@@ -709,6 +710,7 @@
   });
 
   // ── Scroll-Pinned Steps ──
+  requestAnimationFrame(function() {
   (function() {
     const outer = document.getElementById('so-funktionierts');
     if (!outer) return;
@@ -777,11 +779,16 @@
       setActive(activeIdx);
     }
 
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    let rafPending = false;
+    window.addEventListener('scroll', () => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(() => { rafPending = false; update(); });
+      }
+    }, { passive: true });
+    requestAnimationFrame(update);
   })();
-
-  // ── Expandable Service Items ──
+  }); // end requestAnimationFrame for steps init
   function toggleServiceDetail(el) {
     const isOpen = el.classList.contains('open');
 
@@ -836,7 +843,7 @@
 
 
   // ── Before/After Slider ──
-  (function() {
+  requestAnimationFrame(function() { (function() {
     const container = document.getElementById('baContainer');
     if (!container) return;
     const clip = document.getElementById('baBeforeClip');
@@ -875,6 +882,7 @@
     window.addEventListener('touchend', () => { dragging = false; });
     window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, {passive:true});
   })();
+  }); // end rAF BA slider
 
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
