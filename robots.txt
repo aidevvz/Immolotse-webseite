@@ -3,3 +3,6 @@
 
 User-agent: *
 Disallow: /
+
+# Sitemap (aktivieren wenn site live geht)
+# Sitemap: https://immolotse.at/sitemap.xml

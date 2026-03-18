@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ImmoLotse: Jetzt buchen</title>
+<title>Leistungen buchen – ImmoLotse</title>
+  <meta name="description" content="Professionelle Immobilien-Marketingleistungen zu Fixpreisen. KI-Bildoptimierung, Exposé, Werteinschätzung, Unterlagen – einzeln oder als Paket ab € 489. Kein Makler, keine Provision.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Leistungen buchen – ImmoLotse">
+  <meta property="og:description" content="Alle Leistungen für deinen Immobilienverkauf zu transparenten Fixpreisen. Starter ab € 489, Professional ab € 939.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://immolotse.at/shop.html">
+  <meta property="og:image" content="https://immolotse.at/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Leistungen buchen – ImmoLotse">
+  <meta name="twitter:description" content="Professionelles Immobilien-Marketing zu Fixpreisen. Kein Makler, keine Provision.">
+  <link rel="canonical" href="https://immolotse.at/shop.html">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -485,15 +496,15 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a class='logo' href='/' style='text-decoration:none;display:flex;align-items:center;gap:0;'><img src="logo-nav.png" alt="ImmoLotse Logo" style="height:36px;width:auto;margin-right:10px;">Immo<span>Lotse</span></a>
+  <a href="index.html" class="logo" style="text-decoration:none;display:flex;align-items:center;gap:0;"><img src="logo-nav.png" alt="ImmoLotse Logo" style="height:36px;width:auto;margin-right:10px;">Immo<span>Lotse</span></a>
   <div class="nav-links" id="navLinks">
-    <a href='/#leistungen'>Leistungen</a>
-    <a href='/#pakete'>Pakete</a>
-    <a href='/ueber-uns'>Über uns</a>
-    <a href='/blog'>Blog</a>
-    <a href='/#faq'>FAQ</a>
-    <a href='/#kontakt'>Kontakt</a>
-    <a class='btn-nav active' href='/shop'>Jetzt buchen</a>
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="index.html#pakete">Pakete</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="shop.html" class="btn-nav active">Jetzt buchen</a>
   </div>
   <div class="nav-right">
     <button class="nav-cart-btn" onclick="toggleCart()">
@@ -542,16 +553,16 @@
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 289)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 489)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 289</div>
+        <div class="pkg-price">€ 489</div>
         <div class="pkg-save">Alle Grundleistungen im Bundle</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 10 Bilder)</li>
           <li>Professionelles Exposé (PDF)</li>
           <li>Werteinschätzung inklusive</li>
-          <li>Verkaufs-Handbuch (PDF) gratis</li>
+          <li>Alle Unterlagen eingeholt</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
@@ -559,25 +570,23 @@
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 749 <span class="pkg-discount">−5 %</span></div>
-        <div class="pkg-save">Spare € 47 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 939 <span class="pkg-discount">−5 %</span></div>
+        <div class="pkg-save">Spare € 56 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Starter</li>
           <li>Premium Fotoshooting inkl. Nachbearbeitung (15 Bilder)</li>
-          <li>Verkaufs-Handbuch (PDF) gratis</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
       <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1429)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.109 <span class="pkg-discount">−10 %</span></div>
-        <div class="pkg-save">Spare € 127 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 1.429 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-save">Spare € 166 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
           <li>Räumungsgutschein (€ 200) inklusive</li>
           <li>Reinigungsservice inklusive</li>
-          <li>Verkaufs-Handbuch (PDF) gratis</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
@@ -634,23 +643,21 @@
         </div>
       </div>
 
-
-
-      <div class="service-card" id="svc-handbuch" onclick="toggleService('handbuch','HB','Verkaufs-Handbuch (PDF)',19)">
+      <div class="service-card" id="svc-unterlagen" onclick="toggleService('unterlagen','DOK','Unterlagen einholen',199)">
         <div class="service-top">
-          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
           <div class="service-text">
-            <h4>Verkaufs-Handbuch (PDF)</h4>
-            <p>35-seitiger Leitfaden von Bewertung bis Kaufvertrag, gratis in allen Paketen enthalten</p>
+            <h4>Unterlagen einholen</h4>
+            <p>Grundbuchauszug, Energieausweis, Betriebskosten: wir holen alles</p>
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 19</span>
+          <span class="service-price-tag">€ 199</span>
           <button class="btn-add-service">+ Hinzufügen</button>
         </div>
       </div>
 
-            <!-- UMZUGSSERVICE -->
+      <!-- UMZUGSSERVICE -->
       <div class="service-card" id="svc-umzug" onclick="openUmzugModal()">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg></div>
@@ -834,7 +841,7 @@
         <div class="success-detail-row"><span class="success-detail-label">Bearbeitungsstart</span><span class="success-detail-value">Innerhalb 24 Stunden</span></div>
         <div class="success-detail-row"><span class="success-detail-label">Lieferung</span><span class="success-detail-value">Innerhalb 48 Stunden</span></div>
       </div>
-      <a class='btn-back-home' href='/'>Zurück zur Startseite</a>
+      <a href="index.html" class="btn-back-home">Zurück zur Startseite</a>
     </div>
   </div>
 </div>
@@ -863,9 +870,9 @@
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 289 },
-    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 749 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1109 }
+    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 489 },
+    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 939 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1429 }
   };
 
   function togglePackage(key, price) {
