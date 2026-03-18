@@ -870,7 +870,6 @@
     window.addEventListener('touchend', () => { dragging = false; });
     window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, {passive:true});
   })();
-  }); // end rAF BA slider
 
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
