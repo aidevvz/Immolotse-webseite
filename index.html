@@ -744,7 +744,8 @@
     }
 
     // Mobile: tap to activate
-    if (window.innerWidth <= 768) {
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    if (mobileQuery.matches) {
       rows.forEach((row, i) => {
         row.style.cursor = 'pointer';
         row.addEventListener('click', () => setActive(i));
@@ -849,11 +850,12 @@
         container.style.setProperty('--ba-container-width', w);
       });
     }
-    requestAnimationFrame(init);
+    setTimeout(init, 0);
     if (window.ResizeObserver) {
-      new ResizeObserver(init).observe(container);
+      let firstCall = true;
+      new ResizeObserver(() => { if (firstCall) { firstCall = false; return; } requestAnimationFrame(init); }).observe(container);
     } else {
-      window.addEventListener('resize', init);
+      window.addEventListener('resize', () => requestAnimationFrame(init));
     }
 
     function setPosition(x) {
