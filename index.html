@@ -2607,7 +2607,6 @@
 
   // ── Scroll-Pinned Steps ──
   (function() {
-    if (window.innerWidth <= 768) return; // disabled on mobile
     const outer = document.getElementById('so-funktionierts');
     if (!outer) return;
     const rows = Array.from(document.querySelectorAll('.how-step-row'));
@@ -2625,6 +2624,33 @@
     const elDesc  = document.getElementById('howActiveDesc');
     let lastActive = -1;
 
+    function setActive(activeIdx) {
+      rows.forEach((row, i) => {
+        row.classList.toggle('active-row', i === activeIdx);
+        row.classList.toggle('visible', true);
+        row.classList.toggle('done', i < activeIdx);
+      });
+      if (activeIdx !== lastActive) {
+        lastActive = activeIdx;
+        elNum.textContent   = steps[activeIdx].num;
+        elTitle.textContent = steps[activeIdx].title;
+        elDesc.textContent  = steps[activeIdx].desc;
+        const bgNum = document.getElementById('howBgNumber');
+        if (bgNum) bgNum.textContent = steps[activeIdx].num;
+      }
+    }
+
+    // Mobile: tap to activate
+    if (window.innerWidth <= 768) {
+      rows.forEach((row, i) => {
+        row.style.cursor = 'pointer';
+        row.addEventListener('click', () => setActive(i));
+      });
+      setActive(0);
+      return;
+    }
+
+    // Desktop: scroll-driven
     function update() {
       const rect     = outer.getBoundingClientRect();
       const outerH   = outer.offsetHeight;
@@ -2632,8 +2658,6 @@
       const scrolled = -rect.top;
       const scrollable = outerH - vh;
       const slice    = scrollable / TOTAL;
-
-
 
       const bgImg = document.getElementById('howBgImg');
       if (bgImg && scrolled >= 0) bgImg.style.transform = 'translateY(' + (scrolled * 0.2) + 'px)';
@@ -2646,18 +2670,7 @@
         if (visible) activeIdx = i;
       });
 
-      // Update active row highlight
-      rows.forEach((row, i) => row.classList.toggle('active-row', i === activeIdx));
-
-      // Update left panel text only when step changes
-      if (activeIdx !== lastActive) {
-        lastActive = activeIdx;
-        elNum.textContent   = steps[activeIdx].num;
-        elTitle.textContent = steps[activeIdx].title;
-        elDesc.textContent  = steps[activeIdx].desc;
-        const bgNum = document.getElementById('howBgNumber');
-        if (bgNum) bgNum.textContent = steps[activeIdx].num;
-      }
+      setActive(activeIdx);
     }
 
     window.addEventListener('scroll', update, { passive: true });
