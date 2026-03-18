@@ -708,7 +708,6 @@
   });
 
   // ── Scroll-Pinned Steps ──
-  requestAnimationFrame(function() {
   (function() {
     const outer = document.getElementById('so-funktionierts');
     if (!outer) return;
@@ -744,8 +743,7 @@
     }
 
     // Mobile: tap to activate
-    const mobileQuery = window.matchMedia('(max-width: 768px)');
-    if (mobileQuery.matches) {
+    if (window.innerWidth <= 768) {
       rows.forEach((row, i) => {
         row.style.cursor = 'pointer';
         row.addEventListener('click', () => setActive(i));
@@ -786,7 +784,6 @@
     }, { passive: true });
     requestAnimationFrame(update);
   })();
-  }); // end requestAnimationFrame for steps init
   function toggleServiceDetail(el) {
     const isOpen = el.classList.contains('open');
 
@@ -813,9 +810,8 @@
     }
   }
 
-  // ── Hero Parallax (desktop only) ──
+  // ── Hero Parallax ──
   (function() {
-    if (window.matchMedia('(max-width: 768px)').matches) return;
     const videoWrap = document.getElementById('heroVideoWrap');
     const bgWord    = document.getElementById('heroBgWord');
     function onScroll() {
@@ -842,29 +838,20 @@
 
 
   // ── Before/After Slider ──
-  requestAnimationFrame(function() { (function() {
+  (function() {
     const container = document.getElementById('baContainer');
     if (!container) return;
     const clip = document.getElementById('baBeforeClip');
     const divider = document.getElementById('baDivider');
     let dragging = false;
 
-    // Use ResizeObserver contentRect to avoid forced reflow
-    function setWidth(w) {
-      container.style.setProperty('--ba-container-width', w + 'px');
+    // Set container width as CSS var so before image matches full width
+    function init() {
+      const w = container.offsetWidth + 'px';
+      container.style.setProperty('--ba-container-width', w);
     }
-    if (window.ResizeObserver) {
-      new ResizeObserver(entries => {
-        for (const entry of entries) {
-          setWidth(entry.contentRect.width);
-        }
-      }).observe(container);
-    } else {
-      window.addEventListener('resize', () => {
-        requestAnimationFrame(() => setWidth(container.offsetWidth));
-      });
-      requestAnimationFrame(() => setWidth(container.offsetWidth));
-    }
+    init();
+    window.addEventListener('resize', init);
 
     function setPosition(x) {
       const rect = container.getBoundingClientRect();
@@ -973,34 +960,17 @@
     updateTrack(document.getElementById('calcSlider'));
   });
 </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
   <script>
-    // Netlify Identity - nur laden wenn invite/recovery/confirmation token im URL
-    (function() {
-      const hash = window.location.hash || '';
-      const needsIdentity = hash.includes('invite_token') || hash.includes('recovery_token') || hash.includes('confirmation_token');
-      if (needsIdentity) {
-        window.location.href = '/admin/' + hash;
-        return;
-      }
-      // Lazy load identity widget only after page load
-      window.addEventListener('load', function() {
-        const s = document.createElement('script');
-        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-        s.defer = true;
-        s.onload = function() {
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', function(user) {
-              if (!user) {
-                window.netlifyIdentity.on('login', function() {
-                  document.location.href = '/admin/';
-                });
-              }
-            });
-          }
-        };
-        document.head.appendChild(s);
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
       });
-    })();
+    }
   </script>
 
 <!-- WHATSAPP BUTTON -->
