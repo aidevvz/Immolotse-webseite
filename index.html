@@ -2398,10 +2398,10 @@
       <div class="ba-slider-wrap">
         <div class="ba-slider-container" id="baContainer">
           <!-- AFTER image (bottom layer, full width) -->
-          <img id="baImgAfter" src="nachher.webp" alt="Nachher: KI-optimiertes Immobilienfoto – helle, professionelle Darstellung eines Schlafzimmers in Wien" class="ba-img ba-img-after" onerror="this.src='nachher.jpg'">
+          <img id="baImgAfter" src="nachher.webp" srcset="nachher-sm.webp 800w, nachher.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Nachher: KI-optimiertes Immobilienfoto – helle, professionelle Darstellung eines Schlafzimmers in Wien" loading="lazy" class="ba-img ba-img-after" onerror="this.src='nachher.jpg'">
           <!-- BEFORE image (top layer, clipped) -->
           <div class="ba-before-clip" id="baBeforeClip">
-            <img id="baImgBefore" src="vorher.webp" alt="Vorher: Originalfoto einer Immobilie vor der KI-Bildoptimierung" class="ba-img ba-img-before" onerror="this.src='vorher.jpg'">
+            <img id="baImgBefore" src="vorher.webp" srcset="vorher-sm.webp 800w, vorher.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Vorher: Originalfoto einer Immobilie vor der KI-Bildoptimierung" loading="lazy" class="ba-img ba-img-before" onerror="this.src='vorher.jpg'">
           </div>
           <!-- Divider line -->
           <div class="ba-divider" id="baDivider">
@@ -2788,8 +2788,13 @@
       const w = container.offsetWidth + 'px';
       container.style.setProperty('--ba-container-width', w);
     }
-    init();
-    window.addEventListener('resize', init);
+    // Use ResizeObserver to avoid forced reflow on scroll
+    if (window.ResizeObserver) {
+      new ResizeObserver(() => requestAnimationFrame(init)).observe(container);
+    } else {
+      init();
+      window.addEventListener('resize', init);
+    }
 
     function setPosition(x) {
       const rect = container.getBoundingClientRect();
