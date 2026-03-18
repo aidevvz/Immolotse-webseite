@@ -1102,7 +1102,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.75);
     min-width: 36px;
     transition: color 0.3s;
   }
@@ -1125,7 +1125,7 @@
   .how-step-label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.9);
     transition: color 0.3s;
   }
   .how-step-row.active-row .how-step-label {
@@ -1613,7 +1613,7 @@
     flex-shrink: 0;
     color: #FFFFFF;
   }
-  .ki-feature-text h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+  .ki-feature-text h3 { color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
   .ki-feature-text p { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.5; font-weight: 300; }
 
   .before-after {
@@ -2090,6 +2090,7 @@
 
       <div class="calc-slider-wrap">
         <input type="range" class="calc-slider" id="calcSlider"
+          aria-label="Verkaufspreis deiner Immobilie"
           min="50000" max="2000000" step="10000" value="350000"
           oninput="updateCalc(this.value)"
           style="touch-action: pan-x;">
@@ -2361,28 +2362,28 @@
         <div class="ki-feature reveal">
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
           <div class="ki-feature-text">
-            <h4>Helligkeit & Farben optimieren</h4>
+            <h3>Helligkeit &amp; Farben optimieren</h3>
             <p>Dunkle Räume werden hell und einladend, realistisch und natürlich.</p>
           </div>
         </div>
         <div class="ki-feature reveal">
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
           <div class="ki-feature-text">
-            <h4>Himmel austauschen</h4>
+            <h3>Himmel austauschen</h3>
             <p>Grauer Himmel bei Außenfotos? Wir tauschen ihn gegen strahlend blauen Himmel.</p>
           </div>
         </div>
         <div class="ki-feature reveal">
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg></div>
           <div class="ki-feature-text">
-            <h4>Störendes entfernen</h4>
+            <h3>Störendes entfernen</h3>
             <p>Kabel, Mülleimer, Autos: verschwinden lautlos aus dem Bild.</p>
           </div>
         </div>
         <div class="ki-feature reveal">
           <div class="ki-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <div class="ki-feature-text">
-            <h4>Perspektive korrigieren</h4>
+            <h3>Perspektive korrigieren</h3>
             <p>Schiefe Wände und verzerrte Räume werden professionell gerade gestellt.</p>
           </div>
         </div>
