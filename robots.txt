@@ -1,0 +1,5 @@
+# ImmoLotse – robots.txt
+# Indexierung deaktiviert bis Gewerbeanmeldung abgeschlossen
+
+User-agent: *
+Disallow: /
