@@ -19,8 +19,7 @@
 <title>ImmoLotse: Immobilie verkaufen ohne Makler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="img-after-sm.webp" as="image" type="image/webp" media="(max-width: 800px)">
-  <link rel="preload" href="img-after.webp" as="image" type="image/webp" media="(min-width: 801px)">
+  <link rel="preload" as="image" imagesrcset="img-after-sm.webp 800w, img-after.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
@@ -850,19 +849,21 @@
     const divider = document.getElementById('baDivider');
     let dragging = false;
 
-    // Set container width as CSS var so before image matches full width
-    function init() {
-      requestAnimationFrame(() => {
-        const w = container.offsetWidth + 'px';
-        container.style.setProperty('--ba-container-width', w);
-      });
+    // Use ResizeObserver contentRect to avoid forced reflow
+    function setWidth(w) {
+      container.style.setProperty('--ba-container-width', w + 'px');
     }
-    setTimeout(init, 0);
     if (window.ResizeObserver) {
-      let firstCall = true;
-      new ResizeObserver(() => { if (firstCall) { firstCall = false; return; } requestAnimationFrame(init); }).observe(container);
+      new ResizeObserver(entries => {
+        for (const entry of entries) {
+          setWidth(entry.contentRect.width);
+        }
+      }).observe(container);
     } else {
-      window.addEventListener('resize', () => requestAnimationFrame(init));
+      window.addEventListener('resize', () => {
+        requestAnimationFrame(() => setWidth(container.offsetWidth));
+      });
+      requestAnimationFrame(() => setWidth(container.offsetWidth));
     }
 
     function setPosition(x) {
