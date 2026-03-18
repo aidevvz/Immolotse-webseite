@@ -19,7 +19,6 @@
 <title>ImmoLotse: Immobilie verkaufen ohne Makler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" imagesrcset="img-after-sm.webp 800w, img-after.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
@@ -814,8 +813,9 @@
     }
   }
 
-  // ── Hero Parallax ──
+  // ── Hero Parallax (desktop only) ──
   (function() {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
     const videoWrap = document.getElementById('heroVideoWrap');
     const bgWord    = document.getElementById('heroBgWord');
     function onScroll() {
@@ -973,25 +973,34 @@
     updateTrack(document.getElementById('calcSlider'));
   });
 </script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    // Leite Netlify Einladungslinks zum Admin weiter
-    if (window.location.hash && (
-      window.location.hash.includes('invite_token') ||
-      window.location.hash.includes('recovery_token') ||
-      window.location.hash.includes('confirmation_token')
-    )) {
-      window.location.href = '/admin/' + window.location.hash;
-    }
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
+    // Netlify Identity - nur laden wenn invite/recovery/confirmation token im URL
+    (function() {
+      const hash = window.location.hash || '';
+      const needsIdentity = hash.includes('invite_token') || hash.includes('recovery_token') || hash.includes('confirmation_token');
+      if (needsIdentity) {
+        window.location.href = '/admin/' + hash;
+        return;
+      }
+      // Lazy load identity widget only after page load
+      window.addEventListener('load', function() {
+        const s = document.createElement('script');
+        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        s.defer = true;
+        s.onload = function() {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('init', function(user) {
+              if (!user) {
+                window.netlifyIdentity.on('login', function() {
+                  document.location.href = '/admin/';
+                });
+              }
+            });
+          }
+        };
+        document.head.appendChild(s);
       });
-    }
+    })();
   </script>
 
 <!-- WHATSAPP BUTTON -->
