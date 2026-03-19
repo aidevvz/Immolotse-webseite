@@ -167,6 +167,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 /* ── PACKAGES ── */
 .pkg-section{background:var(--surface-low);padding:100px 6%;}
 .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px;}
+.pkg-swipe-hint,.pkg-dots{display:none;}
 .pkg-card{background:var(--surface-white);border-radius:var(--radius);padding:40px 32px;border:1px solid var(--outline);transition:box-shadow 0.3s;}
 .pkg-card:hover{box-shadow:0 12px 40px rgba(26,28,28,0.08);}
 .pkg-card.featured{background:var(--dark);border-color:var(--dark);color:#fff;transform:scale(1.02);}
@@ -437,6 +438,13 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   .pkg-price{font-size:2.1rem;}
   .pkg-features{gap:8px;}
   .pkg-features li{font-size:0.83rem;}
+
+  /* PACKAGE SWIPE HINT + DOTS */
+  .pkg-swipe-hint{display:flex;align-items:center;gap:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+  .pkg-swipe-hint svg{color:var(--gold);}
+  .pkg-dots{display:flex;justify-content:center;gap:7px;margin-top:18px;}
+  .pkg-dot{width:7px;height:7px;border-radius:50%;background:var(--outline);transition:all 0.3s;cursor:pointer;}
+  .pkg-dot.active{background:var(--gold);width:20px;border-radius:4px;}
 
   /* KI SECTION */
   .ki-grid{grid-template-columns:1fr;gap:32px;}
@@ -763,7 +771,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <p class="section-sub reveal">Für alle die es einfach haben wollen: ein Paket, ein Preis, keine Überraschungen.</p>
       </div>
     </div>
-    <div class="packages-grid">
+    <!-- Swipe hint (mobile only) -->
+    <div class="pkg-swipe-hint">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Wischen zum Vergleichen
+    </div>
+    <div class="packages-grid" id="packagesGrid">
       <!-- Starter -->
       <div class="pkg-card reveal">
         <div class="pkg-badge">Starter</div>
@@ -802,6 +815,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </ul>
         <a href="shop.html" class="btn-pkg">Paket wählen</a>
       </div>
+    </div>
+    <!-- Dot indicators (mobile only) -->
+    <div class="pkg-dots" id="pkgDots">
+      <span class="pkg-dot active"></span>
+      <span class="pkg-dot"></span>
+      <span class="pkg-dot"></span>
     </div>
   </div>
 </section>
@@ -1135,6 +1154,24 @@ function selectHowCard(el) {
     [elNum, elTitle, elDesc].forEach(e => { e.style.opacity = '1'; });
   }, 200);
 }
+
+// Package dots scroll sync
+(function() {
+  const grid = document.getElementById('packagesGrid');
+  const dots = document.querySelectorAll('.pkg-dot');
+  if (!grid || !dots.length) return;
+  grid.addEventListener('scroll', () => {
+    const cardW = grid.querySelector('.pkg-card').offsetWidth + 12;
+    const idx = Math.round(grid.scrollLeft / cardW);
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }, {passive: true});
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cardW = grid.querySelector('.pkg-card').offsetWidth + 12;
+      grid.scrollTo({left: cardW * i, behavior: 'smooth'});
+    });
+  });
+})();
 
 // Service rows
 function toggleServiceRow(el) {
