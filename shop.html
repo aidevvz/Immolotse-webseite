@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leistungen buchen – ImmoLotse</title>
-  <meta name="description" content="Professionelle Immobilien-Marketingleistungen zu Fixpreisen. KI-Bildoptimierung, Exposé, Werteinschätzung, Unterlagen – einzeln oder als Paket ab € 489. Kein Makler, keine Provision.">
+  <meta name="description" content="Professionelle Immobilien-Marketingleistungen zu Fixpreisen. KI-Bildoptimierung, Exposé, Werteinschätzung – einzeln oder als Paket ab € 289. Kein Makler, keine Provision.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Leistungen buchen – ImmoLotse">
-  <meta property="og:description" content="Alle Leistungen für deinen Immobilienverkauf zu transparenten Fixpreisen. Starter ab € 489, Professional ab € 939.">
+  <meta property="og:description" content="Alle Leistungen für deinen Immobilienverkauf zu transparenten Fixpreisen. Starter ab € 289, Professional ab € 749.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://immolotse.at/shop.html">
   <meta property="og:image" content="https://immolotse.at/logo.png">
@@ -655,36 +655,35 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 489)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 289)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 489</div>
+        <div class="pkg-price">€ 289</div>
         <div class="pkg-save">Alle Grundleistungen im Bundle</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 10 Bilder)</li>
           <li>Professionelles Exposé (PDF)</li>
           <li>Werteinschätzung inklusive</li>
-          <li>Alle Unterlagen eingeholt</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 939)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 749)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 939 <span class="pkg-discount">−5 %</span></div>
-        <div class="pkg-save">Spare € 56 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 749 <span class="pkg-discount">−5 %</span></div>
+        <div class="pkg-save">Spare € 39 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Starter</li>
           <li>Premium Fotoshooting inkl. Nachbearbeitung (15 Bilder)</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1429)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1249)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.429 <span class="pkg-discount">−10 %</span></div>
-        <div class="pkg-save">Spare € 166 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 1.249 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-save">Spare € 199 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Alles aus Professional</li>
           <li>Räumungsgutschein (€ 200) inklusive</li>
@@ -745,19 +744,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </div>
       </div>
 
-      <div class="service-card" id="svc-unterlagen" onclick="toggleService('unterlagen','DOK','Unterlagen einholen',199)">
-        <div class="service-top">
-          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
-          <div class="service-text">
-            <h4>Unterlagen einholen</h4>
-            <p>Grundbuchauszug, Energieausweis, Betriebskosten: wir holen alles</p>
-          </div>
-        </div>
-        <div class="service-bottom">
-          <span class="service-price-tag">€ 199</span>
-          <button class="btn-add-service">+ Hinzufügen</button>
-        </div>
-      </div>
 
       <!-- UMZUGSSERVICE -->
       <div class="service-card" id="svc-umzug" onclick="openUmzugModal()">
@@ -964,7 +950,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <li><a href="shop.html">Exposé erstellen</a></li>
         <li><a href="shop.html">Fotoshooting</a></li>
         <li><a href="shop.html">KI-Bildoptimierung</a></li>
-        <li><a href="shop.html">Unterlagen einholen</a></li>
       </ul>
     </div>
     <div>
@@ -1017,9 +1002,9 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 489 },
-    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 939 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1429 }
+    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 289 },
+    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 749 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1249 }
   };
 
   function togglePackage(key, price) {

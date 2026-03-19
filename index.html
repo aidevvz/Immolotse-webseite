@@ -420,21 +420,23 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
-    gap:10px;
-    padding-bottom:6px;
+    gap:12px;
+    padding-bottom:12px;
+    padding-left:0;
+    padding-right:5%;
     margin-top:36px;
   }
   .packages-grid::-webkit-scrollbar{display:none;}
   .pkg-card{
-    flex:0 0 76vw;
-    max-width:300px;
+    flex:0 0 78vw;
+    max-width:none;
     scroll-snap-align:start;
-    padding:28px 22px;
+    padding:28px 24px;
   }
   .pkg-card.featured{transform:none;}
-  .pkg-price{font-size:2.2rem;}
+  .pkg-price{font-size:2.1rem;}
   .pkg-features{gap:8px;}
-  .pkg-features li{font-size:0.82rem;}
+  .pkg-features li{font-size:0.83rem;}
 
   /* KI SECTION */
   .ki-grid{grid-template-columns:1fr;gap:32px;}
@@ -594,7 +596,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           </div>
           <div>
             <div class="calc-result-lbl">Du sparst</div>
-            <div class="calc-result-val highlight" id="calcSparst2">€ 11.611+</div>
+            <div class="calc-result-val highlight" id="calcSparst2">€ 11.851+</div>
           </div>
         </div>
       </div>
@@ -683,41 +685,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
     <div class="services-grid">
       <div class="service-list">
-        <div class="service-row" onclick="toggleServiceRow(this)">
-          <div class="service-row-left">
-            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-            <span class="service-row-name">Fotoshooting inkl. Nachbearbeitung (15 Bilder)</span>
-          </div>
-          <span class="service-row-price">€ 499</span>
-        </div>
-        <div class="service-detail-row">Unser Fotograf kommt zu dir: 15 professionelle Aufnahmen deiner Immobilie, danach KI-optimiert für maximale Wirkung auf Willhaben & ImmoScout. Lieferung innerhalb 48 Stunden.</div>
-
-        <div class="service-row" onclick="toggleServiceRow(this)">
-          <div class="service-row-left">
-            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
-            <span class="service-row-name">KI-Bildoptimierung (eigene Fotos, bis 10 Bilder)</span>
-          </div>
-          <span class="service-row-price">€ 99</span>
-        </div>
-        <div class="service-detail-row">Schick uns deine Handyfotos — wir optimieren Helligkeit, Farben, Horizont und entfernen Störendes. Das Ergebnis sieht aus wie vom Profi.</div>
-
-        <div class="service-row" onclick="toggleServiceRow(this)">
-          <div class="service-row-left">
-            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <span class="service-row-name">Professionelles Exposé erstellen (PDF)</span>
-          </div>
-          <span class="service-row-price">€ 99</span>
-        </div>
-        <div class="service-detail-row">Hochwertiges PDF-Exposé mit professionellen Texten, Grundriss und ansprechendem Layout — fertig zum Versenden und Ausdrucken.</div>
-
-        <div class="service-row" onclick="toggleServiceRow(this)">
-          <div class="service-row-left">
-            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
-            <span class="service-row-name">Unterlagen einholen</span>
-          </div>
-          <span class="service-row-price">€ 199</span>
-        </div>
-        <div class="service-detail-row">Grundbuchauszug, Energieausweis, Betriebskosten — wir holen alle notwendigen Unterlagen für dich ein. Österreichweit.</div>
 
         <div class="service-row" onclick="toggleServiceRow(this)">
           <div class="service-row-left">
@@ -775,13 +742,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div class="pkg-card reveal">
         <div class="pkg-badge">Starter</div>
         <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 489</div>
+        <div class="pkg-price">€ 289</div>
         <div class="pkg-desc">Perfekt für den Einstieg</div>
         <ul class="pkg-features">
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>KI-Bildoptimierung (bis 10 Bilder)</li>
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professionelles Exposé (PDF)</li>
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Werteinschätzung inklusive</li>
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alle Unterlagen eingeholt</li>
         </ul>
         <a href="shop.html" class="btn-pkg">Paket wählen</a>
       </div>
@@ -789,7 +755,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div class="pkg-card featured reveal">
         <div class="pkg-badge">Beliebteste Wahl <span class="pkg-discount">−5 %</span></div>
         <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 939</div>
+        <div class="pkg-price">€ 749</div>
         <div class="pkg-desc">Für maximalen Verkaufserfolg</div>
         <ul class="pkg-features">
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Starter</li>
@@ -801,7 +767,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div class="pkg-card reveal">
         <div class="pkg-badge">Full-Service <span class="pkg-discount" style="background:rgba(115,92,0,0.1);color:var(--gold);">−10 %</span></div>
         <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.429</div>
+        <div class="pkg-price">€ 1.249</div>
         <div class="pkg-desc">Komplett stressfrei verkaufen</div>
         <ul class="pkg-features">
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Professional</li>
@@ -972,7 +938,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">In welchen Regionen seid ihr tätig? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Österreichweit. Exposé, KI-Bildoptimierung, Unterlagen und Werteinschätzung bieten wir digital in ganz Österreich an. Fotoshooting, Räumung und Reinigung sind auf Wien beschränkt.</div>
+        <div class="faq-a">Österreichweit. Exposé, KI-Bildoptimierung und Werteinschätzung bieten wir digital in ganz Österreich an. Fotoshooting, Räumung und Reinigung sind auf Wien beschränkt.</div>
       </div>
     </div>
   </div>
@@ -1048,7 +1014,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <li><a href="shop.html">Exposé erstellen</a></li>
         <li><a href="shop.html">Fotoshooting</a></li>
         <li><a href="shop.html">KI-Bildoptimierung</a></li>
-        <li><a href="shop.html">Unterlagen einholen</a></li>
       </ul>
     </div>
     <div>
@@ -1165,7 +1130,7 @@ function updateCalc2(v) {
   const val = parseInt(v);
   document.getElementById('calcPriceNum2').textContent = '€ ' + val.toLocaleString('de-AT');
   const makler = Math.round(val * 0.036);
-  const spart = Math.round(makler - 989);
+  const spart = Math.round(makler - 749);
   document.getElementById('calcMakler2').textContent = '€ ' + makler.toLocaleString('de-AT');
   document.getElementById('calcSparst2').textContent = '€ ' + Math.max(0, spart).toLocaleString('de-AT') + '+';
 }
