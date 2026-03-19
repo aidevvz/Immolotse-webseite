@@ -47,7 +47,7 @@ h1,h2,h3,h4{font-family:'Noto Serif','Playfair Display',serif;}
 .nav-desktop a{font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.01em;transition:color 0.2s;}
 .nav-desktop a:hover{color:var(--dark);}
 .nav-desktop a.active{color:var(--dark);border-bottom:2px solid var(--gold);padding-bottom:2px;}
-.btn-book{background:var(--dark);color:#fff;padding:10px 22px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s;border-radius:var(--radius);}
+.btn-book{background:var(--dark);color:#fff !important;padding:10px 22px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s;border-radius:var(--radius);}
 .btn-book:hover{opacity:0.82;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:all 0.3s;}
@@ -82,7 +82,7 @@ h1,h2,h3,h4{font-family:'Noto Serif','Playfair Display',serif;}
 .hero-images{position:relative;height:auto;align-self:stretch;}
 .hero-img-main{position:absolute;top:0;right:0;width:88%;height:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 56px rgba(15,34,64,0.14);}
 .hero-img-main img{width:100%;height:100%;display:block;object-fit:cover;}
-.hero-img-secondary{position:absolute;bottom:40px;left:0;width:44%;border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(15,34,64,0.2);border:5px solid var(--surface-white);}
+.hero-img-secondary{position:absolute;bottom:-48px;left:0;width:44%;border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(15,34,64,0.2);border:10px solid var(--surface-white);}
 .hero-img-secondary img{width:100%;height:auto;display:block;object-fit:cover;aspect-ratio:3/4;}
 /* Hero calc card */
 .hero-calc-card{background:var(--surface-white);border-radius:var(--radius);padding:24px 24px 20px;box-shadow:0 8px 32px rgba(15,34,64,0.1);border:1px solid var(--outline);margin-top:28px;}
@@ -267,7 +267,7 @@ input.savings-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;
 .btn-outline-white:hover{background:rgba(255,255,255,0.1);}
 
 /* ── FAQ ── */
-.faq-section{background:var(--surface-low);padding:100px 6%;}
+.faq-section{background:var(--surface-low);padding:100px 6%;scroll-margin-top:80px;}
 .faq-list{max-width:680px;margin:56px auto 0;display:flex;flex-direction:column;gap:0;}
 .faq-item{border-bottom:1px solid var(--outline);}
 .faq-q{padding:22px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:500;color:var(--dark);font-size:0.92rem;gap:16px;}
@@ -569,7 +569,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <!-- Left: text + calculator -->
     <div class="hero-left">
       <span class="hero-label">Privatverkauf. Österreich.</span>
-      <h1>Verkauf deine<br><em>Immobilie.</em><br><span style="font-size:0.62em;font-weight:400;font-style:normal;color:var(--muted);">Ohne Makler. Ohne Kompromisse.</span></h1>
+      <h1 style="line-height:1.0;">Verkauf deine<br><em>Immobilie.</em><br><span style="font-size:0.52em;font-weight:400;font-style:normal;color:var(--muted);display:block;line-height:1;margin-top:0.35em;white-space:nowrap;">Ohne Makler. Ohne Kompromisse.</span></h1>
       <p class="hero-sub">Professionelles Marketing für Privatverkäufer. Transparente Fixpreise, keine versteckten Kosten, kein Provisionspoker. Du behältst die Kontrolle.</p>
       <div class="hero-ctas">
         <a href="shop.html" class="btn-primary-dark">Leistungen buchen</a>
@@ -671,7 +671,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 </section>
 
 <!-- LEISTUNGEN -->
-<section class="section" id="leistungen">
+<section class="section" id="leistungen" style="scroll-margin-top:80px;">
   <div class="section-inner">
     <div class="section-header">
       <div>
@@ -761,7 +761,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 </section>
 
 <!-- PAKETE -->
-<section class="pkg-section" id="pakete">
+<section class="pkg-section" id="pakete" style="scroll-margin-top:80px;">
   <div class="section-inner">
     <div class="section-header">
       <div>
@@ -947,7 +947,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 </section>
 
 <!-- FAQ -->
-<section class="faq-section" id="faq">
+<section class="faq-section" id="faq" style="scroll-margin-top:80px;">
   <div class="section-inner">
     <div class="section-header" style="justify-content:flex-start;flex-direction:column;align-items:flex-start;margin-bottom:0;">
       <span class="section-label reveal">FAQ</span>
@@ -979,7 +979,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 </section>
 
 <!-- KONTAKT -->
-<section class="contact-section" id="kontakt">
+<section class="contact-section" id="kontakt" style="scroll-margin-top:80px;">
   <div class="contact-grid">
     <div>
       <span class="section-label reveal">Kontakt</span>
