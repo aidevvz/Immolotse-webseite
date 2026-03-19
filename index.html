@@ -238,16 +238,20 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 /* ── SAVINGS SECTION ── */
 .savings-section{background:var(--dark-container);padding:100px 6%;text-align:center;}
+.savings-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:920px;margin:0 auto 28px;text-align:left;}
+.savings-calc-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:32px 28px;}
+.savings-calc-role{font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-pale);display:block;margin-bottom:20px;}
+.savings-calc-top{margin-bottom:24px;}
 .savings-label{font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-pale);margin-bottom:16px;display:block;}
 .savings-title{font-family:'Noto Serif',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#fff;margin-bottom:14px;}
 .savings-sub{color:rgba(255,255,255,0.55);font-size:0.95rem;margin-bottom:56px;font-weight:300;max-width:500px;margin-left:auto;margin-right:auto;}
-.savings-boxes{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
-.savings-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px 36px;min-width:190px;}
+.savings-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:960px;margin:0 auto 40px;}
+.savings-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:24px 20px;}
 .savings-box.hl{background:rgba(115,92,0,0.15);border-color:rgba(115,92,0,0.4);}
 .savings-box-lbl{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px;}
 .savings-box-val{font-family:'Noto Serif',serif;font-size:1.8rem;font-weight:700;color:rgba(255,255,255,0.8);}
 .savings-box.hl .savings-box-val{color:var(--gold-pale);}
-.savings-slider-wrap{max-width:480px;margin:0 auto 24px;}
+.savings-slider-wrap{max-width:560px;margin:0 auto 32px;}
 .savings-slider-lbl{display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.72rem;color:rgba(255,255,255,0.4);}
 .savings-slider-val{font-family:'Noto Serif',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:10px;}
 input.savings-slider{-webkit-appearance:none;width:100%;height:2px;background:rgba(255,255,255,0.2);outline:none;cursor:pointer;}
@@ -468,10 +472,10 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   .google-badge{font-size:0.66rem;padding:5px 12px;}
 
   /* SAVINGS */
-  .savings-boxes{gap:8px;margin-bottom:28px;}
-  .savings-box{padding:17px 12px;min-width:96px;}
+  .savings-boxes{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:0;}
+  .savings-box{padding:14px 10px;}
   .savings-box-val{font-size:1.4rem;}
-  .savings-sub{font-size:0.87rem;margin-bottom:32px;}
+  .savings-sub{font-size:0.87rem;margin-bottom:24px;}
   .savings-slider-val{font-size:1rem;}
 
   /* CTA */
@@ -597,14 +601,18 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           </div>
           <input type="range" id="calcSlider2" min="100000" max="1500000" step="10000" value="350000" oninput="updateCalc2(this.value)"/>
         </div>
-        <div class="calc-result-row">
+        <div class="calc-result-row" style="grid-template-columns:1fr 1fr 1fr;">
           <div>
-            <div class="calc-result-lbl">Makler 3,6%</div>
-            <div class="calc-result-val" id="calcMakler2">€ 12.600</div>
+            <div class="calc-result-lbl">Verkäufer (3,6%)</div>
+            <div class="calc-result-val" id="calcVerkäufer2">€ 12.600</div>
           </div>
           <div>
-            <div class="calc-result-lbl">Du sparst</div>
-            <div class="calc-result-val highlight" id="calcSparst2">€ 11.851+</div>
+            <div class="calc-result-lbl">Käufer (3,6%)</div>
+            <div class="calc-result-val" id="calcKäufer2">€ 12.600</div>
+          </div>
+          <div>
+            <div class="calc-result-lbl">Ihr spart</div>
+            <div class="calc-result-val highlight" id="calcSparst2">€ 24.451+</div>
           </div>
         </div>
       </div>
@@ -612,10 +620,10 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <!-- Right: two overlapping images -->
     <div class="hero-images reveal">
       <div class="hero-img-main">
-        <img src="img-after.webp" srcset="img-after-sm.webp 800w, img-after.webp 1920w" sizes="50vw" alt="Professionell vermarktete Immobilie – Beispiel ImmoLotse" fetchpriority="high"/>
+        <img src="Hero_Bild_1.webp" alt="Professionell vermarktete Immobilie – ImmoLotse" fetchpriority="high"/>
       </div>
       <div class="hero-img-secondary">
-        <img src="nachher.webp" srcset="nachher-sm.webp 800w, nachher.webp 1920w" sizes="30vw" alt="KI-optimiertes Immobilienfoto – ImmoLotse" loading="lazy"/>
+        <img src="Hero_Bild_2.webp" alt="Immobilienfoto – ImmoLotse" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -641,7 +649,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <h3 class="how-bento-title">Leistung wählen</h3>
         <p class="how-bento-desc">Wähle einzelne Leistungen à la carte oder eines unserer Komplettpakete — ganz nach deinem Bedarf und Budget. Kein Paketzwang, keine versteckten Kosten.</p>
         <div class="how-bento-img">
-          <img src="img-after.webp" srcset="img-after-sm.webp 800w, img-after.webp 1920w" sizes="40vw" alt="Leistung wählen – ImmoLotse" loading="lazy"/>
+          <img src="So_funktionierts_Bild_1.webp" alt="So funktioniert's – ImmoLotse" loading="lazy"/>
         </div>
       </div>
       <!-- Right column: Steps 02, 03, 04 -->
@@ -944,6 +952,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 
 
 
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
@@ -1192,21 +1201,26 @@ function toggleFaq(el) {
 function updateCalc2(v) {
   const val = parseInt(v);
   document.getElementById('calcPriceNum2').textContent = '€ ' + val.toLocaleString('de-AT');
-  const makler = Math.round(val * 0.036);
-  const spart = Math.round(makler - 749);
-  document.getElementById('calcMakler2').textContent = '€ ' + makler.toLocaleString('de-AT');
+  const verkäufer = Math.round(val * 0.036);
+  const käufer = Math.round(val * 0.036);
+  const gesamt = verkäufer + käufer;
+  const spart = Math.round(gesamt - 749);
+  document.getElementById('calcVerkäufer2').textContent = '€ ' + verkäufer.toLocaleString('de-AT');
+  document.getElementById('calcKäufer2').textContent = '€ ' + käufer.toLocaleString('de-AT');
   document.getElementById('calcSparst2').textContent = '€ ' + Math.max(0, spart).toLocaleString('de-AT') + '+';
 }
 
-// Savings section
+// Savings section — Verkäufer
 function updateSavings(v) {
   const val = parseInt(v);
   document.getElementById('savingsVal').textContent = '€ ' + val.toLocaleString('de-AT');
-  const buyer = Math.round(val * 0.036);
   const seller = Math.round(val * 0.036);
-  const saved = Math.round(buyer + seller - 989);
-  document.getElementById('savBuyer').textContent = '€ ' + buyer.toLocaleString('de-AT');
+  const buyer = Math.round(val * 0.036);
+  const gesamt = seller + buyer;
+  const saved = Math.round(gesamt - 749);
   document.getElementById('savSeller').textContent = '€ ' + seller.toLocaleString('de-AT');
+  document.getElementById('savBuyer').textContent = '€ ' + buyer.toLocaleString('de-AT');
+  document.getElementById('savGesamt').textContent = '€ ' + gesamt.toLocaleString('de-AT');
   document.getElementById('savTotal').textContent = '€ ' + Math.max(0, saved).toLocaleString('de-AT') + '+';
 }
 
