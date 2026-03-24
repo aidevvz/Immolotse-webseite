@@ -2,7 +2,9 @@
 # Indexierung deaktiviert bis Gewerbeanmeldung abgeschlossen
 
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://immolotse.at/sitemap.xml
 
 # Sitemap (aktivieren wenn site live geht)
 # Sitemap: https://immolotse.at/sitemap.xml
