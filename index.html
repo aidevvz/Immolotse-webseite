@@ -706,10 +706,28 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div class="service-list">
         <div class="service-row" onclick="toggleServiceRow(this)">
           <div class="service-row-left">
+            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <span class="service-row-name">Inseratmanagement (1 Monat)</span>
+          </div>
+          <span class="service-row-price">€ 149</span>
+        </div>
+        <div class="service-detail-row">Wir bearbeiten eingehende Anfragen, beantworten Interessentenfragen und senden Unterlagen weiter — für einen Monat. Kein Makler, keine Provision.</div>
+
+        <div class="service-row" onclick="toggleServiceRow(this)">
+          <div class="service-row-left">
+            <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span class="service-row-name">Besichtigungsbegleitung (pro Termin)</span>
+          </div>
+          <span class="service-row-price">€ 99</span>
+        </div>
+        <div class="service-detail-row">Ein ImmoLotse-Mitarbeiter begleitet die Besichtigung, nimmt Fragen der Interessenten auf und leitet diese an dich weiter. Kein Verkaufsgespräch, kein Maklerverhältnis — nur Unterstützung. Nur Wien.</div>
+
+        <div class="service-row" onclick="toggleServiceRow(this)">
+          <div class="service-row-left">
             <div class="service-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
             <span class="service-row-name">Fotoshooting inkl. Nachbearbeitung (15 Bilder)</span>
           </div>
-          <span class="service-row-price">€ 499</span>
+          <span class="service-row-price">€ 399</span>
         </div>
         <div class="service-detail-row">Unser Fotograf kommt zu dir: 15 professionelle Aufnahmen deiner Immobilie, danach KI-optimiert für maximale Wirkung auf Willhaben & ImmoScout. Lieferung innerhalb 48 Stunden.</div>
 
@@ -788,41 +806,47 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       Wischen zum Vergleichen
     </div>
     <div class="packages-grid" id="packagesGrid">
-      <!-- Starter -->
+      <!-- Online-Paket -->
       <div class="pkg-card reveal">
-        <div class="pkg-badge">Starter</div>
-        <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 289</div>
-        <div class="pkg-desc">Perfekt für den Einstieg</div>
+        <div class="pkg-badge">Online-Paket <span class="pkg-discount" style="background:rgba(115,92,0,0.1);color:var(--gold);">−5 %</span></div>
+        <div class="pkg-name">Online</div>
+        <div class="pkg-price">€ 699</div>
+        <div class="pkg-desc">Alle digitalen Leistungen aus einer Hand</div>
         <ul class="pkg-features">
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>KI-Bildoptimierung (bis 10 Bilder)</li>
           <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professionelles Exposé (PDF)</li>
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Marktpreisanalyse inklusive</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Marktpreisanalyse</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inseratmanagement (3 Monate inkl.)</li>
         </ul>
         <a href="shop.html" class="btn-pkg">Paket wählen</a>
       </div>
-      <!-- Professional (featured) -->
+      <!-- Sorglos-Paket (featured) -->
       <div class="pkg-card featured reveal">
-        <div class="pkg-badge">Beliebteste Wahl <span class="pkg-discount">−5 %</span></div>
-        <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 749</div>
-        <div class="pkg-desc">Für maximalen Verkaufserfolg</div>
+        <div class="pkg-badge">Beliebteste Wahl <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-name">Sorglos</div>
+        <div class="pkg-price">€ 1.349</div>
+        <div class="pkg-desc">Professionell & persönlich betreut</div>
         <ul class="pkg-features">
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Starter</li>
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Premium Fotoshooting inkl. Nachbearbeitung</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Exposé, Marktpreisanalyse</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inseratmanagement (3 Monate inkl.)</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professionelles Fotoshooting (15 Bilder)</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>10× Besichtigungsbegleitung (€ 990)</li>
         </ul>
         <a href="shop.html" class="btn-pkg">Paket wählen</a>
       </div>
-      <!-- Full-Service -->
+      <!-- Premium-Paket -->
       <div class="pkg-card reveal">
-        <div class="pkg-badge">Full-Service <span class="pkg-discount" style="background:rgba(115,92,0,0.1);color:var(--gold);">−10 %</span></div>
-        <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.249</div>
+        <div class="pkg-badge">Premium <span class="pkg-discount" style="background:rgba(115,92,0,0.1);color:var(--gold);">−15 %</span></div>
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price">€ 1.949</div>
         <div class="pkg-desc">Komplett stressfrei verkaufen</div>
         <ul class="pkg-features">
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Professional</li>
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Räumungsgutschein (€ 200) inklusive</li>
-          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reinigungsservice inklusive</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Exposé, Marktpreisanalyse</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inseratmanagement (3 Monate)</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Professionelles Fotoshooting (15 Bilder)</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>10× Besichtigungsbegleitung</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reinigungsservice (Ab € 3,–/m²)</li>
+          <li><svg class="pkg-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Räumungsgutschein (€ 300) inklusive</li>
         </ul>
         <a href="shop.html" class="btn-pkg">Paket wählen</a>
       </div>

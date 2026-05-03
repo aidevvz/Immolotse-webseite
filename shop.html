@@ -657,39 +657,45 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 289)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 699)">
         <div class="selected-check">✓</div>
-        <div class="pkg-name">Starter</div>
-        <div class="pkg-price">€ 289</div>
-        <div class="pkg-save">Alle Grundleistungen im Bundle</div>
+        <div class="pkg-name">Online</div>
+        <div class="pkg-price">€ 699 <span class="pkg-discount">−5 %</span></div>
+        <div class="pkg-save">Spare € 45 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 10 Bilder)</li>
           <li>Professionelles Exposé (PDF)</li>
-          <li>Marktpreisanalyse inklusive (Orientierungswert)</li>
+          <li>Marktpreisanalyse</li>
+          <li>Inseratmanagement (3 Monate)</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 749)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1349)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
-        <div class="pkg-name">Professional</div>
-        <div class="pkg-price">€ 749 <span class="pkg-discount">−5 %</span></div>
-        <div class="pkg-save">Spare € 39 vs. Einzelbuchung</div>
+        <div class="pkg-name">Sorglos</div>
+        <div class="pkg-price">€ 1.349 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-save">Spare € 190 vs. Einzelbuchung</div>
         <ul class="pkg-features">
-          <li>Alles aus Starter</li>
-          <li>Premium Fotoshooting inkl. Nachbearbeitung (15 Bilder)</li>
+          <li>Exposé, Marktpreisanalyse</li>
+          <li>Inseratmanagement (3 Monate)</li>
+          <li>Professionelles Fotoshooting (15 Bilder)</li>
+          <li>10× Besichtigungsbegleitung</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1249)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1949)">
         <div class="selected-check">✓</div>
-        <div class="pkg-name">Full-Service</div>
-        <div class="pkg-price">€ 1.249 <span class="pkg-discount">−10 %</span></div>
-        <div class="pkg-save">Spare € 199 vs. Einzelbuchung</div>
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price">€ 1.949 <span class="pkg-discount">−15 %</span></div>
+        <div class="pkg-save">Spare € 385 vs. Einzelbuchung</div>
         <ul class="pkg-features">
-          <li>Alles aus Professional</li>
-          <li>Räumungsgutschein (€ 200) inklusive</li>
-          <li>Reinigungsservice inklusive</li>
+          <li>Exposé, Marktpreisanalyse</li>
+          <li>Inseratmanagement (3 Monate)</li>
+          <li>Professionelles Fotoshooting (15 Bilder)</li>
+          <li>10× Besichtigungsbegleitung</li>
+          <li>Reinigungsservice (Ab € 3,–/m²)</li>
+          <li>Räumungsgutschein (€ 300)</li>
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
@@ -704,7 +710,37 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
     <div class="services-grid">
 
-      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','CAM','Fotoshooting inkl. Nachbearbeitung (15 Bilder)',499)">
+      <!-- INSERATMANAGEMENT -->
+      <div class="service-card" id="svc-inserat" onclick="toggleService('inserat','INS','Inseratmanagement (1 Monat)',149)">
+        <div class="service-top">
+          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="service-text">
+            <h4>Inseratmanagement (1 Monat)</h4>
+            <p>Wir bearbeiten Anfragen, beantworten Fragen und senden Unterlagen weiter — für einen Monat</p>
+          </div>
+        </div>
+        <div class="service-bottom">
+          <span class="service-price-tag">€ 149</span>
+          <button class="btn-add-service">+ Hinzufügen</button>
+        </div>
+      </div>
+
+      <!-- BESICHTIGUNGSBEGLEITUNG -->
+      <div class="service-card" id="svc-besichtigung" onclick="toggleService('besichtigung','BES','Besichtigungsbegleitung (pro Termin)',99)">
+        <div class="service-top">
+          <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="service-text">
+            <h4>Besichtigungsbegleitung <span style="font-size:0.7rem;background:rgba(115,92,0,0.08);color:var(--gold);padding:2px 7px;border-radius:50px;font-weight:700;margin-left:4px;">Nur Wien</span></h4>
+            <p>Ein Mitarbeiter begleitet die Besichtigung, nimmt Fragen auf und leitet sie weiter — kein Maklerauftrag</p>
+          </div>
+        </div>
+        <div class="service-bottom">
+          <span class="service-price-tag">€ 99</span>
+          <button class="btn-add-service">+ Hinzufügen</button>
+        </div>
+      </div>
+
+      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','CAM','Fotoshooting inkl. Nachbearbeitung (15 Bilder)',399)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
           <div class="service-text">
@@ -713,7 +749,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 499</span>
+          <span class="service-price-tag">€ 399</span>
           <button class="btn-add-service">+ Hinzufügen</button>
         </div>
       </div>
@@ -1004,9 +1040,9 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'S', name: 'Starter-Paket', price: 289 },
-    professional: { id: 'pkg-professional', emoji: 'P', name: 'Professional-Paket', price: 749 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'F', name: 'Full-Service-Paket', price: 1249 }
+    starter: { id: 'pkg-starter', emoji: 'O', name: 'Online-Paket', price: 699 },
+    professional: { id: 'pkg-professional', emoji: 'S', name: 'Sorglos-Paket', price: 1349 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'P', name: 'Premium-Paket', price: 1949 }
   };
 
   function togglePackage(key, price) {
