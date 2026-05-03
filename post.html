@@ -482,6 +482,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .prose li:last-child{margin-bottom:0;}
 .prose p + ul,.prose p + ol{margin-top:-8px;}
 .prose ul + p,.prose ol + p{margin-top:24px;}
+.prose p.lead-strong{margin-bottom:6px;color:var(--dark);}
 .prose strong{font-weight:600;color:var(--dark);}
 .prose blockquote{border-left:3px solid var(--gold);padding-left:20px;margin:24px 0;font-style:italic;color:var(--muted);}
 
@@ -844,7 +845,9 @@ function md2html(md) {
     .replace(/\n\n+/g, '</p><p>')
     .replace(/^(?!<[h|u|b|l|t|p|i])(.*)/gm, '$1')
     .replace(/^<\/p><p>$/, '')
-    .split('\n\n').map(b => b.startsWith('<') ? b : `<p>${b}</p>`).join('');
+    .split('\n\n').map(b => b.startsWith('<') ? b : `<p>${b}</p>`).join('')
+    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>(\s*<ul)/g, '<p class="lead-strong">$1</p>$2')
+    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>(\s*<ol)/g, '<p class="lead-strong">$1</p>$2');
 }
 
 function formatDate(d) {
