@@ -1,10 +1,23 @@
-# ImmoLotse – robots.txt
-# Indexierung deaktiviert bis Gewerbeanmeldung abgeschlossen
+# ImmoLotse - robots.txt
+# Stand: Mai 2026
 
+# Standard: Alle Crawler duerfen die oeffentliche Seite lesen,
+# das CMS-Backend bleibt aussen vor
 User-agent: *
 Allow: /
+Disallow: /admin/
+
+# KI-Crawler explizit willkommen geheissen (zur Dokumentation)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
 
 Sitemap: https://immolotse.at/sitemap.xml
-
-# Sitemap (aktivieren wenn site live geht)
-# Sitemap: https://immolotse.at/sitemap.xml
