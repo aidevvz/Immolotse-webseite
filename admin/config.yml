@@ -27,6 +27,7 @@ collections:
           - { label: "Preisfindung", value: "preisfindung" }
           - { label: "Willhaben Tipps", value: "willhaben" }
           - { label: "Steuer", value: "steuer" }
+          - { label: "Kosten", value: "kosten" }
       - { label: "Kurzbeschreibung", name: "excerpt", widget: "text", hint: "Kurze Zusammenfassung für die Blog-Übersicht (1-2 Sätze)" }
       - { label: "Lesedauer (Minuten)", name: "readtime", widget: "number", default: 5 }
       - { label: "Titelbild", name: "image", widget: "image", required: false }
