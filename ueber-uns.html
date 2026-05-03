@@ -4,7 +4,113 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Über ImmoLotse – Ihr Immobilienmarketing-Partner in Wien</title>
-<meta name="description" content="ImmoLotse wurde gegründet um Privatverkäufer in Österreich professionell zu unterstützen – ohne teure Maklerprovision. Erfahre mehr über unser Team und unsere Mission."/>
+
+<!-- SEO: Meta & Open Graph -->
+<meta name="description" content="10+ Jahre Maklererfahrung, über 120 begleitete Immobilienverkäufe. Wir bieten dir das Toolkit eines Maklers ohne Provision."/>
+<link rel="canonical" href="https://immolotse.at/ueber-uns.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="de_AT"/>
+<meta property="og:site_name" content="ImmoLotse"/>
+<meta property="og:title" content="Über uns | Das Team hinter ImmoLotse"/>
+<meta property="og:description" content="10+ Jahre Maklererfahrung, über 120 begleitete Immobilienverkäufe. Wir bieten dir das Toolkit eines Maklers ohne Provision."/>
+<meta property="og:url" content="https://immolotse.at/ueber-uns.html"/>
+<meta property="og:image" content="https://immolotse.at/founder.webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Über uns | Das Team hinter ImmoLotse"/>
+<meta name="twitter:description" content="10+ Jahre Maklererfahrung, über 120 begleitete Immobilienverkäufe. Wir bieten dir das Toolkit eines Maklers ohne Provision."/>
+<meta name="twitter:image" content="https://immolotse.at/founder.webp"/>
+
+
+<!-- SEO: Strukturierte Daten -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://immolotse.at/#organization",
+  "name": "ImmoLotse",
+  "url": "https://immolotse.at",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://immolotse.at/favicon-192.png"
+  },
+  "email": "info@immolotse.at",
+  "telephone": "+43 664 48 84 703",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baumhaselweg",
+    "postalCode": "1120",
+    "addressLocality": "Wien",
+    "addressCountry": "AT"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Austria"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Über ImmoLotse",
+  "url": "https://immolotse.at/ueber-uns.html",
+  "mainEntity": {
+    "@id": "https://immolotse.at/#organization"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@type": "Organization",
+  "@id": "https://immolotse.at/#organization",
+  "name": "ImmoLotse",
+  "url": "https://immolotse.at",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://immolotse.at/favicon-192.png"
+  },
+  "email": "info@immolotse.at",
+  "telephone": "+43 664 48 84 703",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baumhaselweg",
+    "postalCode": "1120",
+    "addressLocality": "Wien",
+    "addressCountry": "AT"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Austria"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://immolotse.at/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Über uns",
+      "item": "https://immolotse.at/ueber-uns.html"
+    }
+  ]
+}
+</script>
 
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"/>
@@ -360,7 +466,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   .cookie-accept,.cookie-decline{flex:1;text-align:center;}
 }
 
-
 /* ── PAGE HEADER ── */
 .page-header{padding:60px 6% 48px;background:var(--surface);border-bottom:1px solid var(--outline);}
 .page-header-inner{max-width:1400px;margin:0 auto;}
@@ -548,7 +653,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   </div>
 </div>
 
-
 <section class="team-section section">
   <div class="founder-grid">
     <div class="reveal">
@@ -621,7 +725,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
   </div>
 </section>
-
 
 <footer>
   <div class="footer-grid">
@@ -717,7 +820,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
 
 </script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
