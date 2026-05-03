@@ -6,6 +6,7 @@ excerpt: Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro.
   Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch
   die Käuferprovision deinen Verkaufserlös schmälert.
 readtime: 5
+image: /blog-makler-hero.webp
 published: true
 ---
 ## Die kurze Antwort
