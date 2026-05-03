@@ -773,7 +773,9 @@ function parseFrontmatter(text) {
     const [k,...v] = l.split(':');
     if (k && v.length) fm[k.trim()] = v.join(':').trim().replace(/^["']|["']$/g,'');
   });
-  fm.excerpt = text.replace(/^---[\s\S]*?---/, '').trim().replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
+  if (!fm.excerpt) {
+    fm.excerpt = text.replace(/^---[\s\S]*?---/, '').trim().replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
+  }
   return fm;
 }
 

@@ -538,6 +538,13 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .post-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.72rem;color:var(--muted);}
 .post-cat{font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
 .post-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);margin:32px 0;background:var(--surface-container);}
+
+.post-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:0.92rem;}
+.post-table th{text-align:left;padding:12px 16px;background:var(--surface-container);font-weight:600;font-family:'Inter',sans-serif;color:var(--dark);border-bottom:2px solid var(--outline);}
+.post-table td{padding:12px 16px;border-bottom:1px solid var(--outline);color:var(--dark);}
+.post-table tr:last-child td{border-bottom:none;}
+.post hr,.prose hr{border:none;border-top:1px solid var(--outline);margin:40px 0;}
+
 .share-bar{display:flex;align-items:center;gap:12px;padding:20px 0;border-top:1px solid var(--outline);border-bottom:1px solid var(--outline);margin:32px 0;}
 .share-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
 .share-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--radius);font-size:0.72rem;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
@@ -793,11 +800,33 @@ function parseFrontmatter(text) {
     if (k && v.length) fm[k.trim()] = v.join(':').trim().replace(/^["']|["']$/g,'');
   });
   fm.body = text.replace(/^---[\s\S]*?---/, '').trim();
-  fm.excerpt = fm.body.replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
+  if (!fm.excerpt) {
+    fm.excerpt = fm.body.replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
+  }
   return fm;
 }
 
 function md2html(md) {
+  // Tables: detect blocks of |...| lines with separator |---|
+  md = md.replace(/(^\|.+\|\n\|[\s\-:|]+\|\n(?:\|.*\|\n?)+)/gm, function(block) {
+    const lines = block.trim().split('\n');
+    const headers = lines[0].split('|').slice(1, -1).map(c => c.trim());
+    const rows = lines.slice(2).map(l => l.split('|').slice(1, -1).map(c => c.trim()));
+    let html = '<table class="post-table"><thead><tr>';
+    headers.forEach(h => { html += `<th>${h}</th>`; });
+    html += '</tr></thead><tbody>';
+    rows.forEach(row => {
+      html += '<tr>';
+      row.forEach(cell => { html += `<td>${cell}</td>`; });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+  });
+
+  // Horizontal rule
+  md = md.replace(/^---+$/gm, '<hr/>');
+
   return md
     .replace(/^### (.*$)/gm, '<h3>$1</h3>')
     .replace(/^## (.*$)/gm, '<h2>$1</h2>')
@@ -809,7 +838,7 @@ function md2html(md) {
     .replace(/^- (.*$)/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, s => `<ul>${s}</ul>`)
     .replace(/\n\n+/g, '</p><p>')
-    .replace(/^(?!<[h|u|b|l])(.*)/gm, '$1')
+    .replace(/^(?!<[h|u|b|l|t|p|i])(.*)/gm, '$1')
     .replace(/^<\/p><p>$/, '')
     .split('\n\n').map(b => b.startsWith('<') ? b : `<p>${b}</p>`).join('');
 }
