@@ -586,6 +586,26 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://immolotse.at/ueber-uns.html",
+  "name": "Über ImmoLotse",
+  "description": "ImmoLotse wurde von Immobilienexperte Giorgi Gorgodze gegründet. 10 Jahre Maklererfahrung, über 120 verkaufte Immobilien. Professionelles Immobilienmarketing ohne Provision.",
+  "url": "https://immolotse.at/ueber-uns.html",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Giorgi Gorgodze",
+    "jobTitle": "Gründer und Immobilienexperte",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ImmoLotse",
+      "url": "https://immolotse.at"
+    }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -662,13 +682,15 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
     <div>
       <span class="section-label reveal">Gründer & Immobilienexperte</span>
-      <h2 class="section-title reveal">Die Geschichte<br>hinter ImmoLotse.</h2>
-      <p class="section-sub reveal">Warum ich ImmoLotse gegründet habe.</p>
-      <div class="reveal" style="margin-top:24px;">
+      <h2 class="section-title reveal" id="gruender-story">Die Geschichte<br>hinter ImmoLotse.</h2>
+      <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:12px;margin-top:8px;" class="reveal">10 Jahre Maklererfahrung auf deiner Seite</h3>
+      <div class="reveal" style="margin-top:16px;">
         <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:16px;">Nach <strong>10 Jahren als Makler und Immobilienverkäufer</strong> mit über 120 erfolgreich verkauften Immobilien kannte ich die Branche von innen. Ich wusste genau, wo das System für Verkäufer nicht funktioniert.</p>
-        <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:16px;">Viele Makler verrechnen Leistungen, die der Kunde selbst nie in Anspruch genommen hat. Fahrten zu Besichtigungen, Wartezeiten, Telefonate, leere Kilometer: all das wird in die Provision eingepreist — und vom Verkäufer bezahlt.</p>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:10px;margin-top:20px;" id="kein-provisions-anreiz">Warum wir keinen Provisions-Anreiz haben</h3>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:16px;">Viele Makler verrechnen Leistungen, die der Kunde selbst nie in Anspruch genommen hat. Fahrten zu Besichtigungen, Wartezeiten, Telefonate, leere Kilometer: all das wird in die Provision eingepreist und vom Verkäufer bezahlt.</p>
         <blockquote class="founder-quote">"Makler verrechnen die leeren Kilometer. Das wollte ich ändern." — Giorgi Gorgodze, Gründer ImmoLotse</blockquote>
-        <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:24px;">Mein Ziel mit ImmoLotse: Die Vermarktung auf ein professionelles Niveau bringen, dem Eigentümer dabei aber so viele Freiheiten wie möglich lassen. Wir übernehmen 85&nbsp;% der Arbeit, die Entscheidungen bleiben bei dir.</p>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:10px;margin-top:20px;" id="unser-ansatz">Unser Ansatz</h3>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:24px;">Mein Ziel mit ImmoLotse: Die Vermarktung auf ein professionelles Niveau bringen, dem Eigentümer dabei aber so viele Freiheiten wie möglich lassen. Wir übernehmen 85 % der Arbeit, die Entscheidungen bleiben bei dir.</p>
       </div>
       <div class="stats-row reveal">
         <div class="stat-box">
@@ -692,7 +714,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 <section class="section" style="background:var(--surface-low);padding-top:80px;padding-bottom:80px;">
   <div class="section-inner">
     <span class="section-label reveal">Unsere Werte</span>
-    <h2 class="section-title reveal">Was ImmoLotse<br>von anderen unterscheidet.</h2>
+    <h2 class="section-title reveal" id="was-uns-unterscheidet">Was ImmoLotse<br>von anderen unterscheidet.</h2>
     <div class="values-grid">
       <div class="value-card reveal">
         <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -707,7 +729,32 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div class="value-card reveal">
         <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="value-title">Du behältst die Kontrolle</div>
-        <p class="value-desc">Wir liefern das Handwerk — Exposé, Fotos, Unterlagen. Die Entscheidungen, Besichtigungen und der Abschluss bleiben bei dir.</p>
+        <p class="value-desc">Wir liefern das Handwerk: Exposé, Fotos, Unterlagen. Die Entscheidungen, Besichtigungen und der Abschluss bleiben bei dir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAS TEAM -->
+<section class="section" style="background:var(--surface);padding-top:80px;padding-bottom:80px;">
+  <div class="section-inner">
+    <span class="section-label reveal">Das Team</span>
+    <h2 class="section-title reveal" id="das-team">Wer steckt hinter ImmoLotse.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:48px;">
+      <div class="value-card reveal">
+        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="value-title">Giorgi Gorgodze</div>
+        <p class="value-desc">Gründer und Immobilienexperte. 10 Jahre Maklererfahrung, über 120 verkaufte Immobilien. Spezialist für Privatverkauf in Wien und Österreich.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="value-title">Digitales Vermarktungsteam</div>
+        <p class="value-desc">Experten für Exposé-Erstellung, KI-Bildoptimierung und Inseratmanagement. Alle Leistungen werden in Österreich erbracht.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+        <div class="value-title">Foto- und Besichtigungsteam</div>
+        <p class="value-desc">Professionelle Immobilienfotografen und geschulte Besichtigungsbegleiter in Wien. Für den persönlichen Eindruck vor Ort.</p>
       </div>
     </div>
   </div>
