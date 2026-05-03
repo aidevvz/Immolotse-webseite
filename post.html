@@ -812,7 +812,7 @@ function parseFrontmatter(text) {
 }
 
 function md2html(md) {
-  // Tables: detect blocks of |...| lines with separator |---|
+  // Tabellen
   md = md.replace(/(^\|.+\|\n\|[\s\-:|]+\|\n(?:\|.*\|\n?)+)/gm, function(block) {
     const lines = block.trim().split('\n');
     const headers = lines[0].split('|').slice(1, -1).map(c => c.trim());
@@ -829,25 +829,54 @@ function md2html(md) {
     return html;
   });
 
-  // Horizontal rule
-  md = md.replace(/^---+$/gm, '<hr/>');
-
-  return md
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gm, '<h2>$1</h2>')
+  // Inline-Formatierung zuerst (auf rohen Text)
+  md = md
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
-    .replace(/^- (.*$)/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, s => `<ul>${s}</ul>`)
-    .replace(/\n\n+/g, '</p><p>')
-    .replace(/^(?!<[h|u|b|l|t|p|i])(.*)/gm, '$1')
-    .replace(/^<\/p><p>$/, '')
-    .split('\n\n').map(b => b.startsWith('<') ? b : `<p>${b}</p>`).join('')
-    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>(\s*<ul)/g, '<p class="lead-strong">$1</p>$2')
-    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>(\s*<ol)/g, '<p class="lead-strong">$1</p>$2');
+    .replace(/\*([^\*\n]+)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  // In Bloecke aufteilen (durch Leerzeile getrennt)
+  const blocks = md.split(/\n\s*\n/);
+  const html = blocks.map(block => {
+    block = block.trim();
+    if (!block) return '';
+
+    // Horizontal rule
+    if (/^---+$/.test(block)) return '<hr/>';
+
+    // Tabelle (schon HTML)
+    if (block.startsWith('<table')) return block;
+
+    // Headings
+    if (block.startsWith('### ')) return '<h3>' + block.slice(4) + '</h3>';
+    if (block.startsWith('## ')) return '<h2>' + block.slice(3) + '</h2>';
+    if (block.startsWith('# ')) return '<h2>' + block.slice(2) + '</h2>';
+
+    // Blockquote
+    if (block.startsWith('> ')) {
+      return '<blockquote>' + block.split('\n').map(l => l.replace(/^>\s?/, '')).join(' ') + '</blockquote>';
+    }
+
+    // Liste (jede Zeile beginnt mit "- ")
+    if (block.split('\n').every(l => /^-\s/.test(l.trim()))) {
+      const items = block.split('\n').map(l => '<li>' + l.replace(/^-\s/, '').trim() + '</li>').join('');
+      return '<ul>' + items + '</ul>';
+    }
+
+    // Bold-only-Zeile gefolgt von Liste im selben Block (selten, aber moeglich)
+    // Standard: Paragraph
+    return '<p>' + block.replace(/\n/g, '<br/>') + '</p>';
+  });
+
+  // Block-Array zu HTML
+  let result = html.join('\n');
+
+  // Lead-strong: Paragraph der nur aus <strong> besteht und danach folgt eine Liste
+  result = result
+    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>\s*(<ul>)/g, '<p class="lead-strong">$1</p>$2')
+    .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>\s*(<ol>)/g, '<p class="lead-strong">$1</p>$2');
+
+  return result;
 }
 
 function formatDate(d) {
