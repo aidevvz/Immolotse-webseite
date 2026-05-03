@@ -831,53 +831,56 @@ function md2html(md) {
     return html;
   });
 
-  // Inline-Formatierung zuerst (auf rohen Text)
+  // Inline-Formatierung
   md = md
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^\*\n]+)\*/g, '<em>$1</em>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
 
-  // In Bloecke aufteilen (durch Leerzeile getrennt)
-  const blocks = md.split(/\n\s*\n/);
-  const html = blocks.map(block => {
+  // Helper: rendert einen einzelnen Block (ohne weitere Aufteilung)
+  function renderBlock(block) {
     block = block.trim();
     if (!block) return '';
-
-    // Horizontal rule
     if (/^---+$/.test(block)) return '<hr/>';
-
-    // Tabelle (schon HTML)
     if (block.startsWith('<table')) return block;
-
-    // Headings
     if (block.startsWith('### ')) return '<h3>' + block.slice(4) + '</h3>';
     if (block.startsWith('## ')) return '<h2>' + block.slice(3) + '</h2>';
     if (block.startsWith('# ')) return '<h2>' + block.slice(2) + '</h2>';
-
-    // Blockquote
     if (block.startsWith('> ')) {
       return '<blockquote>' + block.split('\n').map(l => l.replace(/^>\s?/, '')).join(' ') + '</blockquote>';
     }
-
-    // Liste (jede Zeile beginnt mit "- ")
+    // Reine Liste: jede Zeile beginnt mit "- "
     if (block.split('\n').every(l => /^-\s/.test(l.trim()))) {
       const items = block.split('\n').map(l => '<li>' + l.replace(/^-\s/, '').trim() + '</li>').join('');
       return '<ul>' + items + '</ul>';
     }
-
-    // Bold-only-Zeile gefolgt von Liste im selben Block (selten, aber moeglich)
-    // Standard: Paragraph
     return '<p>' + block.replace(/\n/g, '<br/>') + '</p>';
+  }
+
+  // Block-Split + Sub-Split fuer "Bold-Zeile + Liste"-Konstellation
+  const blocks = md.split(/\n\s*\n/);
+  const html = blocks.map(block => {
+    const lines = block.split('\n');
+    // Suche, ob in diesem Block eine Listen-Zeile beginnt
+    let listStart = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (/^-\s/.test(lines[i].trim())) { listStart = i; break; }
+    }
+    // Wenn die Liste NICHT am Anfang beginnt, splitten wir den Block
+    if (listStart > 0) {
+      const before = lines.slice(0, listStart).join('\n');
+      const listPart = lines.slice(listStart).join('\n');
+      // listPart koennte selbst nach einer reinen Liste auch noch was anderes haben
+      // Fuer jetzt: splitten wir nur einmal
+      return renderBlock(before) + '\n' + renderBlock(listPart);
+    }
+    return renderBlock(block);
   });
 
-  // Block-Array zu HTML
   let result = html.join('\n');
-
-  // Lead-strong: Paragraph der nur aus <strong> besteht und danach folgt eine Liste
   result = result
     .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>\s*(<ul>)/g, '<p class="lead-strong">$1</p>$2')
     .replace(/<p>(<strong>[^<]+<\/strong>)<\/p>\s*(<ol>)/g, '<p class="lead-strong">$1</p>$2');
-
   return result;
 }
 
