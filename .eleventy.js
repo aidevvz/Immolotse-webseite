@@ -58,6 +58,19 @@ module.exports = function (eleventyConfig) {
     return dt.setLocale("de-AT").toFormat("d. MMMM yyyy");
   });
 
+  // ── Vollständiges ISO 8601 mit Zeitzonen-Offset (für Schema.org) ──
+  // Wandelt ein einfaches Datum (YYYY-MM-DD) in z.B. 2026-05-03T09:00:00+02:00 um.
+  // Zeitzone Europe/Vienna -> Offset (+01:00 / +02:00) wird automatisch
+  // anhand von Sommer-/Winterzeit berechnet, nicht fest verdrahtet.
+  eleventyConfig.addFilter("isoDateTime", (value) => {
+    const iso = eleventyConfig.getFilter("isoDate")(value);
+    const dt = DateTime.fromISO(iso, { zone: "Europe/Vienna" }).set({
+      hour: 9, minute: 0, second: 0, millisecond: 0
+    });
+    if (!dt.isValid) return iso;
+    return dt.toISO({ suppressMilliseconds: true });
+  });
+
   // ── Lesbare Kategorie-Labels (siehe admin/config.yml) ─────────
   const categoryLabels = {
     verkauf: "Verkauf & Strategie",
