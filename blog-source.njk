@@ -1,3 +1,7 @@
+---
+permalink: /blog.html
+eleventyExcludeFromCollections: true
+---
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -631,37 +635,39 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <!-- Posts -->
     <div>
       <div class="blog-posts" id="blogContent">
-        
-        <a href="/ratgeber/was-kostet-makler-oesterreich/" class="blog-post-row">
-          <img class="blog-post-thumb" src="/blog-makler-hero.webp" alt="Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026" loading="lazy"/>
+        {% for post in collections.posts %}
+        <a href="/ratgeber/{{ post.data.slug }}/" class="blog-post-row">
+          <img class="blog-post-thumb" src="{{ post.data.image | default('/img-after-sm.webp') }}" alt="{{ post.data.title }}" loading="lazy"/>
           <div>
             <div class="blog-post-meta">
-              <span class="blog-post-cat">Kosten</span>
+              <span class="blog-post-cat">{{ post.data.category | categoryLabel }}</span>
               <span style="color:var(--outline);">·</span>
-              <span class="blog-post-date">3. Mai 2026</span>
+              <span class="blog-post-date">{{ post.data.date | displayDate }}</span>
             </div>
-            <div class="blog-post-title">Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</div>
-            <div class="blog-post-excerpt">Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro. Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch die Käuferprovision deinen Verkaufserlös schmälert.</div>
+            <div class="blog-post-title">{{ post.data.title }}</div>
+            <div class="blog-post-excerpt">{{ post.data.excerpt }}</div>
           </div>
         </a>
-        
+        {% else %}
+        <p style="color:var(--muted);font-size:0.88rem;padding:20px 0;">Bald findest du hier unsere ersten Artikel.</p>
+        {% endfor %}
       </div>
     </div>
     <!-- Sidebar -->
     <aside class="blog-sidebar">
       <span class="sidebar-label">Beliebte Artikel</span>
       <div id="popularPosts">
-        
-          
-          <a href="/ratgeber/was-kostet-makler-oesterreich/" class="sidebar-post">
-            <img class="sidebar-thumb" src="/blog-makler-hero.webp" alt="Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026" loading="lazy"/>
+        {% for post in collections.posts %}
+          {% if loop.index <= 4 %}
+          <a href="/ratgeber/{{ post.data.slug }}/" class="sidebar-post">
+            <img class="sidebar-thumb" src="{{ post.data.image | default('/img-after-sm.webp') }}" alt="{{ post.data.title }}" loading="lazy"/>
             <div>
-              <div class="sidebar-post-title">Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</div>
-              <div class="sidebar-post-date">3. Mai 2026</div>
+              <div class="sidebar-post-title">{{ post.data.title }}</div>
+              <div class="sidebar-post-date">{{ post.data.date | displayDate }}</div>
             </div>
           </a>
-          
-        
+          {% endif %}
+        {% endfor %}
       </div>
     </aside>
   </div>

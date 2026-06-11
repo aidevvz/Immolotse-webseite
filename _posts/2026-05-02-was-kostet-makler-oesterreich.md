@@ -1,13 +1,35 @@
 ---
 title: Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026
-date: 03. May 2026
+date: 2026-05-03
+dateModified: 2026-05-03
 category: kosten
 excerpt: Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro.
   Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch
   die Käuferprovision deinen Verkaufserlös schmälert.
+description: Maklerprovision Österreich 2026 - bis zu 7,2 % bzw. 28.800 Euro
+  bei 400.000 Euro Kaufpreis. So setzt sich die Provision zusammen, was
+  rechtlich erlaubt ist und wie du als Verkäufer davon betroffen bist.
+author: ImmoLotse
 readtime: 5
 image: /blog-makler-hero.webp
 published: true
+faq:
+  - question: Wie hoch darf die Maklerprovision in Österreich maximal sein?
+    answer: Bei einem Kaufpreis ab 72.672 Euro darf der Makler maximal 3 Prozent
+      netto zuzüglich 20 Prozent Umsatzsteuer verlangen, also 3,6 Prozent
+      brutto. Diese Höchstgrenze gilt pro Partei, also separat für Käufer und
+      Verkäufer.
+  - question: Zahlt beim Hausverkauf in Österreich auch der Käufer Provision?
+    answer: Ja. Beim Verkauf gilt das sogenannte Doppelmaklermodell, bei dem
+      sowohl Käufer als auch Verkäufer jeweils bis zu 3,6 Prozent Provision an
+      denselben Makler zahlen. Das Bestellerprinzip aus der Reform 2023 gilt
+      nur bei Mietverträgen, nicht beim Kauf.
+  - question: Kann ich als Privatperson eine Immobilie ohne Makler verkaufen?
+    answer: Ja, das ist in Österreich rechtlich uneingeschränkt erlaubt.
+      Besichtigungen, Verhandlungen und der Vertragsabschluss beim Notar können
+      vollständig privat abgewickelt werden. Professionelle Unterstützung bei
+      Exposé, Fotos und Marktpreisanalyse kann dabei helfen, ohne dass eine
+      Maklerprovision anfällt.
 ---
 ## Die kurze Antwort
 

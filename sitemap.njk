@@ -1,3 +1,7 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -30,10 +34,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+{%- for post in collections.posts %}
   <url>
-    <loc>https://immolotse.at/ratgeber/was-kostet-makler-oesterreich/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <loc>{{ post.data.canonicalUrl }}</loc>
+    <lastmod>{{ post.data.dateModified | isoDate }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+{%- endfor %}
 </urlset>

@@ -1,4 +1,5 @@
 [build]
+  command = "npm install && npx @11ty/eleventy"
   publish = "."
 
 [build.processing]
@@ -6,6 +7,19 @@
 
 [build.processing.images]
   compress = false
+
+# ── Alte Artikel-URLs (post.html?slug=xxx) auf neue /ratgeber/xxx/ umleiten ──
+[[redirects]]
+  from = "/post.html?slug=:slug"
+  to = "/ratgeber/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post.html"
+  to = "/blog.html"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
