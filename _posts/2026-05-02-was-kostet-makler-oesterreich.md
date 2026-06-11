@@ -6,7 +6,7 @@ category: kosten
 excerpt: Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro.
   Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch
   die Käuferprovision deinen Verkaufserlös schmälert.
-description: Maklerprovision Österreich 2026 - bis zu 7,2 % bzw. 28.800 Euro
+description: Maklerprovision Österreich 2026, bis zu 7,2 % bzw. 28.800 Euro
   bei 400.000 Euro Kaufpreis. So setzt sich die Provision zusammen, was
   rechtlich erlaubt ist und wie du als Verkäufer davon betroffen bist.
 author: ImmoLotse

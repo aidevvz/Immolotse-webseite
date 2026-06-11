@@ -17,9 +17,61 @@
 
 [[redirects]]
   from = "/post.html"
-  to = "/blog.html"
+  to = "/blog"
   status = 301
   force = true
+
+# ── Alte .html-Pfade auf saubere URLs umleiten (301) ──
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shop.html"
+  to = "/shop"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ueber-uns.html"
+  to = "/ueber-uns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/impressum.html"
+  to = "/impressum"
+  status = 301
+  force = true
+
+# ── Saubere URLs intern auf die .html-Dateien rendern (200, kein Redirect) ──
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/shop"
+  to = "/shop.html"
+  status = 200
+
+[[redirects]]
+  from = "/ueber-uns"
+  to = "/ueber-uns.html"
+  status = 200
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 200
 
 [[headers]]
   for = "/*"
