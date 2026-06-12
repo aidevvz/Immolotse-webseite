@@ -73,6 +73,13 @@
   to = "/impressum.html"
   status = 200
 
+# ── Alte Artikel-URL mit Umlauten auf neuen sauberen Slug umleiten ──
+[[redirects]]
+  from = "/ratgeber/immobilie-privat-verkaufen-in-österreich-der-ratgeber-2026/"
+  to = "/ratgeber/immobilie-privat-verkaufen-oesterreich/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
