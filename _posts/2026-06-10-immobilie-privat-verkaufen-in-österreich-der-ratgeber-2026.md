@@ -1,5 +1,5 @@
 ---
-title: Immobilie privat verkaufen in Oesterreich, der Ratgeber 2026
+title: Immobilie privat verkaufen in Österreich, der Ratgeber 2026
 date: 2026-06-11
 category: kosten
 excerpt: Du kannst deine Immobilie in Österreich ganz legal selbst verkaufen,
