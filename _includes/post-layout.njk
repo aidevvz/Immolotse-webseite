@@ -676,10 +676,11 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <span style="color:var(--outline);">·</span>
         <span id="postDate">{{ date | displayDate }}</span>
         <span style="color:var(--outline);">·</span>
+        <span id="postAuthor">{{ author }}</span>
+        <span style="color:var(--outline);">·</span>
         <span id="postReadtime">{{ readtime }} Min. Lesezeit</span>
       </div>
       <h1 id="postTitle" style="font-family:'Noto Serif',serif;font-size:clamp(1.8rem,4vw,3rem);color:var(--dark);line-height:1.2;letter-spacing:-0.02em;margin-bottom:16px;">{{ title }}</h1>
-      <p id="postExcerpt" style="font-size:1.05rem;color:var(--muted);line-height:1.7;max-width:600px;font-weight:300;">{{ excerpt }}</p>
     </div>
   </div>
   <div class="post-body">
@@ -688,6 +689,17 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <div id="postBody" class="prose">
         {{ content | safe }}
       </div>
+      {% if faq and faq.length %}
+      <div class="post-faq" style="margin-top:40px;padding-top:32px;border-top:1px solid var(--outline);">
+        <h2 style="font-family:'Noto Serif',serif;font-size:1.5rem;color:var(--dark);margin-bottom:20px;">Häufige Fragen</h2>
+        {% for item in faq %}
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:8px;">{{ item.question }}</h3>
+          <p style="font-size:0.92rem;color:var(--muted);line-height:1.7;font-weight:300;">{{ item.answer }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
       <div class="share-bar" id="shareBar">
         <span class="share-lbl">Teilen:</span>
         <a id="shareWhatsapp" href="https://wa.me/?text={{ title | urlencode }}%20{{ canonicalUrl | urlencode }}" target="_blank" class="share-btn share-wa">
@@ -712,24 +724,13 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <span class="section-label">Weitere Artikel</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:32px;">
       {% for post in collections.posts %}
-        {% if post.fileSlug != slug %}
-        <a href="/ratgeber/{{ post.fileSlug }}/" style="display:block;background:var(--surface-white);border:1px solid var(--outline);border-radius:var(--radius);padding:20px;text-decoration:none;transition:box-shadow 0.2s;">
+        {% if post.data.slug != slug %}
+        <a href="/ratgeber/{{ post.data.slug }}/" style="display:block;background:var(--surface-white);border:1px solid var(--outline);border-radius:var(--radius);padding:20px;text-decoration:none;transition:box-shadow 0.2s;">
           <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">{{ post.data.category | categoryLabel }}</div>
           <div style="font-family:'Noto Serif',serif;font-size:1rem;color:var(--dark);line-height:1.35;">{{ post.data.title }}</div>
         </a>
         {% endif %}
       {% endfor %}
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Related posts sidebar -->
-<section class="section" style="background:var(--surface-low);padding-top:60px;padding-bottom:60px;">
-  <div class="section-inner">
-    <span class="section-label">Weitere Artikel</span>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:32px;" id="popularPosts">
     </div>
   </div>
 </section>
