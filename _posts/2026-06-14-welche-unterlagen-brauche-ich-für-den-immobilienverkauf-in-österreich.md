@@ -7,8 +7,9 @@ excerpt: Ohne die richtigen Unterlagen stockt jeder Immobilienverkauf. Diese
 description: Welche Unterlagen du für den Immobilienverkauf in Österreich
   brauchst, von Grundbuchauszug bis Energieausweis, und wo du sie bekommst. Die
   komplette Checkliste.
-author: ImmoLotse
+author: Giorgi Gorgodze
 readtime: 5
+image: /images/uploads/ratgeber-unterlagen-hero.webp
 faq:
   - question: Welche Unterlagen sind beim Immobilienverkauf in Österreich Pflicht?
     answer: In jedem Fall brauchst du einen aktuellen Grundbuchauszug und einen
