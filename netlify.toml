@@ -52,7 +52,7 @@
   status = 301
   force = true
 
-# ── Saubere URLs intern auf die .html-Dateien rendern (200, kein Redirect) ──
+# ── Saubere URLs intern auf die .html-Dateien rendern (200) ──
 [[redirects]]
   from = "/blog"
   to = "/blog.html"
@@ -80,6 +80,7 @@
   status = 301
   force = true
 
+# ── Globale Security Headers ──
 [[headers]]
   for = "/*"
   [headers.values]
@@ -88,4 +89,11 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Cross-Origin-Opener-Policy = "same-origin-allow-popups"
-    Content-Security-Policy = "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'"
+    Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; connect-src 'self' https: blob:; worker-src 'self' blob:;"
+
+# ── Admin: lockerere CSP damit Decap CMS und Bild-Upload funktionieren ──
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; connect-src 'self' https: blob:; worker-src 'self' blob:; frame-src 'self' https:;"
