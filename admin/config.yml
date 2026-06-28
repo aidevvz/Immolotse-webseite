@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: aidevvz/Immolotse-webseite
   branch: main
   squash_merges: true
