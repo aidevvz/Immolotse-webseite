@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: aidevvz/Immolotse-webseite
   branch: main
 
 media_folder: "images/uploads"
