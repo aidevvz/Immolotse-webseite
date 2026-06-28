@@ -3,15 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ImmoLotse Admin</title>
-  <script>
-    if (window.location.hash && window.location.hash.includes('invite_token')) {
-      window.location.href = '/admin/#' + window.location.hash.substring(1);
-    }
-  </script>
+  <title>ImmoLotse Content Manager</title>
+  <link rel="icon" type="image/png" href="/favicon-48.png"/>
 </head>
 <body>
+  <!-- Netlify Identity Widget (wird von git-gateway benötigt) -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // Vorschau-Template für Blog-Artikel
+    var CATEGORY_LABELS = {
+      verkauf: "Verkauf & Strategie",
+      expose: "Exposé & Präsentation",
+      fotografie: "Fotografie",
+      rechtliches: "Rechtliches",
+      preisfindung: "Preisfindung",
+      willhaben: "Willhaben Tipps",
+      steuer: "Steuer",
+      kosten: "Kosten"
+    };
+
+    var MONTHS_DE = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+
+    function formatDateDE(value) {
+      if (!value) return "";
+      var d = new Date(value);
+      if (isNaN(d.getTime())) return String(value);
+      return d.getDate() + ". " + MONTHS_DE[d.getMonth()] + " " + d.getFullYear();
+    }
+
+    var BlogPostPreview = CMS.createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var get = function(key, fallback) {
+          var v = entry.getIn(["data", key]);
+          return (v === undefined || v === null || v === "") ? fallback : v;
+        };
+
+        var title    = get("title", "");
+        var date     = get("date", "");
+        var category = get("category", "");
+        var author   = get("author", "ImmoLotse");
+        var readtime = get("readtime", 5);
+        var image    = get("image", null);
+        var faq      = entry.getIn(["data", "faq"]);
+
+        var catLabel  = CATEGORY_LABELS[category] || "Ratgeber";
+        var dateLabel = formatDateDE(date);
+
+        var h = CMS.h;
+
+        var wrapperStyle = { fontFamily: "'Inter', sans-serif", color: "#1a1c1c", maxWidth: "740px", margin: "0 auto", padding: "40px 24px" };
+        var metaStyle    = { display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px", fontSize: "0.78rem", color: "#444748" };
+        var catStyle     = { fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#735c00" };
+        var titleStyle   = { fontFamily: "'Noto Serif', serif", fontSize: "2.2rem", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "24px", color: "#1a1c1c" };
+        var imgStyle     = { width: "100%", aspectRatio: "16/9", objectFit: "cover", borderRadius: "12px", marginBottom: "32px" };
+
+        var children = [
+          h("div", { style: metaStyle, key: "meta" },
+            h("span", { style: catStyle }, catLabel),
+            h("span", { style: { color: "#c4c7c7" } }, "·"),
+            h("span", {}, dateLabel),
+            h("span", { style: { color: "#c4c7c7" } }, "·"),
+            h("span", {}, String(author)),
+            h("span", { style: { color: "#c4c7c7" } }, "·"),
+            h("span", {}, String(readtime) + " Min. Lesezeit")
+          ),
+          h("h1", { style: titleStyle, key: "title" }, title)
+        ];
+
+        if (image) {
+          children.push(h("img", { src: image, style: imgStyle, key: "img" }));
+        }
+
+        children.push(h("div", { key: "body", style: { lineHeight: 1.75, fontWeight: 300 } }, this.props.widgetFor("body")));
+
+        if (faq && faq.size > 0) {
+          var faqItems = [
+            h("h2", { key: "faq-h", style: { fontFamily: "'Noto Serif', serif", fontSize: "1.5rem", marginTop: "40px", marginBottom: "20px", borderTop: "1px solid #c4c7c7", paddingTop: "32px" } }, "Häufige Fragen")
+          ];
+          faq.forEach(function(item, i) {
+            faqItems.push(
+              h("div", { key: "faq-" + i, style: { marginBottom: "24px" } },
+                h("h3", { style: { fontSize: "1rem", fontWeight: 600, marginBottom: "8px" } }, item.get("question")),
+                h("p",  { style: { fontSize: "0.92rem", color: "#444748", lineHeight: 1.7, fontWeight: 300 } }, item.get("answer"))
+              )
+            );
+          });
+          children.push(h("div", { key: "faq" }, faqItems));
+        }
+
+        return h("div", { style: wrapperStyle }, children);
+      }
+    });
+
+    CMS.registerPreviewTemplate("blog", BlogPostPreview);
+  </script>
 </body>
 </html>
