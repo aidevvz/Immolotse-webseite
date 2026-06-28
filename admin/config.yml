@@ -2,6 +2,7 @@ backend:
   name: github
   repo: aidevvz/Immolotse-webseite
   branch: main
+  squash_merges: true
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -16,7 +17,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titel", name: "title", widget: "string", hint: "Keine Gedankenstriche oder Trennstriche (-) verwenden." }
-      - { label: "URL-Slug (optional)", name: "slug", widget: "string", required: false, hint: "Kurze URL für /ratgeber/dein-slug/. Leer lassen, dann wird der Slug automatisch aus dem Dateinamen gebildet (Umlaute werden in ae/oe/ue/ss umgewandelt)." }
+      - { label: "URL-Slug (optional)", name: "slug", widget: "string", required: false, hint: "Kurze URL für /ratgeber/dein-slug/. Leer lassen, dann wird der Slug automatisch aus dem Dateinamen gebildet." }
       - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Zuletzt aktualisiert", name: "dateModified", widget: "datetime", format: "YYYY-MM-DD", required: false, hint: "Leer lassen, wenn identisch mit Datum" }
       - label: "Kategorie"
@@ -32,10 +33,10 @@ collections:
           - { label: "Steuer", value: "steuer" }
           - { label: "Kosten", value: "kosten" }
       - { label: "Kurzbeschreibung", name: "excerpt", widget: "text", hint: "Kurze Zusammenfassung für die Blog-Übersicht (1-2 Sätze)" }
-      - { label: "Meta-Description (SEO)", name: "description", widget: "text", required: false, hint: "Für Google & KI-Suchmaschinen. Leer lassen, dann wird die Kurzbeschreibung verwendet. Keine Gedankenstriche oder Trennstriche (-) verwenden, stattdessen Komma oder Punkt." }
+      - { label: "Meta-Description (SEO)", name: "description", widget: "text", required: false, hint: "Für Google & KI-Suchmaschinen. Leer lassen, dann wird die Kurzbeschreibung verwendet. Keine Gedankenstriche oder Trennstriche (-) verwenden." }
       - { label: "Autor", name: "author", widget: "string", default: "ImmoLotse", required: false }
       - { label: "Lesedauer (Minuten)", name: "readtime", widget: "number", default: 5 }
-      - { label: "Titelbild", name: "image", widget: "image", required: false }
+      - { label: "Titelbild", name: "image", widget: "image", required: false, media_folder: "/images/uploads", public_folder: "/images/uploads" }
       - { label: "Inhalt", name: "body", widget: "markdown" }
       - label: "FAQ (optional)"
         name: "faq"
