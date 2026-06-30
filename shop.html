@@ -7,13 +7,13 @@
 
 <!-- SEO: Meta & Open Graph -->
 <meta name="description" content="Exposé, Fotoshooting, KI-Bildoptimierung & Marktpreisanalyse für deinen Privatverkauf. Komplettpakete ab € 699 – kein Makler, keine versteckten Kosten."/>
-<link rel="canonical" href="https://immolotse.at/shop"/>
+<link rel="canonical" href="https://immolotse.at/shop.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="de_AT"/>
 <meta property="og:site_name" content="ImmoLotse"/>
 <meta property="og:title" content="Leistungen & Pakete buchen ab € 699 | ImmoLotse"/>
 <meta property="og:description" content="Exposé, Fotoshooting, KI-Bildoptimierung & Marktpreisanalyse für deinen Privatverkauf. Komplettpakete ab € 699 – kein Makler, keine versteckten Kosten."/>
-<meta property="og:url" content="https://immolotse.at/shop"/>
+<meta property="og:url" content="https://immolotse.at/shop.html"/>
 <meta property="og:image" content="https://immolotse.at/Hero_Bild_2.webp"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -36,7 +36,6 @@
     "@type": "ImageObject",
     "url": "https://immolotse.at/favicon-192.png"
   },
-  "image": "https://immolotse.at/favicon-192.png",
   "email": "info@immolotse.at",
   "telephone": "+43 664 48 84 703",
   "address": {
@@ -71,7 +70,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://immolotse.at/shop#pkg-starter",
+  "@id": "https://immolotse.at/shop.html#pkg-starter",
   "name": "ImmoLotse Online-Paket",
   "description": "Einsteigerpaket für den Privatverkauf mit Exposé-Erstellung und KI-Bildoptimierung. Spare 5% gegenüber Einzelbuchung.",
   "brand": {
@@ -84,7 +83,7 @@
     "price": "699",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
-    "url": "https://immolotse.at/shop",
+    "url": "https://immolotse.at/shop.html",
     "seller": {
       "@id": "https://immolotse.at/#organization"
     },
@@ -98,7 +97,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://immolotse.at/shop#pkg-professional",
+  "@id": "https://immolotse.at/shop.html#pkg-professional",
   "name": "ImmoLotse Sorglos-Paket",
   "description": "Beliebtestes Komplettpaket inklusive Fotoshooting, Marktpreisanalyse und allen Marketingleistungen für den Privatverkauf. Spare 10% gegenüber Einzelbuchung.",
   "brand": {
@@ -111,7 +110,7 @@
     "price": "1349",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
-    "url": "https://immolotse.at/shop",
+    "url": "https://immolotse.at/shop.html",
     "seller": {
       "@id": "https://immolotse.at/#organization"
     },
@@ -125,7 +124,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://immolotse.at/shop#pkg-premium",
+  "@id": "https://immolotse.at/shop.html#pkg-premium",
   "name": "ImmoLotse Premium-Paket",
   "description": "Rundum-sorglos-Paket mit allen Leistungen inklusive Räumungs- und Reinigungsgutscheinen für den professionellen Privatverkauf.",
   "brand": {
@@ -138,7 +137,7 @@
     "price": "1949",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
-    "url": "https://immolotse.at/shop",
+    "url": "https://immolotse.at/shop.html",
     "seller": {
       "@id": "https://immolotse.at/#organization"
     },
@@ -251,7 +250,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Leistungen & Pakete",
-      "item": "https://immolotse.at/shop"
+      "item": "https://immolotse.at/shop.html"
     }
   ]
 }
@@ -269,6 +268,7 @@
     --blue: #735c00;
     --gold: #735c00;
     --gold-light: #9a7a00;
+    --gold-pale: #c9a96e;
     --white: #FFFFFF;
     --off-white: #f9f9f9;
     --gray-light: #e8e8e8;
@@ -277,6 +277,10 @@
     --text-mid: #444748;
     --green: #2E7D32;
     --red: #C62828;
+    --dark: #1c1b1a;
+    --muted: #444748;
+    --outline: #c4c7c7;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -811,29 +815,34 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 <!-- Mobile Nav Overlay -->
 <div class="nav-mobile" id="navMobile">
   <button class="nav-close" onclick="toggleMenu()" aria-label="Menü schließen">✕</button>
-  <a href="/#leistungen" onclick="toggleMenu()">Leistungen</a>
-  <a href="/#pakete" onclick="toggleMenu()">Pakete</a>
-  <a href="/ueber-uns" onclick="toggleMenu()">Über uns</a>
-  <a href="/blog" onclick="toggleMenu()">Blog</a>
-  <a href="/#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="index.html#leistungen" onclick="toggleMenu()">Leistungen</a>
+  <a href="index.html#pakete" onclick="toggleMenu()">Pakete</a>
+  <a href="ueber-uns.html" onclick="toggleMenu()">Über uns</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
-  <a href="/shop" class="btn-book" onclick="toggleMenu()">Jetzt buchen</a>
+  <a href="shop.html" class="btn-book" onclick="toggleMenu()">Jetzt buchen</a>
 </div>
 
 <!-- NAV -->
 <nav class="nav-glass">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <img src="logo-nav.png" alt="ImmoLotse" width="29" height="40"/>ImmoLotse
     </a>
     <div class="nav-desktop">
-      <a href="/#leistungen">Leistungen</a>
-      <a href="/#pakete">Pakete</a>
-      <a href="/ueber-uns">Über uns</a>
-      <a href="/blog">Blog</a>
-      <a href="/#faq">FAQ</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#pakete">Pakete</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
-      <a href="/shop" class="btn-book">Jetzt buchen</a>
+      <button class="nav-cart-btn" onclick="toggleCart()" aria-label="Warenkorb öffnen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Warenkorb</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="shop.html" class="btn-book">Jetzt buchen</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -1207,7 +1216,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="success-detail-row"><span class="success-detail-label">Bearbeitungsstart</span><span class="success-detail-value">Innerhalb 24 Stunden</span></div>
         <div class="success-detail-row"><span class="success-detail-label">Lieferung</span><span class="success-detail-value">Innerhalb 48 Stunden</span></div>
       </div>
-      <a href="/" class="btn-back-home">Zurück zur Startseite</a>
+      <a href="index.html" class="btn-back-home">Zurück zur Startseite</a>
     </div>
   </div>
 </div>
@@ -1224,20 +1233,20 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <div>
       <div class="footer-heading">Leistungen</div>
       <ul class="footer-links">
-        <li><a href="/shop">Exposé erstellen</a></li>
-        <li><a href="/shop">Fotoshooting</a></li>
-        <li><a href="/shop">KI-Bildoptimierung</a></li>
+        <li><a href="shop.html">Exposé erstellen</a></li>
+        <li><a href="shop.html">Fotoshooting</a></li>
+        <li><a href="shop.html">KI-Bildoptimierung</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-heading">ImmoLotse</div>
       <ul class="footer-links">
-        <li><a href="/ueber-uns">Über uns</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="/impressum">Impressum</a></li>
-        <li><a href="/impressum#datenschutz">Datenschutz</a></li>
-        <li><a href="/impressum#agb">AGB</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="impressum.html#datenschutz">Datenschutz</a></li>
+        <li><a href="impressum.html#agb">AGB</a></li>
       </ul>
     </div>
   </div>
@@ -1314,20 +1323,26 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 
   function updateCart() {
     const total = cart.reduce((s, i) => s + i.price, 0);
-    document.getElementById('cartBadge').textContent = cart.length;
-    document.getElementById('cartTotal').textContent = '€ ' + total.toLocaleString('de-AT');
-    document.getElementById('payAmount').textContent = '€ ' + total.toLocaleString('de-AT');
-    document.getElementById('summaryTotal').textContent = '€ ' + total.toLocaleString('de-AT');
+    const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    setText('cartBadge', cart.length);
+    setText('cartTotal', '€ ' + total.toLocaleString('de-AT'));
+    setText('payAmount', '€ ' + total.toLocaleString('de-AT'));
+    setText('summaryTotal', '€ ' + total.toLocaleString('de-AT'));
     const btn = document.getElementById('checkoutBtn');
-    btn.disabled = cart.length === 0;
-    btn.textContent = cart.length > 0 ? `Zur Kasse → € ${total.toLocaleString('de-AT')}` : 'Zur Kasse →';
+    if (btn) {
+      btn.disabled = cart.length === 0;
+      btn.textContent = cart.length > 0 ? `Zur Kasse → € ${total.toLocaleString('de-AT')}` : 'Zur Kasse →';
+    }
     const note = document.getElementById('proceedNote');
     if (note) note.style.display = cart.length > 0 ? 'none' : 'block';
     const container = document.getElementById('cartItems');
-    container.innerHTML = cart.length === 0
-      ? '<div class="cart-empty"><div class="cart-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><p>Dein Warenkorb ist leer.</p></div>'
-      : cart.map(item => `<div class="cart-item"><div class="cart-item-badge">${item.isPackage ? item.emoji : item.name.substring(0,2).toUpperCase()}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">€ ${item.price.toLocaleString('de-AT')}</div></div><button class="cart-item-remove" onclick="removeItem('${item.id}',${item.isPackage})">✕</button></div>`).join('');
-    document.getElementById('summaryItems').innerHTML = cart.map(item => `<div class="summary-item"><span class="summary-item-name">${item.name}</span><span class="summary-item-price">€ ${item.price.toLocaleString('de-AT')}</span></div>`).join('');
+    if (container) {
+      container.innerHTML = cart.length === 0
+        ? '<div class="cart-empty"><div class="cart-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><p>Dein Warenkorb ist leer.</p></div>'
+        : cart.map(item => `<div class="cart-item"><div class="cart-item-badge">${item.isPackage ? item.emoji : item.name.substring(0,2).toUpperCase()}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">€ ${item.price.toLocaleString('de-AT')}</div></div><button class="cart-item-remove" onclick="removeItem('${item.id}',${item.isPackage})">✕</button></div>`).join('');
+    }
+    const summaryEl = document.getElementById('summaryItems');
+    if (summaryEl) summaryEl.innerHTML = cart.map(item => `<div class="summary-item"><span class="summary-item-name">${item.name}</span><span class="summary-item-price">€ ${item.price.toLocaleString('de-AT')}</span></div>`).join('');
   }
 
   function removeItem(id, isPackage) {
@@ -1492,7 +1507,7 @@ function declineCookies() { localStorage.setItem('cookieConsent','declined'); va
 
 <!-- COOKIE -->
 <div class="cookie" id="cookieBanner">
-  <div class="cookie-text">Wir nutzen Cookies um dir das beste Erlebnis zu bieten. Mehr dazu in unserer <a href="/impressum#datenschutz">Datenschutzerklärung</a>.</div>
+  <div class="cookie-text">Wir nutzen Cookies um dir das beste Erlebnis zu bieten. Mehr dazu in unserer <a href="impressum.html#datenschutz">Datenschutzerklärung</a>.</div>
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
     <button class="cookie-decline" onclick="declineCookies()">Ablehnen</button>
