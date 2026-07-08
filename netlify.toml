@@ -8,6 +8,26 @@
 [build.processing.images]
   compress = false
 
+# ── HTTPS erzwingen: http → https (301) ──
+[[redirects]]
+  from = "http://immolotse.at/*"
+  to = "https://immolotse.at/:splat"
+  status = 301
+  force = true
+
+# ── www-Variante auf non-www umleiten (301) ──
+[[redirects]]
+  from = "https://www.immolotse.at/*"
+  to = "https://immolotse.at/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.immolotse.at/*"
+  to = "https://immolotse.at/:splat"
+  status = 301
+  force = true
+
 # ── Alte Artikel-URLs (post.html?slug=xxx) auf neue /ratgeber/xxx/ umleiten ──
 [[redirects]]
   from = "/post.html?slug=:slug"
@@ -91,7 +111,7 @@
     Cross-Origin-Opener-Policy = "same-origin-allow-popups"
     Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; connect-src 'self' https: blob:; worker-src 'self' blob:;"
 
-# ── Admin: lockerere CSP damit Decap CMS und Bild-Upload funktionieren ──
+# ── Admin: lockerere CSP für Decap CMS ──
 [[headers]]
   for = "/admin/*"
   [headers.values]
