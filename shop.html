@@ -80,7 +80,7 @@
   "category": "Immobilien-Marketing",
   "offers": {
     "@type": "Offer",
-    "price": "749",
+    "price": "699",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
     "url": "https://immolotse.at/shop.html",
@@ -107,7 +107,7 @@
   "category": "Immobilien-Marketing",
   "offers": {
     "@type": "Offer",
-    "price": "1699",
+    "price": "1349",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
     "url": "https://immolotse.at/shop.html",
@@ -134,7 +134,7 @@
   "category": "Immobilien-Marketing",
   "offers": {
     "@type": "Offer",
-    "price": "2499",
+    "price": "1949",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder",
     "url": "https://immolotse.at/shop.html",
@@ -228,7 +228,7 @@
   },
   "offers": {
     "@type": "Offer",
-    "price": "449",
+    "price": "399",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/PreOrder"
   }
@@ -268,7 +268,6 @@
     --blue: #735c00;
     --gold: #735c00;
     --gold-light: #9a7a00;
-    --gold-pale: #c9a96e;
     --white: #FFFFFF;
     --off-white: #f9f9f9;
     --gray-light: #e8e8e8;
@@ -277,10 +276,6 @@
     --text-mid: #444748;
     --green: #2E7D32;
     --red: #C62828;
-    --dark: #1c1b1a;
-    --muted: #444748;
-    --outline: #c4c7c7;
-    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -837,11 +832,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <a href="blog.html">Blog</a>
       <a href="index.html#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
-      <button class="nav-cart-btn" onclick="toggleCart()" aria-label="Warenkorb öffnen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-        <span>Warenkorb</span>
-        <span class="cart-badge" id="cartBadge">0</span>
-      </button>
       <a href="shop.html" class="btn-book">Jetzt buchen</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false">
@@ -907,10 +897,10 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 749)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 699)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Online</div>
-        <div class="pkg-price">€ 749 <span class="pkg-discount">−5 %</span></div>
+        <div class="pkg-price">€ 699 <span class="pkg-discount">−5 %</span></div>
         <div class="pkg-save">Spare € 45 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 10 Bilder)</li>
@@ -920,11 +910,11 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1699)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1349)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Sorglos</div>
-        <div class="pkg-price">€ 1.699 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-price">€ 1.349 <span class="pkg-discount">−10 %</span></div>
         <div class="pkg-save">Spare € 190 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Exposé, Marktpreisanalyse</li>
@@ -934,11 +924,11 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 2499)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 1949)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Premium</div>
-        <div class="pkg-price">€ 2.499 <span class="pkg-discount">−15 %</span></div>
-        <div class="pkg-save">Spare € 436 vs. Einzelbuchung</div>
+        <div class="pkg-price">€ 1.949 <span class="pkg-discount">−15 %</span></div>
+        <div class="pkg-save">Spare € 385 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Exposé, Marktpreisanalyse</li>
           <li>Inseratmanagement (3 Monate)</li>
@@ -976,7 +966,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       </div>
 
       <!-- BESICHTIGUNGSBEGLEITUNG -->
-      <div class="service-card" id="svc-besichtigung" onclick="toggleService('besichtigung','BES','Besichtigungsbegleitung (pro Termin)',149)">
+      <div class="service-card" id="svc-besichtigung" onclick="toggleService('besichtigung','BES','Besichtigungsbegleitung (pro Termin)',99)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="service-text">
@@ -985,12 +975,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 149</span>
+          <span class="service-price-tag">€ 99</span>
           <button class="btn-add-service">+ Hinzufügen</button>
         </div>
       </div>
 
-      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','CAM','Fotoshooting inkl. Nachbearbeitung (15 Bilder)',449)">
+      <div class="service-card" id="svc-foto-premium" onclick="toggleService('foto-premium','CAM','Fotoshooting inkl. Nachbearbeitung (15 Bilder)',399)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
           <div class="service-text">
@@ -999,7 +989,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           </div>
         </div>
         <div class="service-bottom">
-          <span class="service-price-tag">€ 449</span>
+          <span class="service-price-tag">€ 399</span>
           <button class="btn-add-service">+ Hinzufügen</button>
         </div>
       </div>
@@ -1077,7 +1067,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </div>
       </div>
 
-      <div class="service-card" id="svc-wert" onclick="toggleService('wert','WRT','Marktpreisanalyse',149)">
+      <div class="service-card" id="svc-wert" onclick="toggleService('wert','WRT','Marktpreisanalyse',99)">
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
           <div class="service-text">
@@ -1251,7 +1241,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 ImmoLotse. Alle Rechte vorbehalten.</span>
+    <span>© <script>document.write(new Date().getFullYear())</script> ImmoLotse. Alle Rechte vorbehalten.</span>
     <div class="footer-social">
       <a href="#" class="social-pill" aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1288,9 +1278,9 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'O', name: 'Online-Paket', price: 749 },
-    professional: { id: 'pkg-professional', emoji: 'S', name: 'Sorglos-Paket', price: 1699 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'P', name: 'Premium-Paket', price: 2499 }
+    starter: { id: 'pkg-starter', emoji: 'O', name: 'Online-Paket', price: 699 },
+    professional: { id: 'pkg-professional', emoji: 'S', name: 'Sorglos-Paket', price: 1349 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'P', name: 'Premium-Paket', price: 1949 }
   };
 
   function togglePackage(key, price) {
@@ -1323,26 +1313,20 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 
   function updateCart() {
     const total = cart.reduce((s, i) => s + i.price, 0);
-    const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    setText('cartBadge', cart.length);
-    setText('cartTotal', '€ ' + total.toLocaleString('de-AT'));
-    setText('payAmount', '€ ' + total.toLocaleString('de-AT'));
-    setText('summaryTotal', '€ ' + total.toLocaleString('de-AT'));
+    document.getElementById('cartBadge').textContent = cart.length;
+    document.getElementById('cartTotal').textContent = '€ ' + total.toLocaleString('de-AT');
+    document.getElementById('payAmount').textContent = '€ ' + total.toLocaleString('de-AT');
+    document.getElementById('summaryTotal').textContent = '€ ' + total.toLocaleString('de-AT');
     const btn = document.getElementById('checkoutBtn');
-    if (btn) {
-      btn.disabled = cart.length === 0;
-      btn.textContent = cart.length > 0 ? `Zur Kasse → € ${total.toLocaleString('de-AT')}` : 'Zur Kasse →';
-    }
+    btn.disabled = cart.length === 0;
+    btn.textContent = cart.length > 0 ? `Zur Kasse → € ${total.toLocaleString('de-AT')}` : 'Zur Kasse →';
     const note = document.getElementById('proceedNote');
     if (note) note.style.display = cart.length > 0 ? 'none' : 'block';
     const container = document.getElementById('cartItems');
-    if (container) {
-      container.innerHTML = cart.length === 0
-        ? '<div class="cart-empty"><div class="cart-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><p>Dein Warenkorb ist leer.</p></div>'
-        : cart.map(item => `<div class="cart-item"><div class="cart-item-badge">${item.isPackage ? item.emoji : item.name.substring(0,2).toUpperCase()}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">€ ${item.price.toLocaleString('de-AT')}</div></div><button class="cart-item-remove" onclick="removeItem('${item.id}',${item.isPackage})">✕</button></div>`).join('');
-    }
-    const summaryEl = document.getElementById('summaryItems');
-    if (summaryEl) summaryEl.innerHTML = cart.map(item => `<div class="summary-item"><span class="summary-item-name">${item.name}</span><span class="summary-item-price">€ ${item.price.toLocaleString('de-AT')}</span></div>`).join('');
+    container.innerHTML = cart.length === 0
+      ? '<div class="cart-empty"><div class="cart-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><p>Dein Warenkorb ist leer.</p></div>'
+      : cart.map(item => `<div class="cart-item"><div class="cart-item-badge">${item.isPackage ? item.emoji : item.name.substring(0,2).toUpperCase()}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">€ ${item.price.toLocaleString('de-AT')}</div></div><button class="cart-item-remove" onclick="removeItem('${item.id}',${item.isPackage})">✕</button></div>`).join('');
+    document.getElementById('summaryItems').innerHTML = cart.map(item => `<div class="summary-item"><span class="summary-item-name">${item.name}</span><span class="summary-item-price">€ ${item.price.toLocaleString('de-AT')}</span></div>`).join('');
   }
 
   function removeItem(id, isPackage) {

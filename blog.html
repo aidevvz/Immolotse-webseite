@@ -631,37 +631,16 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <!-- Posts -->
     <div>
       <div class="blog-posts" id="blogContent">
-        
-        <a href="/ratgeber/was-kostet-makler-oesterreich/" class="blog-post-row">
-          <img class="blog-post-thumb" src="/blog-makler-hero.webp" alt="Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026" loading="lazy"/>
-          <div>
-            <div class="blog-post-meta">
-              <span class="blog-post-cat">Kosten</span>
-              <span style="color:var(--outline);">·</span>
-              <span class="blog-post-date">3. Mai 2026</span>
-            </div>
-            <div class="blog-post-title">Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</div>
-            <div class="blog-post-excerpt">Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro. Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch die Käuferprovision deinen Verkaufserlös schmälert.</div>
-          </div>
-        </a>
-        
+        <p style="color:var(--muted);font-size:0.88rem;padding:20px 0;">Artikel werden geladen…</p>
       </div>
     </div>
     <!-- Sidebar -->
     <aside class="blog-sidebar">
+      <span class="sidebar-label">Suche</span>
+      <input type="search" class="sidebar-search" id="searchInput" placeholder="Artikel suchen…" oninput="filterPosts(this.value)"/>
       <span class="sidebar-label">Beliebte Artikel</span>
       <div id="popularPosts">
-        
-          
-          <a href="/ratgeber/was-kostet-makler-oesterreich/" class="sidebar-post">
-            <img class="sidebar-thumb" src="/blog-makler-hero.webp" alt="Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026" loading="lazy"/>
-            <div>
-              <div class="sidebar-post-title">Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</div>
-              <div class="sidebar-post-date">3. Mai 2026</div>
-            </div>
-          </a>
-          
-        
+        <p style="color:var(--muted);font-size:0.78rem;">Wird geladen…</p>
       </div>
     </aside>
   </div>
@@ -682,6 +661,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <li><a href="shop.html">Exposé erstellen</a></li>
         <li><a href="shop.html">Fotoshooting</a></li>
         <li><a href="shop.html">KI-Bildoptimierung</a></li>
+        <li><a href="shop.html">Unterlagen einholen</a></li>
       </ul>
     </div>
     <div>
@@ -697,7 +677,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 ImmoLotse. Alle Rechte vorbehalten.</span>
+    <span>© <script>document.write(new Date().getFullYear())</script> ImmoLotse. Alle Rechte vorbehalten.</span>
     <div class="footer-social">
       <a href="#" class="social-pill" aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -760,6 +740,87 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const REPO = 'aidevvz/Immolotse-webseite';
+const BRANCH = 'main';
+const POSTS_PATH = '_posts';
+let allPosts = [];
+
+async function loadPosts() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${POSTS_PATH}?ref=${BRANCH}`);
+    const files = await res.json();
+    const mdFiles = files.filter(f => f.name.endsWith('.md')).reverse();
+    const posts = await Promise.all(mdFiles.slice(0, 12).map(async f => {
+      const r = await fetch(f.download_url);
+      const text = await r.text();
+      const fm = parseFrontmatter(text);
+      return { ...fm, slug: f.name.replace('.md',''), file: f.name };
+    }));
+    allPosts = posts.filter(p => p.title);
+    renderPosts(allPosts);
+    renderSidebar(allPosts.slice(0,4));
+  } catch(e) {
+    document.getElementById('blogContent').innerHTML = '<p style="color:var(--muted);padding:20px 0;">Artikel konnten nicht geladen werden.</p>';
+  }
+}
+
+function parseFrontmatter(text) {
+  const m = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!m) return {};
+  const fm = {};
+  m[1].split('\n').forEach(l => {
+    const [k,...v] = l.split(':');
+    if (k && v.length) fm[k.trim()] = v.join(':').trim().replace(/^["']|["']$/g,'');
+  });
+  if (!fm.excerpt) {
+    fm.excerpt = text.replace(/^---[\s\S]*?---/, '').trim().replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
+  }
+  return fm;
+}
+
+function renderPosts(posts) {
+  const el = document.getElementById('blogContent');
+  if (!posts.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px 0;">Keine Artikel gefunden.</p>'; return; }
+  el.innerHTML = posts.map(p => `
+    <a href="post.html?slug=${p.slug}" class="blog-post-row">
+      <img class="blog-post-thumb" src="${p.image||'img-after-sm.webp'}" alt="${p.title||''}" loading="lazy" onerror="this.style.background='var(--surface-container)';this.removeAttribute('src')"/>
+      <div>
+        <div class="blog-post-meta">
+          <span class="blog-post-cat">${p.category||'Ratgeber'}</span>
+          <span style="color:var(--outline);">·</span>
+          <span class="blog-post-date">${formatDate(p.date)}</span>
+        </div>
+        <div class="blog-post-title">${p.title||''}</div>
+        <div class="blog-post-excerpt">${p.excerpt||''}</div>
+      </div>
+    </a>`).join('');
+}
+
+function renderSidebar(posts) {
+  const el = document.getElementById('popularPosts');
+  el.innerHTML = posts.map(p => `
+    <a href="post.html?slug=${p.slug}" class="sidebar-post">
+      <img class="sidebar-thumb" src="${p.image||'img-after-sm.webp'}" alt="${p.title||''}" loading="lazy" onerror="this.style.background='var(--surface-container)';this.removeAttribute('src')"/>
+      <div>
+        <div class="sidebar-post-title">${p.title||''}</div>
+        <div class="sidebar-post-date">${formatDate(p.date)}</div>
+      </div>
+    </a>`).join('');
+}
+
+function filterPosts(q) {
+  const filtered = q ? allPosts.filter(p => (p.title+p.excerpt).toLowerCase().includes(q.toLowerCase())) : allPosts;
+  renderPosts(filtered);
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  try { return new Date(d).toLocaleDateString('de-AT', {day:'numeric',month:'long',year:'numeric'}); }
+  catch { return d; }
+}
+
+loadPosts();
 
 </script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
