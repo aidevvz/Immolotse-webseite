@@ -276,6 +276,14 @@
     --text-mid: #444748;
     --green: #2E7D32;
     --red: #C62828;
+    --gold-pale: #c9a96e;
+    --dark: #1c1b1a;
+    --muted: #444748;
+    --outline: #c4c7c7;
+    --radius: 10px;
+    --surface-white: #ffffff;
+    --surface: #f4f4f2;
+    --surface-low: #eeede9;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -832,6 +840,11 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <a href="blog.html">Blog</a>
       <a href="index.html#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
+      <button class="nav-cart-btn" onclick="toggleCart()" aria-label="Warenkorb öffnen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Warenkorb</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
       <a href="shop.html" class="btn-book">Jetzt buchen</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false">
@@ -970,7 +983,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="service-top">
           <div class="service-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="service-text">
-            <h4>Besichtigungsbegleitung <span style="font-size:0.7rem;background:rgba(115,92,0,0.08);color:var(--gold);padding:2px 7px;border-radius:50px;font-weight:700;margin-left:4px;">Nur Wien</span></h4>
+            <h4 style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">Besichtigungsbegleitung <span style="font-size:0.7rem;background:rgba(115,92,0,0.08);color:var(--gold);padding:2px 7px;border-radius:50px;font-weight:700;">Nur Wien</span></h4>
             <p>Ein Mitarbeiter begleitet die Besichtigung, nimmt Fragen auf und leitet sie weiter. Kein Maklerauftrag</p>
           </div>
         </div>
