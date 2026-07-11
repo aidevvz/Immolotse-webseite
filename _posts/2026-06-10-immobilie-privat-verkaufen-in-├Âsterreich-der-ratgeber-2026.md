@@ -9,7 +9,7 @@ excerpt: Du kannst deine Immobilie in Österreich ganz legal selbst verkaufen,
 description: Immobilie ohne Makler verkaufen in Österreich. Ablauf, Unterlagen,
   Preis, Steuern und Vermarktung verständlich erklärt, damit du bis zu 7,2
   Prozent Provision sparst.
-author: Giorgi Gorgodze
+author: ImmoLotse
 readtime: 5
 faq:
   - question: Darf ich in Österreich meine Immobilie ohne Makler verkaufen?
