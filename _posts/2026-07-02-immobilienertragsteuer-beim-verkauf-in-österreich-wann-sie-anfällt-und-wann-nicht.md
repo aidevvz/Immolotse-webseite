@@ -9,7 +9,7 @@ excerpt: Verkaufst du mit Gewinn, will das Finanzamt 30 Prozent. Wann die
 description: Immobilienertragsteuer in Österreich einfach erklärt. Wann 30
   Prozent auf den Gewinn anfallen, welche Ausnahmen es gibt und wie die
   Hauptwohnsitzbefreiung wirkt.
-author: Giorgi Gorgodze
+author: ImmoLotse
 readtime: 5
 image: /images/uploads/immobilienertragsteuer-beim-verkauf-in-österreich-wann-sie-anfällt-und-wann-nicht.webp
 faq:
