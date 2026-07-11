@@ -928,10 +928,10 @@ footer{background:var(--dark);padding:72px 6% 40px;}
       <p>Alles inklusive: wähle das passende Paket für deinen Verkauf</p>
     </div>
     <div class="packages-row">
-      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 749)">
+      <div class="pkg" id="pkg-starter" onclick="togglePackage('starter', 799)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Online</div>
-        <div class="pkg-price">€ 749 <span class="pkg-discount">−5 %</span></div>
+        <div class="pkg-price">€ 799</div>
         <div class="pkg-save">Spare € 45 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>KI-Bildoptimierung (bis 10 Bilder)</li>
@@ -941,11 +941,11 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1699)">
+      <div class="pkg popular" id="pkg-professional" onclick="togglePackage('professional', 1799)">
         <div class="selected-check">✓</div>
         <div class="pkg-badge">Beliebteste Wahl</div>
         <div class="pkg-name">Sorglos</div>
-        <div class="pkg-price">€ 1.699 <span class="pkg-discount">−10 %</span></div>
+        <div class="pkg-price">€ 1.799 <span class="pkg-discount">−5 %</span></div>
         <div class="pkg-save">Spare € 190 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Exposé, Marktpreisanalyse</li>
@@ -955,10 +955,10 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         </ul>
         <button class="btn-add-pkg">Paket wählen</button>
       </div>
-      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 2499)">
+      <div class="pkg" id="pkg-fullservice" onclick="togglePackage('fullservice', 2649)">
         <div class="selected-check">✓</div>
         <div class="pkg-name">Premium</div>
-        <div class="pkg-price">€ 2.499 <span class="pkg-discount">−15 %</span></div>
+        <div class="pkg-price">€ 2.649 <span class="pkg-discount">−10 %</span></div>
         <div class="pkg-save">Spare € 385 vs. Einzelbuchung</div>
         <ul class="pkg-features">
           <li>Exposé, Marktpreisanalyse</li>
@@ -1309,9 +1309,9 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   let cart = [];
   let selectedPackage = null;
   const packageData = {
-    starter: { id: 'pkg-starter', emoji: 'O', name: 'Online-Paket', price: 749 },
-    professional: { id: 'pkg-professional', emoji: 'S', name: 'Sorglos-Paket', price: 1699 },
-    fullservice: { id: 'pkg-fullservice', emoji: 'P', name: 'Premium-Paket', price: 2499 }
+    starter: { id: 'pkg-starter', emoji: 'O', name: 'Online-Paket', price: 799 },
+    professional: { id: 'pkg-professional', emoji: 'S', name: 'Sorglos-Paket', price: 1799 },
+    fullservice: { id: 'pkg-fullservice', emoji: 'P', name: 'Premium-Paket', price: 2649 }
   };
 
   function togglePackage(key, price) {
