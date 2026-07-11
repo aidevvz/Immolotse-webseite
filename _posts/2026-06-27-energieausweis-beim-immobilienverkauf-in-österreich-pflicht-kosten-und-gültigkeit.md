@@ -8,7 +8,7 @@ excerpt: Der Energieausweis muss in Österreich schon im Inserat stehen und ist
 description: Energieausweis beim Immobilienverkauf in Österreich, alles zu
   Pflicht, Kosten, Gültigkeit und wer ihn ausstellt. Warum er schon ins Inserat
   gehört.
-author: Giorgi Gorgodze
+author: ImmoLotse
 readtime: 5
 image: /images/uploads/energieausweis-beim-immobilienverkauf-in-österreich.webp
 faq:
