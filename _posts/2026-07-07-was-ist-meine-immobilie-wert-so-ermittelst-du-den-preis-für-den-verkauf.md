@@ -9,7 +9,7 @@ excerpt: Bevor du verkaufst, willst du wissen, was deine Immobilie wert ist. Wie
 description: Wie du in Österreich den Wert deiner Immobilie für den Verkauf
   ermittelst, wer sie bewerten darf und wann du ein Gutachten brauchst und wann
   eine Marktpreisanalyse reicht.
-author: Giorgi Gorgodze
+author: ImmoLotse
 readtime: 5
 image: /images/uploads/immobilie-wert-ermitteln-oesterreich.webp
 faq:
