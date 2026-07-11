@@ -850,5 +850,23 @@ loadPosts();
   }
 </script>
 
+<!-- Gründungsphase Modal -->
+<div class="gruendung-overlay" id="gruendungOverlay">
+  <div class="gruendung-modal">
+    <button class="gruendung-modal-close" onclick="closeGruendung()" aria-label="Schließen">×</button>
+    <div class="gruendung-modal-icon">🚧</div>
+    <h2>ImmoLotse ist in der Gründungsphase</h2>
+    <p>Unsere Dienstleistungen stehen voraussichtlich ab <strong>Sommer 2026</strong> zur Verfügung.</p>
+    <p>Du kannst die Website bereits erkunden und dich über unsere Leistungen informieren.</p>
+    <p style="margin-top:14px;">Für Voranfragen erreichst du uns unter <a href="mailto:info@immolotse.at">info@immolotse.at</a></p>
+    <button class="gruendung-modal-btn" onclick="closeGruendung()">Verstanden</button>
+  </div>
+</div>
+<script>
+  function closeGruendung() {
+    document.getElementById('gruendungOverlay').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
