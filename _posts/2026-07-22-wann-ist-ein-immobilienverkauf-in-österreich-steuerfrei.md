@@ -1,7 +1,7 @@
 ---
 title: Wann ist ein Immobilienverkauf in Österreich steuerfrei?
 slug: immobilie-steuerfrei-verkaufen-oesterreich
-date: 2026-07-23
+date: 2026-07-23T12:00:00+02:00
 category: steuer
 excerpt: Nicht jeder Immobilienverkauf kostet Steuer. Wann die Hauptwohnsitz-
   oder Herstellerbefreiung greift und dein Verkauf in Österreich steuerfrei
