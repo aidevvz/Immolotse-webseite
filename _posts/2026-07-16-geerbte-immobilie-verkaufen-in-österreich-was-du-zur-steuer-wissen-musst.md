@@ -1,7 +1,7 @@
 ---
 title: " Geerbte Immobilie verkaufen in Österreich, was du zur Steuer wissen musst"
 slug: geerbte-immobilie-verkaufen-oesterreich
-date: 2026-07-17
+date: 2026-07-17T12:00:00+02:00
 category: rechtliches
 excerpt: Erbschaftssteuer gibt es in Österreich keine mehr. Beim Verkauf einer
   geerbten Immobilie kann aber die Immobilienertragsteuer anfallen. Was gilt,
