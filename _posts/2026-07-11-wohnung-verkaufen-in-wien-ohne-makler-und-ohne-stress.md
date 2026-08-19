@@ -1,7 +1,7 @@
 ---
 title: Wohnung verkaufen in Wien, ohne Makler und ohne Stress
 slug: wohnung-verkaufen-wien
-date: 2026-07-12
+date: 2026-07-12T12:00:00+02:00
 category: verkauf
 excerpt: >
   Deine Wohnung in Wien kannst du ganz ohne Makler verkaufen. Was den Preis nach
