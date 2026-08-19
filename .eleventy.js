@@ -2,6 +2,18 @@ const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
 
+  // ── Verhindert dass Eleventy Frontmatter-Daten als JS Date parsed ──
+  // Ohne das werden ISO-Daten (2026-07-12) als UTC Mitternacht interpretiert,
+  // was auf Netlify (UTC) dazu führt dass Artikel als "zukünftig" gelten
+  // und vom Build ausgeschlossen werden.
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: false,
+  });
+
+  // Eleventy filtert Artikel mit Datum > heute automatisch aus.
+  // Wir deaktivieren das explizit:
+  eleventyConfig.setDataDeepMerge(true);
+
   // ── Markdown-Renderer anpassen: Tabellen bekommen die bestehende CSS-Klasse ──
   const markdownIt = require("markdown-it");
   const md = markdownIt({ html: true, breaks: false, linkify: true });
@@ -96,10 +108,14 @@ module.exports = function (eleventyConfig) {
   // (Datum-Präfix wird entfernt, z.B. 2026-05-02-mein-titel.md -> mein-titel)
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("_posts/*.md")
-      .filter(post => post.data.published !== false)
+      .filter(post => {
+        // Nur published:false ausschließen, NIEMALS nach Datum filtern
+        return post.data.published !== false;
+      })
       .sort((a, b) => {
-        const da = new Date(eleventyConfig.getFilter("isoDate")(a.data.date));
-        const db = new Date(eleventyConfig.getFilter("isoDate")(b.data.date));
+        const isoDate = eleventyConfig.getFilter("isoDate");
+        const da = new Date(isoDate(a.data.date) + "T12:00:00+02:00");
+        const db = new Date(isoDate(b.data.date) + "T12:00:00+02:00");
         return db - da; // neueste zuerst
       });
   });
