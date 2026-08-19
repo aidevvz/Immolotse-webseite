@@ -1,7 +1,7 @@
 ---
 title: Vermietete Wohnung verkaufen in Österreich, so geht es richtig
 slug: vermietete-wohnung-verkaufen-oesterreich
-date: 2026-08-04
+date: 2026-08-04T12:00:00+02:00
 category: verkauf
 excerpt: Du kannst eine vermietete Wohnung jederzeit verkaufen, der Mieter
   bleibt. Was das für den Preis bedeutet, wer als Käufer infrage kommt und
