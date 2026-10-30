@@ -284,6 +284,35 @@
     --surface-white: #ffffff;
     --surface: #f4f4f2;
     --surface-low: #eeede9;
+
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* --- Craft-Layer: Fokus, Druckfeedback, Typo-Feinschliff --- */
+  h1, h2, .section-title { letter-spacing: -0.02em; text-wrap: balance; }
+  p, .section-sub { text-wrap: pretty; }
+  .pkg-price, .service-price, .cart-total, .summary-total, [id*="Total"], [id*="Amount"] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  a[class*="btn"]:active, button:active, .btn-pkg:active { transform: scale(0.97); }
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+    transition: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -306,7 +335,7 @@
     background: var(--off-white); border: 2px solid var(--gray-light);
     color: var(--navy); padding: 8px 14px; border-radius: 8px;
     cursor: pointer; font-family: 'Inter', sans-serif;
-    font-weight: 600; font-size: 0.85rem; transition: all 0.2s;
+    font-weight: 600; font-size: 0.85rem; transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out);
     position: relative; white-space: nowrap;
   }
   .nav-cart-btn:hover { border-color: var(--navy); }
@@ -318,7 +347,7 @@
   }
   /* Hamburger */
   .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: background-color 0.3s var(--ease), transform 0.3s var(--ease-out); }
   .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
@@ -342,7 +371,7 @@
   }
   .step-item { display: flex; align-items: center; gap: 8px; padding: 0 16px; position: relative; }
   .step-item:not(:last-child)::after { content: '→'; position: absolute; right: -8px; color: var(--gray-light); font-size: 0.9rem; }
-  .step-circle { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; transition: all 0.3s; }
+  .step-circle { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; transition: background-color 0.3s var(--ease), transform 0.3s var(--ease-out); }
   .step-circle.active { background: var(--blue); color: var(--white); }
   .step-circle.done { background: var(--green); color: var(--white); }
   .step-circle.inactive { background: var(--gray-light); color: var(--gray); }
@@ -395,7 +424,7 @@
     font-size: 1rem;
     line-height: 1;
     color: var(--navy);
-    transition: all 0.15s;
+    transition: background-color 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
   }
   .reinigung-counter button:hover { background: var(--navy); color: white; border-color: var(--navy); }
   .reinigung-price-row {
@@ -469,7 +498,7 @@
     border: 1.5px solid var(--gray-light);
     border-radius: 8px; cursor: pointer;
     font-family: 'Inter', sans-serif; font-size: 0.9rem;
-    transition: all 0.2s;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out);
   }
   .btn-modal-cancel:hover { border-color: var(--navy); color: var(--navy); }
 
@@ -484,7 +513,7 @@
     border-radius: 14px; padding: 24px 20px;
     border: 2px solid var(--gray-light);
     background: var(--white);
-    transition: all 0.25s; cursor: pointer; position: relative;
+    transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease); cursor: pointer; position: relative;
   }
   .pkg:hover { border-color: var(--blue); box-shadow: 0 6px 24px rgba(115,92,0,0.09); }
   .pkg.selected { border-color: var(--blue); background: rgba(115,92,0,0.06); }
@@ -497,7 +526,7 @@
   .pkg-features { list-style: none; margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px; }
   .pkg-features li { font-size: 0.82rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: 7px; line-height: 1.4; }
   .pkg-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .btn-add-pkg { width: 100%; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 0.87rem; cursor: pointer; border: 2px solid var(--navy); background: transparent; color: var(--navy); font-family: 'Inter', sans-serif; transition: all 0.2s; }
+  .btn-add-pkg { width: 100%; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 0.87rem; cursor: pointer; border: 2px solid var(--navy); background: transparent; color: var(--navy); font-family: 'Inter', sans-serif; transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out); }
   .pkg:hover .btn-add-pkg, .pkg.selected .btn-add-pkg { background: var(--navy); color: var(--white); }
   .pkg.selected .btn-add-pkg { background: var(--blue); border-color: var(--blue); }
   .selected-check { position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; background: var(--blue); border-radius: 50%; display: none; align-items: center; justify-content: center; color: var(--white); font-size: 0.7rem; }
@@ -520,7 +549,7 @@
     border-radius: 14px;
     padding: 18px;
     border: 2px solid var(--gray-light);
-    transition: all 0.2s;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -556,7 +585,7 @@
     font-size: 0.8rem; font-weight: 700; cursor: pointer;
     border: 2px solid var(--navy); background: transparent;
     color: var(--navy); font-family: 'Inter', sans-serif;
-    transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out); white-space: nowrap; flex-shrink: 0;
   }
   .service-card:hover .btn-add-service { background: var(--navy); color: var(--white); }
   .service-card.in-cart .btn-add-service { background: var(--red); border-color: var(--red); color: var(--white); }
@@ -568,7 +597,7 @@
     padding: 14px 44px; border-radius: 12px;
     font-weight: 700; font-size: 0.97rem;
     cursor: pointer; border: none; font-family: 'Inter', sans-serif;
-    transition: all 0.2s;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out);
   }
   .btn-proceed:hover { background: var(--blue); transform: translateY(-1px); }
   .proceed-note { margin-top: 8px; color: var(--gray); font-size: 0.78rem; }
@@ -612,7 +641,7 @@
   .btn-checkout:disabled { background: var(--gray); cursor: not-allowed; }
 
   /* ── CHECKOUT ── */
-  .back-btn { display: inline-flex; align-items: center; gap: 7px; background: none; border: 2px solid var(--gray-light); color: var(--text-mid); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 600; margin-bottom: 24px; transition: all 0.2s; }
+  .back-btn { display: inline-flex; align-items: center; gap: 7px; background: none; border: 2px solid var(--gray-light); color: var(--text-mid); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 600; margin-bottom: 24px; transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out); }
   .back-btn:hover { border-color: var(--navy); color: var(--navy); }
   .checkout-grid { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
   .checkout-form-box { background: var(--white); border-radius: 16px; padding: 28px; border: 1px solid var(--gray-light); margin-bottom: 20px; }
@@ -628,7 +657,7 @@
   .form-input::placeholder { color: var(--gray); }
   /* Payment */
   .payment-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
-  .payment-option { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 2px solid var(--gray-light); border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+  .payment-option { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 2px solid var(--gray-light); border-radius: 10px; cursor: pointer; transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out); }
   .payment-option:hover { border-color: var(--blue); }
   .payment-option.selected { border-color: var(--blue); background: rgba(115,92,0,0.06); }
   .payment-option input[type="radio"] { width: 16px; height: 16px; accent-color: var(--gold); flex-shrink: 0; }
@@ -642,7 +671,7 @@
   .terms-check input { width: 15px; height: 15px; margin-top: 2px; accent-color: var(--gold); flex-shrink: 0; }
   .terms-check label { font-size: 0.79rem; color: var(--text-mid); line-height: 1.5; }
   .terms-check a { color: var(--blue); }
-  .btn-pay { width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none; border-radius: 11px; font-weight: 700; font-size: 0.97rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 7px; }
+  .btn-pay { width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none; border-radius: 11px; font-weight: 700; font-size: 0.97rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.16s var(--ease-out); display: flex; align-items: center; justify-content: center; gap: 7px; }
   .btn-pay:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(115,92,0,0.3); }
   .secure-note { display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 10px; font-size: 0.76rem; color: var(--gray); }
   /* Order summary */
@@ -737,7 +766,7 @@
 .btn-book{background:var(--dark);color:#fff !important;padding:10px 22px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s;border-radius:var(--radius);}
 .btn-book:hover{opacity:0.82;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:all 0.3s;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:background-color 0.3s var(--ease),transform 0.3s var(--ease-out);}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
@@ -769,7 +798,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
 .footer-bottom a:hover{color:var(--gold-pale);}
 .footer-social{display:flex;gap:10px;}
-.social-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);padding:6px 14px;border-radius:var(--radius);font-size:0.72rem;font-weight:500;text-decoration:none;transition:all 0.2s;}
+.social-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);padding:6px 14px;border-radius:var(--radius);font-size:0.72rem;font-weight:500;text-decoration:none;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.16s var(--ease-out);}
 .social-pill:hover{background:rgba(115,92,0,0.15);border-color:rgba(115,92,0,0.4);color:var(--gold-pale);}
 
 /* ── WHATSAPP
@@ -1202,7 +1231,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
           <div style="margin-top:18px;">
             <div class="terms-check">
               <input type="checkbox" id="terms">
-              <label for="terms">Ich akzeptiere die <a href="#">AGB</a> und <a href="#">Datenschutzerklärung</a>. Ich bestätige, dass ich Eigentümer oder bevollmächtigter Vertreter der Immobilie bin.</label>
+              <label for="terms">Ich akzeptiere die <a href="impressum.html#agb" target="_blank" rel="noopener">AGB</a> und <a href="impressum.html#datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>. Ich bestätige, dass ich Eigentümer oder bevollmächtigter Vertreter der Immobilie bin.</label>
             </div>
             <button class="btn-pay" onclick="processPayment()"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Jetzt sicher bezahlen – <span id="payAmount">€ 0</span></button>
             <div class="secure-note"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SSL-verschlüsselt · Deine Daten sind sicher</div>

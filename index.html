@@ -242,6 +242,50 @@
   --outline: #c4c7c7;
   --text: #1a1c1c;
   --radius: 0.5rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Craft-Layer: Fokus, Druckfeedback, Typo-Feinschliff --- */
+h1, .section-title, .cta-title, .hero-calc-title {
+  letter-spacing: -0.02em;
+}
+.hero-sub, .section-sub, .faq-a, .cta-sub {
+  text-wrap: pretty;
+}
+h1, .section-title, .cta-title {
+  text-wrap: balance;
+}
+/* Zahlen springen beim Ziehen des Reglers nicht mehr */
+.calc-result-val, .hero-calc-label + .hero-calc-title, #calcPriceNum2,
+.pkg-price, .service-price {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+/* Druckfeedback: die Oberfläche reagiert hörbar auf den Klick */
+.btn-primary-dark:active, .btn-outline-dark:active, .btn-white:active,
+.btn-outline-white:active, .btn-pkg:active, .gruendung-modal-btn:active,
+.section-link:active, .google-badge:active {
+  transform: scale(0.97);
+}
+/* Sichtbarer Fokus für Tastaturnutzer, erscheint sofort ohne Übergang */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible,
+.faq-q:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -260,7 +304,7 @@ h1,h2,h3,h4{font-family:'Noto Serif','Playfair Display',serif;}
 .btn-book{background:var(--dark);color:#fff !important;padding:10px 22px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s;border-radius:var(--radius);}
 .btn-book:hover{opacity:0.82;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:all 0.3s;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:transform 0.3s var(--ease-out),opacity 0.3s var(--ease-out);}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
@@ -282,7 +326,7 @@ h1,h2,h3,h4{font-family:'Noto Serif','Playfair Display',serif;}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
 .btn-primary-dark{background:var(--dark);color:#fff;padding:14px 30px;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s;border-radius:var(--radius);}
 .btn-primary-dark:hover{opacity:0.82;}
-.btn-outline-dark{background:transparent;color:var(--dark);padding:14px 30px;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(26,28,28,0.3);cursor:pointer;transition:all 0.2s;border-radius:var(--radius);}
+.btn-outline-dark{background:transparent;color:var(--dark);padding:14px 30px;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(26,28,28,0.3);cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),transform 0.16s var(--ease-out);border-radius:var(--radius);}
 .btn-outline-dark:hover{border-color:var(--dark);background:rgba(26,28,28,0.04);}
 .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
 .hero-stat-val{font-family:'Noto Serif',serif;font-size:1.6rem;font-weight:700;color:var(--dark);line-height:1;}
@@ -356,11 +400,11 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 /* ── SERVICES ── */
 .services-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
 .service-list{display:flex;flex-direction:column;gap:2px;}
-.service-row{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--outline);cursor:pointer;transition:all 0.2s;gap:16px;}
+.service-row{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--outline);cursor:pointer;transition:background-color 0.2s var(--ease),padding-left 0.2s var(--ease);gap:16px;}
 .service-row:first-child{border-top:1px solid var(--outline);}
 .service-row:hover .service-row-name{color:var(--gold);}
 .service-row-left{display:flex;align-items:center;gap:14px;}
-.service-row-icon{width:32px;height:32px;background:var(--surface-low);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);transition:all 0.2s;}
+.service-row-icon{width:32px;height:32px;background:var(--surface-low);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);transition:background-color 0.2s var(--ease),color 0.2s var(--ease);}
 .service-row:hover .service-row-icon{background:rgba(115,92,0,0.08);color:var(--gold);}
 .service-row-name{font-size:0.9rem;font-weight:500;color:var(--dark);transition:color 0.2s;}
 .service-row-price{font-family:'Noto Serif',serif;font-size:1rem;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
@@ -401,7 +445,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .pkg-card.featured .pkg-features li{color:rgba(255,255,255,0.75);}
 .pkg-check{width:16px;height:16px;flex-shrink:0;margin-top:2px;color:var(--gold);}
 .pkg-card.featured .pkg-check{color:var(--gold-pale);}
-.btn-pkg{width:100%;padding:14px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;text-align:center;display:block;text-decoration:none;border-radius:var(--radius);transition:all 0.2s;}
+.btn-pkg{width:100%;padding:14px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;text-align:center;display:block;text-decoration:none;border-radius:var(--radius);transition:background-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.16s var(--ease-out);}
 .pkg-card:not(.featured) .btn-pkg{background:var(--dark);color:#fff;}
 .pkg-card:not(.featured) .btn-pkg:hover{opacity:0.82;}
 .pkg-card.featured .btn-pkg{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:#fff;}
@@ -443,7 +487,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .test-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:#fff;flex-shrink:0;}
 .test-name{font-size:0.85rem;font-weight:600;color:var(--dark);}
 .test-loc{font-size:0.72rem;color:var(--muted);}
-.google-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface-low);border:1px solid var(--outline);color:var(--muted);padding:6px 14px;font-size:0.7rem;font-weight:600;border-radius:var(--radius);text-decoration:none;margin-top:32px;transition:all 0.2s;}
+.google-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface-low);border:1px solid var(--outline);color:var(--muted);padding:6px 14px;font-size:0.7rem;font-weight:600;border-radius:var(--radius);text-decoration:none;margin-top:32px;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease);}
 .google-badge:hover{border-color:var(--gold);color:var(--gold);}
 
 /* ── SAVINGS SECTION ── */
@@ -470,20 +514,20 @@ input.savings-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;
 
 /* ── CTA ── */
 .cta-section{padding:80px 6%;}
-.cta-inner{max-width:1400px;margin:0 auto;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);border-radius:var(--radius);padding:80px;position:relative;overflow:hidden;}
-.cta-inner::before{content:'';position:absolute;right:0;top:0;bottom:0;width:40%;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L100,0 L100,100 Z' fill='white' fill-opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;}
-.cta-label{font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:16px;display:block;}
+.cta-inner{max-width:1400px;margin:0 auto;background:var(--dark-container);border-radius:var(--radius);padding:80px;position:relative;overflow:hidden;}
+.cta-inner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold-pale);pointer-events:none;}
+.cta-label{font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-pale);margin-bottom:16px;display:block;}
 .cta-title{font-family:'Noto Serif',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#fff;margin-bottom:16px;line-height:1.2;max-width:600px;}
 .cta-sub{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:36px;max-width:480px;font-weight:300;line-height:1.7;}
 .cta-btns{display:flex;gap:14px;flex-wrap:wrap;}
 .btn-white{background:#fff;color:var(--dark);padding:14px 28px;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s;border-radius:var(--radius);}
 .btn-white:hover{opacity:0.88;}
-.btn-outline-white{background:transparent;color:#fff;padding:14px 28px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s;border-radius:var(--radius);}
+.btn-outline-white{background:transparent;color:#fff;padding:14px 28px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),transform 0.16s var(--ease-out);border-radius:var(--radius);}
 .btn-outline-white:hover{background:rgba(255,255,255,0.1);}
 
 /* ── FAQ ── */
 .faq-section{background:var(--surface-low);padding:100px 6%;scroll-margin-top:80px;}
-.faq-list{max-width:680px;margin:56px auto 0;display:flex;flex-direction:column;gap:0;}
+.faq-list{max-width:760px;margin:56px 0 0;display:flex;flex-direction:column;gap:0;}
 .faq-item{border-bottom:1px solid var(--outline);}
 .faq-q{padding:22px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:500;color:var(--dark);font-size:0.92rem;gap:16px;}
 .faq-q:hover{color:var(--gold);}
@@ -521,7 +565,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .footer-bottom a{color:rgba(255,255,255,0.7);text-decoration:none;}
 .footer-bottom a:hover{color:var(--gold-pale);}
 .footer-social{display:flex;gap:10px;}
-.social-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);padding:6px 14px;border-radius:var(--radius);font-size:0.72rem;font-weight:500;text-decoration:none;transition:all 0.2s;}
+.social-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);padding:6px 14px;border-radius:var(--radius);font-size:0.72rem;font-weight:500;text-decoration:none;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease);}
 .social-pill:hover{background:rgba(115,92,0,0.15);border-color:rgba(115,92,0,0.4);color:var(--gold-pale);}
 
 /* ── WHATSAPP ── */
@@ -539,7 +583,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .cookie-decline{background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.4);padding:10px 18px;border-radius:var(--radius);font-size:0.75rem;cursor:pointer;}
 
 /* ── REVEAL ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
 .reveal.visible{opacity:1;transform:none;}
 
 /* ── RESPONSIVE ── */
@@ -657,7 +701,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   .pkg-swipe-hint{display:flex;align-items:center;gap:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
   .pkg-swipe-hint svg{color:var(--gold);}
   .pkg-dots{display:flex;justify-content:center;gap:7px;margin-top:18px;}
-  .pkg-dot{width:7px;height:7px;border-radius:50%;background:var(--outline);transition:all 0.3s;cursor:pointer;}
+  .pkg-dot{width:7px;height:7px;border-radius:50%;background:var(--outline);transition:background-color 0.3s var(--ease),transform 0.3s var(--ease-out);cursor:pointer;}
   .pkg-dot.active{background:var(--gold);width:20px;border-radius:4px;}
 
   /* KI SECTION */
@@ -1155,7 +1199,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Ich wollte meine Wohnung in Wien ohne Makler verkaufen, war aber unsicher ob ich das alleine schaffe. ImmoLotse hat das professionell übernommen."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#735c00,#9a7a00);">AM</div>
+          <div class="test-avatar" style="background:#735c00;">AM</div>
           <div><div class="test-name">Anna M.</div><div class="test-loc">Wien, Eigentumswohnung verkauft</div></div>
         </div>
       </div>
@@ -1163,7 +1207,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Ich war skeptisch ob KI-Bildoptimierung wirklich einen Unterschied macht. Der Vorher-Nachher-Vergleich hat mich komplett überzeugt."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#1a3a6b,#0f2240);">MK</div>
+          <div class="test-avatar" style="background:#0f2240;">MK</div>
           <div><div class="test-name">Michael K.</div><div class="test-loc">Wien, 3-Zimmer-Wohnung</div></div>
         </div>
       </div>
@@ -1171,7 +1215,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Wir hatten keine Zeit uns um alles selbst zu kümmern und wollten trotzdem keinen Makler. Das Full-Service Paket war genau das Richtige."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#2e7d32,#1b5e20);">TK</div>
+          <div class="test-avatar" style="background:#8a6e0a;">TK</div>
           <div><div class="test-name">Thomas &amp; Karin W.</div><div class="test-loc">Wien, Einfamilienhaus</div></div>
         </div>
       </div>
@@ -1179,7 +1223,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Was mich am meisten überzeugt hat war die Transparenz. Fixpreis, klare Leistungen, keine bösen Überraschungen. Genau so sollte es sein."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#7b1fa2,#4a148c);">SP</div>
+          <div class="test-avatar" style="background:#1a3a6b;">SP</div>
           <div><div class="test-name">Sandra &amp; Peter W.</div><div class="test-loc">Wien, Eigentumswohnung</div></div>
         </div>
       </div>
@@ -1187,7 +1231,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Nach einer schlechten Erfahrung mit einem Makler wollte ich es dieses Mal selbst in die Hand nehmen. ImmoLotse war die perfekte Unterstützung."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#c62828,#b71c1c);">MR</div>
+          <div class="test-avatar" style="background:#5c4a00;">MR</div>
           <div><div class="test-name">Michael R.</div><div class="test-loc">Wien, Eigentumswohnung</div></div>
         </div>
       </div>
@@ -1195,7 +1239,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
         <div class="test-stars">★★★★★</div>
         <p class="test-text">„Wir haben das Professional-Paket gebucht und waren von Anfang bis Ende begeistert. Die Fotos sehen unglaublich aus. Besser als bei Maklern."</p>
         <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#ef6c00,#e65100);">JH</div>
+          <div class="test-avatar" style="background:#2d4f7c;">JH</div>
           <div><div class="test-name">Julia H.</div><div class="test-loc">Wien, Wohnung verkauft</div></div>
         </div>
       </div>
