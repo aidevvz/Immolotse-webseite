@@ -1,0 +1,17 @@
+{#-
+  Sichtbare Breadcrumb. Dieselbe Quelle wie die BreadcrumbList im Schema,
+  damit beide nie auseinanderlaufen koennen.
+-#}
+<nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
+  <ol>
+    {%- for crumb in breadcrumbs %}
+    <li>
+      {%- if crumb.url and not loop.last %}
+      <a href="{{ crumb.url }}">{{ crumb.name }}</a>
+      {%- else %}
+      <span aria-current="page">{{ crumb.name }}</span>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+</nav>

@@ -1,138 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>{{ title }} | ImmoLotse Blog</title>
-
-<!-- SEO: Meta & Open Graph -->
-<meta name="description" content="{{ description }}"/>
-<link rel="canonical" href="{{ canonicalUrl }}"/>
-<meta property="og:type" content="article"/>
-<meta property="og:locale" content="de_AT"/>
-<meta property="og:site_name" content="ImmoLotse"/>
-<meta property="og:title" content="{{ title }}"/>
-<meta property="og:description" content="{{ description }}"/>
-<meta property="og:url" content="{{ canonicalUrl }}"/>
-<meta property="og:image" content="{{ imageUrl }}"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{{ title }}"/>
-<meta name="twitter:description" content="{{ description }}"/>
-<meta name="twitter:image" content="{{ imageUrl }}"/>
-
-
-<!-- SEO: Strukturierte Daten -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://immolotse.at/#organization",
-  "name": "ImmoLotse",
-  "url": "https://immolotse.at",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://immolotse.at/favicon-192.png"
-  },
-  "image": "https://immolotse.at/favicon-192.png",
-  "email": "info@immolotse.at",
-  "telephone": "+43 664 48 84 703",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Baumhaselweg",
-    "postalCode": "1120",
-    "addressLocality": "Wien",
-    "addressCountry": "AT"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Austria"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ title | jsonEscape | safe }}",
-  "description": "{{ description | jsonEscape | safe }}",
-  "datePublished": "{{ date | isoDateTime }}",
-  "dateModified": "{{ dateModified | isoDateTime }}",
-  "inLanguage": "de-AT",
-  "author": {
-    "@id": "https://immolotse.at/#organization"
-  },
-  "publisher": {
-    "@id": "https://immolotse.at/#organization"
-  },
-  "image": "{{ imageUrl }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ canonicalUrl }}"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Startseite",
-      "item": "https://immolotse.at/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://immolotse.at/blog"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ title | jsonEscape | safe }}",
-      "item": "{{ canonicalUrl }}"
-    }
-  ]
-}
-</script>
-{% if faq and faq.length %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for item in faq %}
-    {
-      "@type": "Question",
-      "name": "{{ item.question | jsonEscape | safe }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ item.answer | jsonEscape | safe }}"
-      }
-    }{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]
-}
-</script>
-{% endif %}
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png"/>
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"/>
-<link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=optional" rel="stylesheet"/></noscript>
+<script>document.documentElement.classList.add("js");</script>
+{# Gemeinsamer SEO-Head und JSON-LD. Identisch mit allen anderen Seitentypen. #}
+{% include "partials/seo-head.njk" %}
+{% include "partials/schema.njk" %}
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HWYKNGE22Y"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HWYKNGE22Y');</script>
 <style>
@@ -475,8 +347,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .cookie-decline{background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.4);padding:10px 18px;border-radius:var(--radius);font-size:0.75rem;cursor:pointer;}
 
 /* ── REVEAL ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
-.reveal.visible{opacity:1;transform:none;}
+.reveal{opacity:1;transform:none;}
+/* Ausblenden passiert NUR wenn JavaScript laeuft (html.js wird per Inline-Script gesetzt).
+   Ohne JavaScript bleibt jeder Text sofort sichtbar im HTML. */
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
+html.js .reveal.visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;}}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
@@ -701,6 +577,8 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 <article>
   <div class="post-hero">
     <div class="post-hero-inner">
+      {# Sichtbare Breadcrumb, gleiche Quelle wie die BreadcrumbList im Schema #}
+      {% include "partials/breadcrumb.njk" %}
       <div class="post-meta" id="postMeta">
         <span class="post-cat" id="postCat">{{ category | categoryLabel }}</span>
         <span style="color:var(--outline);">·</span>

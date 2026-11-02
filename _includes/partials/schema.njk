@@ -1,0 +1,134 @@
+{#-
+  JSON-LD, vollstaendig aus Daten erzeugt. Nichts hier ist handgeschrieben.
+
+  Immer:      Organization (aus _data/firma.json)
+              BreadcrumbList (aus breadcrumbs)
+  Bedingt:    FAQPage        wenn faq gesetzt ist
+              Service+Offer  wenn angebot gesetzt ist
+              BlogPosting    wenn typ == "ratgeber"
+
+  Kein Bewertungs-Markup. AggregateRating und Review werden hier bewusst
+  nicht erzeugt, weil selbst gebautes Bewertungs-Markup gegen die
+  Google-Richtlinien verstoesst.
+-#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.domain }}/#organization",
+      "name": {{ firma.name | dump | safe }},
+      "url": "{{ site.domain }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.domain }}{{ firma.logo }}"
+      },
+      "image": "{{ site.domain }}{{ firma.logo }}",
+      "email": {{ firma.kontakt.email | dump | safe }},
+      "telephone": {{ firma.kontakt.telefon | dump | safe }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ (firma.adresse.strasse + (" " + firma.adresse.hausnummer if firma.adresse.hausnummer else "")) | dump | safe }},
+        "postalCode": {{ firma.adresse.plz | dump | safe }},
+        "addressLocality": {{ firma.adresse.ort | dump | safe }},
+        "addressCountry": {{ firma.adresse.land | dump | safe }}
+      },
+      "areaServed": [
+        {% for bl in firma.einzugsgebiet.digital.bundeslaender -%}
+        { "@type": "AdministrativeArea", "name": {{ bl | dump | safe }} }{{ "," if not loop.last }}
+        {%- endfor %}
+      ]
+      {%- if firma.profile.googleUnternehmensprofil %},
+      "sameAs": [
+        {{ firma.profile.googleUnternehmensprofil | dump | safe }}
+        {%- for p in firma.profile.weitere %}, {{ p | dump | safe }}{% endfor %}
+      ]
+      {%- endif %}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ canonicalUrl }}#webpage",
+      "url": "{{ canonicalUrl }}",
+      "name": {{ metaTitle | dump | safe }},
+      "description": {{ metaDescription | dump | safe }},
+      "inLanguage": "{{ firma.sprache }}",
+      "isPartOf": { "@id": "{{ site.domain }}/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ canonicalUrl }}#breadcrumb",
+      "itemListElement": [
+        {% for crumb in breadcrumbs -%}
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index }},
+          "name": {{ crumb.name | dump | safe }}
+          {%- if crumb.url %},
+          "item": "{{ site.domain }}{{ crumb.url }}"
+          {%- endif %}
+        }{{ "," if not loop.last }}
+        {%- endfor %}
+      ]
+    }
+    {%- if faq and faq.length %},
+    {
+      "@type": "FAQPage",
+      "@id": "{{ canonicalUrl }}#faq",
+      "mainEntity": [
+        {% for f in faq -%}
+        {
+          "@type": "Question",
+          "name": {{ f.question | dump | safe }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ f.answer | dump | safe }}
+          }
+        }{{ "," if not loop.last }}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+    {%- if angebot %},
+    {
+      "@type": "Service",
+      "@id": "{{ canonicalUrl }}#service",
+      "name": {{ (angebot.name or title) | dump | safe }},
+      "provider": { "@id": "{{ site.domain }}/#organization" },
+      "areaServed": {{ (firma.einzugsgebiet.vorOrt.label if angebot.nurWien else firma.einzugsgebiet.digital.label) | dump | safe }},
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ canonicalUrl }}",
+        "priceCurrency": "{{ firma.waehrung }}",
+        {%- if angebot.preis %}
+        "price": "{{ angebot.preis }}",
+        {%- elif angebot.preisVon %}
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "{{ angebot.preisVon }}",
+          {%- if angebot.preisBis %}"maxPrice": "{{ angebot.preisBis }}",{% endif %}
+          "priceCurrency": "{{ firma.waehrung }}"
+        },
+        {%- endif %}
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    {%- endif %}
+    {%- if typ == "ratgeber" %},
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ canonicalUrl }}#article",
+      "headline": {{ title | dump | safe }},
+      "description": {{ metaDescription | dump | safe }},
+      "datePublished": "{{ date | isoDateTime }}",
+      "dateModified": "{{ dateModified | isoDateTime }}",
+      "inLanguage": "{{ firma.sprache }}",
+      "image": "{{ ogImageUrl }}",
+      "author": { "@id": "{{ site.domain }}/#organization" },
+      "publisher": { "@id": "{{ site.domain }}/#organization" },
+      "mainEntityOfPage": { "@id": "{{ canonicalUrl }}#webpage" }
+    }
+    {%- endif %}
+  ]
+}
+</script>

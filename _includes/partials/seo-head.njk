@@ -1,0 +1,38 @@
+{#-
+  SEO-Head. Gilt fuer jeden Seitentyp.
+  Erwartet aus den Seitendaten: metaTitle, metaDescription, canonicalUrl, title.
+  Laengen werden im Build von tools/validate.js erzwungen, nicht hier.
+-#}
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ metaTitle }}</title>
+<meta name="description" content="{{ metaDescription }}"/>
+<link rel="canonical" href="{{ canonicalUrl }}"/>
+<meta name="robots" content="index, follow"/>
+
+<meta property="og:type" content="{{ ogType or 'website' }}"/>
+<meta property="og:locale" content="{{ site.locale }}"/>
+<meta property="og:site_name" content="{{ firma.name }}"/>
+<meta property="og:title" content="{{ metaTitle }}"/>
+<meta property="og:description" content="{{ metaDescription }}"/>
+<meta property="og:url" content="{{ canonicalUrl }}"/>
+<meta property="og:image" content="{{ ogImageUrl }}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{ metaTitle }}"/>
+<meta name="twitter:description" content="{{ metaDescription }}"/>
+<meta name="twitter:image" content="{{ ogImageUrl }}"/>
+
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+
+{#- Selbst gehostete Schriften, keine Verbindung zu Google (DSGVO).
+    Die beiden Latin-Subsets werden vorgeladen, weil sie auf jeder Seite
+    gebraucht werden. Latin-Extended laedt der Browser nur bei Bedarf. -#}
+<link rel="preload" href="/assets/fonts/inter-latin-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="/assets/fonts/noto-serif-latin-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/fonts/fonts.css"/>
+<link rel="stylesheet" href="/assets/base.css"/>

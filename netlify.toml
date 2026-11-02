@@ -1,5 +1,8 @@
 [build]
-  command = "npm install && npx @11ty/eleventy"
+  # Nach dem Build meldet tools/indexnow-ping.js die geaenderten URLs an
+  # IndexNow. Das Script bricht den Build nie ab und sendet nur bei einem
+  # Produktionsdeploy mit tatsaechlich geaenderten Seiten.
+  command = "npm install && npx @11ty/eleventy && node tools/indexnow-ping.js"
   publish = "."
 
 [build.processing]
@@ -109,7 +112,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Cross-Origin-Opener-Policy = "same-origin-allow-popups"
-    Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; connect-src 'self' https: blob:; worker-src 'self' blob:;"
+    Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; font-src 'self'; frame-ancestors 'self'; connect-src 'self' https: blob:; worker-src 'self' blob:;"
 
 # ── Admin: lockerere CSP für Decap CMS ──
 [[headers]]

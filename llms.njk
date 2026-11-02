@@ -1,0 +1,90 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+{#-
+  llms.txt, beim Build erzeugt.
+
+  Beschreibungstexte stammen aus _data/llmsText.json und sind wortwoertlich
+  die bisherigen. Preise, Leistungen und Seitenlisten kommen aus
+  _data/firma.json und den Collections, damit sie nicht mehr veralten
+  koennen. Jede neue SEO-Seite erscheint hier automatisch.
+-#}
+{#- Platzhalter in den uebernommenen Texten mit den echten Werten fuellen.
+    Die Werte kommen aus _data/preise.js, abgeleitet aus firma.json. -#}
+{%- macro fuelle(text) %}{{ text
+  | replace("{{preisAb}}", preise.preisAb)
+  | replace("{{preisMax}}", preise.preisMax)
+  | replace("{{preisMitte}}", preise.preisMitte)
+  | replace("{{preisLeistungAb}}", preise.preisLeistungAb)
+  | replace("{{serviceStart}}", preise.serviceStart) }}{% endmacro -%}
+# {{ firma.name }}
+
+> {{ fuelle(llmsText.kurzbeschreibung) | trim }}
+
+{{ llmsText.langbeschreibung }}
+
+## Hauptseiten
+
+{% for s in statischeSeiten -%}
+- [{{ s.ankertext }}]({{ site.domain }}{{ s.url }}){% if llmsText.seitenbeschreibung[s.url] %}: {{ llmsText.seitenbeschreibung[s.url] }}{% endif %}
+{% endfor %}
+{%- if collections.hubs and collections.hubs.length %}
+## Themen
+
+{% for h in collections.hubs -%}
+- [{{ h.data.ankertext or h.data.title }}]({{ h.data.canonicalUrl }}){% if h.data.teaser %}: {{ h.data.teaser }}{% endif %}
+{% endfor %}
+{%- endif %}
+{%- if collections.leistungen and collections.leistungen.length %}
+## Leistungsseiten
+
+{% for l in collections.leistungen -%}
+- [{{ l.data.ankertext or l.data.title }}]({{ l.data.canonicalUrl }}){% if l.data.angebot and l.data.angebot.preis %} ({{ l.data.angebot.preis }} {{ firma.waehrung }}){% endif %}{% if l.data.teaser %}: {{ l.data.teaser }}{% endif %}
+{% endfor %}
+{%- endif %}
+{%- if collections.kosten and collections.kosten.length %}
+## Kostenseiten
+
+{% for k in collections.kosten -%}
+- [{{ k.data.ankertext or k.data.title }}]({{ k.data.canonicalUrl }}){% if k.data.teaser %}: {{ k.data.teaser }}{% endif %}
+{% endfor %}
+{%- endif %}
+## Komplettpakete und Preise
+
+{% for p in firma.pakete -%}
+- {{ p.name }}: {{ p.preis }} {{ firma.waehrung }}.{% if p.rabatt %} Rund {{ p.rabatt }} Prozent Preisvorteil gegenueber Einzelbuchung.{% endif %}
+{% endfor %}
+## Einzelleistungen
+
+{% for l in firma.leistungen -%}
+- {{ l.name }}{% if l.preis %} ({{ l.preis }} {{ firma.waehrung }} {{ l.einheit }}){% else %} ({{ l.einheit }}){% endif %}{% if llmsText.leistungsbeschreibung[l.name] %}: {{ llmsText.leistungsbeschreibung[l.name] }}{% endif %}{% if l.nurWien %} Vor-Ort-Leistung, nur {{ firma.einzugsgebiet.vorOrt.label }}.{% endif %}
+{% endfor %}
+## Ratgeber
+
+{% for post in collections.posts -%}
+- [{{ post.data.ankertext or post.data.title }}]({{ post.data.canonicalUrl }}){% if post.data.excerpt %}: {{ post.data.excerpt | replace("\n", " ") | trim }}{% endif %}
+{% endfor %}
+## Haeufige Fragen zum Privatverkauf
+
+{% for f in llmsText.faq -%}
+- {{ f.frage }} {{ fuelle(f.antwort) | trim }}
+{% endfor %}
+## Verfuegbarkeit
+
+- Digitale Leistungen: {{ firma.einzugsgebiet.digital.label }} ({{ firma.einzugsgebiet.digital.bundeslaender | join(", ") }}).
+- Vor-Ort-Leistungen: {{ firma.einzugsgebiet.vorOrt.label }}.
+- Service-Start: {{ firma.serviceStart }}.
+
+## Kontakt
+
+- Email: {{ firma.kontakt.email }}
+- Telefon: {{ firma.kontakt.telefon }}
+- Standort: {{ firma.adresse.strasse }}{% if firma.adresse.hausnummer %} {{ firma.adresse.hausnummer }}{% endif %}, {{ firma.adresse.plz }} {{ firma.adresse.ort }}, Oesterreich
+{%- if firma.profile.googleUnternehmensprofil %}
+- Google-Unternehmensprofil: {{ firma.profile.googleUnternehmensprofil }}
+{%- endif %}
+
+## Optional
+
+- [Sitemap]({{ site.domain }}/sitemap.xml): Vollstaendige technische Sitemap aller Unterseiten fuer Suchmaschinen.

@@ -1,0 +1,10 @@
+{
+  "_hinweis": "301-Weiterleitungen fuer umbenannte oder zusammengelegte URLs. Ein neuer Eintrag hier erzeugt beim naechsten Build automatisch eine Zeile in der _redirects-Datei. Grundsaetzliche Weiterleitungen (http zu https, www, saubere URLs) stehen weiterhin in netlify.toml und gehoeren nicht hierher.",
+  "_beispiel": {
+    "von": "/leistungen/alter-name/",
+    "nach": "/leistungen/neuer-name/",
+    "status": 301,
+    "grund": "Seite umbenannt am TT.MM.JJJJ"
+  },
+  "eintraege": []
+}

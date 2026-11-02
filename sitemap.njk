@@ -2,44 +2,41 @@
 permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
+{#-
+  Sitemap, vollstaendig aus Daten erzeugt.
+  Statische Seiten: _data/statischeSeiten.js, lastmod aus dem Git-Log.
+  Datengetriebene Seiten: collections.seoSeiten, lastmod aus dateModified.
+  Bilder werden mit image:image eingetragen, wo ein Bild im Datenmodell steht.
+-#}
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{%- for s in statischeSeiten %}
   <url>
-    <loc>https://immolotse.at/</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>{{ site.domain }}{{ s.url }}</loc>
+    <lastmod>{{ s.lastmod }}</lastmod>
+    <changefreq>{{ s.changefreq }}</changefreq>
+    <priority>{{ s.prioritaet }}</priority>
   </url>
+{%- endfor %}
+{%- for seite in collections.seoSeiten %}
+{%- set typConfig = site.seitentypen[seite.data.typ] %}
   <url>
-    <loc>https://immolotse.at/shop.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://immolotse.at/ueber-uns.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://immolotse.at/blog.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://immolotse.at/impressum.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-{%- for post in collections.posts %}
-  <url>
-    <loc>{{ post.data.canonicalUrl }}</loc>
-    <lastmod>{{ post.data.dateModified | isoDate }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>{{ seite.data.canonicalUrl }}</loc>
+    <lastmod>{{ seite.data.dateModified | isoDate }}</lastmod>
+    <changefreq>{{ typConfig.changefreq if typConfig else "monthly" }}</changefreq>
+    <priority>{{ typConfig.prioritaet if typConfig else "0.6" }}</priority>
+{%- if seite.data.bild and seite.data.bild.src %}
+    <image:image>
+      <image:loc>{{ site.domain }}{{ seite.data.bild.src }}</image:loc>
+      <image:title>{{ seite.data.bild.alt | escape }}</image:title>
+    </image:image>
+{%- elif seite.data.image %}
+    <image:image>
+      <image:loc>{{ site.domain }}{{ seite.data.image }}</image:loc>
+      <image:title>{{ (seite.data.bildAlt or seite.data.title) | escape }}</image:title>
+    </image:image>
+{%- endif %}
   </url>
 {%- endfor %}
 </urlset>

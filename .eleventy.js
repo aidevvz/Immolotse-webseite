@@ -120,8 +120,50 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // ── Datengetriebene Seitentypen ───────────────────────────────
+  // hubs / leistungen / kosten entstehen automatisch aus den tags in
+  // _seiten/<typ>/<typ>.11tydata.js. Hier nur die Sortierung festlegen,
+  // damit Footer- und Hub-Listen eine stabile Reihenfolge haben.
+  const nachReihenfolge = (a, b) => {
+    const ra = a.data.reihenfolge ?? 999;
+    const rb = b.data.reihenfolge ?? 999;
+    if (ra !== rb) return ra - rb;
+    return String(a.data.title || "").localeCompare(String(b.data.title || ""), "de");
+  };
+
+  eleventyConfig.addCollection("hubs", c =>
+    c.getFilteredByTag("hubs").filter(p => p.data.published !== false).sort(nachReihenfolge)
+  );
+  eleventyConfig.addCollection("leistungen", c =>
+    c.getFilteredByTag("leistungen").filter(p => p.data.published !== false).sort(nachReihenfolge)
+  );
+  eleventyConfig.addCollection("kosten", c =>
+    c.getFilteredByTag("kosten").filter(p => p.data.published !== false).sort(nachReihenfolge)
+  );
+
+  // Alle SEO-Seiten zusammen. Speist Sitemap, llms.txt und IndexNow.
+  eleventyConfig.addCollection("seoSeiten", c =>
+    c.getFilteredByTag("seoSeiten").filter(p => p.data.published !== false)
+  );
+
+  // ── Build-Validierung ─────────────────────────────────────────
+  // Laeuft als Collection, weil Eleventy Collections immer auswertet und
+  // ein Fehler hier den Build abbricht. Siehe tools/validate.js.
+  const { pruefeAlle } = require("./tools/validate.js");
+  eleventyConfig.addCollection("geprueft", c =>
+    pruefeAlle(c.getFilteredByTag("seoSeiten").filter(p => p.data.published !== false))
+  );
+
+  // ── Filter fuer die automatische interne Verlinkung ────────────
+  eleventyConfig.addFilter("kinderVon", (seiten, hubId) =>
+    (seiten || []).filter(s => s.data.hub === hubId).sort(nachReihenfolge)
+  );
+  eleventyConfig.addFilter("hubMitId", (hubs, id) =>
+    (hubs || []).find(h => h.data.hubId === id) || null
+  );
+
   // ── Statische Dateien NICHT anfassen ──────────────────────────
-  // Alles außer _posts/*.md und _includes bleibt 1:1 wie es ist,
+  // Alles außer _posts/*.md, _seiten/**/*.md und _includes bleibt 1:1,
   // weil templateFormats unten nur "md" und "njk" enthält.
 
   return {

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<script>document.documentElement.classList.add("js");</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Blog & Ratgeber: Immobilie privat verkaufen in Österreich | ImmoLotse</title>
 
 <!-- SEO: Meta & Open Graph -->
 <meta name="description" content="Aktuelle Artikel und Ratgeber rund um den privaten Immobilienverkauf in Österreich. Verkaufsprozess, Steuern, Marktpreisanalyse und mehr."/>
-<link rel="canonical" href="https://immolotse.at/blog.html"/>
+<link rel="canonical" href="https://immolotse.at/blog"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="de_AT"/>
 <meta property="og:site_name" content="ImmoLotse"/>
 <meta property="og:title" content="Blog | Ratgeber für den privaten Immobilienverkauf | ImmoLotse"/>
 <meta property="og:description" content="Aktuelle Artikel und Ratgeber rund um den privaten Immobilienverkauf in Österreich. Verkaufsprozess, Steuern, Marktpreisanalyse und mehr."/>
-<meta property="og:url" content="https://immolotse.at/blog.html"/>
+<meta property="og:url" content="https://immolotse.at/blog"/>
 <meta property="og:image" content="https://immolotse.at/Hero_Bild_1.webp"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -36,6 +37,7 @@
     "@type": "ImageObject",
     "url": "https://immolotse.at/favicon-192.png"
   },
+  "image": "https://immolotse.at/favicon-192.png",
   "email": "info@immolotse.at",
   "telephone": "+43 664 48 84 703",
   "address": {
@@ -57,7 +59,7 @@
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "ImmoLotse Blog",
-  "url": "https://immolotse.at/blog.html",
+  "url": "https://immolotse.at/blog",
   "publisher": {
     "@id": "https://immolotse.at/#organization"
   },
@@ -80,7 +82,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "https://immolotse.at/blog.html"
+      "item": "https://immolotse.at/blog"
     }
   ]
 }
@@ -92,10 +94,10 @@
 <link rel="icon" type="image/png" sizes="144x144" href="favicon-144.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=optional" rel="stylesheet"/></noscript>
+<!-- Selbst gehostete Schriften, keine Verbindung zu Google (DSGVO) -->
+<link rel="preload" href="/assets/fonts/inter-latin-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="/assets/fonts/noto-serif-latin-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/fonts/fonts.css"/>
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HWYKNGE22Y"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HWYKNGE22Y');</script>
 <style>
@@ -438,8 +440,12 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 .cookie-decline{background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.4);padding:10px 18px;border-radius:var(--radius);font-size:0.75rem;cursor:pointer;}
 
 /* ── REVEAL ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
-.reveal.visible{opacity:1;transform:none;}
+.reveal{opacity:1;transform:none;}
+/* Ausblenden passiert NUR wenn JavaScript laeuft (html.js wird per Inline-Script gesetzt).
+   Ohne JavaScript bleibt jeder Text sofort sichtbar im HTML. */
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
+html.js .reveal.visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none;}}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
@@ -588,23 +594,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   .shop-packages{grid-template-columns:1fr;}
 }
 
-
-
-
-/* ── GRÜNDUNGSPHASE MODAL ── */
-.gruendung-overlay{position:fixed;inset:0;z-index:9999;background:rgba(26,28,28,0.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;}
-.gruendung-modal{background:#1e2020;border:1px solid rgba(201,169,110,0.3);border-radius:16px;max-width:520px;width:100%;padding:48px 40px 40px;position:relative;text-align:center;}
-.gruendung-modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
-.gruendung-modal-close:hover{color:#fff;}
-.gruendung-modal-icon{font-size:2.5rem;margin-bottom:20px;}
-.gruendung-modal h2{font-family:'Noto Serif',serif;font-size:1.6rem;color:#fff;margin-bottom:14px;line-height:1.3;}
-.gruendung-modal p{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:8px;}
-.gruendung-modal strong{color:rgba(255,255,255,0.85);}
-.gruendung-modal a{color:#c9a96e;text-decoration:none;font-weight:600;}
-.gruendung-modal a:hover{text-decoration:underline;}
-.gruendung-modal-btn{margin-top:28px;background:#c9a96e;color:#1a1c1c;border:none;padding:13px 32px;border-radius:8px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;}
-.gruendung-modal-btn:hover{opacity:0.85;}
-
 </style>
 </head>
 <body>
@@ -612,29 +601,29 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 <!-- Mobile Nav Overlay -->
 <div class="nav-mobile" id="navMobile">
   <button class="nav-close" onclick="toggleMenu()" aria-label="Menü schließen">✕</button>
-  <a href="index.html#leistungen" onclick="toggleMenu()">Leistungen</a>
-  <a href="index.html#pakete" onclick="toggleMenu()">Pakete</a>
-  <a href="ueber-uns.html" onclick="toggleMenu()">Über uns</a>
-  <a href="blog.html" onclick="toggleMenu()">Blog</a>
-  <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
-  <a href="/#kontakt" onclick="toggleMenu()">Kontakt</a>
-  <a href="shop.html" class="btn-book" onclick="toggleMenu()">Jetzt buchen</a>
+  <a href="/#leistungen" onclick="toggleMenu()">Leistungen</a>
+  <a href="/#pakete" onclick="toggleMenu()">Pakete</a>
+  <a href="/ueber-uns" onclick="toggleMenu()">Über uns</a>
+  <a href="/blog" onclick="toggleMenu()">Blog</a>
+  <a href="/#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="/shop" class="btn-book" onclick="toggleMenu()">Jetzt buchen</a>
 </div>
 
 <!-- NAV -->
 <nav class="nav-glass">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="logo-nav.png" alt="ImmoLotse" width="29" height="40"/>ImmoLotse
     </a>
     <div class="nav-desktop">
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#pakete">Pakete</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="blog.html">Blog</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="/#kontakt">Kontakt</a>
-      <a href="shop.html" class="btn-book">Jetzt buchen</a>
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/#pakete">Pakete</a>
+      <a href="/ueber-uns">Über uns</a>
+      <a href="/blog">Blog</a>
+      <a href="/#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="/shop" class="btn-book">Jetzt buchen</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -664,7 +653,6 @@ footer{background:var(--dark);padding:72px 6% 40px;}
   </div>
 </div>
 
-
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
@@ -679,16 +667,272 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <!-- Posts -->
     <div>
       <div class="blog-posts" id="blogContent">
-        <p style="color:var(--muted);font-size:0.88rem;padding:20px 0;">Artikel werden geladen…</p>
+        
+        <a href="/ratgeber/immoest-erhoehung-2027/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immoest-erhöhung-2027-was-immobilienbesitzer-jetzt-wissen-müssen.webp" alt="ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Steuer</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">30. September 2026</span>
+            </div>
+            <div class="blog-post-title">ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen</div>
+            <div class="blog-post-excerpt">Ab 2027 wird der Verkauf alter Immobilien teurer, obwohl der Steuersatz bei 30 Prozent bleibt. Wie der Trick mit dem Altvermögen funktioniert und wen er trifft.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilie-besichtigung-verkaeufer/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immobilienbesichtigung-als-verkäufer-so-überzeugst-du-bei-der-wohnungsbegehung.webp" alt="Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">28. September 2026</span>
+            </div>
+            <div class="blog-post-title">Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung</div>
+            <div class="blog-post-excerpt">Bei der Besichtigung fällt die Entscheidung. Wie du deine Immobilie richtig herrichtest, den Termin souverän führst und mit welchen Fehlern du Käufer vergraulst.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/expose-erstellen-immobilie/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immobilien-exposé-erstellen-so-überzeugst-du-käufer-wirklich.webp" alt="Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">14. September 2026</span>
+            </div>
+            <div class="blog-post-title">Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich</div>
+            <div class="blog-post-excerpt">Das Exposé entscheidet, ob sich ein Käufer meldet oder weiterscrollt. Was in ein gutes Exposé gehört, was in Österreich Pflicht ist und welche Fehler du vermeiden musst.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe.webp" alt="Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">2. September 2026</span>
+            </div>
+            <div class="blog-post-title">Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe</div>
+            <div class="blog-post-excerpt">Verkaufen bringt Kapital, Vermieten bringt Einnahmen, aber auch Arbeit. Was für welche Option spricht und wie du für deine Situation die richtige Wahl triffst.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/bester-zeitpunkt-immobilie-verkaufen/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/wann-ist-der-beste-zeitpunkt-um-eine-immobilie-zu-verkaufen.webp" alt="Wann ist der beste Zeitpunkt, um eine Immobilie zu verkaufen?" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">18. August 2026</span>
+            </div>
+            <div class="blog-post-title">Wann ist der beste Zeitpunkt, um eine Immobilie zu verkaufen?</div>
+            <div class="blog-post-excerpt">Frühjahr oder Herbst, jetzt oder später? Wann der beste Zeitpunkt zum Verkaufen ist, wie der Markt 2026 steht und warum deine Lebenssituation oft wichtiger ist als der Kalender.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/vermietete-wohnung-verkaufen-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/vermietete-wohnung-verkaufen-in-österreich-so-geht-es-richtig.webp" alt="Vermietete Wohnung verkaufen in Österreich, so geht es richtig" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">4. August 2026</span>
+            </div>
+            <div class="blog-post-title">Vermietete Wohnung verkaufen in Österreich, so geht es richtig</div>
+            <div class="blog-post-excerpt">Du kannst eine vermietete Wohnung jederzeit verkaufen, der Mieter bleibt. Was das für den Preis bedeutet, wer als Käufer infrage kommt und worauf du achten musst.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilie-steuerfrei-verkaufen-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/wann-ist-ein-immobilienverkauf-in-österreich-steuerfrei.webp" alt="Wann ist ein Immobilienverkauf in Österreich steuerfrei?" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Steuer</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">23. Juli 2026</span>
+            </div>
+            <div class="blog-post-title">Wann ist ein Immobilienverkauf in Österreich steuerfrei?</div>
+            <div class="blog-post-excerpt">Nicht jeder Immobilienverkauf kostet Steuer. Wann die Hauptwohnsitz- oder Herstellerbefreiung greift und dein Verkauf in Österreich steuerfrei bleibt.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/geerbte-immobilie-verkaufen-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/geerbte-immobilie-verkaufen-in-österreich-was-du-zur-steuer-wissen-musst.webp" alt=" Geerbte Immobilie verkaufen in Österreich, was du zur Steuer wissen musst" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Rechtliches</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">17. Juli 2026</span>
+            </div>
+            <div class="blog-post-title"> Geerbte Immobilie verkaufen in Österreich, was du zur Steuer wissen musst</div>
+            <div class="blog-post-excerpt">Erbschaftssteuer gibt es in Österreich keine mehr. Beim Verkauf einer geerbten Immobilie kann aber die Immobilienertragsteuer anfallen. Was gilt, und wann es steuerfrei bleibt.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/wohnung-verkaufen-wien/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/wohnung-verkaufen-wien.webp" alt="Wohnung verkaufen in Wien, ohne Makler und ohne Stress" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">12. Juli 2026</span>
+            </div>
+            <div class="blog-post-title">Wohnung verkaufen in Wien, ohne Makler und ohne Stress</div>
+            <div class="blog-post-excerpt">Deine Wohnung in Wien kannst du ganz ohne Makler verkaufen. Was den Preis nach Bezirk bestimmt, wie der Ablauf läuft und worauf es in Wien wirklich ankommt.
+</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilie-wert-ermitteln-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immobilie-wert-ermitteln-oesterreich.webp" alt="Was ist meine Immobilie wert? So ermittelst du den Preis für den Verkauf" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Preisfindung</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">8. Juli 2026</span>
+            </div>
+            <div class="blog-post-title">Was ist meine Immobilie wert? So ermittelst du den Preis für den Verkauf</div>
+            <div class="blog-post-excerpt">Bevor du verkaufst, willst du wissen, was deine Immobilie wert ist. Wie du den Marktpreis realistisch einschätzt, wer bewerten darf und wann ein Gutachten wirklich nötig ist.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilienertragsteuer-beim-verkauf-in-oesterreich-wann-sie-anfaellt-und-wann-nicht/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/immobilienertragsteuer-beim-verkauf-in-österreich-wann-sie-anfällt-und-wann-nicht.webp" alt="Immobilienertragsteuer beim Verkauf in Österreich, wann sie anfällt und wann nicht" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Rechtliches</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">3. Juli 2026</span>
+            </div>
+            <div class="blog-post-title">Immobilienertragsteuer beim Verkauf in Österreich, wann sie anfällt und wann nicht</div>
+            <div class="blog-post-excerpt">Verkaufst du mit Gewinn, will das Finanzamt 30 Prozent. Wann die Immobilienertragsteuer wirklich anfällt, und wann Ausnahmen wie die Hauptwohnsitzbefreiung sie auf null senken.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/energieausweis-beim-immobilienverkauf-in-oesterreich-pflicht-kosten-und-gueltigkeit/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/energieausweis-beim-immobilienverkauf-in-österreich.webp" alt="Energieausweis beim Immobilienverkauf in Österreich, Pflicht, Kosten und Gültigkeit" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Rechtliches</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">28. Juni 2026</span>
+            </div>
+            <div class="blog-post-title">Energieausweis beim Immobilienverkauf in Österreich, Pflicht, Kosten und Gültigkeit</div>
+            <div class="blog-post-excerpt">Der Energieausweis muss in Österreich schon im Inserat stehen und ist beim Verkauf Pflicht. Was er kostet, wie lange er gilt und wer ihn ausstellt.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/welche-unterlagen-brauche-ich-fuer-den-immobilienverkauf-in-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/images/uploads/ratgeber-unterlagen-hero.webp" alt="Welche Unterlagen brauche ich für den Immobilienverkauf in Österreich?" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Verkauf &amp; Strategie</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">15. Juni 2026</span>
+            </div>
+            <div class="blog-post-title">Welche Unterlagen brauche ich für den Immobilienverkauf in Österreich?</div>
+            <div class="blog-post-excerpt">Ohne die richtigen Unterlagen stockt jeder Immobilienverkauf. Diese Checkliste zeigt dir, was du in Österreich brauchst und wo du es bekommst.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/immobilie-privat-verkaufen-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/img-after-sm.webp" alt="Immobilie privat verkaufen in Österreich, der Ratgeber 2026" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Kosten</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">11. Juni 2026</span>
+            </div>
+            <div class="blog-post-title">Immobilie privat verkaufen in Österreich, der Ratgeber 2026</div>
+            <div class="blog-post-excerpt">Du kannst deine Immobilie in Österreich ganz legal selbst verkaufen, ohne Makler und ohne Gewerbeschein. Dieser Ratgeber zeigt dir den ganzen Weg, von der Preisfindung bis zum Kaufvertrag.</div>
+          </div>
+        </a>
+        
+        <a href="/ratgeber/was-kostet-makler-oesterreich/" class="blog-post-row">
+          <img class="blog-post-thumb" src="/blog-makler-hero.webp" alt="Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026" loading="lazy"/>
+          <div>
+            <div class="blog-post-meta">
+              <span class="blog-post-cat">Kosten</span>
+              <span style="color:var(--outline);">·</span>
+              <span class="blog-post-date">3. Mai 2026</span>
+            </div>
+            <div class="blog-post-title">Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</div>
+            <div class="blog-post-excerpt">Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro. Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch die Käuferprovision deinen Verkaufserlös schmälert.</div>
+          </div>
+        </a>
+        
       </div>
     </div>
     <!-- Sidebar -->
     <aside class="blog-sidebar">
-      <span class="sidebar-label">Suche</span>
-      <input type="search" class="sidebar-search" id="searchInput" placeholder="Artikel suchen…" oninput="filterPosts(this.value)"/>
       <span class="sidebar-label">Beliebte Artikel</span>
       <div id="popularPosts">
-        <p style="color:var(--muted);font-size:0.78rem;">Wird geladen…</p>
+        
+          
+          <a href="/ratgeber/immoest-erhoehung-2027/" class="sidebar-post">
+            <img class="sidebar-thumb" src="/images/uploads/immoest-erhöhung-2027-was-immobilienbesitzer-jetzt-wissen-müssen.webp" alt="ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen" loading="lazy"/>
+            <div>
+              <div class="sidebar-post-title">ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen</div>
+              <div class="sidebar-post-date">30. September 2026</div>
+            </div>
+          </a>
+          
+        
+          
+          <a href="/ratgeber/immobilie-besichtigung-verkaeufer/" class="sidebar-post">
+            <img class="sidebar-thumb" src="/images/uploads/immobilienbesichtigung-als-verkäufer-so-überzeugst-du-bei-der-wohnungsbegehung.webp" alt="Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung" loading="lazy"/>
+            <div>
+              <div class="sidebar-post-title">Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung</div>
+              <div class="sidebar-post-date">28. September 2026</div>
+            </div>
+          </a>
+          
+        
+          
+          <a href="/ratgeber/expose-erstellen-immobilie/" class="sidebar-post">
+            <img class="sidebar-thumb" src="/images/uploads/immobilien-exposé-erstellen-so-überzeugst-du-käufer-wirklich.webp" alt="Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich" loading="lazy"/>
+            <div>
+              <div class="sidebar-post-title">Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich</div>
+              <div class="sidebar-post-date">14. September 2026</div>
+            </div>
+          </a>
+          
+        
+          
+          <a href="/ratgeber/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe/" class="sidebar-post">
+            <img class="sidebar-thumb" src="/images/uploads/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe.webp" alt="Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe" loading="lazy"/>
+            <div>
+              <div class="sidebar-post-title">Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe</div>
+              <div class="sidebar-post-date">2. September 2026</div>
+            </div>
+          </a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       </div>
     </aside>
   </div>
@@ -706,21 +950,20 @@ footer{background:var(--dark);padding:72px 6% 40px;}
     <div>
       <div class="footer-heading">Leistungen</div>
       <ul class="footer-links">
-        <li><a href="shop.html">Exposé erstellen</a></li>
-        <li><a href="shop.html">Fotoshooting</a></li>
-        <li><a href="shop.html">KI-Bildoptimierung</a></li>
-        <li><a href="shop.html">Unterlagen einholen</a></li>
+        <li><a href="/shop">Exposé erstellen</a></li>
+        <li><a href="/shop">Fotoshooting</a></li>
+        <li><a href="/shop">KI-Bildoptimierung</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-heading">ImmoLotse</div>
       <ul class="footer-links">
-        <li><a href="ueber-uns.html">Über uns</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="/#kontakt">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="impressum.html#datenschutz">Datenschutz</a></li>
-        <li><a href="impressum.html#agb">AGB</a></li>
+        <li><a href="/ueber-uns">Über uns</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/impressum#datenschutz">Datenschutz</a></li>
+        <li><a href="/impressum#agb">AGB</a></li>
       </ul>
     </div>
   </div>
@@ -746,7 +989,7 @@ footer{background:var(--dark);padding:72px 6% 40px;}
 
 <!-- COOKIE -->
 <div class="cookie" id="cookieBanner">
-  <div class="cookie-text">Wir nutzen Cookies um dir das beste Erlebnis zu bieten. Mehr dazu in unserer <a href="impressum.html#datenschutz">Datenschutzerklärung</a>.</div>
+  <div class="cookie-text">Wir nutzen Cookies um dir das beste Erlebnis zu bieten. Mehr dazu in unserer <a href="/impressum#datenschutz">Datenschutzerklärung</a>.</div>
   <div class="cookie-btns">
     <button class="cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
     <button class="cookie-decline" onclick="declineCookies()">Ablehnen</button>
@@ -789,87 +1032,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-const REPO = 'aidevvz/Immolotse-webseite';
-const BRANCH = 'main';
-const POSTS_PATH = '_posts';
-let allPosts = [];
-
-async function loadPosts() {
-  try {
-    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${POSTS_PATH}?ref=${BRANCH}`);
-    const files = await res.json();
-    const mdFiles = files.filter(f => f.name.endsWith('.md')).reverse();
-    const posts = await Promise.all(mdFiles.slice(0, 12).map(async f => {
-      const r = await fetch(f.download_url);
-      const text = await r.text();
-      const fm = parseFrontmatter(text);
-      return { ...fm, slug: f.name.replace('.md',''), file: f.name };
-    }));
-    allPosts = posts.filter(p => p.title);
-    renderPosts(allPosts);
-    renderSidebar(allPosts.slice(0,4));
-  } catch(e) {
-    document.getElementById('blogContent').innerHTML = '<p style="color:var(--muted);padding:20px 0;">Artikel konnten nicht geladen werden.</p>';
-  }
-}
-
-function parseFrontmatter(text) {
-  const m = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!m) return {};
-  const fm = {};
-  m[1].split('\n').forEach(l => {
-    const [k,...v] = l.split(':');
-    if (k && v.length) fm[k.trim()] = v.join(':').trim().replace(/^["']|["']$/g,'');
-  });
-  if (!fm.excerpt) {
-    fm.excerpt = text.replace(/^---[\s\S]*?---/, '').trim().replace(/#{1,6}\s/g,'').split('\n').filter(l=>l.trim())[0]?.slice(0,120) || '';
-  }
-  return fm;
-}
-
-function renderPosts(posts) {
-  const el = document.getElementById('blogContent');
-  if (!posts.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px 0;">Keine Artikel gefunden.</p>'; return; }
-  el.innerHTML = posts.map(p => `
-    <a href="post.html?slug=${p.slug}" class="blog-post-row">
-      <img class="blog-post-thumb" src="${p.image||'img-after-sm.webp'}" alt="${p.title||''}" loading="lazy" onerror="this.style.background='var(--surface-container)';this.removeAttribute('src')"/>
-      <div>
-        <div class="blog-post-meta">
-          <span class="blog-post-cat">${p.category||'Ratgeber'}</span>
-          <span style="color:var(--outline);">·</span>
-          <span class="blog-post-date">${formatDate(p.date)}</span>
-        </div>
-        <div class="blog-post-title">${p.title||''}</div>
-        <div class="blog-post-excerpt">${p.excerpt||''}</div>
-      </div>
-    </a>`).join('');
-}
-
-function renderSidebar(posts) {
-  const el = document.getElementById('popularPosts');
-  el.innerHTML = posts.map(p => `
-    <a href="post.html?slug=${p.slug}" class="sidebar-post">
-      <img class="sidebar-thumb" src="${p.image||'img-after-sm.webp'}" alt="${p.title||''}" loading="lazy" onerror="this.style.background='var(--surface-container)';this.removeAttribute('src')"/>
-      <div>
-        <div class="sidebar-post-title">${p.title||''}</div>
-        <div class="sidebar-post-date">${formatDate(p.date)}</div>
-      </div>
-    </a>`).join('');
-}
-
-function filterPosts(q) {
-  const filtered = q ? allPosts.filter(p => (p.title+p.excerpt).toLowerCase().includes(q.toLowerCase())) : allPosts;
-  renderPosts(filtered);
-}
-
-function formatDate(d) {
-  if (!d) return '';
-  try { return new Date(d).toLocaleDateString('de-AT', {day:'numeric',month:'long',year:'numeric'}); }
-  catch { return d; }
-}
-
-loadPosts();
-
 </script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 <script>
@@ -879,24 +1041,11 @@ loadPosts();
     });
   }
 </script>
-
-<!-- Gründungsphase Modal -->
-<div class="gruendung-overlay" id="gruendungOverlay">
-  <div class="gruendung-modal">
-    <button class="gruendung-modal-close" onclick="closeGruendung()" aria-label="Schließen">×</button>
-    <div class="gruendung-modal-icon">🚧</div>
-    <h2>ImmoLotse ist in der Gründungsphase</h2>
-    <p>Unsere Dienstleistungen stehen voraussichtlich Ende <strong>Herbst 2026</strong> zur Verfügung.</p>
-    <p>Du kannst die Website bereits erkunden und dich über unsere Leistungen informieren.</p>
-    <p style="margin-top:14px;">Für Voranfragen erreichst du uns unter <a href="mailto:info@immolotse.at">info@immolotse.at</a></p>
-    <button class="gruendung-modal-btn" onclick="closeGruendung()">Verstanden</button>
+  <!-- Gründungsphase Hinweis -->
+  <div style="background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);padding:16px 6%;text-align:center;">
+    <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);max-width:1400px;margin:0 auto;letter-spacing:0.03em;">
+      🚧 ImmoLotse befindet sich derzeit in der Gründungsphase. Unsere Dienstleistungen stehen voraussichtlich Ende <strong style="color:rgba(255,255,255,0.6);">Herbst 2026</strong> zur Verfügung. Für Voranfragen erreichst du uns unter <a href="mailto:info@immolotse.at" style="color:var(--gold-pale);text-decoration:none;">info@immolotse.at</a>
+    </p>
   </div>
-</div>
-<script>
-  function closeGruendung() {
-    document.getElementById('gruendungOverlay').style.display = 'none';
-  }
-</script>
-
 </body>
 </html>

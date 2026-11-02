@@ -1,0 +1,20 @@
+{#-
+  FAQ-Block. Nutzt <details>, damit der Text ohne JavaScript im HTML steht
+  und per Tastatur bedienbar ist. Kein opacity:0, kein Scroll-Trigger.
+  Dieselben Daten speisen die FAQPage im Schema.
+-#}
+{%- if faq and faq.length %}
+<section class="faq-block" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">{{ faqUeberschrift or "Haeufige Fragen" }}</h2>
+  <div class="faq-items">
+    {%- for f in faq %}
+    <details class="faq-item"{{ " open" if loop.first }}>
+      <summary>{{ f.question }}</summary>
+      <div class="faq-answer">
+        <p>{{ f.answer }}</p>
+      </div>
+    </details>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

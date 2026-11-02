@@ -1,0 +1,150 @@
+{
+  "_hinweis": "Einzige Wahrheitsquelle fuer Firmendaten. Jede Aenderung hier schlaegt automatisch auf alle Templates, JSON-LD, llms.txt und Sitemap durch. NAP (Name, Adresse, Telefon) muss ueberall identisch sein, auch im Google-Unternehmensprofil.",
+  "name": "ImmoLotse",
+  "rechtsform": "",
+  "url": "https://immolotse.at",
+  "logo": "/favicon-192.png",
+  "sprache": "de-AT",
+  "land": "AT",
+  "kontakt": {
+    "email": "info@immolotse.at",
+    "telefon": "+43 664 48 84 703",
+    "telefonAnzeige": "+43 664 48 84 703"
+  },
+  "adresse": {
+    "strasse": "Baumhaselweg",
+    "hausnummer": "",
+    "plz": "1120",
+    "ort": "Wien",
+    "land": "AT"
+  },
+  "profile": {
+    "_hinweis": "Google-Unternehmensprofil anlegen bzw. beanspruchen, dann die Maps-URL hier eintragen. Leer bedeutet: kein sameAs-Eintrag im Schema.",
+    "googleUnternehmensprofil": "",
+    "weitere": []
+  },
+  "einzugsgebiet": {
+    "digital": {
+      "label": "Oesterreichweit",
+      "bundeslaender": [
+        "Wien",
+        "Niederoesterreich",
+        "Oberoesterreich",
+        "Steiermark",
+        "Salzburg",
+        "Tirol",
+        "Kaernten",
+        "Burgenland",
+        "Vorarlberg"
+      ]
+    },
+    "vorOrt": {
+      "label": "Wien",
+      "hinweis": "Leistungen mit Vor-Ort-Termin sind auf Wien beschraenkt.",
+      "orte": [
+        "Wien"
+      ]
+    }
+  },
+  "waehrung": "EUR",
+  "leistungen": [
+    {
+      "id": "ki-bildoptimierung",
+      "name": "KI-Bildoptimierung",
+      "preis": 99,
+      "einheit": "pauschal",
+      "nurWien": false
+    },
+    {
+      "id": "expose",
+      "name": "Expose erstellen (PDF)",
+      "preis": 99,
+      "einheit": "pauschal",
+      "nurWien": false
+    },
+    {
+      "id": "marktpreisanalyse",
+      "name": "Marktpreisanalyse",
+      "preis": 149,
+      "einheit": "pauschal",
+      "nurWien": false
+    },
+    {
+      "id": "inseratmanagement",
+      "name": "Inseratmanagement",
+      "preis": 149,
+      "einheit": "pro Monat",
+      "nurWien": false
+    },
+    {
+      "id": "fotoshooting",
+      "name": "Fotoshooting inkl. Nachbearbeitung",
+      "preis": 449,
+      "einheit": "pauschal",
+      "nurWien": true
+    },
+    {
+      "id": "besichtigungsbegleitung",
+      "name": "Besichtigungsbegleitung",
+      "preis": 149,
+      "einheit": "pro Termin",
+      "nurWien": true
+    },
+    {
+      "id": "reinigungsservice",
+      "name": "Reinigungsservice",
+      "preis": 3,
+      "einheit": "pro Quadratmeter",
+      "nurWien": true
+    },
+    {
+      "id": "umzugsservice",
+      "name": "Umzugsservice",
+      "preis": null,
+      "einheit": "auf Anfrage",
+      "nurWien": true
+    }
+  ],
+  "pakete": [
+    {
+      "id": "online",
+      "name": "Online-Paket",
+      "preis": 799,
+      "rabatt": 0,
+      "enthalten": [
+        "ki-bildoptimierung",
+        "expose",
+        "marktpreisanalyse",
+        "inseratmanagement"
+      ]
+    },
+    {
+      "id": "sorglos",
+      "name": "Sorglos-Paket",
+      "preis": 1799,
+      "rabatt": 5,
+      "enthalten": [
+        "expose",
+        "marktpreisanalyse",
+        "inseratmanagement",
+        "fotoshooting",
+        "besichtigungsbegleitung"
+      ]
+    },
+    {
+      "id": "premium",
+      "name": "Premium-Paket",
+      "preis": 2649,
+      "rabatt": 10,
+      "enthalten": [
+        "expose",
+        "marktpreisanalyse",
+        "inseratmanagement",
+        "fotoshooting",
+        "besichtigungsbegleitung",
+        "reinigungsservice"
+      ]
+    }
+  ],
+  "serviceStart": "Ende Herbst 2026"
+}

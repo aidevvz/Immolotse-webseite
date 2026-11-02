@@ -33,7 +33,9 @@ collections:
           - { label: "Steuer", value: "steuer" }
           - { label: "Kosten", value: "kosten" }
       - { label: "Kurzbeschreibung", name: "excerpt", widget: "text", hint: "Kurze Zusammenfassung für die Blog-Übersicht (1-2 Sätze)" }
-      - { label: "Meta-Description (SEO)", name: "description", widget: "text", required: false, hint: "Für Google & KI-Suchmaschinen. Leer lassen, dann wird die Kurzbeschreibung verwendet. Keine Gedankenstriche oder Trennstriche (-) verwenden." }
+      - { label: "Meta-Description (SEO)", name: "description", widget: "text", required: false, pattern: ['^.{0,160}$', 'Maximal 160 Zeichen. Google schneidet längere Beschreibungen ab.'], hint: "Für Google & KI-Suchmaschinen, maximal 160 Zeichen. Leer lassen, dann wird die Kurzbeschreibung verwendet. Keine Gedankenstriche oder Trennstriche (-) verwenden." }
+      - { label: "SEO-Titel (optional)", name: "metaTitle", widget: "string", required: false, pattern: ['^.{0,60}$', 'Maximal 60 Zeichen. Google schneidet längere Titel ab.'], hint: "Nur nötig, wenn der Artikeltitel länger als 60 Zeichen ist. Dieser kürzere Titel erscheint dann im Google-Suchergebnis und im Browser-Tab, die Überschrift im Artikel bleibt unverändert." }
+      - { label: "Ankertext für interne Links (optional)", name: "ankertext", widget: "string", required: false, hint: "Kurzer Text, mit dem andere Seiten auf diesen Artikel verlinken. Leer lassen, dann wird der Titel verwendet." }
       - { label: "Autor", name: "author", widget: "string", default: "ImmoLotse", required: false }
       - { label: "Lesedauer (Minuten)", name: "readtime", widget: "number", default: 5 }
       - { label: "Titelbild", name: "image", widget: "image", required: false, media_folder: "/images/uploads", public_folder: "/images/uploads" }

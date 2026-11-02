@@ -1,0 +1,29 @@
+{
+  "_hinweis": "Technische Site-Einstellungen. Firmendaten gehoeren nach firma.json, nicht hierher.",
+
+  "domain": "https://immolotse.at",
+  "sprache": "de",
+  "locale": "de_AT",
+
+  "limits": {
+    "_hinweis": "Harte Grenzen, die der Build erzwingt. Siehe tools/validate.js",
+    "titleMax": 60,
+    "descriptionMax": 160,
+    "bildBreiteMax": 1400
+  },
+
+  "ogBildFallback": "/Hero_Bild_1.webp",
+
+  "seitentypen": {
+    "hub": { "basis": "/themen", "prioritaet": "0.8", "changefreq": "weekly" },
+    "leistung": { "basis": "/leistungen", "prioritaet": "0.9", "changefreq": "monthly" },
+    "kosten": { "basis": "/kosten", "prioritaet": "0.8", "changefreq": "monthly" },
+    "ratgeber": { "basis": "/ratgeber", "prioritaet": "0.6", "changefreq": "monthly" }
+  },
+
+  "indexnow": {
+    "_hinweis": "Der Key liegt als <key>.txt im Root. Beim Deploy pingt tools/indexnow-ping.js nur die URLs, deren lastmod dem Build-Datum entspricht.",
+    "key": "730f678bdbfd619b8518622feb43cbde",
+    "endpoint": "https://api.indexnow.org/indexnow"
+  }
+}

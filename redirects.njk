@@ -1,0 +1,11 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+# Automatisch erzeugt aus _data/redirects.json. Nicht von Hand bearbeiten.
+# Grundlegende Weiterleitungen (http/https, www, saubere URLs) stehen in netlify.toml.
+{% for r in redirects.eintraege %}
+{%- if r.grund %}# {{ r.grund }}
+{% endif -%}
+{{ r.von }}  {{ r.nach }}  {{ r.status or 301 }}{% if r.force %}!{% endif %}
+{% endfor %}

@@ -1,0 +1,75 @@
+---
+layout: base-layout.njk
+---
+{#-
+  Leistungs-/Angebotsseite fuer die Shop-Bausteine.
+  Das Feld angebot speist gleichzeitig den sichtbaren Preis und das
+  Offer-Schema, damit beide nie auseinanderlaufen koennen.
+-#}
+
+{%- if angebot %}
+<aside class="angebot-box">
+  <div class="angebot-preis">
+    {%- if angebot.preis %}
+    <span class="preis-wert">{{ angebot.preis }} {{ firma.waehrung }}</span>
+    <span class="preis-einheit">{{ angebot.einheit or "pauschal" }}</span>
+    {%- elif angebot.preisVon %}
+    <span class="preis-wert">ab {{ angebot.preisVon }} {{ firma.waehrung }}</span>
+    {%- if angebot.preisBis %}<span class="preis-einheit">bis {{ angebot.preisBis }} {{ firma.waehrung }}</span>{% endif %}
+    {%- else %}
+    <span class="preis-wert">Auf Anfrage</span>
+    {%- endif %}
+  </div>
+  {%- if angebot.nurWien %}
+  <p class="angebot-gebiet">Vor-Ort-Leistung, nur {{ firma.einzugsgebiet.vorOrt.label }}.</p>
+  {%- else %}
+  <p class="angebot-gebiet">{{ firma.einzugsgebiet.digital.label }} verfuegbar.</p>
+  {%- endif %}
+  <a class="angebot-cta" href="{{ angebot.ctaUrl or '/shop' }}">{{ angebot.ctaText or "Jetzt buchen" }}</a>
+</aside>
+{%- endif %}
+
+{%- if bild and bild.src %}
+<figure class="leistung-bild">
+  <img src="{{ bild.src }}" alt="{{ bild.alt }}" width="{{ bild.breite or 1400 }}" height="{{ bild.hoehe or 788 }}" loading="lazy" decoding="async"/>
+  {%- if bild.caption %}<figcaption>{{ bild.caption }}</figcaption>{% endif %}
+</figure>
+{%- endif %}
+
+{%- if abschnitte %}
+{%- for a in abschnitte %}
+<section class="prose-block">
+  <h2>{{ a.h2 }}</h2>
+  {%- if a.text %}<p>{{ a.text }}</p>{% endif %}
+  {%- if a.punkte %}
+  <ul class="punkte">
+    {%- for p in a.punkte %}<li>{{ p }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+</section>
+{%- endfor %}
+{%- endif %}
+
+{%- if ablauf %}
+<section class="prose-block">
+  <h2>{{ ablaufUeberschrift or "So laeuft es ab" }}</h2>
+  <ol class="ablauf">
+    {%- for schritt in ablauf %}
+    <li>
+      <strong>{{ schritt.titel }}</strong>
+      {%- if schritt.text %}<span>{{ schritt.text }}</span>{% endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}
+
+{% include "partials/faq.njk" %}
+
+{#- Zurueck zum Hub. Schliesst den internen Verlinkungskreis. -#}
+{%- if hub %}
+{%- set elternHub = collections.hubs | hubMitId(hub) %}
+{%- if elternHub %}
+<p class="zurueck-hub"><a href="{{ elternHub.url }}">Zurueck zu {{ elternHub.data.ankertext or elternHub.data.title }}</a></p>
+{%- endif %}
+{%- endif %}

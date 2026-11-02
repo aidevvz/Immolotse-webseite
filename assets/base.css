@@ -1,0 +1,97 @@
+/* Geteilte Bausteine, die auf jedem Seitentyp vorkommen:
+   Sprungmarke, Breadcrumb, Fokus. Seitentyp-Layouts liegen in seo-pages.css. */
+
+:root {
+  --gold: #735c00;
+  --gold-light: #9a7a00;
+  --gold-pale: #fed65b;
+  --dark: #1a1c1c;
+  --dark-container: #1c1b1a;
+  --muted: #444748;
+  --outline: #c4c7c7;
+  --surface: #f9f9f9;
+  --surface-low: #f3f3f3;
+  --surface-white: #ffffff;
+  --radius: 0.5rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sprungmarke: sichtbar nur bei Tastaturfokus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--dark);
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Breadcrumb. Sichtbar auf jeder Seite, gleiche Daten wie die BreadcrumbList. */
+.breadcrumb {
+  margin: 0 0 20px;
+  font-size: 0.78rem;
+}
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.breadcrumb li + li::before {
+  content: "/";
+  color: var(--outline);
+}
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.breadcrumb a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.breadcrumb [aria-current="page"] {
+  color: var(--dark);
+  font-weight: 500;
+}
+
+/* Sichtbarer Tastaturfokus, ohne Einblendung */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

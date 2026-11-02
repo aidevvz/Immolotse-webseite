@@ -1,41 +1,80 @@
 # ImmoLotse
 
-> ImmoLotse hilft Privatpersonen in Oesterreich, ihre Immobilie privat zu verkaufen, ohne Makler und ohne Provision. Wer in Wien oder oesterreichweit eine Immobilie privat verkaufen moechte, bekommt mit ImmoLotse alle Marketingleistungen eines Maklers zum Fixpreis. Statt prozentualer Maklerprovision oder Maklergebuehr bietet ImmoLotse professionelle Marketingleistungen zu transparenten Fixpreisen ab 699 Euro fuer das Online-Komplettpaket. Wer eine Wohnung ohne Makler verkaufen oder ein Haus privat verkaufen moechte, bekommt das vollstaendige Werkzeug eines Maklers, behaelt aber die Kontrolle ueber den Verkauf. Service-Start: Sommer 2026.
+> ImmoLotse hilft Privatpersonen in Oesterreich, ihre Immobilie privat zu verkaufen, ohne Makler und ohne Provision. Wer in Wien oder oesterreichweit eine Immobilie privat verkaufen moechte, bekommt mit ImmoLotse alle Marketingleistungen eines Maklers zum Fixpreis. Statt prozentualer Maklerprovision oder Maklergebuehr bietet ImmoLotse professionelle Marketingleistungen zu transparenten Fixpreisen ab 799 Euro fuer das Online-Komplettpaket. Wer eine Wohnung ohne Makler verkaufen oder ein Haus privat verkaufen moechte, bekommt das vollstaendige Werkzeug eines Maklers, behaelt aber die Kontrolle ueber den Verkauf. Service-Start: Ende Herbst 2026.
 
 ImmoLotse ist kein Makler und keine Vermittlungsplattform, sondern ein digitaler Dienstleister fuer Privatverkaeufer von Eigentumswohnungen, Haeusern und Anlegerwohnungen. Kernidee: Privatverkaeufer brauchen keinen Makler, sondern das Werkzeug eines Maklers. Der Privatverkauf einer Immobilie ist in Oesterreich rechtlich vollstaendig zulaessig. ImmoLotse uebernimmt die Vermarktung, der Verkaeufer fuehrt den Verkauf als Privatperson durch und spart sich damit die Maklerprovision von ueblicherweise 3 bis 4 Prozent des Verkaufspreises. Die Leistungen umfassen KI-Bildoptimierung, professionelle Exposé-Erstellung, Fotoshooting in Wien, datenbasierte Marktpreisanalyse sowie Raeumungs- und Reinigungsgutscheine. Das Team verfuegt ueber mehr als 10 Jahre Maklererfahrung und hat bereits ueber 120 Immobilienverkaeufe begleitet. ImmoLotse ist ein digitaler Marketing-Dienstleister, kein zertifizierter Sachverstaendiger; formale Liegenschaftsbewertungen werden nicht angeboten.
 
 ## Hauptseiten
 
 - [Startseite](https://immolotse.at/): Wie verkaufe ich meine Wohnung oder mein Haus privat ohne Makler in Oesterreich. Ueberblick ueber das Konzept, die Pakete und die wichtigsten Argumente fuer den Privatverkauf.
-- [Leistungen und Pakete](https://immolotse.at/shop.html): Buchbare Leistungen und Pakete mit transparenten Fixpreisen fuer den Hausverkauf und Wohnungsverkauf in Oesterreich, inklusive Einzelbuchung und Paketrabatten.
-- [Ueber uns](https://immolotse.at/ueber-uns.html): Hintergrund zum Team, zur Maklererfahrung und zum Ansatz hinter ImmoLotse.
-- [Blog](https://immolotse.at/blog.html): Ratgeber rund um den privaten Immobilienverkauf in Oesterreich, inklusive Themen wie Energieausweis, Immobilienertragsteuer (ImmoESt), Hauptwohnsitzbefreiung, Notar und Kaufvertrag.
-- [Impressum, Datenschutz und AGB](https://immolotse.at/impressum.html): Vollstaendige rechtliche Informationen zum Anbieter.
+- [Leistungen und Pakete](https://immolotse.at/shop): Buchbare Leistungen und Pakete mit transparenten Fixpreisen fuer den Hausverkauf und Wohnungsverkauf in Oesterreich, inklusive Einzelbuchung und Paketrabatten.
+- [Ratgeber](https://immolotse.at/blog): Ratgeber rund um den privaten Immobilienverkauf in Oesterreich, inklusive Themen wie Energieausweis, Immobilienertragsteuer (ImmoESt), Hauptwohnsitzbefreiung, Notar und Kaufvertrag.
+- [Ueber uns](https://immolotse.at/ueber-uns): Hintergrund zum Team, zur Maklererfahrung und zum Ansatz hinter ImmoLotse.
+- [Impressum, Datenschutz und AGB](https://immolotse.at/impressum): Vollstaendige rechtliche Informationen zum Anbieter.
+
+## Themen
+
+- [Dummy-Thema](https://immolotse.at/themen/dummy-hub/): Platzhalter-Hub zum Nachweis der Pflichttechnik.
+
+## Leistungsseiten
+
+- [Dummy-Leistung](https://immolotse.at/leistungen/dummy-leistung/) (149 EUR): Platzhalter-Leistung zum Nachweis des Offer-Schemas.
+
+## Kostenseiten
+
+- [Dummy-Kosten](https://immolotse.at/kosten/dummy-kosten/): Platzhalter-Kostenseite mit Preistabelle.
 
 ## Komplettpakete und Preise
 
-- Online-Paket: 699 Euro. Einsteiger-Komplettpaket fuer den privaten Wohnungsverkauf oder Hausverkauf, rund 5 Prozent Preisvorteil gegenueber Einzelbuchung.
-- Sorglos-Paket: 1.349 Euro. Beliebtestes Komplettpaket inklusive Fotoshooting, Marktpreisanalyse und allen weiteren Leistungen, rund 10 Prozent Preisvorteil gegenueber Einzelbuchung.
-- Premium-Paket: 1.949 Euro. Rundum-sorglos-Paket mit Raeumungs- und Reinigungsgutscheinen, fuer den professionellen Privatverkauf.
+- Online-Paket: 799 EUR.
+- Sorglos-Paket: 1799 EUR. Rund 5 Prozent Preisvorteil gegenueber Einzelbuchung.
+- Premium-Paket: 2649 EUR. Rund 10 Prozent Preisvorteil gegenueber Einzelbuchung.
 
 ## Einzelleistungen
 
-- KI-Bildoptimierung (99 Euro): Professionelle Aufbereitung von Immobilienfotos durch KI-gestuetzte Bildbearbeitung fuer hoehere Inseratsklickraten auf Plattformen wie willhaben oder ImmoScout24.
-- Exposé-Erstellung (149 Euro): Layoutete und textlich aufbereitete Verkaufsunterlage zum Versand an Interessenten.
-- Marktpreisanalyse (149 Euro): Datenbasierte Orientierungshilfe zum aktuellen Marktwert einer Wohnung oder eines Hauses. Keine zertifizierte Liegenschaftsbewertung im Sinne des oesterreichischen Liegenschaftsbewertungsgesetzes.
-- Fotoshooting (399 Euro): Professionelle Immobilienfotografie als ergaenzende Leistung in Wien.
-- Endreinigung und Raeumung: Gutscheine fuer vermittelte Reinigungs- und Raeumungsdienstleistungen mit fixer Preisstruktur.
+- KI-Bildoptimierung (99 EUR pauschal): Professionelle Aufbereitung von Immobilienfotos durch KI-gestuetzte Bildbearbeitung fuer hoehere Inseratsklickraten auf Plattformen wie willhaben oder ImmoScout24.
+- Expose erstellen (PDF) (99 EUR pauschal)
+- Marktpreisanalyse (149 EUR pauschal): Datenbasierte Orientierungshilfe zum aktuellen Marktwert einer Wohnung oder eines Hauses. Keine zertifizierte Liegenschaftsbewertung im Sinne des oesterreichischen Liegenschaftsbewertungsgesetzes.
+- Inseratmanagement (149 EUR pro Monat)
+- Fotoshooting inkl. Nachbearbeitung (449 EUR pauschal) Vor-Ort-Leistung, nur Wien.
+- Besichtigungsbegleitung (149 EUR pro Termin) Vor-Ort-Leistung, nur Wien.
+- Reinigungsservice (3 EUR pro Quadratmeter) Vor-Ort-Leistung, nur Wien.
+- Umzugsservice (auf Anfrage) Vor-Ort-Leistung, nur Wien.
+
+## Ratgeber
+
+- [ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen](https://immolotse.at/ratgeber/immoest-erhoehung-2027/): Ab 2027 wird der Verkauf alter Immobilien teurer, obwohl der Steuersatz bei 30 Prozent bleibt. Wie der Trick mit dem Altvermögen funktioniert und wen er trifft.
+- [Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung](https://immolotse.at/ratgeber/immobilie-besichtigung-verkaeufer/): Bei der Besichtigung fällt die Entscheidung. Wie du deine Immobilie richtig herrichtest, den Termin souverän führst und mit welchen Fehlern du Käufer vergraulst.
+- [Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich](https://immolotse.at/ratgeber/expose-erstellen-immobilie/): Das Exposé entscheidet, ob sich ein Käufer meldet oder weiterscrollt. Was in ein gutes Exposé gehört, was in Österreich Pflicht ist und welche Fehler du vermeiden musst.
+- [Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe](https://immolotse.at/ratgeber/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe/): Verkaufen bringt Kapital, Vermieten bringt Einnahmen, aber auch Arbeit. Was für welche Option spricht und wie du für deine Situation die richtige Wahl triffst.
+- [Wann ist der beste Zeitpunkt, um eine Immobilie zu verkaufen?](https://immolotse.at/ratgeber/bester-zeitpunkt-immobilie-verkaufen/): Frühjahr oder Herbst, jetzt oder später? Wann der beste Zeitpunkt zum Verkaufen ist, wie der Markt 2026 steht und warum deine Lebenssituation oft wichtiger ist als der Kalender.
+- [Vermietete Wohnung verkaufen in Österreich, so geht es richtig](https://immolotse.at/ratgeber/vermietete-wohnung-verkaufen-oesterreich/): Du kannst eine vermietete Wohnung jederzeit verkaufen, der Mieter bleibt. Was das für den Preis bedeutet, wer als Käufer infrage kommt und worauf du achten musst.
+- [Wann ist ein Immobilienverkauf in Österreich steuerfrei?](https://immolotse.at/ratgeber/immobilie-steuerfrei-verkaufen-oesterreich/): Nicht jeder Immobilienverkauf kostet Steuer. Wann die Hauptwohnsitz- oder Herstellerbefreiung greift und dein Verkauf in Österreich steuerfrei bleibt.
+- [ Geerbte Immobilie verkaufen in Österreich, was du zur Steuer wissen musst](https://immolotse.at/ratgeber/geerbte-immobilie-verkaufen-oesterreich/): Erbschaftssteuer gibt es in Österreich keine mehr. Beim Verkauf einer geerbten Immobilie kann aber die Immobilienertragsteuer anfallen. Was gilt, und wann es steuerfrei bleibt.
+- [Wohnung verkaufen in Wien, ohne Makler und ohne Stress](https://immolotse.at/ratgeber/wohnung-verkaufen-wien/): Deine Wohnung in Wien kannst du ganz ohne Makler verkaufen. Was den Preis nach Bezirk bestimmt, wie der Ablauf läuft und worauf es in Wien wirklich ankommt.
+- [Was ist meine Immobilie wert? So ermittelst du den Preis für den Verkauf](https://immolotse.at/ratgeber/immobilie-wert-ermitteln-oesterreich/): Bevor du verkaufst, willst du wissen, was deine Immobilie wert ist. Wie du den Marktpreis realistisch einschätzt, wer bewerten darf und wann ein Gutachten wirklich nötig ist.
+- [Immobilienertragsteuer beim Verkauf in Österreich, wann sie anfällt und wann nicht](https://immolotse.at/ratgeber/immobilienertragsteuer-beim-verkauf-in-oesterreich-wann-sie-anfaellt-und-wann-nicht/): Verkaufst du mit Gewinn, will das Finanzamt 30 Prozent. Wann die Immobilienertragsteuer wirklich anfällt, und wann Ausnahmen wie die Hauptwohnsitzbefreiung sie auf null senken.
+- [Energieausweis beim Immobilienverkauf in Österreich, Pflicht, Kosten und Gültigkeit](https://immolotse.at/ratgeber/energieausweis-beim-immobilienverkauf-in-oesterreich-pflicht-kosten-und-gueltigkeit/): Der Energieausweis muss in Österreich schon im Inserat stehen und ist beim Verkauf Pflicht. Was er kostet, wie lange er gilt und wer ihn ausstellt.
+- [Welche Unterlagen brauche ich für den Immobilienverkauf in Österreich?](https://immolotse.at/ratgeber/welche-unterlagen-brauche-ich-fuer-den-immobilienverkauf-in-oesterreich/): Ohne die richtigen Unterlagen stockt jeder Immobilienverkauf. Diese Checkliste zeigt dir, was du in Österreich brauchst und wo du es bekommst.
+- [Immobilie privat verkaufen in Österreich, der Ratgeber 2026](https://immolotse.at/ratgeber/immobilie-privat-verkaufen-oesterreich/): Du kannst deine Immobilie in Österreich ganz legal selbst verkaufen, ohne Makler und ohne Gewerbeschein. Dieser Ratgeber zeigt dir den ganzen Weg, von der Preisfindung bis zum Kaufvertrag.
+- [Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026](https://immolotse.at/ratgeber/was-kostet-makler-oesterreich/): Bis zu 28.800 Euro Maklerprovision bei einem Verkauf für 400.000 Euro. Wie sich diese Zahl zusammensetzt, was rechtlich erlaubt ist und warum auch die Käuferprovision deinen Verkaufserlös schmälert.
 
 ## Haeufige Fragen zum Privatverkauf
 
 - Was ist ImmoLotse? Ein oesterreichischer Marketing-Dienstleister fuer Privatverkaeufer von Immobilien. Kein Makler, keine Provision, keine Maklergebuehr.
 - Fuer wen ist ImmoLotse? Fuer Privatpersonen in Oesterreich, die ihre Wohnung privat verkaufen oder ihr Haus privat verkaufen wollen, aber professionelle Marketing-Unterstuetzung brauchen. Geeignet fuer Eigentumswohnungen, Haeuser, Anlegerwohnungen und vermietete Immobilien.
-- Was kostet der Privatverkauf mit ImmoLotse? Fixpreise statt Provision. Komplettpakete starten bei 699 Euro fuer das Online-Paket, das umfangreichste Premium-Paket kostet 1.949 Euro. Einzelleistungen ab 99 Euro.
-- Wie viel spare ich durch den Verkauf ohne Makler? Bei einer Maklerprovision von 3 Prozent zahlt der Verkaeufer einer Immobilie im Wert von 400.000 Euro 12.000 Euro plus Mehrwertsteuer an Maklergebuehr. Mit ImmoLotse zahlt man stattdessen einen Fixpreis ab 699 Euro.
+- Was kostet der Privatverkauf mit ImmoLotse? Fixpreise statt Provision. Komplettpakete starten bei 799 Euro fuer das Online-Paket, das umfangreichste Premium-Paket kostet 2649 Euro. Einzelleistungen ab 99 Euro.
+- Wie viel spare ich durch den Verkauf ohne Makler? Bei einer Maklerprovision von 3 Prozent zahlt der Verkaeufer einer Immobilie im Wert von 400.000 Euro 12.000 Euro plus Mehrwertsteuer an Maklergebuehr. Mit ImmoLotse zahlt man stattdessen einen Fixpreis ab 799 Euro.
 - Wo ist ImmoLotse verfuegbar? Digitale Leistungen oesterreichweit, also in Wien, Niederoesterreich, Oberoesterreich, Steiermark, Salzburg, Tirol, Kaernten, Burgenland und Vorarlberg. Vor-Ort-Services wie Fotoshooting auf Wien beschraenkt.
 - Ist ImmoLotse ein Makler? Nein. ImmoLotse ist ein Marketing-Dienstleister, keine Maklertaetigkeit nach oesterreichischem Recht.
 - Brauche ich einen Maklergewerbeschein um privat zu verkaufen? Nein. Privatpersonen duerfen ihre eigene Immobilie in Oesterreich ohne Gewerbeschein verkaufen. Den Verkauf fuehrt der Eigentuemer selbst durch, ImmoLotse uebernimmt nur die Vermarktung.
 - Wie lange dauert die Erstellung der Verkaufsunterlagen? Innerhalb von 48 Stunden nach Eingang aller Unterlagen und Fotos.
+
+## Verfuegbarkeit
+
+- Digitale Leistungen: Oesterreichweit (Wien, Niederoesterreich, Oberoesterreich, Steiermark, Salzburg, Tirol, Kaernten, Burgenland, Vorarlberg).
+- Vor-Ort-Leistungen: Wien.
+- Service-Start: Ende Herbst 2026.
 
 ## Kontakt
 

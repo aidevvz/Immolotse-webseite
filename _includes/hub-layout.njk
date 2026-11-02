@@ -1,0 +1,47 @@
+---
+layout: base-layout.njk
+---
+{#-
+  Hub-/Uebersichtsseite.
+  Fasst ein Thema zusammen und verlinkt automatisch auf alle Detailseiten,
+  die im Frontmatter hub: <diese-id> eingetragen haben. Die Liste wird nicht
+  gepflegt, sie entsteht aus den Daten.
+-#}
+
+{%- if abschnitte %}
+{%- for a in abschnitte %}
+<section class="prose-block">
+  <h2>{{ a.h2 }}</h2>
+  {%- if a.text %}<p>{{ a.text }}</p>{% endif %}
+  {%- if a.punkte %}
+  <ul class="punkte">
+    {%- for p in a.punkte %}<li>{{ p }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+</section>
+{%- endfor %}
+{%- endif %}
+
+{#- Kinder dieses Hubs: alle Seitentypen, die auf ihn zeigen -#}
+{%- set kinder = collections.seoSeiten | kinderVon(hubId) %}
+{%- if kinder.length %}
+<section class="hub-kinder">
+  <h2>{{ kinderUeberschrift or "Alle Seiten zu diesem Thema" }}</h2>
+  <ul class="karten">
+    {%- for k in kinder %}
+    <li class="karte">
+      <a href="{{ k.url }}">
+        <span class="karte-typ">{{ k.data.typLabel or k.data.typ }}</span>
+        <span class="karte-titel">{{ k.data.ankertext or k.data.title }}</span>
+        {%- if k.data.teaser %}<span class="karte-teaser">{{ k.data.teaser }}</span>{% endif %}
+        {%- if k.data.angebot and k.data.angebot.preis %}
+        <span class="karte-preis">ab {{ k.data.angebot.preis }} {{ firma.waehrung }}</span>
+        {%- endif %}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{% include "partials/faq.njk" %}

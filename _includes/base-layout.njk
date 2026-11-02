@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="{{ site.sprache }}">
+<head>
+{% include "partials/seo-head.njk" %}
+<link rel="stylesheet" href="/assets/seo-pages.css"/>
+{% include "partials/schema.njk" %}
+</head>
+<body>
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/logo-nav.png" alt="{{ firma.name }}" width="28" height="28"/>
+      <span>{{ firma.name }}</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="/shop">Leistungen</a>
+      <a href="/blog">Ratgeber</a>
+      <a href="/ueber-uns">Ueber uns</a>
+      <a href="/shop" class="nav-cta">Jetzt buchen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <div class="page-head">
+    <div class="page-inner">
+      {% include "partials/breadcrumb.njk" %}
+      {#- Genau eine H1 pro Seite. Sie steht nur hier, kein Template setzt eine zweite. -#}
+      <h1>{{ title }}</h1>
+      {%- if intro %}
+      <p class="page-intro">{{ intro }}</p>
+      {%- endif %}
+    </div>
+  </div>
+
+  <div class="page-inner page-body">
+    {{ content | safe }}
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <strong>{{ firma.name }}</strong>
+      <address>
+        {{ firma.adresse.strasse }}{% if firma.adresse.hausnummer %} {{ firma.adresse.hausnummer }}{% endif %}<br/>
+        {{ firma.adresse.plz }} {{ firma.adresse.ort }}<br/>
+        <a href="tel:{{ firma.kontakt.telefon | replace(" ", "") }}">{{ firma.kontakt.telefonAnzeige }}</a><br/>
+        <a href="mailto:{{ firma.kontakt.email }}">{{ firma.kontakt.email }}</a>
+      </address>
+    </div>
+
+    {#- Automatische interne Verlinkung. Jede Detailseite erscheint hier,
+        sobald ihr Dateneintrag existiert. Ankertext aus dem Datenfeld. -#}
+    {%- if collections.leistungen and collections.leistungen.length %}
+    <div class="footer-col">
+      <h2>Leistungen</h2>
+      <ul>
+        {%- for s in collections.leistungen %}
+        <li><a href="{{ s.url }}">{{ s.data.ankertext or s.data.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+
+    {%- if collections.hubs and collections.hubs.length %}
+    <div class="footer-col">
+      <h2>Themen</h2>
+      <ul>
+        {%- for h in collections.hubs %}
+        <li><a href="{{ h.url }}">{{ h.data.ankertext or h.data.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+
+    {%- if collections.kosten and collections.kosten.length %}
+    <div class="footer-col">
+      <h2>Kosten</h2>
+      <ul>
+        {%- for k in collections.kosten %}
+        <li><a href="{{ k.url }}">{{ k.data.ankertext or k.data.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+
+    <div class="footer-col">
+      <h2>{{ firma.name }}</h2>
+      <ul>
+        <li><a href="/">Startseite</a></li>
+        <li><a href="/shop">Leistungen und Pakete</a></li>
+        <li><a href="/blog">Ratgeber</a></li>
+        <li><a href="/ueber-uns">Ueber uns</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/impressum#datenschutz">Datenschutz</a></li>
+        <li><a href="/impressum#agb">AGB</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-base">
+    <span>&copy; <script>document.write(new Date().getFullYear())</script><noscript>2026</noscript> {{ firma.name }}</span>
+    <span>{{ firma.einzugsgebiet.digital.label }}. Vor-Ort-Leistungen: {{ firma.einzugsgebiet.vorOrt.label }}.</span>
+  </div>
+</footer>
+
+</body>
+</html>

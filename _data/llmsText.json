@@ -1,0 +1,60 @@
+{
+  "_hinweis": "Beschreibungstexte fuer llms.txt. Wortlaut stammt aus der bisherigen, handgepflegten llms.txt und wurde unveraendert uebernommen. Preise, Leistungen und Seitenlisten stehen bewusst NICHT hier, sondern werden beim Build aus firma.json und den Collections erzeugt.",
+  "kurzbeschreibung": "ImmoLotse hilft Privatpersonen in Oesterreich, ihre Immobilie privat zu verkaufen, ohne Makler und ohne Provision. Wer in Wien oder oesterreichweit eine Immobilie privat verkaufen moechte, bekommt mit ImmoLotse alle Marketingleistungen eines Maklers zum Fixpreis. Statt prozentualer Maklerprovision oder Maklergebuehr bietet ImmoLotse professionelle Marketingleistungen zu transparenten Fixpreisen ab {{preisAb}} Euro fuer das Online-Komplettpaket. Wer eine Wohnung ohne Makler verkaufen oder ein Haus privat verkaufen moechte, bekommt das vollstaendige Werkzeug eines Maklers, behaelt aber die Kontrolle ueber den Verkauf. Service-Start: {{serviceStart}}.",
+  "langbeschreibung": "ImmoLotse ist kein Makler und keine Vermittlungsplattform, sondern ein digitaler Dienstleister fuer Privatverkaeufer von Eigentumswohnungen, Haeusern und Anlegerwohnungen. Kernidee: Privatverkaeufer brauchen keinen Makler, sondern das Werkzeug eines Maklers. Der Privatverkauf einer Immobilie ist in Oesterreich rechtlich vollstaendig zulaessig. ImmoLotse uebernimmt die Vermarktung, der Verkaeufer fuehrt den Verkauf als Privatperson durch und spart sich damit die Maklerprovision von ueblicherweise 3 bis 4 Prozent des Verkaufspreises. Die Leistungen umfassen KI-Bildoptimierung, professionelle Exposé-Erstellung, Fotoshooting in Wien, datenbasierte Marktpreisanalyse sowie Raeumungs- und Reinigungsgutscheine. Das Team verfuegt ueber mehr als 10 Jahre Maklererfahrung und hat bereits ueber 120 Immobilienverkaeufe begleitet. ImmoLotse ist ein digitaler Marketing-Dienstleister, kein zertifizierter Sachverstaendiger; formale Liegenschaftsbewertungen werden nicht angeboten.",
+  "seitenbeschreibung": {
+    "/": "Wie verkaufe ich meine Wohnung oder mein Haus privat ohne Makler in Oesterreich. Ueberblick ueber das Konzept, die Pakete und die wichtigsten Argumente fuer den Privatverkauf.",
+    "/shop": "Buchbare Leistungen und Pakete mit transparenten Fixpreisen fuer den Hausverkauf und Wohnungsverkauf in Oesterreich, inklusive Einzelbuchung und Paketrabatten.",
+    "/ueber-uns": "Hintergrund zum Team, zur Maklererfahrung und zum Ansatz hinter ImmoLotse.",
+    "/blog": "Ratgeber rund um den privaten Immobilienverkauf in Oesterreich, inklusive Themen wie Energieausweis, Immobilienertragsteuer (ImmoESt), Hauptwohnsitzbefreiung, Notar und Kaufvertrag.",
+    "/impressum": "Vollstaendige rechtliche Informationen zum Anbieter."
+  },
+  "faq": [
+    {
+      "frage": "Was ist ImmoLotse?",
+      "antwort": "Ein oesterreichischer Marketing-Dienstleister fuer Privatverkaeufer von Immobilien. Kein Makler, keine Provision, keine Maklergebuehr."
+    },
+    {
+      "frage": "Fuer wen ist ImmoLotse?",
+      "antwort": "Fuer Privatpersonen in Oesterreich, die ihre Wohnung privat verkaufen oder ihr Haus privat verkaufen wollen, aber professionelle Marketing-Unterstuetzung brauchen. Geeignet fuer Eigentumswohnungen, Haeuser, Anlegerwohnungen und vermietete Immobilien."
+    },
+    {
+      "frage": "Was kostet der Privatverkauf mit ImmoLotse?",
+      "antwort": "Fixpreise statt Provision. Komplettpakete starten bei {{preisAb}} Euro fuer das Online-Paket, das umfangreichste Premium-Paket kostet {{preisMax}} Euro. Einzelleistungen ab {{preisLeistungAb}} Euro."
+    },
+    {
+      "frage": "Wie viel spare ich durch den Verkauf ohne Makler?",
+      "antwort": "Bei einer Maklerprovision von 3 Prozent zahlt der Verkaeufer einer Immobilie im Wert von 400.000 Euro 12.000 Euro plus Mehrwertsteuer an Maklergebuehr. Mit ImmoLotse zahlt man stattdessen einen Fixpreis ab {{preisAb}} Euro."
+    },
+    {
+      "frage": "Wo ist ImmoLotse verfuegbar?",
+      "antwort": "Digitale Leistungen oesterreichweit, also in Wien, Niederoesterreich, Oberoesterreich, Steiermark, Salzburg, Tirol, Kaernten, Burgenland und Vorarlberg. Vor-Ort-Services wie Fotoshooting auf Wien beschraenkt."
+    },
+    {
+      "frage": "Ist ImmoLotse ein Makler?",
+      "antwort": "Nein. ImmoLotse ist ein Marketing-Dienstleister, keine Maklertaetigkeit nach oesterreichischem Recht."
+    },
+    {
+      "frage": "Brauche ich einen Maklergewerbeschein um privat zu verkaufen?",
+      "antwort": "Nein. Privatpersonen duerfen ihre eigene Immobilie in Oesterreich ohne Gewerbeschein verkaufen. Den Verkauf fuehrt der Eigentuemer selbst durch, ImmoLotse uebernimmt nur die Vermarktung."
+    },
+    {
+      "frage": "Wie lange dauert die Erstellung der Verkaufsunterlagen?",
+      "antwort": "Innerhalb von 48 Stunden nach Eingang aller Unterlagen und Fotos."
+    }
+  ],
+  "leistungsbeschreibung": {
+    "KI-Bildoptimierung": "Professionelle Aufbereitung von Immobilienfotos durch KI-gestuetzte Bildbearbeitung fuer hoehere Inseratsklickraten auf Plattformen wie willhaben oder ImmoScout24.",
+    "Exposé-Erstellung": "Layoutete und textlich aufbereitete Verkaufsunterlage zum Versand an Interessenten.",
+    "Marktpreisanalyse": "Datenbasierte Orientierungshilfe zum aktuellen Marktwert einer Wohnung oder eines Hauses. Keine zertifizierte Liegenschaftsbewertung im Sinne des oesterreichischen Liegenschaftsbewertungsgesetzes.",
+    "Fotoshooting": "Professionelle Immobilienfotografie als ergaenzende Leistung in Wien.",
+    "Endreinigung und Raeumung": "Gutscheine fuer vermittelte Reinigungs- und Raeumungsdienstleistungen mit fixer Preisstruktur."
+  },
+  "_platzhalter": {
+    "{{preisAb}}": "guenstigstes Paket",
+    "{{preisMax}}": "teuerstes Paket",
+    "{{preisMitte}}": "mittleres Paket",
+    "{{preisLeistungAb}}": "guenstigste Einzelleistung",
+    "{{serviceStart}}": "firma.serviceStart"
+  }
+}

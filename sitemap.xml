@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://immolotse.at/</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://immolotse.at/shop.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://immolotse.at/shop</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://immolotse.at/ueber-uns.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://immolotse.at/blog.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://immolotse.at/blog</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://immolotse.at/impressum.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://immolotse.at/ueber-uns</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://immolotse.at/impressum</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -35,5 +36,163 @@
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/blog-makler-hero.webp</image:loc>
+      <image:title>Was kostet ein Makler in Österreich wirklich? Mit echten Zahlen 2026</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilie-privat-verkaufen-oesterreich/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/welche-unterlagen-brauche-ich-fuer-den-immobilienverkauf-in-oesterreich/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/ratgeber-unterlagen-hero.webp</image:loc>
+      <image:title>Welche Unterlagen brauche ich für den Immobilienverkauf in Österreich?</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/energieausweis-beim-immobilienverkauf-in-oesterreich-pflicht-kosten-und-gueltigkeit/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/energieausweis-beim-immobilienverkauf-in-österreich.webp</image:loc>
+      <image:title>Energieausweis beim Immobilienverkauf in Österreich, Pflicht, Kosten und Gültigkeit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilienertragsteuer-beim-verkauf-in-oesterreich-wann-sie-anfaellt-und-wann-nicht/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immobilienertragsteuer-beim-verkauf-in-österreich-wann-sie-anfällt-und-wann-nicht.webp</image:loc>
+      <image:title>Immobilienertragsteuer beim Verkauf in Österreich, wann sie anfällt und wann nicht</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilie-wert-ermitteln-oesterreich/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immobilie-wert-ermitteln-oesterreich.webp</image:loc>
+      <image:title>Was ist meine Immobilie wert? So ermittelst du den Preis für den Verkauf</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/wohnung-verkaufen-wien/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/wohnung-verkaufen-wien.webp</image:loc>
+      <image:title>Wohnung verkaufen in Wien, ohne Makler und ohne Stress</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/geerbte-immobilie-verkaufen-oesterreich/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/geerbte-immobilie-verkaufen-in-österreich-was-du-zur-steuer-wissen-musst.webp</image:loc>
+      <image:title> Geerbte Immobilie verkaufen in Österreich, was du zur Steuer wissen musst</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilie-steuerfrei-verkaufen-oesterreich/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/wann-ist-ein-immobilienverkauf-in-österreich-steuerfrei.webp</image:loc>
+      <image:title>Wann ist ein Immobilienverkauf in Österreich steuerfrei?</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/vermietete-wohnung-verkaufen-oesterreich/</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/vermietete-wohnung-verkaufen-in-österreich-so-geht-es-richtig.webp</image:loc>
+      <image:title>Vermietete Wohnung verkaufen in Österreich, so geht es richtig</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/bester-zeitpunkt-immobilie-verkaufen/</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/wann-ist-der-beste-zeitpunkt-um-eine-immobilie-zu-verkaufen.webp</image:loc>
+      <image:title>Wann ist der beste Zeitpunkt, um eine Immobilie zu verkaufen?</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immobilie-verkaufen-oder-vermieten-die-ehrliche-entscheidungshilfe.webp</image:loc>
+      <image:title>Immobilie verkaufen oder vermieten? Die ehrliche Entscheidungshilfe</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/expose-erstellen-immobilie/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immobilien-exposé-erstellen-so-überzeugst-du-käufer-wirklich.webp</image:loc>
+      <image:title>Immobilien-Exposé erstellen, so überzeugst du Käufer wirklich</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immobilie-besichtigung-verkaeufer/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immobilienbesichtigung-als-verkäufer-so-überzeugst-du-bei-der-wohnungsbegehung.webp</image:loc>
+      <image:title>Immobilienbesichtigung als Verkäufer, so überzeugst du bei der Wohnungsbegehung</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/ratgeber/immoest-erhoehung-2027/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/immoest-erhöhung-2027-was-immobilienbesitzer-jetzt-wissen-müssen.webp</image:loc>
+      <image:title>ImmoESt-Erhöhung 2027, was Immobilienbesitzer jetzt wissen müssen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://immolotse.at/themen/dummy-hub/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://immolotse.at/leistungen/dummy-leistung/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://immolotse.at/kosten/dummy-kosten/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

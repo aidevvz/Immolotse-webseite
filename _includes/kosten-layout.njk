@@ -1,0 +1,85 @@
+---
+layout: base-layout.njk
+---
+{#-
+  Kostenseite mit Preistabelle.
+  preisTabelle.zeilen traegt sowohl die sichtbare Tabelle als auch,
+  ueber angebot.preisVon/preisBis, die Preisspanne im Offer-Schema.
+-#}
+
+{%- if abschnitte %}
+{%- for a in abschnitte %}
+<section class="prose-block">
+  <h2>{{ a.h2 }}</h2>
+  {%- if a.text %}<p>{{ a.text }}</p>{% endif %}
+</section>
+{%- endfor %}
+{%- endif %}
+
+{%- if preisTabelle %}
+<section class="preis-section">
+  <h2>{{ preisTabelle.ueberschrift or "Preise im Ueberblick" }}</h2>
+  <div class="tabelle-scroll">
+    <table class="preis-tabelle">
+      <caption>{{ preisTabelle.caption or (preisTabelle.ueberschrift or "Preise im Ueberblick") }}</caption>
+      <thead>
+        <tr>
+          {%- for s in preisTabelle.spalten %}
+          <th scope="col">{{ s }}</th>
+          {%- endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for z in preisTabelle.zeilen %}
+        <tr>
+          {%- for zelle in z %}
+          {%- if loop.first %}
+          <th scope="row">{{ zelle }}</th>
+          {%- else %}
+          <td>{{ zelle }}</td>
+          {%- endif %}
+          {%- endfor %}
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+  {%- if preisTabelle.fussnote %}
+  <p class="tabelle-fussnote">{{ preisTabelle.fussnote }}</p>
+  {%- endif %}
+</section>
+{%- endif %}
+
+{#- Fixpreise direkt aus dem Firmen-Steckbrief, falls die Seite sie zeigen will.
+    Dann muss keine Kostenseite Preise doppelt pflegen. -#}
+{%- if zeigeFixpreise %}
+<section class="preis-section">
+  <h2>{{ fixpreisUeberschrift or "Unsere Fixpreise" }}</h2>
+  <div class="tabelle-scroll">
+    <table class="preis-tabelle">
+      <caption>Einzelleistungen von {{ firma.name }} zum Fixpreis</caption>
+      <thead>
+        <tr><th scope="col">Leistung</th><th scope="col">Preis</th><th scope="col">Gebiet</th></tr>
+      </thead>
+      <tbody>
+        {%- for l in firma.leistungen %}
+        <tr>
+          <th scope="row">{{ l.name }}</th>
+          <td>{% if l.preis %}{{ l.preis }} {{ firma.waehrung }} <span class="einheit">{{ l.einheit }}</span>{% else %}{{ l.einheit }}{% endif %}</td>
+          <td>{% if l.nurWien %}{{ firma.einzugsgebiet.vorOrt.label }}{% else %}{{ firma.einzugsgebiet.digital.label }}{% endif %}</td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{%- endif %}
+
+{% include "partials/faq.njk" %}
+
+{%- if hub %}
+{%- set elternHub = collections.hubs | hubMitId(hub) %}
+{%- if elternHub %}
+<p class="zurueck-hub"><a href="{{ elternHub.url }}">Zurueck zu {{ elternHub.data.ankertext or elternHub.data.title }}</a></p>
+{%- endif %}
+{%- endif %}
