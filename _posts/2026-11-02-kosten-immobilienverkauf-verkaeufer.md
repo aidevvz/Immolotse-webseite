@@ -9,6 +9,7 @@ description: Welche Kosten der Verkäufer beim Immobilienverkauf in Österreich 
 ankertext: Kosten für den Verkäufer
 author: ImmoLotse
 readtime: 5
+image: /images/uploads/kosten-immobilienverkauf-verkaeufer.webp
 faq:
   - question: Welche Kosten entstehen beim Immobilienverkauf für den Verkäufer in Österreich?
     answer: Der Verkäufer zahlt vor allem den Energieausweis von etwa 150 bis 500 Euro, gegebenenfalls die Immobilienertragsteuer von 30 Prozent auf den Gewinn, eventuell die Löschung alter Pfandrechte und die Vermarktungskosten. Die großen Posten Grunderwerbsteuer und Grundbucheintragung zahlt der Käufer.

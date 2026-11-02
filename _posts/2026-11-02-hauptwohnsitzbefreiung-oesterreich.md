@@ -9,6 +9,7 @@ description: Hauptwohnsitzbefreiung einfach erklärt. Welche zwei Fristen gelten
 ankertext: Hauptwohnsitzbefreiung
 author: ImmoLotse
 readtime: 6
+image: /images/uploads/hauptwohnsitzbefreiung-oesterreich.webp
 faq:
   - question: Was ist die Hauptwohnsitzbefreiung?
     answer: Die Hauptwohnsitzbefreiung befreit den Verkauf der eigenen Wohnung oder des eigenen Hauses von der Immobilienertragsteuer, wenn die Immobilie durchgehend als Hauptwohnsitz gedient hat. Mitbefreit ist auch der Grund bis zu einer Fläche von 1.000 Quadratmetern. Diese Angaben dienen nur zur Orientierung und ersetzen keine Steuerberatung.

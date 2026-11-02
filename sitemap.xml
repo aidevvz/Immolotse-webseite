@@ -182,24 +182,40 @@
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/grundbuch-oesterreich.webp</image:loc>
+      <image:title>Das Grundbuch in Österreich, was drinsteht und warum es beim Verkauf zählt</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://immolotse.at/ratgeber/grunderwerbsteuer-oesterreich/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/grunderwerbsteuer-oesterreich.webp</image:loc>
+      <image:title>Grunderwerbsteuer in Österreich, wer sie zahlt und wie hoch sie ist</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://immolotse.at/ratgeber/hauptwohnsitzbefreiung-oesterreich/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/hauptwohnsitzbefreiung-oesterreich.webp</image:loc>
+      <image:title>Hauptwohnsitzbefreiung in Österreich, wann dein Immobilienverkauf steuerfrei bleibt</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://immolotse.at/ratgeber/kosten-immobilienverkauf-verkaeufer/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://immolotse.at/images/uploads/kosten-immobilienverkauf-verkaeufer.webp</image:loc>
+      <image:title>Was kostet der Immobilienverkauf für den Verkäufer in Österreich?</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://immolotse.at/themen/dummy-hub/</loc>

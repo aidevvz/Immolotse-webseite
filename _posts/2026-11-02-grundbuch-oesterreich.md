@@ -9,6 +9,7 @@ description: Das Grundbuch in Österreich einfach erklärt. Wie es aufgebaut ist
 ankertext: Das Grundbuch in Österreich
 author: ImmoLotse
 readtime: 6
+image: /images/uploads/grundbuch-oesterreich.webp
 faq:
   - question: Was steht im Grundbuch?
     answer: Das Grundbuch verzeichnet, wem eine Immobilie gehört, wie die Liegenschaft beschaffen ist und welche Lasten wie Pfandrechte oder Dienstbarkeiten auf ihr liegen. Es wird von den Bezirksgerichten geführt und ist öffentlich einsehbar.

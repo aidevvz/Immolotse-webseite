@@ -9,6 +9,7 @@ description: Grunderwerbsteuer in Österreich einfach erklärt. Wie hoch sie ist
 ankertext: Grunderwerbsteuer in Österreich
 author: ImmoLotse
 readtime: 5
+image: /images/uploads/grunderwerbsteuer-oesterreich.webp
 faq:
   - question: Wie hoch ist die Grunderwerbsteuer in Österreich?
     answer: Beim normalen Immobilienkauf beträgt die Grunderwerbsteuer in Österreich 3,5 Prozent vom Kaufpreis. Bei Übergaben innerhalb der Familie gilt ein gestaffelter Tarif von 0,5 bis 3,5 Prozent. Diese Angaben dienen nur zur Orientierung und ersetzen keine Steuerberatung.
