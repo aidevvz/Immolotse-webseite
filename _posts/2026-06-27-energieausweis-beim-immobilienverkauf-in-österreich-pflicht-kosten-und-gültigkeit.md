@@ -68,6 +68,6 @@ Einen Energieausweis dürfen nur befugte Fachleute erstellen. Dazu zählen Baume
 
 Bei einer Eigentumswohnung führt der erste Weg zur Hausverwaltung. Gibt es dort keinen, oder verkaufst du ein Haus, beauftragst du einen befugten Aussteller, am besten früh, damit der Ausweis vorliegt, bevor du das Inserat schaltest.
 
-Wo der Energieausweis in die gesamte Dokumentenliste passt, liest du in unserem Beitrag [Welche Unterlagen brauche ich für den Immobilienverkauf](https://immolotse.at/ratgeber/unterlagen-immobilienverkauf-oesterreich/). Den großen Überblick über den ganzen Ablauf bekommst du in unserem Leitfaden [Immobilie privat verkaufen in Österreich](https://immolotse.at/ratgeber/immobilie-privat-verkaufen-oesterreich/). Und wenn dir das Besorgen der Unterlagen zu mühsam ist, findest du diese Leistung in unserem [Shop](https://immolotse.at/shop).
+Wo der Energieausweis in die gesamte Dokumentenliste passt, liest du in unserem Beitrag [Welche Unterlagen brauche ich für den Immobilienverkauf](https://immolotse.at/ratgeber/welche-unterlagen-brauche-ich-fuer-den-immobilienverkauf-in-oesterreich/). Den großen Überblick über den ganzen Ablauf bekommst du in unserem Leitfaden [Immobilie privat verkaufen in Österreich](https://immolotse.at/ratgeber/immobilie-privat-verkaufen-oesterreich/). Und wenn dir das Besorgen der Unterlagen zu mühsam ist, findest du diese Leistung in unserem [Shop](https://immolotse.at/shop).
 
 *Dieser Beitrag dient der allgemeinen Orientierung und ersetzt keine Rechts- oder Steuerberatung.*

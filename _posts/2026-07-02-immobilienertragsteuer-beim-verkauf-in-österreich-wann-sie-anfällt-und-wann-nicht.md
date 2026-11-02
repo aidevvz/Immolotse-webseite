@@ -53,7 +53,7 @@ Die Immobilienertragsteuer, kurz ImmoESt, ist die Steuer auf den Gewinn, den du 
 
 Für die meisten privaten Verkäufer ist das die entscheidende Ausnahme. Verkaufst du deine eigene Wohnung, in der du selbst gewohnt hast, greift oft die Hauptwohnsitzbefreiung, und dann fällt keine ImmoESt an.
 
-Nüchtern die Voraussetzungen, denn hier zählt Genauigkeit. Die Befreiung greift, wenn die Immobilie durchgehend dein Hauptwohnsitz war, und zwar entweder ab der Anschaffung mindestens zwei Jahre durchgehend bis zum Verkauf, oder innerhalb der letzten zehn Jahre mindestens fünf Jahre durchgehend. In beiden Fällen musst du den Hauptwohnsitz mit dem Verkauf aufgeben. Ob dein Fall genau passt, gehört von einem Steuerberater geprüft.
+Vereinfacht greift sie, wenn die Immobilie durchgehend dein Hauptwohnsitz war, entweder zwei Jahre ab der Anschaffung oder fünf Jahre innerhalb der letzten zehn, und du den Hauptwohnsitz mit dem Verkauf aufgibst. Alle Voraussetzungen, Fristen und Feinheiten findest du im eigenen Beitrag [Hauptwohnsitzbefreiung in Österreich](https://immolotse.at/ratgeber/hauptwohnsitzbefreiung-oesterreich/).
 
 ## Die Herstellerbefreiung
 

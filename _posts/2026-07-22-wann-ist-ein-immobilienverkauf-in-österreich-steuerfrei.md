@@ -56,9 +56,9 @@ Bevor wir zu den erfreulichen Ausnahmen kommen, kurz der Ausgangspunkt. Verkaufs
 
 Das ist der mit Abstand häufigste Freifahrtschein, und für die meisten privaten Verkäufer der entscheidende. Wenn du deine eigene Wohnung oder dein Haus verkaufst, in dem du selbst gelebt hast, ist der Gewinn oft komplett steuerfrei.
 
-Jetzt nüchtern die Voraussetzungen, denn hier zählt jedes Wort. Die Hauptwohnsitzbefreiung greift in einer von zwei Varianten. Entweder war die Immobilie ab der Anschaffung mindestens zwei Jahre durchgehend dein Hauptwohnsitz bis zum Verkauf. Oder sie war innerhalb der letzten zehn Jahre mindestens fünf Jahre durchgehend dein Hauptwohnsitz. In beiden Fällen musst du den Hauptwohnsitz mit dem Verkauf auch aufgeben.
+Grob greift sie, wenn die Immobilie durchgehend dein Hauptwohnsitz war, entweder zwei Jahre ab der Anschaffung oder fünf Jahre innerhalb der letzten zehn, und du den Hauptwohnsitz mit dem Verkauf aufgibst. Gemeint ist dein tatsächlicher Lebensmittelpunkt, die Ferienwohnung am Wörthersee zählt nicht.
 
-Wichtig ist das Wort Hauptwohnsitz. Die Ferienwohnung am Wörthersee, in der du zwei Wochen im Jahr die Seele baumeln lässt, zählt nicht. Es geht um den Lebensmittelpunkt, dort, wo du gemeldet bist und tatsächlich wohnst.
+Weil an den genauen Fristen und den eingebauten Toleranzen viel hängt, haben wir die Hauptwohnsitzbefreiung in einem eigenen Beitrag ausführlich zerlegt. Alle Voraussetzungen, die zwei Wege im Detail und die Sache mit dem mitbefreiten Grund liest du unter [Hauptwohnsitzbefreiung in Österreich](https://immolotse.at/ratgeber/hauptwohnsitzbefreiung-oesterreich/).
 
 ## Weg zwei, die Herstellerbefreiung
 
