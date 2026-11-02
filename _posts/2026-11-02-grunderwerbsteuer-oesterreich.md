@@ -22,7 +22,7 @@ faq:
     answer: In der Regel übernimmt der Notar oder Rechtsanwalt, der den Kaufvertrag errichtet, die Selbstberechnung. Er ermittelt die Steuer, meldet sie elektronisch und führt sie ans Finanzamt ab.
 published: true
 ---
-Beim Immobilienverkauf taucht früher oder später ein Wort auf, das vielen einen kleinen Schrecken einjagt. Die Grunderwerbsteuer. Klingt nach einem weiteren Posten, der dir als Verkäufer das Ergebnis verhagelt. Die gute Nachricht gleich vorweg, bevor dir der Kaffee kalt wird. Diese Steuer zahlt nicht du, sondern der Käufer. Verstehen solltest du sie trotzdem, denn sie bestimmt mit, wie viel ein Interessent für deine Wohnung überhaupt aufbringen kann.
+Hand aufs Herz, bei kaum einem Wort beim Immobilienverkauf wird einem so schnell flau wie bei der Grunderwerbsteuer. Steuer, das riecht nach Finanzamt, nach einem weiteren Griff ins eigene Börsel, nach einem Posten, der den schönen Erlös wieder zusammenschrumpfen lässt. Jetzt kommt aber die Pointe, und es ist eine gute. Diese Steuer zahlst gar nicht du. Die zahlt der Käufer. Du darfst dich also entspannt zurücklehnen, während ein anderer die Rechnung serviert bekommt. Wissen, wie der Hase läuft, solltest du trotzdem, denn wer die Rechnung der Gegenseite kennt, verhandelt um einiges gelassener.
 
 ## Die kurze Antwort
 
@@ -30,31 +30,31 @@ Die Grunderwerbsteuer beträgt in Österreich beim normalen Verkauf 3,5 Prozent 
 
 ## Was die Grunderwerbsteuer überhaupt ist
 
-Die Grunderwerbsteuer fällt an, wenn eine Immobilie den Eigentümer wechselt. Sie knüpft nicht an einen Gewinn an, wie die Immobilienertragsteuer, sondern schlicht an den Erwerb selbst. Bemessungsgrundlage ist beim Kauf die sogenannte Gegenleistung, in den allermeisten Fällen also der vereinbarte Kaufpreis. Darauf fallen grundsätzlich 3,5 Prozent an.
+Die Grunderwerbsteuer fällt an, sobald eine Immobilie den Eigentümer wechselt. Sie schaut nicht auf deinen Gewinn, wie es die Immobilienertragsteuer tut, sondern knüpft schlicht am Erwerb selbst an. Bemessungsgrundlage ist beim Kauf die sogenannte Gegenleistung, im Normalfall also der Kaufpreis, auf den du dich mit dem Käufer geeinigt hast. Davon gehen grundsätzlich 3,5 Prozent an den Staat.
 
 ## Wer sie zahlt, und warum dich das trotzdem angeht
 
-Jetzt der Teil, der dich als Verkäufer entlastet. Vor dem Gesetz sind zwar beide Vertragsparteien Steuerschuldner, im Kaufvertrag wird aber praktisch immer vereinbart, dass der Käufer die Grunderwerbsteuer trägt. Für dich heißt das, dieser Brocken geht nicht von deinem Erlös ab.
+Jetzt der Teil, bei dem du innerlich aufatmen darfst. Vor dem Gesetz sitzen zwar beide im Boot, Käufer wie Verkäufer, aber in jedem vernünftigen Kaufvertrag steht am Ende, dass der Käufer die Grunderwerbsteuer berappt. So ist es Usus, so läuft es im ganzen Land. Für dich heißt das, von deinem Erlös geht dieser Brocken nicht ab.
 
-Warum du sie dennoch kennen solltest. Der Käufer rechnet die 3,5 Prozent in sein Gesamtbudget ein, zusammen mit der Grundbucheintragung und der Vertragserrichtung. Wer dir 400.000 Euro zahlen kann, muss in Wahrheit gut 20.000 Euro Nebenkosten obendrauf stemmen. Je besser du diese Rechnung verstehst, desto souveräner stehst du im Preisgespräch.
+Warum du trotzdem Bescheid wissen solltest. Dein Käufer sitzt nämlich mit dem spitzen Bleistift da und rechnet. Zu deinem Preis kommen für ihn noch die 3,5 Prozent Grunderwerbsteuer, die Grundbucheintragung und der Vertrag obendrauf. Wer dir 400.000 Euro hinlegt, muss in Wahrheit gut 20.000 Euro Nebenkosten stemmen, bevor er den Schlüssel überhaupt in der Hand hält. Hast du diese Rechnung im Kopf, stehst du im Preisgespräch nicht mit leeren Händen da, sondern weißt genau, wo beim Gegenüber der Schuh drückt.
 
-## Die Grundbucheintragungsgebühr, der stille Zwilling
+## Die Grundbucheintragung, der stille Zwilling
 
-Die Grunderwerbsteuer kommt selten allein. Damit der Käufer als neuer Eigentümer ins Grundbuch eingetragen wird, fällt zusätzlich die Grundbucheintragungsgebühr von 1,1 Prozent des Kaufpreises an. Auch sie zahlt üblicherweise der Käufer. Zusammen sind das 4,6 Prozent, die rund um den Eigentumsübergang an den Staat gehen, bevor überhaupt an Notar oder Vertragserrichtung gedacht ist.
+Die Grunderwerbsteuer kommt selten allein, sie bringt gleich ihren stillen Zwilling mit. Damit der Käufer als neuer Eigentümer schwarz auf weiß im Grundbuch steht, zahlt er zusätzlich 1,1 Prozent Eintragungsgebühr vom Kaufpreis. Macht zusammen mit der Steuer 4,6 Prozent, die rund um den Eigentumswechsel ans Amt wandern, und da ist von Notar und Vertragserrichtung noch gar keine Rede. Auch das, du ahnst es schon, geht aufs Konto des Käufers.
 
-## Der Familientarif, wenn innerhalb der Familie übergeben wird
+## Der Familientarif, wenn im Kreis der Familie übergeben wird
 
-Anders sieht es aus, wenn eine Immobilie nicht verkauft, sondern innerhalb der Familie übergeben oder verschenkt wird. Dann greift ein gestaffelter Tarif, und zwar auf Basis des sogenannten Grundstückswerts, nicht eines Kaufpreises. Die ersten 250.000 Euro werden mit 0,5 Prozent besteuert, die nächsten 150.000 Euro mit 2 Prozent, und erst alles darüber mit den vollen 3,5 Prozent.
+Ganz anders schaut die Sache aus, wenn nicht am Markt verkauft, sondern innerhalb der Familie übergeben oder verschenkt wird, wenn also die Oma dem Enkel die Wohnung überschreibt. Dann greift ein gestaffelter Tarif, und zwar auf den sogenannten Grundstückswert, nicht auf einen Kaufpreis. Die ersten 250.000 Euro kosten milde 0,5 Prozent, die nächsten 150.000 dann 2 Prozent, und erst was darüber liegt, die vollen 3,5.
 
-Ein Beispiel. Übergibst du deinem Kind eine Wohnung mit einem Grundstückswert von 400.000 Euro, zahlt es 0,5 Prozent auf die ersten 250.000 und 2 Prozent auf die restlichen 150.000, macht zusammen 4.250 Euro statt der vollen 14.000. Zum begünstigten Familienkreis zählen unter anderem Ehepartner, Kinder, Enkel, Geschwister sowie Nichten und Neffen. Auch eine Erbschaft fällt in der Regel unter diesen günstigeren Tarif.
+Ein Beispiel, damit es greifbar wird. Übergibst du deinem Kind eine Wohnung mit einem Grundstückswert von 400.000 Euro, zahlt es unterm Strich 4.250 Euro statt der vollen 14.000. Ein Unterschied, bei dem sich das Nachrechnen wirklich auszahlt. Zum begünstigten Kreis zählen Ehepartner, Kinder, Enkel, Geschwister sowie Nichten und Neffen, und auch eine Erbschaft fällt in aller Regel unter diesen milderen Tarif.
 
 ## Wer die Steuer berechnet und ans Finanzamt bringt
 
-Um die Abwicklung musst du dich nicht selbst kümmern. In aller Regel übernimmt der Notar oder Rechtsanwalt, der den Kaufvertrag errichtet, die sogenannte Selbstberechnung. Er ermittelt die Grunderwerbsteuer, meldet sie elektronisch und führt sie ans Finanzamt ab. Das läuft im Zuge der Kaufabwicklung mit, ähnlich wie bei der Immobilienertragsteuer.
+Und keine Sorge, mit dem Papierkram musst du dich nicht selbst herumschlagen. Das übernimmt der Notar oder Rechtsanwalt, der den Kaufvertrag aufsetzt. Der rechnet die Grunderwerbsteuer in der sogenannten Selbstberechnung selbst aus, meldet sie elektronisch und überweist sie ans Finanzamt, alles im Zuge der Abwicklung, ganz ähnlich wie bei der Immobilienertragsteuer. Du bekommst davon im besten Fall nur die Zeile auf der Schlussabrechnung zu sehen.
 
 ## Was du als Verkäufer mitnehmen solltest
 
-Zwei Dinge. Erstens, die Grunderwerbsteuer ist nicht dein Kostenposten, sondern der des Käufers. Beim Blick auf deinen Nettoerlös kannst du sie also getrost ausklammern. Zweitens, verstehen solltest du sie trotzdem, weil sie das Budget deines Käufers mitbestimmt und dir hilft, im Gespräch auf Augenhöhe zu bleiben. Geht es dagegen um eine Übergabe in der Familie, lohnt der Blick auf den Stufentarif und ein kurzer Termin beim Steuerberater, weil hier je nach Wert schnell ein paar tausend Euro Unterschied liegen.
+Zwei Dinge zum Mitnehmen. Erstens, die Grunderwerbsteuer ist nicht dein Problem, sondern das des Käufers, beim Blick auf deinen Nettoerlös kannst du sie getrost streichen. Zweitens, kennen solltest du sie trotzdem, weil sie das Börsel deines Käufers mitbestimmt und dir im Gespräch den Rücken stärkt. Und wenn es ums Übergeben in der Familie geht, dann schau dir den Stufentarif genau an und setz dich einmal kurz mit einem Steuerberater zusammen. Da liegen je nach Wert schnell ein paar tausend Euro Unterschied, und die lässt man nicht einfach so am Tisch liegen.
 
 Wie sich die Grunderwerbsteuer in die gesamten Nebenkosten einordnet und was davon wirklich dich trifft, liest du in unserem Beitrag [Was kostet der Immobilienverkauf für den Verkäufer](https://immolotse.at/ratgeber/kosten-immobilienverkauf-verkaeufer/). Was beim Gewinn auf dich zukommt, steht im Beitrag [Immobilienertragsteuer beim Verkauf](https://immolotse.at/ratgeber/immobilienertragsteuer-beim-verkauf-in-oesterreich-wann-sie-anfaellt-und-wann-nicht/). Den großen Überblick über den ganzen Ablauf bekommst du in unserem Leitfaden [Immobilie privat verkaufen in Österreich](https://immolotse.at/ratgeber/immobilie-privat-verkaufen-oesterreich/).
 
